@@ -1,0 +1,6 @@
+25-Jun-21 18:34:00 16272 We have logged in as IdleFantasyHub#7819
+25-Jun-21 18:34:16 16272 Received signal to terminate bot and event loop.
+25-Jun-21 18:34:16 16272 Cleaning up tasks.
+25-Jun-21 18:34:16 16272 Cleaning up after 1 tasks.
+25-Jun-21 18:34:16 16272 All tasks finished cancelling.
+25-Jun-21 18:34:16 16272 Closing the event loop.

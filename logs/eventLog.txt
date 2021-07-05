@@ -1,0 +1,48 @@
+25-Jun-21 19:34:13 7124 We have logged in as IdleFantasyHub#7819
+online in servers: [<Guild id=726261169861558313 name='DiscordParadise' shard_id=None chunked=False member_count=11>]
+25-Jun-21 19:34:52 7124 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:34:52 7124 Dispatching event socket_raw_receive
+25-Jun-21 19:34:52 7124 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:34:52 7124 Dispatching event socket_response
+25-Jun-21 19:35:34 7124 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:35:34 7124 Dispatching event socket_raw_receive
+25-Jun-21 19:35:34 7124 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:35:34 7124 Dispatching event socket_response
+25-Jun-21 19:35:48 7124 Received signal to terminate bot and event loop.
+25-Jun-21 19:35:48 7124 Cleaning up tasks.
+25-Jun-21 19:35:48 7124 Cleaning up after 1 tasks.
+25-Jun-21 19:35:48 7124 All tasks finished cancelling.
+25-Jun-21 19:35:48 7124 Closing the event loop.
+25-Jun-21 19:36:40 7748 We have logged in as IdleFantasyHub#7819
+online in servers:
+DiscordParadise
+
+25-Jun-21 19:37:19 7748 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:37:19 7748 Dispatching event socket_raw_receive
+25-Jun-21 19:37:19 7748 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:37:19 7748 Dispatching event socket_response
+25-Jun-21 19:38:00 7748 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:38:00 7748 Dispatching event socket_raw_receive
+25-Jun-21 19:38:00 7748 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:38:00 7748 Dispatching event socket_response
+25-Jun-21 19:38:42 7748 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:38:42 7748 Dispatching event socket_raw_receive
+25-Jun-21 19:38:42 7748 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:38:42 7748 Dispatching event socket_response
+25-Jun-21 19:39:23 7748 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:39:23 7748 Dispatching event socket_raw_receive
+25-Jun-21 19:39:23 7748 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:39:23 7748 Dispatching event socket_response
+25-Jun-21 19:40:04 7748 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:40:04 7748 Dispatching event socket_raw_receive
+25-Jun-21 19:40:04 7748 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:40:04 7748 Dispatching event socket_response
+25-Jun-21 19:40:45 7748 Keeping shard ID None websocket alive with sequence 2.
+25-Jun-21 19:40:46 7748 Dispatching event socket_raw_receive
+25-Jun-21 19:40:46 7748 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+25-Jun-21 19:40:46 7748 Dispatching event socket_response
+25-Jun-21 19:40:49 7748 Received signal to terminate bot and event loop.
+25-Jun-21 19:40:49 7748 Cleaning up tasks.
+25-Jun-21 19:40:49 7748 Cleaning up after 1 tasks.
+25-Jun-21 19:40:49 7748 All tasks finished cancelling.
+25-Jun-21 19:40:49 7748 Closing the event loop.
