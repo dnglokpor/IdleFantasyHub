@@ -28,7 +28,7 @@ class Monster(Unit):
    def __init__(self, name: str, level: int, bStats: list,
       bSkill: Skill, lore: str, elt = NOELM):
       super().__init__(name, level,
-         [stat * level for stat in stats], 5)
+         [stat * level for stat in stats], 3)
       self.lore = lore
       self.skillSet = SkillSet(bSkill)
    
@@ -98,6 +98,7 @@ def rndLuck(max = 10):
    return choice(max) + 1
 
 # Predefined Jobs
+# TBD include default gear assignment in constructor
 # Fighter Job
 class Fighter(Adventurer):
    '''a Fighter is a basic adventurer class with all-round

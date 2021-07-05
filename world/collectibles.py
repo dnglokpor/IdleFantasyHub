@@ -64,6 +64,12 @@ strings")
    
    # item attributes are never set
    
+   # duplication method
+   def copy(self):
+      '''return a deep copy of itsel a.k.a a new instance
+      of this same item.'''
+      return Item(self.name, self.lore, self.value)
+   
    # override tostring
    def __str__(self, short = True) -> str:
       '''return a string representing this object for

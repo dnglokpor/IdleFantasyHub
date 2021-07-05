@@ -287,39 +287,4 @@ def encounter(pro: Party, cons: Party, verbose = True):
 
 # test platform
 if __name__ == "__main__":
-   slime = Unit("Slime", 3, [12, 5, 5, 4, 0],
-      Skill("Jump", "jump on an opponent.", 0, len)
-   )
-   slime2 = Unit("Slime", 3, [12, 5, 5, 4, 0],
-      Skill("Jump", "jump on an opponent.", 0, len)
-   )
-   slime3 = Unit("Slime", 3, [12, 5, 5, 4, 0],
-      Skill("Jump", "jump on an opponent.", 0, len)
-   )
-   testParty = Party([slime, slime2, slime3])
-   '''slime2.getStats().setStat("health", 0)
-   slime.getStats().setStat("health", 0)
-   slime3.getStats().setStat("health", 0)
-   #print(testParty)
-   #print("the party still stands: ", testParty.stillStands())
-   '''
-   slash = Skill("Slash",
-      "basic quick blade horizontal cut attack.", 0, len
-   )
-   gladius = Weapon("Gladius", 
-      "an arm-long glaive in made of heavy iron.",
-      250, [(STATS[1], 30), (STATS[3], -3)]
-   )
-   #print(gladius.__str__(False))
-   cuirrass = Armor("Cuirrass", 
-      "a small plastron made of leather interwoven on a tin frame.",
-      110, [(STATS[2], 15)]
-   )
-   #print(cuirrass.__str__(False))
-   silverLocket = Accessory("Silver Locket", 
-      "a locket that is said to ward off werewolves.",
-      300, [(STATS[3], 3), (STATS[4], 2)]
-   )
-   lewys = Playable("myLewysG", 5, [25, 15, 12, 10, 3], slash)
-   testParty2 = Party([lewys,])
-   winner = encounter(testParty, testParty2)
+   # TBD try a battle

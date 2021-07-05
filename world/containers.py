@@ -11,6 +11,9 @@
 # imports
 from collectibles import Item, genHash
 
+# test import
+from itemLib import arrow, pelt, smallFeathers
+
 # Inventory object
 class Inventory:
    '''this definition of the Inventory relies on an
@@ -91,6 +94,40 @@ positive (> 0).")
 
       return done
    
+   # iterator that goes through each item of the bag one
+   # at the time
+   def __iter__(self):
+      '''initializes the iterable functionality of the
+      Inventory object.'''
+      self.stackIdx = 0
+      self.itemIdx = 0
+      self.contentsList = list(self.contents.values()) 
+      return self
+   
+   def __next__(self):
+      '''returns the next item in the inventory until
+      all items have been recovered.'''
+      # save old value of the stack index
+      sIdx = self.stackIdx
+      
+      # stop check
+      if sIdx >= len(self.contentsList):
+         raise StopIteration # cleared all stacks
+      
+      # get contents
+      iIdx = self.itemIdx
+      stack = self.contentsList[sIdx]
+      
+      # increment
+      if self.itemIdx < len(stack) - 1:
+         self.itemIdx += 1 # next item
+      else:
+         self.stackIdx += 1 # next stack
+         self.itemIdx = 0 # first item
+      
+      # return current item
+      return stack[iIdx]
+   
    # helpers
    def expand(self, newEntry: Item) -> dict:
       '''to expand the bag, we are basically creating a
@@ -167,14 +204,14 @@ class Wallet:
 
 # test platform
 if __name__ == "__main__":
-   w = Wallet(1000)
-   print(w)
-   w.pocket(350)
-   print(w)
-   w.pay(1349)
-   print(w)
-   if w.pay(1349) != None:
-      print(w)
-   else:
-      print("Not enough money!!!")
+   myBag = Inventory()
+   for i in range(10):
+      myBag.add(arrow)
+   for i in range(2):
+      myBag.add(pelt)
+   for i in range(7):
+      myBag.add(smallFeathers)
+   print(myBag)
+   for item in myBag:
+      print(item)
    

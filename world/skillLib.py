@@ -277,25 +277,35 @@ def rr_physical(perp: Unit, state: BattleState, elt: Element,
 
 # skills library
 # monsters
-sting = Skill("Sting",
+sting = Skill(
+   "Sting",
    "stabs the target with a sturdy painfully sharp stinger.",
    0, physical
 )
-bite = Skill("Bite",
-   "jump on a target and bite them with small fangs.",
+bite = Skill(
+   "Bite",
+   "chomp off a piece of the target flesh.",
    0, physical
 )
-charge = Skill("Charge",
+charge = Skill(
+   "Charge",
    "ram into the target with its full body.",
    0, physical
 )
-peck = Skill("Peck",
-   "a small yet painful peck made by a hard bird beak.",
+peck = Skill(
+   "Peck",
+   "a painful peck inflicted by a hard beak.",
    0, physical
 )
-scratch = Skill("Scratch",
-   "inflit a clawing wound to the target with sharp claws.",
+scratch = Skill(
+   "Scratch",
+   "inflit a stripes-like wound with razor sharp claws.",
    0, physical
+)
+whoosh = Skill(
+   "Whoosh",
+   "hit a target a pressurized burst of wind.",
+   3, special, AEOLA
 )
 
 # blademanship
