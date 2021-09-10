@@ -9,29 +9,35 @@
 # imports
 import skillLib as skl
 import itemLib as itml
+from skills import Skill
 from classes import Monster
 from elements import NOELM, AEOLA, GAIA, AQUA, VULCAN
-from random import choice
+from random import seed, choice
+
+# helper 
+def choose(maxVal) -> int:
+   '''return a random value from 0 to "maxVal - 1".'''
+   seed() # seed rnd gen
+   return choice(range(maxVal))
 
 # default spawner
-def spawn(self, name: str, level: int, bStats: list,
+def spawn(name: str, level: int, bStats: list,
    bSkill: Skill, lore: str, elt = NOELM) -> Monster:
    '''spawn any monster provided with the right info.'''
-   return monster = Monster(name, level, bStats, bSkill,
-      lore, elt)
+   return Monster(name, level, bStats, bSkill, lore, elt)
    
-# spawners
+# monster spawners
 def s_Raccoundrel(level = 1):
    '''return a level "level" Raccoundrel (Monster).'''
    raccoundrel = spawn(
       "Raccoundrel",
       level, 
       [
-         12 + choice(5), # hp 12-16
-         20 + choice(2), 10 + choice(2), # atk 20-21|def 10-11
-         5 + choice(2), 7 + choice(3), # spe 5-6|res 7-9
-         6 + choice(2), # dext 6-7
-         choice(5) # luc 0-4
+         12 + choose(5), # hp 12-16
+         20 + choose(2), 10 + choose(2), # atk 20-21|def 10-11
+         5 + choose(2), 7 + choose(3), # spe 5-6|res 7-9
+         6 + choose(2), # dext 6-7
+         choose(5) # luc 0-4
       ],
       skl.bite,
       "small raccoun like mob of early dungeon floors with\
@@ -46,18 +52,17 @@ def s_Raccoundrel(level = 1):
    
    # done so return
    return raccoundrel
-)
 def s_Sparowl(level = 1):
    '''return a level "level" Sparowl (Monster).'''
    sparowl = spawn(
       "Sparowl",
       level,
       [
-         10 + choice(5), # hp 10-14
-         20 + choice(2), 8 + choice(2), # atk 20-21|def 8-10
-         15 + choice(3), 9 + choice(3), # spe 15-17|res 9-11
-         10 + choice(2), # dext 10-11
-         choice(5) # luc 0-4
+         10 + choose(5), # hp 10-14
+         20 + choose(2), 8 + choose(2), # atk 20-21|def 8-10
+         15 + choose(3), 9 + choose(3), # spe 15-17|res 9-11
+         10 + choose(2), # dext 10-11
+         choose(5) # luc 0-4
       ],
       skl.peck,
       "this giant dungeon owl is incredibly agile so watch\
@@ -70,8 +75,7 @@ def s_Sparowl(level = 1):
    
    # drops
    # feathers x 5
-   for time in range(5)
-      sparowl.getBag().add(itml.smallFeathers)
+   sparowl.getBag().addMulti(itml.smallFeathers, 5)
    
-   # return 
-)
+   # return
+   return sparowl

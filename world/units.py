@@ -15,9 +15,6 @@ from skills import Skill, SkillSet, EffectList
 from collectibles import Item, Equipment
 from containers import Inventory, Wallet
 
-# test imports
-from collectibles import Weapon, Armor, Accessory
-
 # Unit object
 class Unit:
    '''units are abstract base mobs of IdleFantasyHub.
@@ -32,8 +29,8 @@ class Unit:
       a way to carry items around. this way, any monster
       can carry its own loot making drops easy to
       determine.'''
-      if len(stats) != 5:
-         raise ValueError("exactly 5 stats are needed.")
+      if len(stats) != 7:
+         raise ValueError("exactly 7 stats are needed.")
       self.name = name
       self.level = Gauge(level)
       self.element = elt
@@ -48,9 +45,9 @@ class Unit:
    def getLevel(self) -> Gauge:
       '''return the level Gauge of the unit.'''
       return self.level
-   def getElement(self) -> Gauge:
+   def getElement(self) -> Element:
       '''return the Element object of the unit.'''
-      return self.level
+      return self.element
    def getStats(self) -> UnitStats:
       '''return the UnitStats object of the unit.'''
       return self.stats
@@ -77,6 +74,14 @@ class Unit:
       '''the "order"th letter of the alphabet after
       'A' to the name of this unit.'''
       self.name += ' ' + chr(ord('A') + order)
+   def suffer(self, dmgAmount: int):
+      '''reduced the unit's hp by dmgAmount. ignore
+      equipment.'''
+      self.stats.changeBy("health", -dmgAmount)
+   def heal(self, healAmount: int):
+      '''raise the unit's hp by healAmount. ignore 
+      equipment.'''
+      self.stats.changeBy("health", healAmount)
       
    # override tostring
    def __str__(self, short = True) -> str:
@@ -103,8 +108,6 @@ class Playable(Unit):
       # create underlying Unit
       super().__init__(name, level, stats, 30, elt)
       self.equipment = Equipment()
-      self.combinedStats = (self.stats + 
-         UnitStats(self.equipment.getEqtBonus()))
       self.wallet = Wallet()     # empty wallet
    
    # getters
@@ -118,7 +121,8 @@ class Playable(Unit):
       '''return the combinedStats attribute of the Playable.
       overrides the getStats() method of the super Unit
       class.'''
-      return self.combinedStats
+      return (self.stats + 
+         UnitStats(self.equipment.getEqtBonus()))
    def isAlive(self) -> bool:
       '''return "True" if the Playable's current health value
       is above zero. subclasses that add stats bonuses must
@@ -126,45 +130,15 @@ class Playable(Unit):
       return self.getStats().getHealth().getCurrent() > 0
    
    # setters
-   def updateStats(self):
-      '''update combined stats attributes of the Playable 
-      by recomputing the unit stats and the equipment bonus.'''
-      self.combinedStats = self.combinedStats = self.stats + UnitStats(self.equipment.getEqtBonus())
+   def equip(self, gear):
+      '''equip passed gear and update the stats. return
+      the old gear equipped at slot; or none if there
+      was none.'''
+      old = self.equipment.setGear(gear)
+      return old
    
    # override tostring
 
 # test platform
 if __name__ == "__main__":
-   '''
-   slime = Unit("Slime", 3, [12, 5, 5, 4, 0])
-   print(slime)
-   goo = Item("Goo", "residus of a dead slime.", 20)
-   slime.getBag().add(goo)
-   print(slime.getBag())
-   print(slime.__str__(False))
-   '''
-   slash = Skill("Slash",
-      "basic quick blade horizontal cut attack.", 0, len
-   )
-   gladius = Weapon("Gladius", 
-      "an arm-long glaive in made of heavy iron.",
-      250, [(STATS[1], 30), (STATS[3], -5)]
-   )
-   #print(gladius.__str__(False))
-   cuirrass = Armor("Cuirrass", 
-      "a small plastron made of leather interwoven on a tin frame.",
-      110, [(STATS[2], 15)]
-   )
-   #print(cuirrass.__str__(False))
-   silverLocket = Accessory("Silver Locket", 
-      "a locket that is said to ward off werewolves.",
-      300, [(STATS[3], 3), (STATS[4], 2)]
-   )
-   lewys = Playable("myLewysG", 5, [25, 10, 9, 7, 3], slash)
-   print(lewys.__str__(False))
-   lewys.getEquipped().setGear(cuirrass)
-   lewys.getEquipped().setGear(gladius)
-   lewys.getEquipped().setGear(silverLocket)
-   print(lewys.__str__(False))
-   
-   
+   pass

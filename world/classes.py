@@ -12,7 +12,9 @@ from elements import Element, NOELM
 from base import UnitStats
 from units import Unit, Playable
 from skills import Skill, SkillSet, Mastery
-from skillLib import blademanship, survivalist
+from skillLib import blademanship, survivalist, conjuring
+from itemLib import arrow, longsword, longbow, walkingStick,\
+   goGetup
 from random import choice
 from math import ceil
 
@@ -21,14 +23,14 @@ class Monster(Unit):
    '''a subclass of a Unit object. this represent a non-
    abstract monster which adds to units characteristics
    the skills it takes to defeat adventurers. scales
-   up stats by the level factor thus the stats list
-   provided should be what it would have been at level
+   up stats by a factor of half the level thus the stats
+   list provided should be what it would have been at level
    1.'''
    
    def __init__(self, name: str, level: int, bStats: list,
       bSkill: Skill, lore: str, elt = NOELM):
       super().__init__(name, level,
-         [stat * level for stat in stats], 3)
+         [stat * level for stat in bStats], 3, elt)
       self.lore = lore
       self.skillSet = SkillSet(bSkill)
    
@@ -43,10 +45,27 @@ class Monster(Unit):
    # setters
    # all skills can be set by getting the SkillSet object
    
+   # skills usage
+   def act(self, state):
+      '''calls the best action available between the base
+      skill and the ability skill.'''
+      action = self.skillSet.getBestAction()
+      return action(self, state)
+   def react(self, state):
+      '''calls upon the reaction skill.'''
+      reaction = self.skillSet.getSkill("reaction")
+      return reaction(self, state)
+   def react(self, state):
+      '''calls upon the critical skill.'''
+      critical = self.skillSet.getSkill("critical")
+      return critical(self, state)
+   
    # override tostring
-   def __str__(self):
+   def __str__(self, short = True):
       '''return a string representing this object for
       printing purposes.'''
+      if short:
+         return super().__str__()
       description = "{} <Monster>:".format(self.name)
       description += '\n' + self.lore
       return description
@@ -61,12 +80,11 @@ class Adventurer(Playable):
    
    def __init__(self, cName: str, uName: str, bStats: list,
       mastery: Mastery, lore: str, elt = NOELM):
-      super().__init__(self, uName, 1, bStats, elt)
+      super().__init__(uName, 1, bStats, elt)
       self.className = cName
       self.mastery = mastery
       # basic skill is skill unlocked at level 1 of mastery
-      self.skillSet = SkillSet(self.mastery.getSkill(1),
-         self.getLevel().getCurrent())
+      self.skillSet = SkillSet(self.mastery.getBase())
       self.lore = lore
    
    # getters
@@ -83,10 +101,27 @@ class Adventurer(Playable):
       '''return the lore surrounding this adventurer'''
       return self.lore
    
+   # skills usage
+   def act(self, state):
+      '''calls the best action available between the base
+      skill and the ability skill.'''
+      action = self.skillSet.getBestAction()
+      return action(self, state)
+   def react(self, state):
+      '''calls upon the reaction skill.'''
+      reaction = self.skillSet.getSkill("reaction")
+      return reaction(self, state)
+   def react(self, state):
+      '''calls upon the critical skill.'''
+      critical = self.skillSet.getSkill("critical")
+      return critical(self, state)
+   
    # override tostring
-   def __str__(self):
+   def __str__(self, short = True):
       '''return a string representing this object for
       printing purposes.'''
+      if short:
+         return super().__str__()
       description = "{} <{}>:".format(self.name, self.className)
       description += '\n' + self.lore
       return description
@@ -95,7 +130,7 @@ class Adventurer(Playable):
 def rndLuck(max = 10):
    '''randomly allocates a number between 1 and max for
    the luck stat.'''
-   return choice(max) + 1
+   return choice(range(max)) + 1
 
 # Predefined Jobs
 # TBD include default gear assignment in constructor
@@ -107,12 +142,20 @@ class Fighter(Adventurer):
    equipment as well as physical development at level up.'''
    
    def __init__(self, uName: str):
-      super().__init__("Fighter", uName, 
-      [45, 15, 13, 9, 8, 10, rndLuck()], blademanship,
-      "basic adventurer class with all-round good physicals\
+      # build adventurer
+      super().__init__(
+         "Fighter",
+         uName, 
+         [45, 15, 13, 9, 8, 10, rndLuck()], 
+         blademanship,
+         "adventurer class with all-round good physicals\
  and a proficient in bladed weapon handling. monsters might\
  enjoy hitting them but they usually get hit back harder.", 
-      elt = NOELM)
+         elt = NOELM
+      )
+      # default gear
+      #self.equip(longsword)
+      self.equip(goGetup)
  
    # stats development
    def develup(self, expGain: int) -> bool:
@@ -128,7 +171,7 @@ class Fighter(Adventurer):
          dev = [125, 125, 120, 110, 105, 115] 
          for lvl in range(lvlGain[1]): # for each new lvl
             # hp, ..., dext
-            newStats = [ceil(newStats[idx] * dev[idx] / 100 \
+            newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
             # luck increases by at most 3
             newStats[6] += rndLuck(3)
@@ -144,12 +187,22 @@ class Ranger(Adventurer):
    physical development at level up.'''
    
    def __init__(self, uName: str):
-      super().__init__("Ranger", uName, 
-      [40, 13, 12, 8, 7, 15, rndLuck()], survivalist,
-      "veteran of dungeons, rangers use their light steps\
+      # build adventurer
+      super().__init__(
+         "Ranger", 
+         uName, 
+         [40, 13, 12, 8, 7, 15, rndLuck()],
+         survivalist,
+         "veteran of dungeons, rangers use their light steps\
  to explore swiftly and dodge with finesse. armed with their\
  favorite ranged weapon, they patrol the wilderness.", 
-      elt = NOELM)
+         elt = NOELM
+      )
+      # default gear
+      self.equip(longbow)
+      self.equip(goGetup)
+      # startup arrows
+      self.getBag().addMulti(arrow, 50)
  
    # stats development
    def develup(self, expGain: int) -> bool:
@@ -165,7 +218,7 @@ class Ranger(Adventurer):
          dev = [120, 120, 115, 110, 110, 125] 
          for lvl in range(lvlGain[1]): # for each new lvl
             # hp, ..., dext
-            newStats = [ceil(newStats[idx] * dev[idx] / 100 \
+            newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
             # luck increases by at most 3
             newStats[6] += rndLuck(3)
@@ -181,12 +234,20 @@ class Elementalist(Adventurer):
    as physical development at level up.'''
    
    def __init__(self, uName: str):
-      super().__init__("Elementalist", uName, 
-      [40, 9, 10, 15, 13, 8, rndLuck()], survivalist,
-      "they dungeons just like magic sip into this world\
+      # build adventurer
+      super().__init__(
+         "Elementalist", 
+         uName, 
+         [40, 9, 10, 15, 13, 8, rndLuck()], 
+         conjuring,
+         "they say dungeons just like magic sip into this world\
  from a distant place. that might explain how rare the\
  talent of conjuring and wielding elements is.", 
-      elt = NOELM)
+         elt = NOELM
+      )
+      # default gear
+      self.equip(walkingStick)
+      self.equip(goGetup)
  
    # stats development
    def develup(self, expGain: int) -> bool:
@@ -202,7 +263,7 @@ class Elementalist(Adventurer):
          dev = [120, 105, 120, 125, 120, 110] 
          for lvl in range(lvlGain[1]): # for each new lvl
             # hp, ..., dext
-            newStats = [ceil(newStats[idx] * dev[idx] / 100 \
+            newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
             # luck increases by at most 3
             newStats[6] += rndLuck(3)

@@ -136,12 +136,15 @@ class UnitStats(dict):
       added to "dmg". dmg is negative when its a loss,
       positive when its a gain.'''
       old = self.getStat(sName).getCurrent()
-      self.setStat(sName, old + dmg)
+      new = old + dmg
+      if new < 0:
+         new = 0
+      self.setStat(sName, new)
    def cleanse(self):
       '''remove any change in stats except for hp.'''
       for key, stat in self.items():
          if key != STATS[0]:
-            stat.resetCurrent()
+            stat.reset()
    
    # overload addition operator
    def __add__(self, other) -> dict:
@@ -164,10 +167,10 @@ class UnitStats(dict):
       description = str()
       for key, stat in self.items():
          if key == STATS[0]: # health should be a ratio
-            description += "{:9s}: {}".format(key, 
+            description += "{:10s}: {}".format(key, 
                stat.__str__(True))
          else:
-            description += "{:9s}: {}".format(key, 
+            description += "{:10s}: {}".format(key, 
                stat.__str__())
          if key != STATS[6]:
             description += '\n'
@@ -280,10 +283,5 @@ class Cooldown:
    
 # test platform
 if __name__ == "__main__":
-   s1 = Stat(25)
-   s2 = Stat(49)
-   s1.setCurrent(30)
-   s2.setCurrent(16)
-   print((s1 + s2).__str__(True))
-   
+   pass
    

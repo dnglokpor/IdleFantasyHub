@@ -240,7 +240,7 @@ class Equipment(dict):
       '''returns as a list formated in the order of the 
       base.STATS the combined stats bonuses (or maluses)
       conferred by the equipment pieces.'''
-      comb = [0, 0, 0, 0, 0]
+      comb = [0, 0, 0, 0, 0, 0, 0]
       for g in self.values():
          if g != None: # not empty slot
             for sName, val in g.getStats():
@@ -280,32 +280,4 @@ or Accessory type object.")
 
 # test platform
 if __name__ == "__main__":
-   #beastFur = Item("Beast Fur", 
-   #   "freshly skinned fur of a denizen of the woods.",
-   #   5
-   #)
-   #print(beastFur.__str__(False))
-   #print("its ID is: {}".format(beastFur.getID()))
-   
-   gladius = Weapon("Gladius", 
-      "an arm-long glaive in made of heavy iron.",
-      250, [(STATS[1], 30), (STATS[3], -5)]
-   )
-   #print(gladius.__str__(False))
-   cuirrass = Armor("Cuirrass", 
-      "a small plastron made of leather interwoven on a tin frame.",
-      110, [(STATS[2], 15)]
-   )
-   #print(cuirrass.__str__(False))
-   silverLocket = Accessory("Silver Locket", 
-      "a locket that is said to ward off werewolves.",
-      300, [(STATS[3], 3), (STATS[4], 2)]
-   )
-   #print(silverLocket.__str__(False))
-   me = Equipment()
-   print(me)
-   me.setGear(cuirrass)
-   #me.setGear(gladius)
-   me.setGear(silverLocket)
-   print(me)
-   print("combined equipment bonus is: ", me.getEqtBonus())
+   pass

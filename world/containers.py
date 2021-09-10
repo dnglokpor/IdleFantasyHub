@@ -11,9 +11,6 @@
 # imports
 from collectibles import Item, genHash
 
-# test import
-from itemLib import arrow, pelt, smallFeathers
-
 # Inventory object
 class Inventory:
    '''this definition of the Inventory relies on an
@@ -93,7 +90,17 @@ positive (> 0).")
                done = True
 
       return done
-   
+   def addMulti(self, itm: Item, qt= 1):
+      '''add multiple copies of the same item to
+      the bag.'''
+      done = False
+      i = 0
+      while self.hasSpace() and not done:
+         if self.add(itm.copy()): # different copies
+            i += 1
+            done = i == qt
+      return done
+      
    # iterator that goes through each item of the bag one
    # at the time
    def __iter__(self):
@@ -204,14 +211,5 @@ class Wallet:
 
 # test platform
 if __name__ == "__main__":
-   myBag = Inventory()
-   for i in range(10):
-      myBag.add(arrow)
-   for i in range(2):
-      myBag.add(pelt)
-   for i in range(7):
-      myBag.add(smallFeathers)
-   print(myBag)
-   for item in myBag:
-      print(item)
+   pass
    

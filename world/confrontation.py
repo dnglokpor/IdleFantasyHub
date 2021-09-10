@@ -20,12 +20,25 @@
 
 # imports
 from base import STATS
-from units import Unit
+from time import sleep
+from copy import deepcopy
+from math import ceil
+from math import exp as E
+from random import choice
+from sys import exit
+try:
+   from units import Playable
+except ImportError:
+   print("Couldn't import playable")
+   exit()
+from icecream import IceCreamDebugger
 
-# testing imports
-from skills import Skill
-from units import Playable
-from collectibles import Weapon, Armor, Accessory
+# DEBUG
+dbg = IceCreamDebugger()
+
+# helpers
+def getHP(unit):
+   return unit.getStats().getHealth().getCurrent()
 
 # Party object
 class Party(list):
@@ -51,7 +64,7 @@ class Party(list):
    def getSize(self) -> int:
       '''return the size of the party.'''
       return len(self)
-   def getMember(self, unitOrder) -> Unit:
+   def getMember(self, unitOrder):
       '''return one unit of the party. "unitOrder" must
       be an integer between 0 and the size of the party
       exclusive.'''
@@ -59,29 +72,19 @@ class Party(list):
          raise IndexError("party doesn't have that many\
  members.")
       return self.__getitem__(unitOrder)
-   def getWeakestMember(self) -> Unit:
+   def getWeakestMember(self):
       '''return the member of the party that has the
-      lowest level, or the lowest current health stat.
-      if none of these conditions is met, return the
-      first member of the party.'''
-      weakest = None
-      lvls = list
-      for unit in self:
-         if unit.isAlive():
-            lvls.append(unit.getLevel().getCurrent())
-      rLvls = lvls.reverse()
-      lvl = min(lvls)
-      if lvls.index(lvl) != rLvls.index(lvl):
-         # there are more than one lowest level.
-         hps = list
-         for unit in self:
-            if unit.isAlive():
-               hps.append(unit.getStats().getHealth().getCurrent)
-         hp = min(hps)
-         weakest = self.__getitem__(hps.index(hp))
-      else: # we found the lowest level
-         weakest = self.__getitem__(lvls.index(lvl))
-      return weakest
+      lowest current health stat if applicable.'''
+      # make a copy list
+      copy = [u for u in self]
+      # sort in ascending order
+      copy.sort(key = getHP)
+      # find unit alive with lowest HP
+      idx = 0
+      while idx < len(copy) and not copy[idx].isAlive():
+         idx += 1
+      # current copy[idx] unit is weakest
+      return copy[idx]
    def getMembers(self) -> list:
       '''return all the units members of the party as a
       simple python list variable.'''
@@ -114,77 +117,81 @@ class Party(list):
 # TurnOrder object
 class TurnOrder:
    '''a round stops only when all units in the battle have
-   moved once. this object tracks each units and creates a
-   list that is their turn orders until the end of a round
-   meaning until they have all moved once.'''
+   moved once. this object tracks each units and creates 
+   an iterable list that returns the next to move, keeing
+   it updated.'''
    
    def __init__(self, allUnits: list):
       '''create the attributes of the turn order object
       by receiving a list of all the units in battle.'''
-      self.allUnits = allUnits
-      self.movementTracker = list()
-      for i in range(len(self.allUnits)):
-         self.movementTracker.append(False)
+      self.units = allUnits
    
    # getters
-   def allHaveMoved(self) -> bool:
-      '''return "True" when all the values in the
-      movement tracker list are "True".'''
-      count = 0
-      for val in self.movementTracker:
-         if val:
-            count += 1
-      return count == len(self.movementTracker)
-   def getAllMoves(self) -> list:
-      '''return the list that describes what order each
-      of the units of the battle will move. this list
-      is created by comparing the dexterity stat of
-      each units. the slowest unit define the standard
-      movement speed. fastest units will move first and
-      they will move as much as the quotient of their
-      dext to the standard dext.'''
-      dextTracker = list()
-      # record initial dexterities
-      for unit in self.allUnits:
-         dextTracker.append(unit.getStats()\
-            .getStat(STATS[3]).getCurrent())
-      standard = min(dextTracker) # slowest dext is standard
-      # create turn order list
-      turnOrder = list()
-      # appends units to it
-      while not self.allHaveMoved():
-         # get index of fastest
-         idx = dextTracker.index(max(dextTracker))
-         # add fastest unit
-         turnOrder.append(self.allUnits[idx])
-         # mark that this unit has moved
-         self.movementTracker[idx] = True
-         # slow down by standard
-         dextTracker[idx] -= standard
-      return turnOrder
+   # iterator override
+   # this object will now be iterable and the next() method
+   # will return the next character that moves until none
+   # can move anymore i.e. their speed < 0.
+   def __iter__(self):
+      '''setup the iterator for the TurnOrder object.'''
+      # create an image of the current stats to
+      # track dexts in case one changes.
+      self.oDexts = list()
+      for u in self.units:
+         self.oDexts.append(
+            u.getStats().getStat(STATS[5]).getCurrent()
+         )
+      # create a table that relate each unit to their dext
+      self.mutDexts = [(self.units[i], self.oDexts[i])\
+         for i in range(len(self.units))]
+      self.mutDexts = dict(self.mutDexts)
+      # create a field for round the lowest dext
+      self.lowDext = min(self.oDexts)
+      return self
+   def __next__(self):
+      '''return the unit of this TurnOrder that moves
+      next by doing arithmetic on their dexterity.'''
+      # compare recorded dexterities with currents
+      for idx in range(len(self.oDexts)):
+         u = self.units[idx]
+         nDext = u.getStats().getStat(STATS[5]).\
+            getCurrent()
+         oDext = self.oDexts[idx]
+         if nDext != oDext: # dext changed
+            # take the algebraic difference
+            diff = nDext - oDext
+            # find the unit and apply same diff
+            old = self.mutDexts[u]
+            self.mutDexts.__setitem__(u, old + diff)
+            # updtate entry
+            self.oDexts[idx] = nDext
+      # dext updates are completed
+      # checks for dead units
+      for u, d in self.mutDexts.items():
+         if not u.isAlive():
+            # kick them out of the turn
+            self.mutDexts.__setitem__(u, -1)
+      # look for fastest unit and its current dext
+      maxDext = 0
+      fastest = self.units[maxDext]
+      for u, d in self.mutDexts.items():
+         if d > maxDext:
+            maxDext = d
+            fastest = u
+      # compare fastest dext to standard dext
+      if maxDext < self.lowDext: # round over then
+         raise StopIteration
+      # else implied: fastest moves next
+      # reduce their dext according to standard dext
+      self.mutDexts.__setitem__(fastest, maxDext - self.lowDext)
+      # return them
+      return fastest
    
    # override tostring
-   def __str__(self) -> str:
-      '''return a string representing this object for
-      printing purposes. calls self.getAllMoves() and
-      return the next 5 moves or less if there isn't
-      enough.'''
-      description = "Moves Next: "
-      moves = self.getAllMoves()
-      done = False
-      idx = 0
-      count = 0
-      while not done:
-         try:
-            description += "{} - {}| ".format(count + 1,
-               moves[idx].getName())
-            count += 1
-            done = count == 5
-            idx += 1
-         except IndexError: # out of range
-            done = True
-      # done adding the names next 5 movers
-      return description   
+   def __str__(self):
+      string = "Turn Order: "
+      for u in self:
+         string += "{}| ".format(u.getName())
+      return string
 
 # BattleState object:
 class BattleState:
@@ -201,10 +208,11 @@ class BattleState:
       self.cons = cons
       self.turnOrder = TurnOrder(self.pro.getMembers() +
          self.cons.getMembers())
-      self.effectList = list() # empty by default
+      self.moving = None # field to record whose turn it is
+      self.waste = list() # stores lost items during battle
    
    # getters
-   def getAllies(self, unit: Unit) -> Party:
+   def getAllies(self, unit) -> Party:
       '''return the party that "unit" is part of.'''
       party = self.pro
       try:
@@ -212,21 +220,160 @@ class BattleState:
       except ValueError: # was not in that party
          party = self.cons
       return party
-   def getOpponents(self, unit: Unit) -> Party:
+   def getOpponents(self, unit) -> Party:
       '''return the party that "unit" is NOT part of.'''
       party = self.getAllies(unit)
       if party == self.pro:
          party = self.cons
-      # no need of else as it is implied
+      else: # party == self.cons
+         party = self.pro
       return party
    def getTurnOrder(self) -> TurnOrder:
       '''return the turn order object of the BattleState.'''
       return self.turnOrder
+   def isMoving(self):
+      '''return the unit currently moving.'''
+      return self.moving
+   def getWaste(self):
+      return self.waste
    def isOver(self):
       '''return "True" if any of the two parties involved
       has been defeated.'''
-      return ((not self.pro.stillStands()) and 
+      return ((not self.pro.stillStands()) or 
          (not self.cons.stillStands()))
+   
+   # setter
+   def addLostItem(self, owner, item):
+      '''add an item to the waste list.'''
+      self.waste.append((owner, item))
+   
+   # battle method
+   def run(self, verbose = True):
+      '''runs a battle between the two parties involved in
+      the encounter. a battle only stops if one party has
+      been defeated meaning they have no more members
+      standing. the "verbose" flag allow for console print.'''
+      roundNo = 0
+      print("a battle has started:\n") # DEBUG
+      sleep(1)                         # DEBUG 
+      while not self.isOver(): # battle loop
+         print(self)                   # DEBUG
+         print("Round ", roundNo + 1)  # DEBUG
+         sleep(3)                      # DEBUG
+         for unit in self.turnOrder: # round loop
+            # update battle state
+            self.moving = unit
+            # cool skills
+            unit.getSkillSet().tick()
+            # apply effects
+            unit.stats.cleanse() # base stats only
+            unit.getActiveEffects().applyAll(unit)
+            # action
+            a = unit.getSkillSet().getBestAction()
+            print("{} attempts {}!".format(unit.getName(),
+               a.getName()))           # DEBUG
+            sleep(2)                   # DEBUG
+            result = a(unit, self)
+            if type(result) != list:
+               result = [result,] # convert to list
+            # DEBUG BLOC
+            for t, msg in result:
+               print(msg)
+               sleep(2)
+            # END OF DEBUG BLOC
+            # critical actions or reactions
+            for t, msg in result:
+               if t != None and t.isAlive():
+                  c = t.getSkillSet().getSkill("critical")
+                  r = t.getSkillSet().getSkill("reaction")
+                  res = None
+                  if (t.isCritical() and c!= None and 
+                     c.isReady()):
+                     # critical reaction branch
+                     print("desperate, {} attempts {}!".format(
+                        t.getName(), c.getName()))  # DEBUG
+                     sleep(2)             # DEBUG
+                     res = c(t, self)
+                  elif r != None and r.isReady():
+                     # reaction branch
+                     print("{} attempts {} in return!".format(
+                        t.getName(), r.getName()))  # DEBUG
+                     sleep(2)             # DEBUG
+                     res = r(t, self)
+                  # else is implied
+                  # DEBUG BLOC
+                  if res != None:
+                     print(res[1])
+                     sleep(2)
+                  # END OF DEBUG BLOC
+            unit.getActiveEffects().tick() # countdown effects
+            # check for end of battle
+            if self.isOver():
+               break
+         # end of round loop
+         if not self.isOver():
+            roundNo += 1
+            print("\n\n\n")            # DEBUG
+      # end of battle loop
+      winner = self.pro
+      wName = "pro"
+      if not self.pro.stillStands():
+         winner = self.cons
+         wName = "cons"
+      print("{} won the battle!".format(wName)) # DEBUG
+      return winner # return winning party         
+   
+   # post battle stuff
+   def awardExp(self):
+      '''make adventurers gain experience from their fight.'''
+      allUnits = self.pro.getMembers()
+      allUnits.extend(self.cons.getMembers())
+      for u in allUnits:
+         if isinstance(u, Playable):
+            if u.isAlive():
+               uLvl = u.getLevel().getCurrent()
+               gain = 0
+               for opp in self.getOpponents(u):
+                  oLvl = opp.getLevel().getCurrent()
+                  gain += (10 * ceil(E(oLvl - uLvl)))
+               print("{} gained {} exp. pts!".format(
+                  u.getName(), gain)) 
+               if u.develup(gain): # leveled up
+                  print("{} has leveled up.".format(
+                     u.getName()))
+                  print(u.getStats().__str__(False))
+   def collectLoot(self):
+      '''allows adventurers to collect loot from monsters.'''
+      mns = None
+      adv = None
+      if isinstance(self.cons.getMember(0), Playable):
+         mns = self.pro
+         adv = self.cons
+      else:
+         mns = self.cons
+         adv = self.pro
+      if mns != None and adv != None: # we have a vs case
+         for m in mns:
+            chances = 90
+            for item in m.getBag():
+               if choice(range(100)) <= chances:
+                  for a in adv:
+                     print("{} got {} from {}!".format(
+                        a.getName(), item.getName(), 
+                        m.getName()))
+                     sleep(2)
+                     a.getBag().add(item)
+               chances -= 10 # reduces chances of getting next
+   def recoverLostItems(self):
+      '''a chance of recovering wasted items.'''
+      for o, i in self.waste:
+         chances = 90
+         if choice(range(100)) <= chances:
+            o.getBag().add(i)
+            print("{} recovered {} x1".format(
+               o.getName(), i.getName()))
+            sleep(2)
+         chances -= 5
          
    # override tostring
    def __str__(self) -> str:
@@ -239,52 +386,6 @@ class BattleState:
       description += self.turnOrder.__str__()
       return description
 
-# battle method
-def encounter(pro: Party, cons: Party, verbose = True):
-   '''runs a battle between the two parties involved in
-   the encounter. a battle only stops if one party has
-   been defeated meaning they have no more members
-   standing. the "verbose" flag allow for console print.'''
-   bState = BattleState(pro, cons)
-   roundNo = 0
-   while not bState.isOver(): # battle loop
-      roundNo += 1
-      moves = bState.getTurnOrder.getAllMoves()
-      idx = 0 # stays 0 all the way through
-      while idx < len(moves) and (not bState.isOver()): # round loop
-         # choose moving unit
-         unit = moves[idx]
-         # beginning of unit's turn
-         # apply effects
-         unit.getStats.cleanse() # reinit all stats
-         unit.getActiveEffects().tick() # countdown
-         unit.getActiveEffects().removeExpired()
-         unit.getActiveEffects().applyAll() # update stats
-         # cool all skills and use available
-         unit.getSkillSet().coolAll()
-         action = unit.getSkillSet().getBestAction()
-         # execute action and put it in cooldown
-         targets = action(unit, bState, None) # no oppressor
-         action.getCD().reset()
-         # check for reactions
-         for victim in targets:
-            react = victim.getSkillSet().getSkill("reaction")
-            crit = victim.getSkillSet().getSkill("critical")
-            if crit != None and crit.isReady():
-               # critical reaction has priority
-               crit(victim, bState, unit)
-            elif react != None and react.isReady():
-               # no critical reaction thus spontaneous reaction
-               react(victim, bState, unit)
-         # end of unit's turn
-         moves.pop(idx) # pop that unit off the stack
-   # end of battle loop
-   winner = pro
-   if not pro.stillStands():
-      winner = cons
-   return cons # return winning party
-
-
 # test platform
 if __name__ == "__main__":
-   # TBD try a battle
+   pass

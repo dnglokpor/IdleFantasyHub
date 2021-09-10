@@ -60,6 +60,4 @@ goGetup = Armor("Go Getup",
 # accessories
 
 if __name__ == "__main__":
-   dup = pelt.copy()
-   print(pelt, dup)
-   print("same item? ", longbow == dup)
+   pass 

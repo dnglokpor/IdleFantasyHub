@@ -11,29 +11,24 @@
 # import
 from base import Stat, Cooldown
 from elements import Element, NOELM
-from units import Unit
-from confrontation import BattleState
+import icecream as ice
+
+dbg = ice.icecream.IceCreamDebugger()
 
 # Skill object
 class Skill:
    '''a skill has a name, a description, a cooldown
-   and their effect. the effect is a function that must
-   be passed at construction.'''
+   and an element. skills will in instance be subclasses
+   of this base Skill class thus they must override the
+   __call__ method.'''
    
    def __init__(self, name: str, descr: str, cd: int,
-      effect, power = 1.0, elt = NOELM):
-      '''an effect must be callable. raise ValueError if
-      effect can't be called.'''
-      try:
-         effect.__call__
-      except AttributeError: # passed object is not callable
-         raise ValueError("effect must a function.")
+      elt = NOELM, power = 1.0):
       self.name = name
       self.description = descr
       self.cd = Cooldown(cd)
       self.element = elt
       self.power = power
-      self.effect = effect
    
    # getters
    def getName(self) -> str:
@@ -67,18 +62,16 @@ class Skill:
       return not self.__eq__(other)
    
    # makes the skill callable
-   def __call__(self, unit: Unit, state: BattleState, 
-      oppressor = None) -> list:
+   def __call__(self, state) -> tuple:
       '''execute the effect of the skill. since the skill
       occurs in battle, "state" refer to the current state
       of the battle as a whole which is used by the move
-      to apply its effects. returns a list of all the targets
-      of the move. oppressor represent a unit who just
-      attacked you.'''
-      targets = self.effect(unit, state, self.element,
-         self.power, oppressor)
-      self.cd.reset()
-      return targets
+      to apply its effects. returns a a tuple containing
+      all successfully hit opponents and a string describing
+      the overall effect. this must be overriden by each
+      skill subclasses.'''
+      return (None, "nothing to see here.")
+      
    
    # override tostring
    def __str__(self) -> str:
@@ -126,7 +119,7 @@ class SkillSet(dict):
          # print("defined skills are: {}".format(
          #    [s for s in self.keys()]))
          return None
-   def getBestAction(self) -> skill:
+   def getBestAction(self) -> Skill:
       '''return either the ability or the base skill
       depending or whether or not the ability is 
       ready.'''
@@ -134,11 +127,12 @@ class SkillSet(dict):
       if action == None or (not action.isReady()):
          # ability isn't available 
          action = self.get("base") # default to base
+         
       return action
    
    # setters
    def assign(self, sKey : str, skill) -> bool:
-      '''set the value attributed to base, reaction
+      '''set the skill attributed to reaction
       or support. the base skill can't be changed.
       a same skill can't be assigned to two different
       slots. sKey must be one of the 3 possible key of
@@ -160,7 +154,7 @@ class SkillSet(dict):
          self.__setitem__(sKey, None)
    
    # others
-   def coolAll(self):
+   def tick(self):
       '''cools all skills of the skill set.'''
       for skill in self.values():
             if skill != None:
@@ -180,6 +174,66 @@ class SkillSet(dict):
             description += "not set\n"
       return description
 
+# Mastery object
+class Mastery(dict):
+   '''the mastery is a collection of moves that are available
+   for an adventurer as he gets stronger in a specific class.
+   the key is the level at which the skill is available and
+   the skill itself is the value.'''
+   
+   def __init__(self, name: str, lore: str, allSkills: list):
+      '''"allSkills" must be a list of tuples.'''
+      super().__init__(allSkills)
+      self.name = name
+      self.lore = lore
+   
+   # getters
+   def getName(self) -> str:
+      '''return the Mastery's name.'''
+      return self.name
+   def getName(self) -> str:
+      '''return the Mastery's lore.'''
+      return self.lore
+   def getBase(self):
+      '''the base skill is the skill added to the mastery with
+      key "1". if not defined return "None".'''
+      return self.get(1)
+   def getSkill(self, uLevel: int, aLevel: int):
+      '''return the skill corresponding at "uLevel" if
+      "uLevel" is defined and if "uLevel <= aLevel".
+      does not return the base skill.'''
+      sk = None
+      if self.__contains__(uLevel) and uLevel > 1:
+         if uLevel <= aLevel:
+            sk = self.get(uLevel)
+      return sk
+   def getUnlocked(self, currentLevel: int) -> list:
+      '''return a list of all the skills that are
+      already available at "currentLevel" except for
+      the base skill.'''
+      unlocked = list()
+      for lvl, skill in self.items():
+         if 1 < lvl <= currentLevel:
+            unlocked.append(skill)
+      return unlocked
+   
+   # Mastery is never set
+   
+   # override tostring
+   def __str__(self, short = True) -> str:
+      '''return a string representing this object for
+      printing purposes.'''
+      description = "<{}>: {}".format(self.name, self.lore)
+      if not short:
+         description += '\n'
+         for idx, (lvl, skill) in enumerate(self.items()):
+            description += "{:12s} - unlocks @ lvl {:3d}".format(
+               skill.getName(), lvl)
+            if idx != len(self.items()) - 1:
+               description += '\n'
+      return description
+
+
 INFINITY = 10000 # 10k turns is too long for any fight
 
 # Effect object
@@ -190,7 +244,7 @@ class Effect:
    an effect has a function as part of its member variables.
    an effect will expire once it's duration reaches "0".
    '''
-   def __init__(self, dur: int, impacted: list, cond,
+   def __init__(self, dur: int, impacted: str, cond,
       power = 1.25):
       self.dur = dur
       self.impacted = impacted
@@ -225,9 +279,10 @@ class Effect:
       return not self.__eq__(other)
    
    # makes this callable to apply the condition
-   def __call__(self, unit: Unit):
-      '''apply self.condition to the unit.'''
-      self.condition(unit, self.impacted, self.dur, self.power)
+   def __call__(self, unit) -> str:
+      '''apply self.condition to the unit. return the amount
+      by which the effect impacted the stats.'''
+      return self.condition(unit, self.impacted, self.power)
 
 # EffectList object
 class EffectList(list):
@@ -259,21 +314,13 @@ class EffectList(list):
   
    # others
    def applyAll(self, unit):
-      '''call all the effects to apply them.'''
-      for effect in self:
-         effect(unit)
+      '''apply all still active effects'''
+      self.removeExpired() # remove expired
+      for e in self:
+         # apply the effects
+         e(unit)   
    
 # test platform
 if __name__ == "__main__":
-   slash = Skill("Slash",
-      "basic quick blade horizontal cut attack.", 0, len)
-   dHeaven = Skill("Dividing Heaven",
-      "jump high and cleaver through the target with a \
-bladed weapon.", 7, len)
-   counter = Skill("Counter", "hit back when attacked.", 3,
-      len)
-   firstAid = Skill("First Aid", 
-      "quickly tend to your wounds to restore some health.",
-      5, len)
-   print(SkillSet(slash))
+   pass
    
