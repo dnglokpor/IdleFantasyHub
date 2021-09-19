@@ -140,7 +140,7 @@ class Sword(Weapon):
       '''only inits the base Weapon.'''
       super().__init__(name, lore, value, stats)
 
-# Sword
+# Spear
 class Spear(Weapon):
    '''a sharp combat spear. derivation allows to filter
    it out of all weapons.'''
@@ -213,70 +213,6 @@ class Accessory(Gear):
       '''return a string representing this object for
       printing purposes.'''
       return "[{:3s}]".format(self.t) + super().__str__(short)
-
-# all Equipment slots:
-SLOTS = ["WPN", "ARM", "ACC"]
-
-# Equipment object
-class Equipment(dict):
-   '''the collection of the 3 gear that an playable can
-   have at the time. based off a dict for convenience.'''
-   
-   def __init__(self):
-      '''construction requires no actual gear. defines
-      placeholders for them.'''
-      super().__init__({"WPN": None, "ARM": None, "ACC": None})
-  
-   # getters
-   def getGear(self, slot: str):
-      '''return the requested gear out of the Equipment.
-      if nothing was equiped there, return "None".'''
-      g = None
-      if(self.__contains__(slot)):
-         g = self.get(slot)
-      return g
-   
-   def getEqtBonus(self) -> list:
-      '''returns as a list formated in the order of the 
-      base.STATS the combined stats bonuses (or maluses)
-      conferred by the equipment pieces.'''
-      comb = [0, 0, 0, 0, 0, 0, 0]
-      for g in self.values():
-         if g != None: # not empty slot
-            for sName, val in g.getStats():
-               comb[STATS.index(sName)] += val
-      return comb
-   
-   # setters
-   def setGear(self, gear: Gear) -> Gear:
-      '''assign passed gear to the right slot. this depends
-      on the existence of the "t" attribute of passed
-      gear thus if gear doesn't have it, ValueError is
-      raised. returns the old gear set at the slot if any
-      or just None.'''
-      old = None
-      slot = None
-      try:
-         slot = gear.t
-      except AttributeError: # gear without a "t" attribute
-         raise ValueError("passed gear is not a Weapon, Armor\
-or Accessory type object.")
-      old = self.get(slot)
-      self.__setitem__(slot, gear)
-      return old         
-   
-   # override tostring
-   def __str__(self, short = True) -> str:
-      '''return a string representing this object for
-      printing purposes.'''
-      description = str()
-      for t, gear in self.items():
-         description += "[{}] -> ".format(t)
-         if gear is not None:
-            description += "<{}>\n".format(gear.getName())
-         else:
-            description += "not set\n"
-      return description
 
 # test platform
 if __name__ == "__main__":

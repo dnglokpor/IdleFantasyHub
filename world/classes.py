@@ -8,67 +8,15 @@
 '''
 
 # imports 
-from elements import Element, NOELM 
 from base import UnitStats
-from units import Unit, Playable
-from skills import Skill, SkillSet, Mastery
+from elements import NOELM 
+from skills import Mastery
+from units import Playable
 from skillLib import blademanship, survivalist, conjuring
 from itemLib import arrow, longsword, longbow, walkingStick,\
    goGetup
 from random import choice
 from math import ceil
-
-# Monster object
-class Monster(Unit):
-   '''a subclass of a Unit object. this represent a non-
-   abstract monster which adds to units characteristics
-   the skills it takes to defeat adventurers. scales
-   up stats by a factor of half the level thus the stats
-   list provided should be what it would have been at level
-   1.'''
-   
-   def __init__(self, name: str, level: int, bStats: list,
-      bSkill: Skill, lore: str, elt = NOELM):
-      super().__init__(name, level,
-         [stat * level for stat in bStats], 3, elt)
-      self.lore = lore
-      self.skillSet = SkillSet(bSkill)
-   
-   # getters
-   def getSkillSet(self) -> SkillSet:
-      '''return the SkillSet object of the monster'''
-      return self.skillSet
-   def getLore(self) -> str:
-      '''return the lore surrounding this Monster.'''
-      return self.lore
-   
-   # setters
-   # all skills can be set by getting the SkillSet object
-   
-   # skills usage
-   def act(self, state):
-      '''calls the best action available between the base
-      skill and the ability skill.'''
-      action = self.skillSet.getBestAction()
-      return action(self, state)
-   def react(self, state):
-      '''calls upon the reaction skill.'''
-      reaction = self.skillSet.getSkill("reaction")
-      return reaction(self, state)
-   def react(self, state):
-      '''calls upon the critical skill.'''
-      critical = self.skillSet.getSkill("critical")
-      return critical(self, state)
-   
-   # override tostring
-   def __str__(self, short = True):
-      '''return a string representing this object for
-      printing purposes.'''
-      if short:
-         return super().__str__()
-      description = "{} <Monster>:".format(self.name)
-      description += '\n' + self.lore
-      return description
 
 # Adventurer object
 class Adventurer(Playable):
@@ -80,41 +28,22 @@ class Adventurer(Playable):
    
    def __init__(self, cName: str, uName: str, bStats: list,
       mastery: Mastery, lore: str, elt = NOELM):
-      super().__init__(uName, 1, bStats, elt)
+      super().__init__(uName, 1, bStats, mastery.getBase(), elt)
       self.className = cName
       self.mastery = mastery
-      # basic skill is skill unlocked at level 1 of mastery
-      self.skillSet = SkillSet(self.mastery.getBase())
+      # basic skill is from mastery is assigned in super call
       self.lore = lore
    
    # getters
    def getClassName(self) -> str:
       '''return the name of this adventurer job.'''
       return self.className
-   def getSkillSet(self) -> SkillSet:
-      '''return the SkillSet object of the adventurer'''
-      return self.skillSet
    def getMastery(self) -> Mastery:
       '''return the Mastery object of the adventurer'''
       return self.mastery
    def getLore(self) -> str:
       '''return the lore surrounding this adventurer'''
       return self.lore
-   
-   # skills usage
-   def act(self, state):
-      '''calls the best action available between the base
-      skill and the ability skill.'''
-      action = self.skillSet.getBestAction()
-      return action(self, state)
-   def react(self, state):
-      '''calls upon the reaction skill.'''
-      reaction = self.skillSet.getSkill("reaction")
-      return reaction(self, state)
-   def react(self, state):
-      '''calls upon the critical skill.'''
-      critical = self.skillSet.getSkill("critical")
-      return critical(self, state)
    
    # override tostring
    def __str__(self, short = True):
@@ -146,7 +75,7 @@ class Fighter(Adventurer):
       super().__init__(
          "Fighter",
          uName, 
-         [45, 15, 13, 9, 8, 10, rndLuck()], 
+         [45, 16, 14, 7, 8, 10, rndLuck()], 
          blademanship,
          "adventurer class with all-round good physicals\
  and a proficient in bladed weapon handling. monsters might\
@@ -154,7 +83,7 @@ class Fighter(Adventurer):
          elt = NOELM
       )
       # default gear
-      #self.equip(longsword)
+      self.equip(longsword)
       self.equip(goGetup)
  
    # stats development

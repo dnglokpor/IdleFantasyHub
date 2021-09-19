@@ -3,13 +3,16 @@
 # Items objects need to be carried and thus this module
 # provide the Inventory class that can be used to represent
 # a bag, a stall or a rack etc... also provides the definition
-# for a Wallet which is more of currency manager.
+# for the Equipment which is a collection of 3 items that 
+# impact the stats of a Playable. Finally, defines the Wallet
+# which is more of currency manager.
 # date: 6/27/21
 # author: dnglokpor
 '''
 
 # imports
-from collectibles import Item, genHash
+from base import STATS
+from collectibles import genHash, Item, Gear
 
 # Inventory object
 class Inventory:
@@ -102,18 +105,17 @@ positive (> 0).")
       return done
       
    # iterator that goes through each item of the bag one
-   # at the time
+   # stack at the time
    def __iter__(self):
       '''initializes the iterable functionality of the
       Inventory object.'''
       self.stackIdx = 0
-      self.itemIdx = 0
       self.contentsList = list(self.contents.values()) 
       return self
    
    def __next__(self):
-      '''returns the next item in the inventory until
-      all items have been recovered.'''
+      '''returns the next stack of items in the inventory until
+      all stacks have been traversed.'''
       # save old value of the stack index
       sIdx = self.stackIdx
       
@@ -122,18 +124,13 @@ positive (> 0).")
          raise StopIteration # cleared all stacks
       
       # get contents
-      iIdx = self.itemIdx
       stack = self.contentsList[sIdx]
       
       # increment
-      if self.itemIdx < len(stack) - 1:
-         self.itemIdx += 1 # next item
-      else:
-         self.stackIdx += 1 # next stack
-         self.itemIdx = 0 # first item
+      self.stackIdx += 1 # next stack
       
       # return current item
-      return stack[iIdx]
+      return stack
    
    # helpers
    def expand(self, newEntry: Item) -> dict:
@@ -171,6 +168,70 @@ positive (> 0).")
                stack[0].getName(), len(stack))
             if idx != len(self.contents.keys()) - 1:
                description += '\n'
+      return description
+
+# all Equipment slots:
+SLOTS = ["WPN", "ARM", "ACC"]
+
+# Equipment object
+class Equipment(dict):
+   '''the collection of the 3 gear that a playable can
+   have at the time. based off a dict for convenience.'''
+   
+   def __init__(self):
+      '''construction requires no actual gear. defines
+      placeholders for them.'''
+      super().__init__({"WPN": None, "ARM": None, "ACC": None})
+  
+   # getters
+   def getGear(self, slot: str):
+      '''return the requested gear out of the Equipment.
+      if nothing was equiped there, return "None".'''
+      g = None
+      if(self.__contains__(slot)):
+         g = self.get(slot)
+      return g
+   
+   def getEqtBonus(self) -> list:
+      '''returns as a list formated in the order of the 
+      base.STATS the combined stats bonuses (or maluses)
+      conferred by the equipment pieces.'''
+      comb = [0, 0, 0, 0, 0, 0, 0]
+      for g in self.values():
+         if g != None: # not empty slot
+            for sName, val in g.getStats():
+               comb[STATS.index(sName)] += val
+      return comb
+   
+   # setters
+   def setGear(self, gear: Gear) -> Gear:
+      '''assign passed gear to the right slot. this depends
+      on the existence of the "t" attribute of passed
+      gear thus if gear doesn't have it, ValueError is
+      raised. returns the old gear set at the slot if any
+      or just None.'''
+      old = None
+      slot = None
+      try:
+         slot = gear.t
+      except AttributeError: # gear without a "t" attribute
+         raise ValueError("passed gear is not a Weapon, Armor\
+or Accessory type object.")
+      old = self.get(slot)
+      self.__setitem__(slot, gear)
+      return old         
+   
+   # override tostring
+   def __str__(self, short = True) -> str:
+      '''return a string representing this object for
+      printing purposes.'''
+      description = str()
+      for t, gear in self.items():
+         description += "[{}] -> ".format(t)
+         if gear is not None:
+            description += "<{}>\n".format(gear.getName())
+         else:
+            description += "not set\n"
       return description
 
 # Wallet object
@@ -211,5 +272,26 @@ class Wallet:
 
 # test platform
 if __name__ == "__main__":
-   pass
-   
+   arrow = Item(
+      "Arrow",
+      "40cm of wood crowned by a sharpened steel head and"
+      " feathers in the back. rangers' favorite.", 
+      3
+   )
+   pelt = Item(
+      "Pelt",
+      "freshly skinned pelt of a small dungeon denizen.",
+      10
+   )
+   smallFeathers = Item(
+      "Small Feathers",
+      "a few small but sturdy feathers that float in the wind.",
+      5
+   )
+   myBag = Inventory()
+   myBag.addMulti(arrow, 30)
+   myBag.addMulti(pelt, 10)
+   myBag.addMulti(smallFeathers, 7)
+   # print(myBag)
+   for item in myBag:
+      print("{} {}".format(len(item), item[0].getName()))

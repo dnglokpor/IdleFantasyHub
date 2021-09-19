@@ -8,14 +8,12 @@
 '''
 
 # imports
-from base import STATS, Cooldown
 from elements import Element, NOELM, AEOLA, GAIA, AQUA,\
 VULCAN
-from skills import Skill, Effect, Mastery
-from units import Unit
-from confrontation import BattleState
+from skills import State, Skill, Effect, Mastery
 from collectibles import Sword, Spear, Bow, Artillery,\
 Staff, Tome
+from units import Unit
 from random import seed, choice
 from math import floor
 from icecream import IceCreamDebugger
@@ -45,7 +43,7 @@ def hasWeaponType(wType: str, unit: Unit):
       else: # wrong keyword thus default to False
          hasIt = False
    return hasIt
-def singleTarget(perp: Unit, state):
+def singleTarget(perp: Unit, state: State):
    '''returns a target for a single target attack.'''
    return state.getOpponents(perp).getWeakestMember()
 def restartCooldown(skill: Skill):
@@ -55,7 +53,7 @@ def restartCooldown(skill: Skill):
    if skill.cd.getElapsed() != 0:
       skill.cd.reset() 
 def targetAttack(perp: Unit, target: Unit, ofs: int, 
-   elt, dmgMult = 1.0) -> str:
+   elt: Element, dmgMult = 1.0) -> str:
    '''deals STATS[offense] damage to one opponent defending
    with a stat selected based on the offense stat. the normal
    damage is multiplied by multiplier before critical or
@@ -103,7 +101,7 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
       descr = (target, hit)
    # return outcome message
    return descr
-def raiseStat(unit, sName, mult) -> str:
+def raiseStat(unit: Unit, sName: str, mult) -> str:
    '''raise a stat by its full value times the multiplier.
    the value of buff decides if its a buff or a debuff. 
    default to a buff.'''
@@ -403,12 +401,16 @@ comboAttack = ComboAttack()
 class Shoot(SinglePhysical):
    '''performs a single physical attack on a single target
    but only if the perpetrator has a ranged weapon.'''
-   def __init__(self):
+   def __init__(self, cd = 0):
+      '''provides a way to change the cooldown value dynami-
+      cally in case a skill based on it needs a different
+      cooldown.
+      '''
       super().__init__(
          "Shoot",
          "shoot an arrow or a bullet at a target with a ranged"
          " weapon. requires projectiles.",
-         0,
+         cd,
          1.0,
          NOELM  
       )
@@ -489,14 +491,11 @@ class TriShot(Shoot):
    '''attacks three times in a row with a ranged weapon.
    targets can be different each time.'''
    def __init__(self):
-      super().__init__()
+      super().__init__(6)
       # update attributes
       self.name = "Tri-Shot",
       self.description = "attacks opposing party three times with\
  a ranged weapon."
-      self.cd = Cooldown(6)
-      self.element = NOELM  
-      self.power = 1.0
    
    # action override
    def __call__(self, perp: Unit, state):

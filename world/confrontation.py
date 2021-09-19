@@ -20,17 +20,13 @@
 
 # imports
 from base import STATS
+from skills import State, Skill
 from time import sleep
 from copy import deepcopy
 from math import ceil
 from math import exp as E
 from random import choice
 from sys import exit
-try:
-   from units import Playable
-except ImportError:
-   print("Couldn't import playable")
-   exit()
 from icecream import IceCreamDebugger
 
 # DEBUG
@@ -194,39 +190,40 @@ class TurnOrder:
       return string
 
 # BattleState object:
-class BattleState:
+class BattleState(State):
    '''class that compiles all information relative
-   to the state of a battle in one object. this allows
-   any party involved to be able to know all there
-   is to know in the battle at all time.'''
+   to the state of a battle in one object and auto run
+   it.'''
    
-   def __init__(self, pro: Party, cons: Party):
+   def __init__(self, advs: Party, mons: Party):
       '''create the state by getting the two opposing
       parties and initializing all other member variables.
+      no PvP will be implemented so it will always be
+      adventurers VS monsters
       '''
-      self.pro = pro
-      self.cons = cons
-      self.turnOrder = TurnOrder(self.pro.getMembers() +
-         self.cons.getMembers())
+      self.advs = advs
+      self.mons = mons
+      self.turnOrder = TurnOrder(self.advs.getMembers() +
+         self.mons.getMembers())
       self.moving = None # field to record whose turn it is
-      self.waste = list() # stores lost items during battle
+      self.waste = list()# stores lost items during battle
    
    # getters
    def getAllies(self, unit) -> Party:
       '''return the party that "unit" is part of.'''
-      party = self.pro
+      party = self.advs
       try:
          party.index(unit)
       except ValueError: # was not in that party
-         party = self.cons
+         party = self.mons
       return party
    def getOpponents(self, unit) -> Party:
       '''return the party that "unit" is NOT part of.'''
       party = self.getAllies(unit)
-      if party == self.pro:
-         party = self.cons
-      else: # party == self.cons
-         party = self.pro
+      if party == self.advs:
+         party = self.mons
+      else: # party == self.mons
+         party = self.advs
       return party
    def getTurnOrder(self) -> TurnOrder:
       '''return the turn order object of the BattleState.'''
@@ -239,13 +236,57 @@ class BattleState:
    def isOver(self):
       '''return "True" if any of the two parties involved
       has been defeated.'''
-      return ((not self.pro.stillStands()) or 
-         (not self.cons.stillStands()))
+      return ((not self.advs.stillStands()) or 
+         (not self.mons.stillStands()))
    
    # setter
    def addLostItem(self, owner, item):
       '''add an item to the waste list.'''
       self.waste.append((owner, item))
+   # post battle stuff
+   def awardExp(self):
+      '''make adventurers gain experience from their fight.
+      only live adventurers do get the exp. Experience
+      gained will be estimated on a unit by unit basis
+      based on the unit's level compared to each opponent
+      level.'''
+      allAdvs = self.advs.getMembers()
+      for u in allAdvs:
+         if u.isAlive():
+            uLvl = u.getLevel().getCurrent()
+            gain = 0
+            for opp in self.getOpponents(u):
+               oLvl = opp.getLevel().getCurrent()
+               gain += (10 * ceil(E(oLvl - uLvl)))
+            print("{} gained {} exp. pts!".format(
+               u.getName(), gain)) 
+            if u.develup(gain): # leveled up
+               print("{} has leveled up.".format(
+                  u.getName()))
+               print(u.getStats().__str__(False))
+   def collectLoot(self):
+      '''allows adventurers to collect loot from monsters.'''
+      for m in self.mons:
+         chances = 90
+         for item in m.getBag():
+            if choice(range(100)) <= chances:
+               for a in self.advs:
+                  print("{} got {} x {} from {}!".format(
+                     a.getName(), len(item), item[0].getName(), 
+                     m.getName()))
+                  sleep(2)
+                  a.getBag().addMulti(item[0], len(item))
+            chances -= 10 # reduces chances of getting next
+   def recoverLostItems(self):
+      '''a chance of recovering wasted items.'''
+      for o, i in self.waste:
+         chances = 90
+         if choice(range(100)) <= chances:
+            o.getBag().add(i)
+            print("{} recovered {} x1".format(
+               o.getName(), i.getName()))
+            sleep(2)
+         chances -= 5
    
    # battle method
    def run(self, verbose = True):
@@ -309,79 +350,27 @@ class BattleState:
             unit.getActiveEffects().tick() # countdown effects
             # check for end of battle
             if self.isOver():
-               break
+               break # out of round For loop
          # end of round loop
          if not self.isOver():
             roundNo += 1
             print("\n\n\n")            # DEBUG
       # end of battle loop
-      winner = self.pro
-      wName = "pro"
-      if not self.pro.stillStands():
-         winner = self.cons
-         wName = "cons"
+      winner = self.advs
+      wName = "adventurers"
+      if not self.advs.stillStands():
+         winner = self.mons
+         wName = "monsters"
       print("{} won the battle!".format(wName)) # DEBUG
       return winner # return winning party         
-   
-   # post battle stuff
-   def awardExp(self):
-      '''make adventurers gain experience from their fight.'''
-      allUnits = self.pro.getMembers()
-      allUnits.extend(self.cons.getMembers())
-      for u in allUnits:
-         if isinstance(u, Playable):
-            if u.isAlive():
-               uLvl = u.getLevel().getCurrent()
-               gain = 0
-               for opp in self.getOpponents(u):
-                  oLvl = opp.getLevel().getCurrent()
-                  gain += (10 * ceil(E(oLvl - uLvl)))
-               print("{} gained {} exp. pts!".format(
-                  u.getName(), gain)) 
-               if u.develup(gain): # leveled up
-                  print("{} has leveled up.".format(
-                     u.getName()))
-                  print(u.getStats().__str__(False))
-   def collectLoot(self):
-      '''allows adventurers to collect loot from monsters.'''
-      mns = None
-      adv = None
-      if isinstance(self.cons.getMember(0), Playable):
-         mns = self.pro
-         adv = self.cons
-      else:
-         mns = self.cons
-         adv = self.pro
-      if mns != None and adv != None: # we have a vs case
-         for m in mns:
-            chances = 90
-            for item in m.getBag():
-               if choice(range(100)) <= chances:
-                  for a in adv:
-                     print("{} got {} from {}!".format(
-                        a.getName(), item.getName(), 
-                        m.getName()))
-                     sleep(2)
-                     a.getBag().add(item)
-               chances -= 10 # reduces chances of getting next
-   def recoverLostItems(self):
-      '''a chance of recovering wasted items.'''
-      for o, i in self.waste:
-         chances = 90
-         if choice(range(100)) <= chances:
-            o.getBag().add(i)
-            print("{} recovered {} x1".format(
-               o.getName(), i.getName()))
-            sleep(2)
-         chances -= 5
          
    # override tostring
    def __str__(self) -> str:
       '''return a string representing this object for
       printing purposes.'''
-      description = self.pro.__str__()
+      description = self.advs.__str__()
       description += "\n\n\n"
-      description += self.cons.__str__()
+      description += self.mons.__str__()
       description += '\n'
       description += self.turnOrder.__str__()
       return description

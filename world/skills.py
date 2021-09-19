@@ -3,17 +3,30 @@
 # contains the declaration of the Skill and the SkillSet
 # objects. a skill is any action that a unit can perform in 
 # combat. in a combat round, units take turn performing
-# skills.
+# skills. skills require a state that gives them the information
+# they need to function. this class cannot be created this
+# low in the OOP chain thus a base is provided here as a dub
+# for the skills and will be overriden by the actual state
+# object at a higher level.
 # date: 6/25/21
 # author: dnglokpor
+# [U] 7/4/21: skills now contains the definition of the Mastery
+# the Effect and the EffectList.
 '''
 
 # import
-from base import Stat, Cooldown
+from base import Cooldown
 from elements import Element, NOELM
 import icecream as ice
 
 dbg = ice.icecream.IceCreamDebugger()
+
+# State base object
+class State:
+   '''a dub for BattleState created in confrontation.
+   used to avoid circular dependency.'''
+   def __init__(self):
+      pass # do nothing
 
 # Skill object
 class Skill:
@@ -62,7 +75,7 @@ class Skill:
       return not self.__eq__(other)
    
    # makes the skill callable
-   def __call__(self, state) -> tuple:
+   def __call__(self, state: State) -> tuple:
       '''execute the effect of the skill. since the skill
       occurs in battle, "state" refer to the current state
       of the battle as a whole which is used by the move

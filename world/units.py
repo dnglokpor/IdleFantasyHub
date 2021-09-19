@@ -2,28 +2,27 @@
 # unit.py
 # module that contains all the classes needed to create
 # a virtual IdleFantasyHub unit. contains the definition
-# of the UnitStats, Unit, and Playable.
+# of the Unit, Playable and Monster.
 # date: 6/25/21
 # author: dnglokpor
 '''
 
 # imports
-from base import Stat, STATS, UnitStats
-from base import Gauge
+from base import UnitStats, Gauge
 from elements import Element, NOELM
 from skills import Skill, SkillSet, EffectList
-from collectibles import Item, Equipment
-from containers import Inventory, Wallet
+from containers import Inventory, Equipment, Wallet
 
 # Unit object
 class Unit:
    '''units are abstract base mobs of IdleFantasyHub.
    only units can participate in combat. this class
    provides what is needed to identify and represent
-   a unit.'''
+   a unit as well as all characteristics shared by all
+   units derivatives.'''
    
    def __init__(self, name: str, level: int, stats: list, 
-      bSize: int, elt = NOELM):
+      bSize: int, bSkill: Skill, elt = NOELM):
       '''if len(stats) is less different from 5, then
       ValueError is raised. a Unit also need
       a way to carry items around. this way, any monster
@@ -35,6 +34,7 @@ class Unit:
       self.level = Gauge(level)
       self.element = elt
       self.stats = UnitStats(stats)
+      self.skillSet = SkillSet(bSkill)
       self.activeEffects = EffectList()
       self.bag = Inventory(bSize)
    
@@ -51,6 +51,9 @@ class Unit:
    def getStats(self) -> UnitStats:
       '''return the UnitStats object of the unit.'''
       return self.stats
+   def getSkillSet(self) -> SkillSet:
+      '''return the SkillSet object of the unit'''
+      return self.skillSet
    def getActiveEffects(self) -> EffectList:
       '''return the EffectList object of the unit.'''
       return self.activeEffects
@@ -104,9 +107,9 @@ class Playable(Unit):
    to have a combined stats attributes that is considered
    its own stat'''
    def __init__(self, name: str, level: int, stats: list,
-      elt = NOELM):
+      bSkill: Skill, elt = NOELM):
       # create underlying Unit
-      super().__init__(name, level, stats, 30, elt)
+      super().__init__(name, level, stats, 30, bSkill, elt)
       self.equipment = Equipment()
       self.wallet = Wallet()     # empty wallet
    
@@ -118,9 +121,9 @@ class Playable(Unit):
       '''return the Wallet attribute of the Playable.'''
       return self.wallet
    def getStats(self) -> UnitStats:
-      '''return the combinedStats attribute of the Playable.
-      overrides the getStats() method of the super Unit
-      class.'''
+      '''return the combined stats of the Playable. overrides
+      the getStats() method of the Unit class to add bonuses
+      from equipped gear.'''
       return (self.stats + 
          UnitStats(self.equipment.getEqtBonus()))
    def isAlive(self) -> bool:
@@ -138,6 +141,53 @@ class Playable(Unit):
       return old
    
    # override tostring
+
+# Monster object
+class Monster(Unit):
+   '''a subclass of a Unit object. this represent a non-
+   abstract monster which adds to units characteristics
+   a development method that allows it to be spawned at
+   any level desirable.'''
+   
+   def __init__(self, name: str, level: int, bStats: list,
+      bSkill: Skill, lore: str, elt = NOELM):
+      super().__init__(name, level, bStats, 3, bSkill, elt)
+      self.lore = lore
+      self.develup()
+   
+   # getters
+   def getLore(self) -> str:
+      '''return the lore surrounding this Monster.'''
+      return self.lore
+   
+   # stats development
+   def develup(self) -> bool:
+      '''adjust the stats of the monster to match its
+      level. basically, every stat is raised by its half 
+      for every level after level 1. Luck is up to luck :)
+      this is called in the monster constructor.
+      '''
+      newStats = self.stats.getFullStats()
+      dev = [150, 150, 150, 150, 150, 150] 
+      lvlGain = self.level.getCurrent() - 1
+      for lvl in range(lvlGain): # for each new lvl
+         # hp, ..., dext
+         newStats = [ceil(newStats[idx] * dev[idx] / 100) \
+            for idx in range(6)]
+         # luck increases by at most 3
+         newStats[6] += rndLuck(3)
+      # assign new stats
+      self.stats = UnitStats(newStats)
+   
+   # override tostring
+   def __str__(self, short = True):
+      '''return a string representing this object for
+      printing purposes.'''
+      if short:
+         return super().__str__()
+      description = "{} <Monster>:".format(self.name)
+      description += '\n' + self.lore
+      return description
 
 # test platform
 if __name__ == "__main__":

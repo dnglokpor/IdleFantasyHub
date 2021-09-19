@@ -7,11 +7,11 @@
 '''
 
 # imports
-import skillLib as skl
-import itemLib as itml
-from skills import Skill
-from classes import Monster
 from elements import NOELM, AEOLA, GAIA, AQUA, VULCAN
+from skills import Skill
+from units import Monster
+import itemLib as itml
+import skillLib as skl
 from random import seed, choice
 
 # helper 
