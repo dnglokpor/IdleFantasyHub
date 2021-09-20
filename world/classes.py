@@ -66,9 +66,7 @@ def rndLuck(max = 10):
 # Fighter Job
 class Fighter(Adventurer):
    '''a Fighter is a basic adventurer class with all-round
-   good physicals and a proficient in weapon handling.
-   derives from Adventurer but adds a restriction on
-   equipment as well as physical development at level up.'''
+   good physicals and a proficient in melee weapon handling.'''
    
    def __init__(self, uName: str):
       # build adventurer
@@ -122,9 +120,10 @@ class Ranger(Adventurer):
          uName, 
          [40, 13, 12, 8, 7, 15, rndLuck()],
          survivalist,
-         "veteran of dungeons, rangers use their light steps\
- to explore swiftly and dodge with finesse. armed with their\
- favorite ranged weapon, they patrol the wilderness.", 
+         "veteran of dungeons, rangers use their light steps"
+         " to explore swiftly and dodge with finesse. armed "
+         "with their favorite ranged weapon, they patrol the"
+         " wilderness.", 
          elt = NOELM
       )
       # default gear
@@ -158,9 +157,7 @@ class Ranger(Adventurer):
 # Ranger Job
 class Elementalist(Adventurer):
    '''Elementalists perform the best at arcanes which
-   allows them to conjure elemental magic. derives from
-   Adventurer but adds a restriction on equipment as well
-   as physical development at level up.'''
+   allows them to conjure elemental magic.'''
    
    def __init__(self, uName: str):
       # build adventurer
@@ -169,9 +166,9 @@ class Elementalist(Adventurer):
          uName, 
          [40, 9, 10, 15, 13, 8, rndLuck()], 
          conjuring,
-         "they say dungeons just like magic sip into this world\
- from a distant place. that might explain how rare the\
- talent of conjuring and wielding elements is.", 
+         "they say dungeons just like magic sip into this world"
+         " from a distant place. that might explain how rare the"
+         " talent of conjuring and wielding elements is.", 
          elt = NOELM
       )
       # default gear

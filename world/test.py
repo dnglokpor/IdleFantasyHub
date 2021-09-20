@@ -9,21 +9,28 @@ from icecream import IceCreamDebugger
 if __name__ == "__main__":
    dbg = IceCreamDebugger()
    
-   myLewysG = c.Fighter("myLewysG")
+   '''myLewysG = c.Fighter("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.comboAttack)
    myLewysG.getSkillSet().assign("reaction", skl.counter)
    myLewysG.getSkillSet().assign("critical", skl.braceForImpact)
+   '''
    
    '''myLewysG = c.Ranger("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.takeAim)
    myLewysG.getSkillSet().assign("reaction", skl.footwork)
    myLewysG.getSkillSet().assign("critical", skl.firstAid)
-   #myLewysG = c.Elementalist("myLewysG")
    '''
+   
+   myLewysG = c.Elementalist("myLewysG")
+   myLewysG.getSkillSet().assign("ability", skl.embers)
+   myLewysG.getSkillSet().assign("reaction", skl.weaken)
+   myLewysG.getSkillSet().assign("critical", skl.cure)
+   
    p = cf.Party([myLewysG])
-   p2 = cf.Party([ml.s_Sparowl(), ml.s_Sparowl()])
+   p2 = cf.Party([ml.s_Raccoundrel(), ml.s_Raccoundrel(), 
+      ml.s_Raccoundrel()])
    bState = cf.BattleState(p, p2)
-   if bState.run() == p: # adventurer won
+   if bState.run() == p: # adventurer(s) won
       bState.awardExp()
       bState.collectLoot()
       bState.recoverLostItems()

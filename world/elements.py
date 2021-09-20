@@ -57,6 +57,12 @@ class Element:
       '''two elements are equal if they have equal value
       attributes.'''
       return self.value == other.value
+   def __ge__(self, other):
+      '''greater than or equal.'''
+      return self.__gt__(other) or self.__eq__(other)
+   def __le__(self, other):
+      '''less than or equal.'''
+      return self.__lt__(other) or self.__eq__(other)
    
    # override tostring
    def __str__(self):
@@ -70,4 +76,4 @@ AQUA = Element("Aqua", 3)
 VULCAN = Element("Vulcan", 4)
 
 if __name__ == "__main__":
-   print(AEOLA <= AEOLA)
+   print(VULCAN >= AEOLA)

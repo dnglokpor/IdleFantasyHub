@@ -192,7 +192,8 @@ class Mastery(dict):
    '''the mastery is a collection of moves that are available
    for an adventurer as he gets stronger in a specific class.
    the key is the level at which the skill is available and
-   the skill itself is the value.'''
+   the skill itself is the value. the skill available at key
+   "0" is called the base skill.'''
    
    def __init__(self, name: str, lore: str, allSkills: list):
       '''"allSkills" must be a list of tuples.'''
@@ -209,8 +210,8 @@ class Mastery(dict):
       return self.lore
    def getBase(self):
       '''the base skill is the skill added to the mastery with
-      key "1". if not defined return "None".'''
-      return self.get(1)
+      key "0". if not defined return "None".'''
+      return self.get(0)
    def getSkill(self, uLevel: int, aLevel: int):
       '''return the skill corresponding at "uLevel" if
       "uLevel" is defined and if "uLevel <= aLevel".
@@ -226,7 +227,7 @@ class Mastery(dict):
       the base skill.'''
       unlocked = list()
       for lvl, skill in self.items():
-         if 1 < lvl <= currentLevel:
+         if 0 < lvl <= currentLevel:
             unlocked.append(skill)
       return unlocked
    

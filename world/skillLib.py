@@ -283,8 +283,8 @@ class Strike(SinglePhysical):
    def __init__(self):
       super().__init__(
          "Strike", 
-         "strike the target with the weapon in hand. fails\
- if there are no weapons in hand.",
+         "strike the target with the weapon in hand. fails "
+         "if there are no weapons in hand.",
          0, 
          1.0,
          NOELM
@@ -307,11 +307,11 @@ strike = Strike()
 # Fighting Stance
 fightingStance = Buff(
    "Fighting Stance",
-   "takes a battle stance that slightly increase offensive\
- capabilities for 3 turns.",
-   3,
-   ["attack",],
+   "takes a battle stance that slightly increase offensive "
+   " capabilities for 2 turns.",
    4,
+   ["attack",],
+   3,
    0.50
 )
 
@@ -445,10 +445,10 @@ class TakeAim(Buff):
          "Take Aim",
          "aim its ranged weapon to get an attack boost the next"
          " turn. requires a bow.",
-         3,
+         4,
          ["attack",],
          2,
-         0.50
+         1.00
       )
    
    # action override
@@ -471,7 +471,7 @@ footwork = Buff(
    "Use agile footwork around the field to raise dexterity.",
    5,
    ["dexterity",],
-   3,
+   2,
    0.25
 )
 
@@ -525,20 +525,10 @@ class TriShot(Shoot):
 triShot = TriShot()
 
 ################## conjuring
-manaStrike = Magic(
-   "Mana Strike",
-   "create a mana disturbance that inflicts raw magic"
-   " damage to one opponent.",
-   0,
-   1.0,
-   NOELM
-   
-)
 gust = Magic(
    "Gust",
-   "conjure and blows a target with a scathing gust of"
-   " wind.",
-   4,
+   "conjure and blows a target with a scathing gust of wind.",
+   3,
    1.5,
    AEOLA  
 )
@@ -547,7 +537,7 @@ gust = Magic(
 stoneSling = Magic(
    "Stone Sling",
    "conjure a small pointy roc and hurl it at the target.",
-   4,
+   3,
    1.5,
    GAIA
 )
@@ -556,7 +546,7 @@ stoneSling = Magic(
 waterWhip = Magic(
    "Water Whip",
    "conjure a semi rigid stream of water to whip a target.",
-   4, 
+   3, 
    1.5, 
    AQUA
 )
@@ -565,7 +555,7 @@ waterWhip = Magic(
 embers = Magic(
    "Embers",
    "conjure and throw at a target burning hot fiery sparks.",
-   4, 
+   2, 
    1.5, 
    VULCAN
 )
@@ -575,25 +565,25 @@ weaken = Debuff(
    "Weaken",
    "conjure up a cloud of magic that impairs the ability"
    " of the target to muster its strength. reduces attack.",
-   5,
+   4,
    ["attack",],
-   0,
+   3,
    0.25
 )
    
 
 # magic shield
 class MagicShield(Buff):
-   '''magic skill that raise defense by 25% for 3 turns.'''
+   '''magic skill that raise defense by 50% for 1 turns.'''
    def __init__(self):
       super().__init__(
          "Magic Shield",
-         "conjures an air barrier that reduces physical damages\
- taken.",
-         4,
+         "conjures an air barrier that reduces physical damages"
+         " taken.",
+         0,
          ["defense",],
-         3,
-         1.25
+         2,
+         0.50
       )
    
    # action override
@@ -620,7 +610,7 @@ class Cure(Buff):
          5,
          ["health",],
          0,
-         1.40
+         1.50
       )
    
    # action override
@@ -640,20 +630,24 @@ cure = Cure()
 # Masteries library
 blademanship = Mastery("Blademanship",
    "collection of skills for the blade afficionado.",
-   [(1, strike), (3, braceForImpact), (7, counter), 
-      (10, fightingStance), (20, comboAttack),
+   [(0, strike), (3, fightingStance), (7, counter), 
+      (10, braceForImpact), (20, comboAttack),
    ]
 )
 survivalist = Mastery("Survivalist",
    "techniques prized by the ones unfazed by the wilderness.",
-   [(1, shoot), (3, takeAim), (7, footwork), (10, firstAid),
+   [(0, shoot), (3, takeAim), (7, footwork), (10, firstAid),
       (20, triShot),
    ]
 )
 conjuring = Mastery("Conjuring",
-   "spells at the service of those who have the ability to\
- wield them.",
-   [(1, manaStrike), (3, magicShield), (7, cure),
-      (10, weaken), (20, embers)
+   "spells at the service of those who have the ability to"
+   " wield them.",
+   [(0, magicShield), (1, embers), (5, weaken),
+      (10, cure), (20, gust)
    ]
 )
+
+# test run
+if __name__ == "__main__":
+   print(conjuring.__str__(False))

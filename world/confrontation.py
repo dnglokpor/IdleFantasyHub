@@ -361,16 +361,16 @@ class BattleState(State):
       if not self.advs.stillStands():
          winner = self.mons
          wName = "monsters"
-      print("{} won the battle!".format(wName)) # DEBUG
+      print("{} won the battle!\n".format(wName)) # DEBUG
       return winner # return winning party         
          
    # override tostring
    def __str__(self) -> str:
       '''return a string representing this object for
       printing purposes.'''
-      description = self.advs.__str__()
+      description = self.mons.__str__()
       description += "\n\n\n"
-      description += self.mons.__str__()
+      description += self.advs.__str__()
       description += '\n'
       description += self.turnOrder.__str__()
       return description
