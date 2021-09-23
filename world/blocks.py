@@ -11,8 +11,14 @@
 '''
 
 # imports
-from confrontation import Party
+from confrontation import Party, BattleState
 import random as rnd
+
+# helpers
+def rndLuck(max = 10):
+   '''randomly allocates a number between 1 and max for
+   the luck stat.'''
+   return rnd.choice(range(max)) + 1
 
 # Environment object
 class Environment(dict):
@@ -58,8 +64,8 @@ class Environment(dict):
       string = "hazard: {:3d}\n".format(self.get("hazard"))
       for descr in self.get("look"):
          string += descr + '\n'
-      string += self.get("resource").__str__()
-      string += self.get("hostile").__str__()
+      string += "resource:" + self.get("resource").__str__() + '\n'
+      string += "hostile:" + self.get("hostile").__str__()
       # add amenity later
       return string
 
@@ -74,36 +80,33 @@ class Block:
    
    # exploration
    def explore(self, explorers: Party):
+      '''sub classes must override this.'''
       print("exploring {}".format(self))
    
    # toString
    def __str__(self) -> str:
-      return "{:8s} Block\n{}".format(self.name, 
+      return "{} Block\n{}".format(self.name, 
          self.env.__str__())
 
 # EmptyBlock object
 class EmptyBlock(Block):
    '''a block in which there is no predefined events.'''
    def __init__(self, env: Environment):
-      super.__init__("Empty", env)
+      super().__init__("Empty", env)
    
    # exploration
    def explore(self, explorers: Party):
       '''just describes the block's environment.'''
-      looks = str()
       for l in self.env.getLook():
-         looks += l
-         looks += '\n;'
-      return looks
+         print(l);
 
 # ScavengingBlock object      
 class ScavengingBlock(Block):
    '''in a scavenging block, you can gather items during
-   the exploration of the block. there are 3 subclasses
-   of scavenging blocks which all derive from this one.
+   the exploration of the block.
    '''
-   def __init__(self, name: str, env: Environment):
-      super().__init__(name, env)
+   def __init__(self, env: Environment):
+      super().__init__("Scavenging", env)
    
    # exploration
    def explore(self, explorers: Party):
@@ -111,5 +114,58 @@ class ScavengingBlock(Block):
       try to gather the resource, they might get lucky and
       find something good. else depending on how dangerous
       the block is, they could encounter hostile mobs instead.
+      if they manage to survive the fight, they will still
+      gather before they leave.
       '''
-      
+      for l in self.env.getLook():
+         print(l);
+      if (rndLuck(100) < rndLuck(100)): # battle branch
+         # DEBUG
+         print("you were looking for goods but found monsters...")
+         # scavenging monsters are just a group of a same
+         # monster based on the hazard level
+         hostile = self.env.get("hostile")
+         monsters = list()
+         haz = self.env.get("hazard")
+         maxLvl = rndLuck(max(5, haz))
+         size = rndLuck(haz)
+         for i in range(size):
+            m = hostile[0](rndLuck(maxLvl))
+            monsters.append(m)
+         battle = BattleState(explorers, Party(monsters))
+         battle.run()
+      # now that's out of the way, scavenge
+      if explorers.stillStands(): # scavenging branch
+         (qty, item) = (rndLuck(5), rnd.choice(self.env.get("resource")))
+         # DEBUG
+         print("you stumble upon some {}.".format(item.getName()))
+         for unit in explorers:
+            if unit.getBag().addMulti(item, qty):
+               # DEBUG
+               print("{} obtained {} {}".format(unit.getName(), qty,
+                  item.getName())) 
+   
+# BattleBlock
+class BattleBlock(Block):
+   '''the dungeon is full of hostile mobs that will try
+   to defeat the party. when this Block is encoutered,
+   the explorers will have to fight their way through
+   it.'''
+   def __init__(self, env: Environment):
+      super().__init__("Battle", env)
+   
+   # exploration
+   def explore(self, explorers: Party):
+      hostile = self.env.get("hostile")
+      maxLvl = rndLuck(self.env.get("hazard"))
+      # at most 5 monsters
+      size = rndLuck(max(5, self.env.get("hazard")))
+      levels = rnd.choices(range(maxLevel), k = size)
+      monsters = rnd.choices(hostile, k = size)
+      monsters = [monster[i](levels[i]) for i in range(len(monsters))]
+      battle = BattleState(explorers, monsters)
+      battle.run()
+   
+# test platform
+if __name__ == "__main__":
+   pass

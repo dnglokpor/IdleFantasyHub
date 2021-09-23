@@ -100,6 +100,8 @@ class Fighter(Adventurer):
             # hp, ..., dext
             newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
+            # append luck to the list
+            newStats.append(self.stats.getStat("luck"))
             # luck increases by at most 3
             newStats[6] += rndLuck(3)
          # assign new stats
@@ -148,6 +150,8 @@ class Ranger(Adventurer):
             # hp, ..., dext
             newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
+            # append luck to the list
+            newStats.append(self.stats.getStat("luck"))
             # luck increases by at most 3
             newStats[6] += rndLuck(3)
          # assign new stats
@@ -191,6 +195,8 @@ class Elementalist(Adventurer):
             # hp, ..., dext
             newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
+            # append luck to the list
+            newStats.append(self.stats.getStat("luck"))
             # luck increases by at most 3
             newStats[6] += rndLuck(3)
          # assign new stats

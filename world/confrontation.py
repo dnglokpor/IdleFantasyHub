@@ -362,6 +362,10 @@ class BattleState(State):
          winner = self.mons
          wName = "monsters"
       print("{} won the battle!\n".format(wName)) # DEBUG
+      if winner == self.advs: # post battle rewards
+         self.awardExp()
+         self.collectLoot()
+         self.recoverLostItems()
       return winner # return winning party         
          
    # override tostring

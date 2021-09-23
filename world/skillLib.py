@@ -67,7 +67,7 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
       hit = "missed {}!".format(target.getName())
       descr = (None, hit)
    else: # target was hit
-      hit = "dmg to {}"
+      hit = "dealt {} hp dmg to {}"
       # compute potential damage
       dmg = perp.getStats().getStat(ofs).getCurrent()
       dmg *= dmgMult
@@ -75,10 +75,13 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
       # elemental boost
       if elt > target.getElement():
          dmg *= 4 # quadruple potential damage
+         hit = "it's super effective!\n" + hit
       elif elt < target.getElement():
          dmg //= 2 # half potential damage
+         hit = "it's not very effective!\n" + hit
       elif elt != NOELM and elt == target.getElement():
             dmg = 0  # immunity
+            hit = "it had no effect!\n" + hit
       else: # no elemental bonus
          pass
       # perp has 5 + luck chances to deal crit damage
@@ -94,7 +97,6 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
          dmg = 0 # can only deal positive damage (>= 0)
       # inflict damage
       target.suffer(dmg)
-      hit = "dealt {} hp " + hit
       hit = hit.format(dmg, target.getName())
       if not target.isAlive():
          hit += "\n{} died!".format(target.getName())

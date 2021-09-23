@@ -27,11 +27,40 @@ if __name__ == "__main__":
    myLewysG.getSkillSet().assign("critical", skl.cure)
    
    p = cf.Party([myLewysG])
-   p2 = cf.Party([ml.s_Raccoundrel(), ml.s_Raccoundrel(), 
+   
+   '''p2 = cf.Party([ml.s_Raccoundrel(), ml.s_Raccoundrel(), 
       ml.s_Raccoundrel()])
    bState = cf.BattleState(p, p2)
-   if bState.run() == p: # adventurer(s) won
-      bState.awardExp()
-      bState.collectLoot()
-      bState.recoverLostItems()
+   bState.run()
    dbg(myLewysG.getBag().__str__())
+   '''
+   
+   # Blocks
+   import blocks as bk
+   import itemLib as il
+   '''eEnv = bk.Environment(1, 
+      ["There is lush green tall grass all around the place.",
+       "The wind blows slowly among the small bushes.",
+       "Bugs can be heard chirping gladly in the sunlight."
+      ],
+      res = None,
+      hostile = None, 
+      amenity = None
+   )
+   eBlock = bk.EmptyBlock(eEnv)
+   #print(eBlock)
+   eBlock.explore(p)
+   '''
+   sEnv = bk.Environment(1, 
+      look = 
+      ["the prairie seems ripe with fragrant plants and flowers.",
+       "herb picking would definitely yield results.",
+      ],
+      res = [il.chemomille, il.dandetigerSeeds, il.theestleNeedles],
+      hostile = [ml.s_Sparowl],
+      amenity = None
+   )
+   sBlock = bk.ScavengingBlock(sEnv)
+   #print(eBlock)
+   sBlock.explore(p)
+   

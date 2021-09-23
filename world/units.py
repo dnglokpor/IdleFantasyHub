@@ -12,6 +12,7 @@ from base import UnitStats, Gauge
 from elements import Element, NOELM
 from skills import Skill, SkillSet, EffectList
 from containers import Inventory, Equipment, Wallet
+from math import ceil
 
 # Unit object
 class Unit:
@@ -174,6 +175,8 @@ class Monster(Unit):
          # hp, ..., dext
          newStats = [ceil(newStats[idx] * dev[idx] / 100) \
             for idx in range(6)]
+         # append luck to the list
+         newStats.append(self.stats.getStat("luck"))
          # luck increases by at most 3
          newStats[6] += rndLuck(3)
       # assign new stats

@@ -28,6 +28,27 @@ smallFeathers = Item(
    5
 )
 
+# herbs
+chemomille = Item(
+   "Chemomille",
+   "a yellowish small flower that smells like apples. "
+   "its rich constitution makes it prime remedy ingredient.",
+   10
+)
+dandetigerSeeds = Item(
+   "Dandetiger Seeds",
+   "its seeds are known for being carried long distance by"
+   " winds. the prairie is not complete without them.",
+   2
+)
+theestleNeedles = Item(
+   "Theestle Needles",
+   "the needles of this small plant are a lot harder than "
+   "wood should be. artisans use them as nail replacement.",
+   5
+)
+   
+
 # weapons
 longsword = Sword(
    "Longsword",
