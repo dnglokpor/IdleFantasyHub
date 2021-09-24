@@ -52,7 +52,7 @@ class Inventory:
 positive (> 0).")
       found = list() # empty list
       k = genHash(iName)
-      if self.contains(iName): # we have some
+      if self.contents.contains(iName): # we have some
          stack = self.getStackOf(k)
          if len(stack) >= qty: # enough
             for i in range(qty): # take out then

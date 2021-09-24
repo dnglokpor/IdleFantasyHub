@@ -144,6 +144,11 @@ class SkillSet(dict):
       return action
    
    # setters
+   def resetAll(self):
+      '''reset the cooldown of all skills in the set.'''
+      for skill in self.values():
+         if skill != None:
+            skill.cd.reset()
    def assign(self, sKey : str, skill) -> bool:
       '''set the skill attributed to reaction
       or support. the base skill can't be changed.

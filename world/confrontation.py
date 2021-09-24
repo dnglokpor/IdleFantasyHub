@@ -263,20 +263,23 @@ class BattleState(State):
             if u.develup(gain): # leveled up
                print("{} has leveled up.".format(
                   u.getName()))
-               print(u.getStats().__str__(False))
+               print(u.getStats().__str__())
    def collectLoot(self):
       '''allows adventurers to collect loot from monsters.'''
       for m in self.mons:
          chances = 90
          for item in m.getBag():
-            if choice(range(100)) <= chances:
-               for a in self.advs:
-                  print("{} got {} x {} from {}!".format(
-                     a.getName(), len(item), item[0].getName(), 
-                     m.getName()))
-                  sleep(2)
-                  a.getBag().addMulti(item[0], len(item))
-            chances -= 10 # reduces chances of getting next
+            qty = 0
+            for i in range(len(item)):
+               if choice(range(100)) <= chances:
+                  qty += 1
+               chances -= 10 # reduces chances of getting next
+            for a in self.advs:
+               a.getBag().addMulti(item[0], len(item))
+               print("{} got {} x {} from {}!".format(
+                  a.getName(), len(item), item[0].getName(), 
+                  m.getName()))
+               sleep(2)
    def recoverLostItems(self):
       '''a chance of recovering wasted items.'''
       for o, i in self.waste:
@@ -308,10 +311,11 @@ class BattleState(State):
             unit.getSkillSet().tick()
             # apply effects
             unit.stats.cleanse() # base stats only
-            unit.getActiveEffects().applyAll(unit)
+            unit.getActiveEffects().tick() # countdown effects
+            unit.getActiveEffects().applyAll(unit) # re-apply
             # action
             a = unit.getSkillSet().getBestAction()
-            print("{} attempts {}!".format(unit.getName(),
+            print("\n{} attempts {}!".format(unit.getName(),
                a.getName()))           # DEBUG
             sleep(2)                   # DEBUG
             result = a(unit, self)
@@ -331,13 +335,13 @@ class BattleState(State):
                   if (t.isCritical() and c!= None and 
                      c.isReady()):
                      # critical reaction branch
-                     print("desperate, {} attempts {}!".format(
+                     print("\ndesperate, {} attempts {}!".format(
                         t.getName(), c.getName()))  # DEBUG
                      sleep(2)             # DEBUG
                      res = c(t, self)
                   elif r != None and r.isReady():
                      # reaction branch
-                     print("{} attempts {} in return!".format(
+                     print("\n{} attempts {} in return!".format(
                         t.getName(), r.getName()))  # DEBUG
                      sleep(2)             # DEBUG
                      res = r(t, self)
@@ -347,22 +351,25 @@ class BattleState(State):
                      print(res[1])
                      sleep(2)
                   # END OF DEBUG BLOC
-            unit.getActiveEffects().tick() # countdown effects
             # check for end of battle
             if self.isOver():
                break # out of round For loop
          # end of round loop
          if not self.isOver():
             roundNo += 1
-            print("\n\n\n")            # DEBUG
       # end of battle loop
+      # cleanse stats
+      for u in self.advs:
+         u.stats.cleanse()
+      # decide winner
       winner = self.advs
       wName = "adventurers"
       if not self.advs.stillStands():
          winner = self.mons
          wName = "monsters"
-      print("{} won the battle!\n".format(wName)) # DEBUG
-      if winner == self.advs: # post battle rewards
+      print("\n{} won the battle!\n".format(wName)) # DEBUG
+      # award rewards
+      if winner == self.advs:
          self.awardExp()
          self.collectLoot()
          self.recoverLostItems()
@@ -373,10 +380,11 @@ class BattleState(State):
       '''return a string representing this object for
       printing purposes.'''
       description = self.mons.__str__()
-      description += "\n\n\n"
+      description += "\n\n"
       description += self.advs.__str__()
       description += '\n'
       description += self.turnOrder.__str__()
+      description += '\n'
       return description
 
 # test platform

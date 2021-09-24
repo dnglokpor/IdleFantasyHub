@@ -27,13 +27,14 @@ def spawn(name: str, level: int, bStats: list,
    return Monster(name, level, bStats, bSkill, lore, elt)
    
 # monster spawners
+# Raccoundrel
 def s_Raccoundrel(level = 1):
    '''return a level "level" Raccoundrel (Monster).'''
    raccoundrel = spawn(
       "Raccoundrel",
       level, 
       [
-         12 + choose(5), # hp 12-16
+         15 + choose(3), # hp 15-17
          20 + choose(2), 10 + choose(2), # atk 20-21|def 10-11
          5 + choose(2), 7 + choose(3), # spe 5-6|res 7-9
          6 + choose(2), # dext 6-7
@@ -47,11 +48,13 @@ def s_Raccoundrel(level = 1):
    # ability/critical skills
    
    # drops
-   # a single pelt
+   # pelt x 1
    raccoundrel.getBag().add(itml.pelt.copy())
    
    # done so return
    return raccoundrel
+
+# Sparowl
 def s_Sparowl(level = 1):
    '''return a level "level" Sparowl (Monster).'''
    sparowl = spawn(
@@ -79,3 +82,34 @@ def s_Sparowl(level = 1):
    
    # return
    return sparowl
+
+# Honeybeat
+def s_Honeybeat(level = 1):
+   '''return a level "level" Honeybeat (Monster).'''
+   honeybeat = spawn(
+      "Honeybeat",
+      level,
+      [
+         10 + choose(5), # hp 10-14
+         18 + choose(5), 6 + choose(3), # atk 18-22|def 6-8
+         8 + choose(3), 15 + choose(3), # spe 8-10|res 15-17
+         15 + choose(4), # dext 15-18
+         choose(5) # luc 0-4
+      ],
+      skl.sting,
+      "everyone likes honey but if you come accros a Honeybeat "
+      "hive, you should run away unless being lethally stung "
+      "is on your bucket list.",
+      AEOLA
+   )
+   # ability/critical skills
+   if level >= 1:
+      honeybeat.getSkillSet().assign("ability", skl.buzz)
+   
+   # drops
+   # stinger x 1, honee x 1
+   honeybeat.getBag().add(itml.stinger)
+   honeybeat.getBag().add(itml.honee)
+   
+   # return
+   return honeybeat

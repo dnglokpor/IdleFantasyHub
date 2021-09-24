@@ -8,6 +8,7 @@
 '''
 
 # imports
+from helpers import rndGen
 from base import UnitStats, Gauge
 from elements import Element, NOELM
 from skills import Skill, SkillSet, EffectList
@@ -142,6 +143,11 @@ class Playable(Unit):
       return old
    
    # override tostring
+   def __str__(self, short = True):
+      descr = super().__str__(short)
+      if not short:
+         descr += '\n' + self.equipment.__str__()
+      return descr
 
 # Monster object
 class Monster(Unit):
@@ -176,9 +182,9 @@ class Monster(Unit):
          newStats = [ceil(newStats[idx] * dev[idx] / 100) \
             for idx in range(6)]
          # append luck to the list
-         newStats.append(self.stats.getStat("luck"))
+         newStats.append(self.stats.getStat("luck").getFull())
          # luck increases by at most 3
-         newStats[6] += rndLuck(3)
+         newStats[6] += rndGen(3)
       # assign new stats
       self.stats = UnitStats(newStats)
    
@@ -186,10 +192,10 @@ class Monster(Unit):
    def __str__(self, short = True):
       '''return a string representing this object for
       printing purposes.'''
-      if short:
-         return super().__str__()
-      description = "{} <Monster>:".format(self.name)
-      description += '\n' + self.lore
+      description = super().__str__(short)
+      if not short:
+         description += "class <Monster>:"
+         description += '\n' + self.lore
       return description
 
 # test platform

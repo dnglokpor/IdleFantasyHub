@@ -8,6 +8,7 @@
 '''
 
 # imports 
+from helpers import rndGen
 from base import UnitStats
 from elements import NOELM 
 from skills import Mastery
@@ -33,6 +34,7 @@ class Adventurer(Playable):
       self.mastery = mastery
       # basic skill is from mastery is assigned in super call
       self.lore = lore
+      # TODO: add exploration tools
    
    # getters
    def getClassName(self) -> str:
@@ -49,17 +51,11 @@ class Adventurer(Playable):
    def __str__(self, short = True):
       '''return a string representing this object for
       printing purposes.'''
-      if short:
-         return super().__str__()
-      description = "{} <{}>:".format(self.name, self.className)
-      description += '\n' + self.lore
+      description = super().__str__(short)
+      if not short:
+         description += "class <{}>:".format(self.className)
+         description += '\n' + self.lore
       return description
-
-# helpers
-def rndLuck(max = 10):
-   '''randomly allocates a number between 1 and max for
-   the luck stat.'''
-   return choice(range(max)) + 1
 
 # Predefined Jobs
 # TBD include default gear assignment in constructor
@@ -73,7 +69,7 @@ class Fighter(Adventurer):
       super().__init__(
          "Fighter",
          uName, 
-         [45, 16, 14, 7, 8, 10, rndLuck()], 
+         [45, 16, 14, 7, 8, 10, rndGen()], 
          blademanship,
          "adventurer class with all-round good physicals\
  and a proficient in bladed weapon handling. monsters might\
@@ -101,9 +97,9 @@ class Fighter(Adventurer):
             newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
             # append luck to the list
-            newStats.append(self.stats.getStat("luck"))
+            newStats.append(self.stats.getStat("luck").getFull())
             # luck increases by at most 3
-            newStats[6] += rndLuck(3)
+            newStats[6] += rndGen(3)
          # assign new stats
          self.stats = UnitStats(newStats)
       return lvlGain[0]
@@ -120,7 +116,7 @@ class Ranger(Adventurer):
       super().__init__(
          "Ranger", 
          uName, 
-         [40, 13, 12, 8, 7, 15, rndLuck()],
+         [40, 13, 12, 8, 7, 15, rndGen()],
          survivalist,
          "veteran of dungeons, rangers use their light steps"
          " to explore swiftly and dodge with finesse. armed "
@@ -151,9 +147,9 @@ class Ranger(Adventurer):
             newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
             # append luck to the list
-            newStats.append(self.stats.getStat("luck"))
+            newStats.append(self.stats.getStat("luck").getFull())
             # luck increases by at most 3
-            newStats[6] += rndLuck(3)
+            newStats[6] += rndGen(3)
          # assign new stats
          self.stats = UnitStats(newStats)
       return lvlGain[0]
@@ -168,7 +164,7 @@ class Elementalist(Adventurer):
       super().__init__(
          "Elementalist", 
          uName, 
-         [40, 9, 10, 15, 13, 8, rndLuck()], 
+         [40, 9, 10, 15, 13, 8, rndGen()], 
          conjuring,
          "they say dungeons just like magic sip into this world"
          " from a distant place. that might explain how rare the"
@@ -196,9 +192,9 @@ class Elementalist(Adventurer):
             newStats = [ceil(newStats[idx] * dev[idx] / 100) \
                for idx in range(6)]
             # append luck to the list
-            newStats.append(self.stats.getStat("luck"))
+            newStats.append(self.stats.getStat("luck").getFull())
             # luck increases by at most 3
-            newStats[6] += rndLuck(3)
+            newStats[6] += rndGen(3)
          # assign new stats
          self.stats = UnitStats(newStats)
       return lvlGain[0]

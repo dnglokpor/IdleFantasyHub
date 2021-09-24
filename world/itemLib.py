@@ -27,6 +27,19 @@ smallFeathers = Item(
    "a few small but sturdy feathers that float in the wind.",
    5
 )
+honee = Item(
+   "Honee",
+   "Honeybeat species honey. it is a lot darker than regular honey "
+   "because of its high caramelized fructose contents. makes "
+   "great taffy.",
+   15
+)
+stinger = Item(
+   "Stinger",
+   "freshly harvested Honeybeat species stinger. apothecaries "
+   "extract toxins from it to make a variety of potions.",
+   8
+)
 
 # herbs
 chemomille = Item(
@@ -35,9 +48,9 @@ chemomille = Item(
    "its rich constitution makes it prime remedy ingredient.",
    10
 )
-dandetigerSeeds = Item(
-   "Dandetiger Seeds",
-   "its seeds are known for being carried long distance by"
+dandetigreSeeds = Item(
+   "Dandetigre Seeds",
+   "these seeds are known for being carried long distance by"
    " winds. the prairie is not complete without them.",
    2
 )
@@ -47,7 +60,47 @@ theestleNeedles = Item(
    "wood should be. artisans use them as nail replacement.",
    5
 )
-   
+
+# wood
+haukWood = Item(
+   "Hauk Wood",
+   "small logs from a felled Hauk tree. the dark bark conceals"
+   " lightly colored durable wood underneath it.",
+   15
+)
+hardcorn = Item(
+   "Hardcorn",
+   "nuts commonly found while felling Hauk trees. they're so hard "
+   "literally nothing eats them. prized crafting ingredient.",
+   5
+)
+
+# ores
+ironOre = Item(
+   "Iron Ore",
+   "small rock shards containing significant traces of iron.",
+   10
+)
+palemethyst = Item(
+   "Palemethyst",
+   "a variety of quartz with a really pale purple hue. they're "
+   "often used in the confection of cheap house furniture.",
+   10
+)
+
+# tools
+axe = Item(
+   "Axe",
+   "a small woodcutter axe made of steel. handy when you seek "
+   "good lumber.",
+   250
+)
+pickaxe = Item(
+   "Pickaxe",
+   "rocks tremble in fear when they see you wield this robust "
+   "miner pickaxe. use with moderation",
+   250
+)
 
 # weapons
 longsword = Sword(

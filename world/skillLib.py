@@ -67,7 +67,7 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
       hit = "missed {}!".format(target.getName())
       descr = (None, hit)
    else: # target was hit
-      hit = "dealt {} hp dmg to {}"
+      hit = str()
       # compute potential damage
       dmg = perp.getStats().getStat(ofs).getCurrent()
       dmg *= dmgMult
@@ -75,19 +75,21 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
       # elemental boost
       if elt > target.getElement():
          dmg *= 4 # quadruple potential damage
-         hit = "it's super effective!\n" + hit
+         hit += "it's super effective!\n"
       elif elt < target.getElement():
          dmg //= 2 # half potential damage
-         hit = "it's not very effective!\n" + hit
+         hit += "it's not very effective!\n"
       elif elt != NOELM and elt == target.getElement():
             dmg = 0  # immunity
-            hit = "it had no effect!\n" + hit
+            hit += "it had no effect!\n"
       else: # no elemental bonus
          pass
       # perp has 5 + luck chances to deal crit damage
       if chance(perp.getStats().getStat("luck").getCurrent()):
          dmg *= 2 # critical hit so double dmg
-         hit = "crit. " + hit
+         hit += "dealt {} hp crit. dmg. to {}"
+      else:
+         hit += "dealt {} hp dmg. to {}"
       # substract target's defense
       dfs = "defense"
       if ofs == "special":
@@ -277,6 +279,17 @@ whoosh = SingleSpecial(
    AEOLA
 )
 
+# Buzz
+buzz = Buff(
+   "Buzz",
+   "flaps the user's wings faster to raise speed. result in a "
+   "high pitch buzzing noise.",
+   3,
+   ["dexterity",],
+   2,
+   0.25
+)
+
 ################## blademanship
 # Strike
 class Strike(SinglePhysical):
@@ -311,9 +324,9 @@ fightingStance = Buff(
    "Fighting Stance",
    "takes a battle stance that slightly increase offensive "
    " capabilities for 2 turns.",
-   4,
-   ["attack",],
    3,
+   ["attack",],
+   2,
    0.50
 )
 
@@ -327,7 +340,7 @@ class Counter(SinglePhysical):
          "strike back at a the foe who just striked at you.\
  fails if not used as a reaction.",
          4,
-         1.5,
+         1.0,
          NOELM  
       )
    
@@ -356,10 +369,10 @@ braceForImpact = Buff(
    "Brace For Impact",
    "raise defense and resilience for 3 turns to prepare\
  for incoming hits.",
-   3,
+   6,
    ["defense", "resilience"],
-   4,
-   0.25
+   3,
+   0.50
 )
 
 # Combo Attack
@@ -447,9 +460,9 @@ class TakeAim(Buff):
          "Take Aim",
          "aim its ranged weapon to get an attack boost the next"
          " turn. requires a bow.",
-         4,
+         3,
          ["attack",],
-         2,
+         1,
          1.00
       )
    
@@ -531,7 +544,7 @@ gust = Magic(
    "Gust",
    "conjure and blows a target with a scathing gust of wind.",
    3,
-   1.5,
+   1.25,
    AEOLA  
 )
 
@@ -540,7 +553,7 @@ stoneSling = Magic(
    "Stone Sling",
    "conjure a small pointy roc and hurl it at the target.",
    3,
-   1.5,
+   1.25,
    GAIA
 )
 
@@ -549,7 +562,7 @@ waterWhip = Magic(
    "Water Whip",
    "conjure a semi rigid stream of water to whip a target.",
    3, 
-   1.5, 
+   1.25, 
    AQUA
 )
 
@@ -558,7 +571,7 @@ embers = Magic(
    "Embers",
    "conjure and throw at a target burning hot fiery sparks.",
    2, 
-   1.5, 
+   1.15, 
    VULCAN
 )
 
@@ -580,11 +593,11 @@ class MagicShield(Buff):
    def __init__(self):
       super().__init__(
          "Magic Shield",
-         "conjures an air barrier that reduces physical damages"
+         "conjures a mana barrier that reduces physical damages"
          " taken.",
          0,
          ["defense",],
-         2,
+         1,
          0.50
       )
    
@@ -612,7 +625,7 @@ class Cure(Buff):
          5,
          ["health",],
          0,
-         1.50
+         0.50
       )
    
    # action override
