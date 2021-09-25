@@ -97,7 +97,7 @@ if __name__ == "__main__":
    wBlock.explore(p)   
    '''
    
-   mEnv = bk.Environment(1, 
+   mEnv = bk.Environment(
       look = 
       ["the walls of this cave are covered in sparkly materials.",
        "mining here should not be a waste of time.",
@@ -109,18 +109,17 @@ if __name__ == "__main__":
    mBlock = bk.MiningBlock(mEnv)
    #print(mBlock)
    myLewysG.getBag().add(il.pickaxe)
-   mBlock.explore(p)
+   mBlock.explore(p, 1)
    
    # floor test
    '''from floors import Floor
-   f1 = Floor(5)
-   f1Blocks = f1.build([eBlock, sBlock, bBlock], [2, 1, 1],
-      bk.StairsBlock())
+   f1 = Floor(5, 1, [eBlock, sBlock, bBlock], [2, 1, 1], bk.StairsBlock())
+   f1Blocks = f1.build()
    current = 0
    while current < len(f1Blocks) and p.stillStands():
       print("\nB{}f: {}\n".format(current + 1, f1Blocks[current].name))
       sleep(1)
-      f1Blocks[current].explore(p)
+      f1Blocks[current].explore(p, f1.getHazardLevel())
       if p.stillStands():
          current += 1
          if current < len(f1Blocks):

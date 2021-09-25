@@ -40,6 +40,12 @@ stinger = Item(
    "extract toxins from it to make a variety of potions.",
    8
 )
+silk = Item(
+   "Silk",
+   "a ball of bug silk recovered from a bug-like monster. it is "
+   "highly durable and enter the fabrication of textiles.",
+   15
+)
 
 # herbs
 chemomille = Item(
@@ -59,6 +65,12 @@ theestleNeedles = Item(
    "the needles of this small plant are a lot harder than "
    "wood should be. artisans use them as nail replacement.",
    5
+)
+orangerry = Item(
+   "Orangerry",
+   "this berry grows in damp soiled clearings of forests. "
+   "its fragrant flowers attract varieties of monsters.",
+   10
 )
 
 # wood

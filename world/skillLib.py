@@ -290,6 +290,17 @@ buzz = Buff(
    0.25
 )
 
+# Silk Knit
+silkKnit = Debuff(
+   "Silk Knit",
+   "wraps the target in a thick layer of bug silk, slowing it "
+   "down significantly.",
+   3,
+   ["dexterity",],
+   3, # means it will stack and never get removed
+   0.25
+)
+
 ################## blademanship
 # Strike
 class Strike(SinglePhysical):
@@ -322,12 +333,12 @@ strike = Strike()
 # Fighting Stance
 fightingStance = Buff(
    "Fighting Stance",
-   "takes a battle stance that slightly increase offensive "
+   "takes a battle stance that slightly increase attack and defense "
    " capabilities for 2 turns.",
-   3,
-   ["attack",],
+   5,
+   ["attack", "defense"],
    2,
-   0.50
+   0.25
 )
 
 # Counter
@@ -487,7 +498,7 @@ footwork = Buff(
    5,
    ["dexterity",],
    2,
-   0.25
+   0.50
 )
 
 # first aid

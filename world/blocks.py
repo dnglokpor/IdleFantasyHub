@@ -21,21 +21,18 @@ class Environment(dict):
    block looks like as well as all the resources available
    in it. this information is stored as a dict with multiple
    fields:
-    - the "hazard" is a number that describe how dangerous
-      the block overall is;
     - the "look" is a list of sentences describing the block; 
     - the "resource" is a list of items that can be scavenged
       around in the block;
     - the "hostile" is a list of monsters that could attack
       on the block;
     - the "amenity". 
-   except for the "hazard" and the "look", each other field
-   can be empty; symbolized by a "None".
+   except for the "look", each other field can be empty; symbolized
+   by a "None".
    '''
-   def __init__(self, haz: int, look: list, res = None,
-      hostile = None, amenity = None):
+   def __init__(self, look: list, res = None, hostile = None,
+      amenity = None):
       super().__init__({
-         "hazard": haz,
          "look": look,
          "resource": res,
          "hostile": hostile,
@@ -43,8 +40,6 @@ class Environment(dict):
       })
    
    # getters
-   def getHazard(self) -> int:
-      return self.get("hazard")
    def getLook(self) -> list:
       return self.get("look")
    def getResource(self) -> list:
@@ -56,7 +51,7 @@ class Environment(dict):
    
    # toString
    def __str__(self) -> str:
-      string = "hazard: {:3d}\n".format(self.get("hazard"))
+      string = ""
       for descr in self.get("look"):
          string += descr + '\n'
       string += "resource:" + self.get("resource").__str__() + '\n'
@@ -74,7 +69,7 @@ class Block:
       self.env = env
    
    # exploration
-   def explore(self, explorers: Party):
+   def explore(self, explorers: Party, haz: int):
       '''sub classes must override this.'''
       print("exploring {}".format(self))
    
@@ -90,7 +85,7 @@ class EmptyBlock(Block):
       super().__init__("Empty", env)
    
    # exploration
-   def explore(self, explorers: Party):
+   def explore(self, explorers: Party, haz: int):
       '''just describes the block's environment.'''
       for l in self.env.getLook():
          print(l);
@@ -105,7 +100,7 @@ class ScavengingBlock(Block):
       super().__init__("Scavenging", env)
    
    # exploration
-   def explore(self, explorers: Party):
+   def explore(self, explorers: Party, haz: int):
       '''scavenging has two possible outcomes. as explorers
       try to gather the resource, they might get lucky and
       find something good. else depending on how dangerous
@@ -122,7 +117,6 @@ class ScavengingBlock(Block):
          # monster based on the hazard level
          hostile = self.env.get("hostile")
          monsters = list()
-         haz = self.env.get("hazard")
          size = rndGen(min(5, rndGen(haz)))
          for i in range(size):
             m = hostile[0](rndGen(haz))
@@ -150,7 +144,7 @@ class WoodcuttingBlock(ScavengingBlock):
       self.name = "Woodcutting"
       
    # exploration override
-   def explore(self, explorers: Party):
+   def explore(self, explorers: Party, haz: int):
       '''test for presence of an axe in the explorers bags.
       if none can be located, rebuke the party. else, run a
       regular scavenging block exploration.
@@ -162,7 +156,7 @@ class WoodcuttingBlock(ScavengingBlock):
          if not found:
             i += 1
       if found:
-         super().explore(explorers)
+         super().explore(explorers, haz)
       else:
          print("\nyou need an axe to chop wood.") # DEBUG
      
@@ -176,7 +170,7 @@ class MiningBlock(ScavengingBlock):
       self.name = "Mining"
       
    # exploration override
-   def explore(self, explorers: Party):
+   def explore(self, explorers: Party, haz: int):
       '''test for presence of a pickaxe in the explorers bags.
       if none can be located, rebuke the party. else, run a
       regular scavenging block exploration.
@@ -188,7 +182,7 @@ class MiningBlock(ScavengingBlock):
          if not found:
             i += 1
       if found:
-         super().explore(explorers)
+         super().explore(explorers, haz)
       else:
          print("\nyou need a pickaxe to mine for ores.") # DEBUG
    
@@ -202,14 +196,14 @@ class BattleBlock(Block):
       super().__init__("Battle", env)
    
    # exploration
-   def explore(self, explorers: Party):
+   def explore(self, explorers: Party, haz: int):
       hostile = self.env.get("hostile")
-      maxLvl = rndGen(self.env.get("hazard"))
+      maxLvl = rndGen(haz)
       # at most 5 monsters. danger level can raise chances of more
       size = rndGen(3)
       for i in range(2):
          if size < 5:
-            if rnd.choice(range(100)) < self.env.get("hazard") * 10: 
+            if rnd.choice(range(100)) < haz * 10: 
                size += 1
       levels = rnd.choices([x + 1 for x in range(maxLvl)], k = size)
       monsters = rnd.choices(hostile, k = size)
@@ -225,9 +219,9 @@ class StairsBlock(EmptyBlock):
    effect.'''
    def __init__(self):
       super().__init__(
-         Environment(0, 
-            look = ["the stairs to go to the next floor appear before you.",
-               "you have completed the exploration of this floor."],
+         Environment( 
+            ["the stairs to go to the next floor appear before you.",
+            "you have completed the exploration of this floor."],
             res = None, hostile = None, amenity = None
          )
       )

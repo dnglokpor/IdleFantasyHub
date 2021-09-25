@@ -10,7 +10,7 @@
 from elements import NOELM, AEOLA, GAIA, AQUA, VULCAN
 from skills import Skill
 from units import Monster
-import itemLib as itml
+import itemLib as il
 import skillLib as skl
 from random import seed, choice
 
@@ -49,7 +49,7 @@ def s_Raccoundrel(level = 1):
    
    # drops
    # pelt x 1
-   raccoundrel.getBag().add(itml.pelt.copy())
+   raccoundrel.getBag().add(il.pelt.copy())
    
    # done so return
    return raccoundrel
@@ -61,7 +61,7 @@ def s_Sparowl(level = 1):
       "Sparowl",
       level,
       [
-         10 + choose(5), # hp 10-14
+         12 + choose(5), # hp 10-14
          20 + choose(2), 8 + choose(2), # atk 20-21|def 8-10
          15 + choose(3), 9 + choose(3), # spe 15-17|res 9-11
          10 + choose(2), # dext 10-11
@@ -78,7 +78,7 @@ def s_Sparowl(level = 1):
    
    # drops
    # feathers x 5
-   sparowl.getBag().addMulti(itml.smallFeathers, 5)
+   sparowl.getBag().addMulti(il.smallFeathers.copy(), 5)
    
    # return
    return sparowl
@@ -90,7 +90,7 @@ def s_Honeybeat(level = 1):
       "Honeybeat",
       level,
       [
-         10 + choose(5), # hp 10-14
+         12 + choose(5), # hp 10-14
          18 + choose(5), 6 + choose(3), # atk 18-22|def 6-8
          8 + choose(3), 15 + choose(3), # spe 8-10|res 15-17
          15 + choose(4), # dext 15-18
@@ -108,8 +108,40 @@ def s_Honeybeat(level = 1):
    
    # drops
    # stinger x 1, honee x 1
-   honeybeat.getBag().add(itml.stinger)
-   honeybeat.getBag().add(itml.honee)
+   honeybeat.getBag().add(il.stinger.copy())
+   honeybeat.getBag().add(il.honee.copy())
    
    # return
    return honeybeat
+
+# Caterkiller
+def s_Caterkiller(level = 1):
+   '''return a level "level" Caterkiller (Monster).'''
+   caterkiller = spawn(
+      "Caterkiller",
+      level, 
+      [
+         10 + choose(3), # hp 10-12
+         15 + choose(5), 13 + choose(2), # atk 15-19|def 13-14
+         10 + choose(2), 12 + choose(3), # spe 10-11|res 12-12
+         4 + choose(2), # dext 4-5
+         choose(5) # luc 0-4
+      ],
+      skl.bite,
+      "don't let this giant caterpillar fool you. thanks to their "
+      "speed debuffs and their persistence, they have claimed many ",
+      "adventurers lives."
+      AEOLA
+   )
+   # ability/critical skills
+   if level >= 1:
+      caterkiller.getSkillSet().assign("ability", skl.silkKnit)
+   
+   # drops
+   # silk x 2
+   caterkiller.getBag().addMulti(il.silk, 2)
+   
+   # done so return
+   return caterkiller
+
+# TODO boss monsters?
