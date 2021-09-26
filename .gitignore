@@ -1,4 +1,4 @@
 .env
 __pycache__/*
 logs/*
-world/__pycache__/*
+world/__pycache__
