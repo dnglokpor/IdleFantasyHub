@@ -17,17 +17,19 @@
 # imports
 import itemLib as il
 import monsterLib as ml
-from blocks import Environment, StairsBlock
+from blocks import Environment, EmptyBlock, ScavengingBlock,\
+   WoodcuttingBlock, MiningBlock, BattleBlock, StairsBlock,\
+   BossBlock
 from floors import Floor
 
-# first stratum: Viridian Green Plains
+# first stratum: Viridian Greens
 # 1f - 2f: prairie, 3f - 5f: forest
 # blocks list
 prairieEB = EmptyBlock(
    Environment(
-      ["There is lush green tall grass all around the place.",
-       "The wind blows slowly among the small bushes.",
-       "Bugs can be heard chirping gladly in the sunlight."
+      ["There is lush green tall grass all around the place."
+       "The wind blows slowly among the small bushes."
+       "Bugs can be heard chirping gladly in the sunlight.",
       ],
       res = None,
       hostile = None, 
@@ -36,7 +38,7 @@ prairieEB = EmptyBlock(
 )
 prairieSB = ScavengingBlock(
    Environment(
-      ["the prairie seems ripe with fragrant plants and flowers.",
+      ["the prairie seems ripe with fragrant plants and flowers."
       "herb picking would definitely yield results.",
       ],
       res = [il.chemomille, il.dandetigreSeeds, il.theestleNeedles],
@@ -47,9 +49,9 @@ prairieSB = ScavengingBlock(
 prairieBB = BattleBlock(
    Environment(
       look = 
-      ["a sudden air of danger float around the prairie.",
-       "something moves in the grass in front of the party.",
-       "weapons in hand the party welcome the monsters..."
+      ["a sudden air of danger float around the prairie."
+       "something moves in the grass in front of the party."
+       "weapons in hand the party welcome the monsters...",
       ],
       res = None,
       hostile = [ml.s_Raccoundrel, ml.s_Sparowl],
@@ -58,10 +60,10 @@ prairieBB = BattleBlock(
 )
 forestEB = EmptyBlock(
    Environment(
-      ["Huge trees all around you have cut off the sunlight.",
+      ["Huge trees all around you have cut off the sunlight."
       "wings beating and bug buzzes can be heard coming from "
-      "here and there.",
-       "A damp and moist fragrance hits your nostrils."
+      "here and there."
+       "A damp and moist fragrance hits your nostrils.",
       ],
       res = None,
       hostile = None, 
@@ -70,7 +72,7 @@ forestEB = EmptyBlock(
 )
 forestSB = ScavengingBlock(
    Environment(
-      ["small fragrants plants seem to grow all around this clearing.",
+      ["small fragrants plants seem to grow all around this clearing."
       "herb picking would definitely yield results.",
       ],
       res = [il.chemomille, il.orangerry],
@@ -80,7 +82,7 @@ forestSB = ScavengingBlock(
 )
 forestWB = WoodcuttingBlock(
    Environment(
-      ["the trees that grow around here seem to be of good quality.",
+      ["the trees that grow around here seem to be of good quality."
        "logging here could turn out profitable.",
       ],
       res = [il.haukWood, il.hardcorn],
@@ -91,12 +93,29 @@ forestWB = WoodcuttingBlock(
 forestBB = BattleBlock(
    Environment(
       look = 
-      ["the trees around you suddenly feel quite threatening.",
-      "something is observing you; and its not welcoming.",
-      "you barely get to your weapons that it is upon you."
+      ["the trees around you suddenly feel quite threatening."
+      "something is observing you; and its not welcoming."
+      "you barely get to your weapons that it is upon you.",
       ],
       res = None,
       hostile = [ml.s_Raccoundrel, ml.s_Sparowl, ml.s_caterkiller],
+      amenity = None
+   )
+)
+forestBoB = BossBlock(
+   Environment(
+      look = [
+      "you arrive to the stairs that lead to the next floor. but "
+      "you can't take them because something is nesting on it. "
+      "in the middle of the web barring your path, you see a pupa."
+      "not so happy to be troubled, it attacks you...",
+      "the pupa breaks but you can't rejoice because something fell "
+      "from it. you watch as it stretches its wings and screams at "
+      "you. the butterfly hatched sooner than expected and its not "
+      "too content of that..."
+      ],
+      res = None,
+      hostile = [ml.s_Butterfreak],
       amenity = None
    )
 )
@@ -135,7 +154,10 @@ floor5 = Floor(
    hazard = 3,
    pop = [forestEB, forestBB, forestSB, forestWB], 
    probs = [3, 4, 1, 1],
-   stairs = BossBlock()
+   stairs = forestBoB
 )
 
 # dungeon
+DUNGEON = dict(
+   1: floor1, 2: floor2, 3: floor3, 4: floor4, 5: floor5
+)

@@ -5,6 +5,9 @@
 # of the Unit, Playable and Monster.
 # date: 6/25/21
 # author: dnglokpor
+# update: 9/25/21
+# added the BossMonster class which is a list of monsters;
+# each representing one form of the boss monster.
 '''
 
 # imports
@@ -198,6 +201,37 @@ class Monster(Unit):
          description += '\n' + self.lore
       return description
 
+# BossMonster object
+class BossMonster(list):
+   '''a boss monster differs from normal monsters by
+   the fact that they don't just get defeated once
+   their hp reaches 0. they have multiple forms
+   each giving them stats boosts. defeating them in
+   all their form is required. this is the ultimate
+   test of an adventurer's power.'''
+   def __init__(self):
+      self.current = 0
+      
+   # getters
+   def getForms(self) -> int:
+      '''return the number of forms of the boss.'''
+      return len(self)
+   def getNextForm(self) -> Monster:
+      '''get the current form of the boss monster. update
+      the current attribute to reflect what form to
+      match the next getForm() call. this only works if
+      current < len(self) else it returns None.'''
+      form = None
+      if self.current < len(self): # we have more forms
+         form = self[self.current]
+         self.current += 1   
+      return form
+   
+   # setters
+   def addForm(self, monster: Monster):
+      '''adds a form to the boss monster.'''
+      self.append(monster)
+   
 # test platform
 if __name__ == "__main__":
    pass

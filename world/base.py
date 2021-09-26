@@ -194,7 +194,7 @@ class Gauge:
       self.lim = lim
    
    # getters:
-   def getCurrent(self):
+   def getCurrent(self) -> int:
       '''get the current level of the gauge.'''
       return self.level
    

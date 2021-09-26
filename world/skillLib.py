@@ -8,6 +8,7 @@
 '''
 
 # imports
+from helpers import rndGen
 from elements import Element, NOELM, AEOLA, GAIA, AQUA,\
 VULCAN
 from skills import State, Skill, Effect, Mastery
@@ -43,15 +44,16 @@ def hasWeaponType(wType: str, unit: Unit):
       else: # wrong keyword thus default to False
          hasIt = False
    return hasIt
-def singleTarget(perp: Unit, state: State):
-   '''returns a target for a single target attack.'''
-   return state.getOpponents(perp).getWeakestMember()
 def restartCooldown(skill: Skill):
    '''restart cooldown for the skill if the skill elapsed
    cooldown is not 0.'''
    # restart cooldown
    if skill.cd.getElapsed() != 0:
       skill.cd.reset() 
+# target attacks
+def singleTarget(perp: Unit, state: State):
+   '''returns a target for a single target attack.'''
+   return state.getOpponents(perp).getWeakestMember()
 def targetAttack(perp: Unit, target: Unit, ofs: int, 
    elt: Element, dmgMult = 1.0) -> str:
    '''deals STATS[offense] damage to one opponent defending
@@ -105,6 +107,8 @@ def targetAttack(perp: Unit, target: Unit, ofs: int,
       descr = (target, hit)
    # return outcome message
    return descr
+
+# buffs and debuffs
 def raiseStat(unit: Unit, sName: str, mult) -> str:
    '''raise a stat by its full value times the multiplier.
    the value of buff decides if its a buff or a debuff. 
@@ -156,6 +160,47 @@ class SingleSpecial(Skill):
       return targetAttack(perp, target, "special", 
          self.element, self.power)
 
+# multi opponent attacks
+class MultiPhysical(Skill):
+   '''defines a physical attack that hits a whole party.'''
+   def __init__(self, name: str, descr: str, cd: int,
+      power = 1.0, elt = NOELM):
+      super().__init__(name, descr, cd, elt, power)
+      
+   # action override
+   def __call__(self, perp: Unit, state):
+      '''executes the attack.'''
+      targets = list()
+      text = str()
+      for opp in state.getOpponents(perp):
+         target = opp
+         restartCooldown(self)
+         tgt, txt = targetAttack(perp, target, "attack", self.element, 
+            self.power)
+         targets.append(tgt)
+         text += txt + '\n'
+      return (targets, text)
+
+class MultiSpecial(Skill):
+   '''defines a special attack that hits a whole party.'''
+   def __init__(self, name: str, descr: str, cd: int,
+      power = 1.0, elt = NOELM):
+      super().__init__(name, descr, cd, elt, power)
+      
+   # action override
+   def __call__(self, perp: Unit, state):
+      '''executes the attack.'''
+      targets = list()
+      text = str()
+      for opp in state.getOpponents(perp):
+         target = opp
+         restartCooldown(self)
+         tgt, txt = targetAttack(perp, target, "special", self.element, 
+            self.power)
+         targets.append(tgt)
+         text += txt + '\n'
+      return (targets, text)
+
 # stat buff skill
 class Buff(Skill):
    '''define a skill that raise a list of stats for the
@@ -191,7 +236,7 @@ class Debuff(Skill):
       self.raised = stat
       self.dur = dur
    
-   def __call__(self, perp, state):
+   def __call__(self, perp: Unit, state: State):
       '''implement the debuffing.'''
       txt = str()
       target = singleTarget(perp, state)
@@ -228,6 +273,31 @@ class Magic(SingleSpecial):
          perp.getName()))
          self.cd.reset() # restart cooldown
       return status
+
+# summoning moves
+class Summon(Skill):
+   '''this particular class of moves add a new unit to the
+   party of the user. the new party member can not move during
+   the current round but can still be targetted.'''
+   def __init__(self, name: list, descr: str, cd: int,
+      power):
+      super().__init__(name, descr, cd, NOELM, power)
+   
+   def __call__(self, perp: Unit, state: State):
+      '''implement the summon. add self.nu to the party of the
+      perp. the level of the summoned monster is lower or equal
+      to the level of the perp.'''
+      party = state.getAllies(perp)
+      string = "{} cries for help.\n".format(perp.getName())
+      if len(party) >= 5 or state.getSummonable() == None: 
+         # too many units or no units to summon
+         string += "but there was no response.\n"
+      else: # we have space
+         nu = rnd.choice(state.getSummonable()) # pick
+         nu = nu(rndGen(perp.getLevel().getCurrent())) # spawn
+         party.addMember(nu) # add
+         string += "a {} responded to its call.\n".format(nu.getName())
+      return (None, string)
 
 ################## monsters
 # Sting
@@ -299,6 +369,36 @@ silkKnit = Debuff(
    ["dexterity",],
    3, # means it will stack and never get removed
    0.25
+)
+
+# cocoon
+cocoon = Buff(
+   "Cocoon",
+   "wrap itself in a layer of bug silk that hardens. raise self "
+   "defense and resilience.",
+   0,
+   ["defense", "resilience"],
+   2,
+   0.20
+)
+
+# Whine
+whine = Summon(
+   "Whine",
+   "emits an emergency sound that attracts fellow monsters. "
+   "these rush in to protect the caller.",
+   3,
+   0
+)
+
+# tornado
+tornado = MultiSpecial(
+   "Tornado", 
+   "creates an upward air current that whips up a tornado of carnage. "
+   "deals damage to all the opponents.", 
+   4,
+   1.0, 
+   AEOLA
 )
 
 ################## blademanship

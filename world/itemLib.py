@@ -11,12 +11,6 @@ from collectibles import Item, Sword, Spear, Bow, Artillery,\
  Staff, Tome, Armor, Accessory
 
 # items
-arrow = Item(
-   "Arrow",
-   "40cm of wood crowned by a sharpened steel head and\
- feathers in the back. rangers' favorite.", 
-   1
-)
 pelt = Item(
    "Pelt",
    "freshly skinned pelt of a small dungeon denizen.",
@@ -46,6 +40,26 @@ silk = Item(
    "highly durable and enter the fabrication of textiles.",
    15
 )
+monsterEgg = Item(
+   "Monster Egg",
+   "the egg of a creature from the dungeon. What would hatch from "
+   "this? usually people prefer not to find out.",
+   20
+)
+compoundEye = Item(
+   "Compound Eye",
+   "the compound eyes of a bug-like monster. alchemists use them "
+   "to manufacture powerful potions that help with the sight.",
+   30,
+)
+bugWing = Item(
+   "Bug Wing",
+   "a giant silver coloured butterfly wing. it is pretty lightweight "
+   "and durable. they are hard to come around so merchants pay a "
+   "a good price for them.",
+   50
+)
+
 
 # herbs
 chemomille = Item(
@@ -100,7 +114,13 @@ palemethyst = Item(
    10
 )
 
-# tools
+# merchandise
+arrow = Item(
+   "Arrow",
+   "40cm of wood crowned by a sharpened steel head and\
+ feathers in the back. rangers' favorite.", 
+   1
+)
 axe = Item(
    "Axe",
    "a small woodcutter axe made of steel. handy when you seek "

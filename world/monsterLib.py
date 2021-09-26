@@ -78,7 +78,7 @@ def s_Sparowl(level = 1):
    
    # drops
    # feathers x 5
-   sparowl.getBag().addMulti(il.smallFeathers.copy(), 5)
+   sparowl.getBag().addMulti(il.smallFeathers, 5)
    
    # return
    return sparowl
@@ -130,7 +130,7 @@ def s_Caterkiller(level = 1):
       skl.bite,
       "don't let this giant caterpillar fool you. thanks to their "
       "speed debuffs and their persistence, they have claimed many ",
-      "adventurers lives."
+      "adventurers lives.",
       AEOLA
    )
    # ability/critical skills
@@ -143,5 +143,3 @@ def s_Caterkiller(level = 1):
    
    # done so return
    return caterkiller
-
-# TODO boss monsters?

@@ -21,6 +21,7 @@
 # imports
 from base import STATS
 from skills import State, Skill
+from units import Unit
 from time import sleep
 from copy import deepcopy
 from math import ceil
@@ -95,6 +96,11 @@ class Party(list):
          if not alive:
             idx += 1
       return alive
+   
+   # setters
+   def addMember(self, newMember: Unit):
+      '''add a new unit to the party.'''
+      self.append(newMember)
    
    # override tostring
    def __str__(self) -> str:
@@ -195,11 +201,12 @@ class BattleState(State):
    to the state of a battle in one object and auto run
    it.'''
    
-   def __init__(self, advs: Party, mons: Party):
+   def __init__(self, advs: Party, mons: Party, summonable = None):
       '''create the state by getting the two opposing
       parties and initializing all other member variables.
       no PvP will be implemented so it will always be
-      adventurers VS monsters
+      adventurers VS monsters. summonable is a field that
+      contains units that could join any of the parties.
       '''
       self.advs = advs
       self.mons = mons
@@ -207,6 +214,7 @@ class BattleState(State):
          self.mons.getMembers())
       self.moving = None # field to record whose turn it is
       self.waste = list()# stores lost items during battle
+      self.summonable = summonable
    
    # getters
    def getAllies(self, unit) -> Party:
@@ -233,6 +241,8 @@ class BattleState(State):
       return self.moving
    def getWaste(self):
       return self.waste
+   def getSummonable(self) -> list:
+      return self.summonable
    def isOver(self):
       '''return "True" if any of the two parties involved
       has been defeated.'''

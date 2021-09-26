@@ -39,7 +39,7 @@ if __name__ == "__main__":
    # Blocks
    import blocks as bk
    import itemLib as il
-   '''eEnv = bk.Environment(1, 
+   '''eEnv = bk.Environment( 
       ["There is lush green tall grass all around the place.",
        "The wind blows slowly among the small bushes.",
        "Bugs can be heard chirping gladly in the sunlight."
@@ -53,7 +53,7 @@ if __name__ == "__main__":
    #eBlock.explore(p)
    '''
    
-   '''sEnv = bk.Environment(1, 
+   '''sEnv = bk.Environment(
       look = 
       ["the prairie seems ripe with fragrant plants and flowers.",
        "herb picking would definitely yield results.",
@@ -67,7 +67,7 @@ if __name__ == "__main__":
    #sBlock.explore(p)
    '''
    
-   '''bEnv = bk.Environment(1, 
+   '''bEnv = bk.Environment(
       look = 
       ["a sudden air of danger float around the prairie.",
        "something moves in the grass in front of the party.",
@@ -79,10 +79,10 @@ if __name__ == "__main__":
    )
    bBlock = bk.BattleBlock(bEnv)
    #print(bBlock)
-   #bBlock.explore(p)
+   bBlock.explore(p, 1)
    '''
    
-   '''wEnv = bk.Environment(1, 
+   '''wEnv = bk.Environment( 
       look = 
       ["the trees around here seem to be of good quality.",
        "logging here could turn out profitable.",
@@ -97,7 +97,7 @@ if __name__ == "__main__":
    wBlock.explore(p)   
    '''
    
-   mEnv = bk.Environment(
+   '''mEnv = bk.Environment(
       look = 
       ["the walls of this cave are covered in sparkly materials.",
        "mining here should not be a waste of time.",
@@ -110,6 +110,7 @@ if __name__ == "__main__":
    #print(mBlock)
    myLewysG.getBag().add(il.pickaxe)
    mBlock.explore(p, 1)
+   '''
    
    # floor test
    '''from floors import Floor

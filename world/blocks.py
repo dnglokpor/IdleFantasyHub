@@ -68,6 +68,11 @@ class Block:
       self.name = name
       self.env = env
    
+   # other
+   def printLook(self):
+      for l in self.env.getLook():
+         print(l);
+   
    # exploration
    def explore(self, explorers: Party, haz: int):
       '''sub classes must override this.'''
@@ -87,9 +92,7 @@ class EmptyBlock(Block):
    # exploration
    def explore(self, explorers: Party, haz: int):
       '''just describes the block's environment.'''
-      for l in self.env.getLook():
-         print(l);
-      print('\n')
+      self.printLook()
 
 # ScavengingBlock object      
 class ScavengingBlock(Block):
@@ -108,8 +111,7 @@ class ScavengingBlock(Block):
       if they manage to survive the fight, they will still
       gather before they leave.
       '''
-      for l in self.env.getLook():
-         print(l);
+      self.printLook()
       if (rndGen(100) < rndGen(100)): # battle branch
          # DEBUG
          print("\nyou were looking for goods but found monsters...")
@@ -209,6 +211,7 @@ class BattleBlock(Block):
       monsters = rnd.choices(hostile, k = size)
       monsters = [monsters[i](levels[i]) for i in range(len(monsters))]
       battle = BattleState(explorers, Party(monsters))
+      self.printLook() # DEBUG
       battle.run()
    
 # StairsBlock
@@ -226,7 +229,34 @@ class StairsBlock(EmptyBlock):
          )
       )
       self.name = "Stairs"
+
+# BossBlock
+class BossBlock(StairsBlock):
+   '''this is a guarded stairs block. it requires the party of
+   explorers to defeat a particularly strong monster before they
+   can use the stairs.'''
    
+   def __init__(self, env: Environment):
+      super().__init__() # stairs built
+      self.name = "Boss Stairs"
+      self.bossRoom = env
+      
+   # exploration
+   def explore(self, explorers: Party, haz: int):
+      hostile = self.bossRoom.get("hostile")      
+      boss = hostile[0](haz)
+      form = 0
+      while explorers.stillStands() and form < boss.getForms():
+         print(self.bossRoom.get("look")[form]) # DEBUG
+         battle = BattleState(explorers, Party(boss.getNextForm()))
+         battle.run()
+         if explorers.stillStands():
+            form += 1
+      # end of boss battle
+      if explorers.stillStands: # defeated the boss
+         super().explore()
+      # the else will be managed by the exploration code
+
 # test platform
 if __name__ == "__main__":
    pass
