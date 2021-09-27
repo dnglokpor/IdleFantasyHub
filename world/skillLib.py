@@ -448,8 +448,8 @@ class Counter(SinglePhysical):
    def __init__(self):
       super().__init__(
          "Counter",
-         "strike back at a the foe who just striked at you.\
- fails if not used as a reaction.",
+         "strike back at a the foe who just striked at you fails "
+         "if not used as a reaction.",
          4,
          1.0,
          NOELM  
@@ -478,8 +478,8 @@ counter = Counter()
 # Brace For Impact
 braceForImpact = Buff(
    "Brace For Impact",
-   "raise defense and resilience for 3 turns to prepare\
- for incoming hits.",
+   "raise defense and resilience for 3 turns to prepare for "
+   " incoming hits.",
    6,
    ["defense", "resilience"],
    3,
@@ -619,9 +619,9 @@ class TriShot(Shoot):
    def __init__(self):
       super().__init__(6)
       # update attributes
-      self.name = "Tri-Shot",
-      self.description = "attacks opposing party three times with\
- a ranged weapon."
+      self.name = "Tri-Shot"
+      self.description = "attacks opposing party three times with "
+      " a ranged weapon."
    
    # action override
    def __call__(self, perp: Unit, state):
@@ -776,4 +776,4 @@ conjuring = Mastery("Conjuring",
 
 # test run
 if __name__ == "__main__":
-   print(conjuring.__str__(False))
+   print(triShot)

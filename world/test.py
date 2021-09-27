@@ -14,6 +14,7 @@ if __name__ == "__main__":
    myLewysG.getSkillSet().assign("ability", skl.fightingStance)
    myLewysG.getSkillSet().assign("reaction", skl.counter)
    myLewysG.getSkillSet().assign("critical", skl.braceForImpact)
+   print(myLewysG.getMastery().__str__(False))
    
    '''myLewysG = c.Ranger("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.takeAim)

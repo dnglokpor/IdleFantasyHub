@@ -227,7 +227,12 @@ class Gauge:
                   self.updateTreshold()
       
       return (lvlUp, count)
-               
+   
+   def getTotalExp(self):
+      '''return the total number of exp amassed by this
+      gauge.'''
+      return self.level * 100 + self.current
+   
    # override tostring
    def __str__(self, short = True) -> str:
       '''return a string representing this object for

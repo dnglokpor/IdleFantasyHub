@@ -47,6 +47,49 @@ class Adventurer(Playable):
       '''return the lore surrounding this adventurer'''
       return self.lore
    
+   # str Output Stream
+   def outStream(self):
+      '''creates a string that represents the Adventurer in a 
+      way that it can be used to rebuild an Adventurer object
+      that matches the original.'''
+      save = "name {}\n".format(self.uName)
+      save += "cName {}\n".format(self.cName)
+      save += "totalExp {}\n".format(self.level.getTotalExp())
+      save += "stats {}\n".format(self.stats.getFullStats())
+      # skill set: skills are optional values
+      if self.getSkillSet().getSkill("ability") != None:
+         ab = self.getSkillSet().getSkill("ability").getName()
+         save += "ability {}\n".format(
+            self.mastery.getUnlockedLevel(ab))
+      if self.getSkillSet().getSkill("reaction") != None:
+         react = self.getSkillSet().getSkill("reaction").getName()
+         save += "reaction {}\n".format(
+            self.mastery.getUnlockedLevel(react))
+      if self.getSkillSet().getSkill("critical") != None:
+         crit = self.getSkillSet().getSkill("critical").getName()
+         save += "critical {}\n".format(
+            self.mastery.getUnlockedLevel(crit))
+      # bag: dump a list of the items in the bag in name qty format
+      save += "bag"
+      for item in self.getBag():
+         save += " {} {}".format(item[0].getName(), len(item))
+      save += '\n'
+      # equipment: pieces are optional values
+      if self.getEquipped().getGear("WPN") != None:
+         save + "weapon {}\n".format(
+            self.getEquipped().getGear("WPN").getName())
+      if self.getEquipped().getGear("ARM") != None:
+         save + "armor {}\n".format(
+            self.getEquipped().getGear("ARM").getName())
+      if self.getEquipped().getGear("WPN") != None:
+         save + "accessory {}\n".format(
+            self.getEquipped().getGear("ACC").getName())
+      # wallet
+      save += "balance {}\n".format(self.getWallet().getBalance())
+      
+      # return the string
+      return save
+         
    # override tostring
    def __str__(self, short = True):
       '''return a string representing this object for

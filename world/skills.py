@@ -210,7 +210,7 @@ class Mastery(dict):
    def getName(self) -> str:
       '''return the Mastery's name.'''
       return self.name
-   def getName(self) -> str:
+   def getLore(self) -> str:
       '''return the Mastery's lore.'''
       return self.lore
    def getBase(self):
@@ -232,9 +232,25 @@ class Mastery(dict):
       the base skill.'''
       unlocked = list()
       for lvl, skill in self.items():
-         if 0 < lvl <= currentLevel:
+         if 0 <= lvl <= currentLevel:
             unlocked.append(skill)
       return unlocked
+   def getUnlockLevel(self, skillName: str) -> int:
+      '''search through the Mastery for a skill name that
+      matches the passed name and return the key for it
+      in the dict if found. Else return -1.'''
+      found = False
+      i = 0
+      items = self.items()
+      while i < len(items) and not found:
+         found = items[i][1].getName() == skillName
+         if not found:
+            i += 1
+      # end of search
+      if found:
+         return i
+      else:
+         return -1
    
    # Mastery is never set
    
@@ -245,11 +261,10 @@ class Mastery(dict):
       description = "<{}>: {}".format(self.name, self.lore)
       if not short:
          description += '\n'
-         for idx, (lvl, skill) in enumerate(self.items()):
-            description += "{:12s} - unlocks @ lvl {:3d}".format(
+         for lvl, skill in self.items():
+            description += "{:16s} - unlocks @ lvl {:3d}".format(
                skill.getName(), lvl)
-            if idx != len(self.items()) - 1:
-               description += '\n'
+            description += '\n'
       return description
 
 
