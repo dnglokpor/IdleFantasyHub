@@ -160,4 +160,4 @@ floor5 = Floor(
 # dungeon
 DUNGEON = dict(
    1: floor1, 2: floor2, 3: floor3, 4: floor4, 5: floor5
-)
+) 

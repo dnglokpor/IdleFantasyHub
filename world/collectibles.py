@@ -8,10 +8,14 @@
 # can equip is the purpose of the Equipment object.
 # date: 6/27/21
 # author: dnglokpor
+# update 9/29/21
+# added pictures links to the collectibles. these defines icons
+# that can be used for more graphical displays.
 '''
 
 # imports
 from base import Stat, STATS
+import os
 
 # helper
 def genHash(name) -> str:
@@ -45,6 +49,7 @@ strings")
       self.lore = lore
       self.value = value
       self.ID = genHash(self.name)
+      self.ico = str()
    
    # getters
    def getID(self) -> int:
@@ -61,8 +66,20 @@ strings")
          return self.value
       else:
          return self.value // 2
+   def getIco(self) -> str:
+      '''return the path to the icon picture. if no icon is set,
+      return an empty string.'''
+      return self.ico
    
-   # item attributes are never set
+   # ico are updates of items so instead of being passed
+   # @ construction, they're set
+   def setIco(self, path: str):
+      '''checks if the passed path is an existing file in which
+      case it is set as icon path else raise ValueError.'''
+      if not os.path.isfile(path):
+         raise ValueError("<{}> path is invalid!".format(path))
+      # else
+      self.ico = path
    
    # duplication method
    def copy(self):

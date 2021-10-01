@@ -14,8 +14,8 @@ from elements import NOELM
 from skills import Mastery
 from units import Playable
 from skillLib import blademanship, survivalist, conjuring
-from itemLib import arrow, longsword, longbow, walkingStick,\
-   goGetup
+from itemLib import arrow, shortSword, longbow, walkingStick,\
+   goGetup, gloves, leatherBoots
 from random import choice
 from math import ceil
 
@@ -34,7 +34,6 @@ class Adventurer(Playable):
       self.mastery = mastery
       # basic skill is from mastery is assigned in super call
       self.lore = lore
-      # TODO: add exploration tools
    
    # getters
    def getClassName(self) -> str:
@@ -114,14 +113,16 @@ class Fighter(Adventurer):
          uName, 
          [45, 16, 14, 7, 8, 10, rndGen()], 
          blademanship,
-         "adventurer class with all-round good physicals\
- and a proficient in bladed weapon handling. monsters might\
- enjoy hitting them but they usually get hit back harder.", 
+         "adventurer class with all-round good physicals and\n"
+         "proficient in bladed weapon handling. monsters \n"
+         "might enjoy hitting them but they usually get hit \n"
+         "back harder.", 
          elt = NOELM
       )
       # default gear
-      self.equip(longsword)
+      self.equip(shortSword)
       self.equip(goGetup)
+      self.equip(gloves) # for dev use
  
    # stats development
    def develup(self, expGain: int) -> bool:
@@ -161,15 +162,16 @@ class Ranger(Adventurer):
          uName, 
          [40, 13, 12, 8, 7, 15, rndGen()],
          survivalist,
-         "veteran of dungeons, rangers use their light steps"
-         " to explore swiftly and dodge with finesse. armed "
-         "with their favorite ranged weapon, they patrol the"
-         " wilderness.", 
+         "veteran of dungeons, rangers use their light steps\n"
+         "to explore swiftly and dodge with finesse. armed\n"
+         "with their favorite ranged weapon, they patrol the\n"
+         "wilderness.", 
          elt = NOELM
       )
       # default gear
       self.equip(longbow)
       self.equip(goGetup)
+      self.equip(leatherBoots)
       # startup arrows
       self.getBag().addMulti(arrow, 50)
  
@@ -209,14 +211,15 @@ class Elementalist(Adventurer):
          uName, 
          [40, 9, 10, 15, 13, 8, rndGen()], 
          conjuring,
-         "they say dungeons just like magic sip into this world"
-         " from a distant place. that might explain how rare the"
-         " talent of conjuring and wielding elements is.", 
+         "they say dungeons just like magic sip into this \n"
+         "world from a distant place. that might explain how \n"
+         "rare the talent of conjuring and wielding elements is.", 
          elt = NOELM
       )
       # default gear
       self.equip(walkingStick)
       self.equip(goGetup)
+      self.equip(leatherBoots)
  
    # stats development
    def develup(self, expGain: int) -> bool:

@@ -191,6 +191,12 @@ class Equipment(dict):
       if(self.__contains__(slot)):
          g = self.get(slot)
       return g
+   def getWeapon(self):
+      return self.getGear("WPN")
+   def getArmour(self):
+      return self.getGear("ARM")
+   def getAccessory(self):
+      return self.getGear("ACC")
    
    def getEqtBonus(self) -> list:
       '''returns as a list formated in the order of the 

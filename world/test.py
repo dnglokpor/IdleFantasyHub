@@ -10,11 +10,12 @@ from icecream import IceCreamDebugger
 if __name__ == "__main__":
    dbg = IceCreamDebugger()
    
-   myLewysG = c.Fighter("myLewysG")
+   '''myLewysG = c.Fighter("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.fightingStance)
    myLewysG.getSkillSet().assign("reaction", skl.counter)
    myLewysG.getSkillSet().assign("critical", skl.braceForImpact)
    print(myLewysG.getMastery().__str__(False))
+   '''
    
    '''myLewysG = c.Ranger("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.takeAim)
@@ -28,7 +29,7 @@ if __name__ == "__main__":
    myLewysG.getSkillSet().assign("critical", skl.cure)
    '''
    
-   p = cf.Party([myLewysG])
+   #p = cf.Party([myLewysG])
    
    '''p2 = cf.Party([ml.s_Raccoundrel(), ml.s_Raccoundrel(), 
       ml.s_Raccoundrel()])
@@ -40,7 +41,7 @@ if __name__ == "__main__":
    # Blocks
    import blocks as bk
    import itemLib as il
-   '''eEnv = bk.Environment( 
+   eEnv = bk.Environment( 
       ["There is lush green tall grass all around the place.",
        "The wind blows slowly among the small bushes.",
        "Bugs can be heard chirping gladly in the sunlight."
@@ -52,9 +53,9 @@ if __name__ == "__main__":
    eBlock = bk.EmptyBlock(eEnv)
    #print(eBlock)
    #eBlock.explore(p)
-   '''
    
-   '''sEnv = bk.Environment(
+   
+   sEnv = bk.Environment(
       look = 
       ["the prairie seems ripe with fragrant plants and flowers.",
        "herb picking would definitely yield results.",
@@ -66,9 +67,8 @@ if __name__ == "__main__":
    sBlock = bk.ScavengingBlock(sEnv)
    #print(sBlock)
    #sBlock.explore(p)
-   '''
    
-   '''bEnv = bk.Environment(
+   bEnv = bk.Environment(
       look = 
       ["a sudden air of danger float around the prairie.",
        "something moves in the grass in front of the party.",
@@ -80,10 +80,11 @@ if __name__ == "__main__":
    )
    bBlock = bk.BattleBlock(bEnv)
    #print(bBlock)
-   bBlock.explore(p, 1)
-   '''
+   #bBlock.explore(p, 1)
    
-   '''wEnv = bk.Environment( 
+   
+   '''
+   wEnv = bk.Environment( 
       look = 
       ["the trees around here seem to be of good quality.",
        "logging here could turn out profitable.",
@@ -93,10 +94,11 @@ if __name__ == "__main__":
       amenity = None
    )
    wBlock = bk.WoodcuttingBlock(wEnv)
-   #print(wBlock)
-   myLewysG.getBag().add(il.axe)
-   wBlock.explore(p)   
+   print(wBlock)
+   #myLewysG.getBag().add(il.axe)
+   #wBlock.explore(p)
    '''
+   
    
    '''mEnv = bk.Environment(
       look = 
@@ -114,9 +116,10 @@ if __name__ == "__main__":
    '''
    
    # floor test
-   '''from floors import Floor
+   from floors import Floor
    f1 = Floor(5, 1, [eBlock, sBlock, bBlock], [2, 1, 1], bk.StairsBlock())
-   f1Blocks = f1.build()
+   print(f1)
+   ''''f1Blocks = f1.build()
    current = 0
    while current < len(f1Blocks) and p.stillStands():
       print("\nB{}f: {}\n".format(current + 1, f1Blocks[current].name))

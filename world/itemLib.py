@@ -10,6 +10,16 @@
 from collectibles import Item, Sword, Spear, Bow, Artillery,\
  Staff, Tome, Armor, Accessory
 
+# res folder
+ITEMS = "world/resource/items/"
+GEAR = "world/resource/gear/"
+if __name__ == "__main__":
+   ITEMS = "resource/items/"
+   GEAR = "resource/gear/"
+# gear are by category so I can reuse the same ico with
+# diverse background to say quality:
+# grey -> green -> blue -> purple -> red
+
 # items
 pelt = Item(
    "Pelt",
@@ -86,7 +96,7 @@ orangerry = Item(
    "its fragrant flowers attract varieties of monsters.",
    10
 )
-
+orangerry.setIco(ITEMS + "69.png")
 # wood
 haukWood = Item(
    "Hauk Wood",
@@ -121,49 +131,77 @@ arrow = Item(
  feathers in the back. rangers' favorite.", 
    1
 )
+arrow.setIco(GEAR + "Grey/Arrows/ScoutArrow.png")
 axe = Item(
    "Axe",
    "a small woodcutter axe made of steel. handy when you seek "
    "good lumber.",
    250
 )
+axe.setIco(GEAR + "Grey/MeleeWeapon1H/WoodcutterAxe.png")
 pickaxe = Item(
    "Pickaxe",
    "rocks tremble in fear when they see you wield this robust "
-   "miner pickaxe. use with moderation",
+   "miner pickaxe. use without moderation.",
    250
 )
 
 # weapons
-longsword = Sword(
-   "Longsword",
-   "an arm-long sword made of greyish steel. watch\
- out for cuts.",
+# # Short Sword
+shortSword = Sword(
+   "Short Sword",
+   "this sword is about a elbow to fingertips long. "
+   "it's just as deadly as any other sword thought.",
    60,
    [("attack", 6),]
 )
-longbow = Bow("Longbow",
-   "a meter-long twig arched into a bow shape by a piece\
- of fine hemp rope.",
+shortSword.setIco(GEAR + 
+   "Grey/MeleeWeapon1H/ShortSword_[Paint].png")
+# # longbow
+longbow = Bow(
+   "Longbow",
+   "a meter-long twig arched into a bow shape by a piece of "
+   "fine hemp rope.",
    60,
    [("attack", 4), ("dexterity", 1)]
 )
-walkingStick = Staff("Walking Stick",
-   "a fine piece of wood as useful as support cane as it\
- a magic catalyst.",
+longbow.setIco(GEAR + "Grey/Bows/ScoutBow.png")
+# # Walking Stick
+walkingStick = Staff(
+   "Walking Stick",
+   "a fine piece of wood as useful as a support cane as it "
+   " is a magic catalyst.",
    60,
    [("special", 8),]
 )
+walkingStick.setIco(GEAR + "Grey/MeleeWeapon1H/HardwoodWand.png")
 
 # armors
-goGetup = Armor("Go Getup",
+# # Go Getup
+goGetup = Armor(
+   "Go Getup",
    "jacket wore on plain clothes and sturdy canvas pants\
  for one going on an adventure.", 
    60, 
    [("defense", 5),]
 )
+goGetup.setIco(GEAR + "Grey/Armor/Scout_[Paint].png")
 
 # accessories
-
-if __name__ == "__main__":
-   pass 
+# # Leather Boots
+leatherBoots = Accessory(
+   "Leather Boots",
+   "worn out leather shoes of acceptable quality. no nail nor "
+   "thorn will make it to your foot in these.",
+   60,
+   [("defense", 1),]
+)
+# # Gloves
+gloves = Accessory(
+   "Gloves",
+   "a simple pair of worn out cotton gloves. help with grip and "
+   "handling.",
+   60,
+   [("attack", 1),]
+)
+gloves.setIco(GEAR + "Grey/Gloves/Hunter.png")

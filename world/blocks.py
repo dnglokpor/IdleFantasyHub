@@ -52,10 +52,29 @@ class Environment(dict):
    # toString
    def __str__(self) -> str:
       string = ""
+      # look
       for descr in self.get("look"):
          string += descr + '\n'
-      string += "resource:" + self.get("resource").__str__() + '\n'
-      string += "hostile:" + self.get("hostile").__str__()
+      # resource
+      string += "resource: "
+      if self.get("resource") == None:
+         string += "None\n"
+      else:
+         for i, item in enumerate(self.get("resource")):
+            string += item.getName()
+            if i != len(self.get("resource")) - 1:
+               string += ', '
+         string += '\n'
+      # hostile
+      string += "hostile: "
+      if self.get("hostile") == None:
+         string += "None\n"
+      else:
+         for i, monsterGen in enumerate(self.get("hostile")):
+            string += monsterGen(1).getName()
+            if i != len(self.get("hostile")) - 1:
+               string += ', '
+         string += '\n'
       # add amenity later
       return string
 
@@ -80,7 +99,7 @@ class Block:
    
    # toString
    def __str__(self) -> str:
-      return "{} Block\n{}".format(self.name, 
+      return "{} Block.\n{}".format(self.name, 
          self.env.__str__())
 
 # EmptyBlock object
