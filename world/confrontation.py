@@ -19,6 +19,7 @@
 '''
 
 # imports
+from helpers import fprint
 from base import STATS
 from skills import State, Skill
 from units import Unit
@@ -29,6 +30,7 @@ from math import exp as E
 from random import choice
 from sys import exit
 from icecream import IceCreamDebugger
+import os
 
 # DEBUG
 dbg = IceCreamDebugger()
@@ -213,8 +215,9 @@ class BattleState(State):
       self.turnOrder = TurnOrder(self.advs.getMembers() +
          self.mons.getMembers())
       self.moving = None # field to record whose turn it is
-      self.waste = list()# stores lost items during battle
       self.summonable = summonable
+      self.oStream = None # none by default. created by run()
+      self.info = list() # empty by default
    
    # getters
    def getAllies(self, unit) -> Party:
@@ -250,9 +253,6 @@ class BattleState(State):
          (not self.mons.stillStands()))
    
    # setter
-   def addLostItem(self, owner, item):
-      '''add an item to the waste list.'''
-      self.waste.append((owner, item))
    # post battle stuff
    def awardExp(self):
       '''make adventurers gain experience from their fight.
@@ -268,38 +268,28 @@ class BattleState(State):
             for opp in self.getOpponents(u):
                oLvl = opp.getLevel().getCurrent()
                gain += (10 * ceil(E(oLvl - uLvl)))
-            print("{} gained {} exp. pts!".format(
-               u.getName(), gain)) 
+            fprint("{} gained {} exp. pts!".format(
+               u.getName(), gain), self.oStream)
             if u.develup(gain): # leveled up
-               print("{} has leveled up.".format(
-                  u.getName()))
-               print(u.getStats().__str__())
+               fprint("{} has leveled up.".format(
+                  u.getName()), self.oStream)
+               fprint(u.getStats(), self.oStream)
    def collectLoot(self):
       '''allows adventurers to collect loot from monsters.'''
       for m in self.mons:
          chances = 90
          for item in m.getBag():
             qty = 0
-            for i in range(len(item)):
+            for i in range(len(item)): # drops
                if choice(range(100)) <= chances:
                   qty += 1
                chances -= 10 # reduces chances of getting next
-            for a in self.advs:
+            self.info.append(('i', item[0].getName())) # all drops names
+            fprint("got {} x {} from {}!".format(len(item), 
+               item[0].getName(), m.getName()), self.oStream)
+            for a in self.advs: # distribute
                a.getBag().addMulti(item[0], len(item))
-               print("{} got {} x {} from {}!".format(
-                  a.getName(), len(item), item[0].getName(), 
-                  m.getName()))
-               sleep(2)
-   def recoverLostItems(self):
-      '''a chance of recovering wasted items.'''
-      for o, i in self.waste:
-         chances = 90
-         if choice(range(100)) <= chances:
-            o.getBag().add(i)
-            print("{} recovered {} x1".format(
-               o.getName(), i.getName()))
-            sleep(2)
-         chances -= 5
+               #sleep(2)
    
    # battle method
    def run(self, verbose = True):
@@ -307,13 +297,22 @@ class BattleState(State):
       the encounter. a battle only stops if one party has
       been defeated meaning they have no more members
       standing. the "verbose" flag allow for console print.'''
+      self.oStream = "records/temps/" + str(self.__hash__()) + ".btl"
+      for m in self.mons: # record monster names
+         # get rif of Alphabet recordings.
+         # this only works because monsters name are always in
+         # one word
+         name = m.getName()
+         name = name.split() # will split if there's a space
+         name = name[0] # keep only the first part
+         self.info.append(('m', m.getName()))
       roundNo = 0
-      print("a battle has started:\n") # DEBUG
-      sleep(1)                         # DEBUG 
+      fprint("a battle has started:\n", self.oStream) # DEBUG
+      #sleep(1)                         # DEBUG
       while not self.isOver(): # battle loop
-         print(self)                   # DEBUG
-         print("Round ", roundNo + 1)  # DEBUG
-         sleep(3)                      # DEBUG
+         fprint(self.__str__(), self.oStream)                   # DEBUG
+         fprint("Round {}".format(roundNo + 1), self.oStream)  # DEBUG
+         #sleep(3)                      # DEBUG
          for unit in self.turnOrder: # round loop
             # update battle state
             self.moving = unit
@@ -325,16 +324,16 @@ class BattleState(State):
             unit.getActiveEffects().applyAll(unit) # re-apply
             # action
             a = unit.getSkillSet().getBestAction()
-            print("\n{} attempts {}!".format(unit.getName(),
-               a.getName()))           # DEBUG
-            sleep(2)                   # DEBUG
+            fprint("\n{} attempts {}!".format(unit.getName(),
+               a.getName()), self.oStream)           # DEBUG
+            #sleep(2)                   # DEBUG
             result = a(unit, self)
             if type(result) != list:
                result = [result,] # convert to list
             # DEBUG BLOC
             for t, msg in result:
-               print(msg)
-               sleep(2)
+               fprint(msg, self.oStream)
+               #sleep(2)
             # END OF DEBUG BLOC
             # critical actions or reactions
             for t, msg in result:
@@ -345,21 +344,21 @@ class BattleState(State):
                   if (t.isCritical() and c!= None and 
                      c.isReady()):
                      # critical reaction branch
-                     print("\ndesperate, {} attempts {}!".format(
-                        t.getName(), c.getName()))  # DEBUG
-                     sleep(2)             # DEBUG
+                     fprint("\ndesperate, {} attempts {}!".format(
+                        t.getName(), c.getName()), self.oStream)  # DEBUG
+                     #sleep(2)             # DEBUG
                      res = c(t, self)
                   elif r != None and r.isReady():
                      # reaction branch
-                     print("\n{} attempts {} in return!".format(
-                        t.getName(), r.getName()))  # DEBUG
-                     sleep(2)             # DEBUG
+                     fprint("\n{} attempts {} in return!".format(
+                        t.getName(), r.getName()), self.oStream)  # DEBUG
+                     #sleep(2)             # DEBUG
                      res = r(t, self)
                   # else is implied
                   # DEBUG BLOC
                   if res != None:
-                     print(res[1])
-                     sleep(2)
+                     fprint(res[1], self.oStream)
+                     #sleep(2)
                   # END OF DEBUG BLOC
             # check for end of battle
             if self.isOver():
@@ -371,19 +370,20 @@ class BattleState(State):
       # cleanse stats
       for u in self.advs:
          u.stats.cleanse()
+         u.getActiveEffects().clearAll()
       # decide winner
       winner = self.advs
       wName = "adventurers"
       if not self.advs.stillStands():
          winner = self.mons
          wName = "monsters"
-      print("\n{} won the battle!\n".format(wName)) # DEBUG
+      fprint("\n{} won the battle!\n".format(wName), self.oStream) # DEBUG
       # award rewards
       if winner == self.advs:
          self.awardExp()
          self.collectLoot()
-         self.recoverLostItems()
-      return winner # return winning party         
+         os.remove(self.oStream) # erase it since not needed
+      return (self.info, self.oStream)
          
    # override tostring
    def __str__(self) -> str:

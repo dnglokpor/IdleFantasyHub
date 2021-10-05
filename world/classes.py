@@ -111,7 +111,7 @@ class Fighter(Adventurer):
       super().__init__(
          "Fighter",
          uName, 
-         [45, 16, 14, 7, 8, 10, rndGen()], 
+         [50, 16, 14, 7, 8, 10, rndGen()], 
          blademanship,
          "adventurer class with all-round good physicals and\n"
          "proficient in bladed weapon handling. monsters \n"
@@ -160,7 +160,7 @@ class Ranger(Adventurer):
       super().__init__(
          "Ranger", 
          uName, 
-         [40, 13, 12, 8, 7, 15, rndGen()],
+         [50, 13, 12, 8, 7, 15, rndGen()],
          survivalist,
          "veteran of dungeons, rangers use their light steps\n"
          "to explore swiftly and dodge with finesse. armed\n"
@@ -209,7 +209,7 @@ class Elementalist(Adventurer):
       super().__init__(
          "Elementalist", 
          uName, 
-         [40, 9, 10, 15, 13, 8, rndGen()], 
+         [50, 9, 10, 15, 13, 8, rndGen()], 
          conjuring,
          "they say dungeons just like magic sip into this \n"
          "world from a distant place. that might explain how \n"

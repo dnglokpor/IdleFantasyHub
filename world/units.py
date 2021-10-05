@@ -90,6 +90,10 @@ class Unit:
       '''raise the unit's hp by healAmount. ignore 
       equipment.'''
       self.stats.changeBy("health", healAmount)
+   def resurrect(self):
+      '''set the hp of the unit to 1 if they were dead.'''
+      if self.isAlive():
+         self.heal(1)
       
    # override tostring
    def __str__(self, short = True) -> str:

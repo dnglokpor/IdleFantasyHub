@@ -8,23 +8,32 @@
 
 # imports
 import discord, os, sys                   # environment
-import time                               # timer
+import time as tm                         # timer
 from dotenv import load_dotenv            # sensitive data cache
 import logging                            # logging util
 from discord.ext import commands as com   # discord lib
 import discord.ext.commands.errors as err # errors
 import random as rnd                      # randomizer
 try:
-    import cPickle as pickle              # pickle
+   import cPickle as pickle               # pickle
 except ModuleNotFoundError:
-    import pickle
+   import pickle
 
-# add game world modules to path
-sys.path.insert(0, "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+# add game world package to path so that internal imports work
+sys.path.insert(0, 
+   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+# add pictures generation package to path
+sys.path.insert(0, 
+   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub")
 
 # game world package imports
-from world.classes import Adventurer, Fighter, Ranger, \
-   Elementalist
+from idleUser import IdleUser, save, load, USER_PICS_PATH,\
+   USER_RECORDS_PATH, USER_TEMPS_PATH
+from picsGen import genProfile
+from world.helpers import timeString
+from world.classes import Fighter, Ranger, Elementalist
+from world.confrontation import Party
+from world.dungeon import DUNGEON
 
 # bot config
 load_dotenv()        # loads .env data
@@ -40,13 +49,6 @@ def senderInfo(ctx: com.Context):
    '''uses the context to return the channel and mention
    of author of the message received.'''
    return (ctx.message.channel, ctx.message.author.mention)
-def boolEvaluate(string: str):
-   '''return a boolean value that matches the passed
-   string. defaults to false.'''
-   if string.lower() == "true":
-      return True
-   else:
-      return False
 
 def getReportFile():
    '''concatenates and return the report file path.'''
@@ -87,105 +89,6 @@ def logError(eData):
    print(eData[2], file = getReportFile())
 
 # back end
-# records
-USER_RECORDS_PATH = "records/users"
-HERO_SAVES_PATH = "records/saves"
-
-# IdleUser object
-class IdleUser:
-   '''this class records information about the users that
-   interact with the bot so they can be remembered.
-   provides a way to write this info to the disc.'''
-   def __init__(self, id: int, uname: str):
-      '''only requires those to create the object. other
-      attributes will be set later.'''
-      self.id = id
-      self.uname = uname
-      self.hero = None
-      self.inCity = True
-      self.available = True
-      self.topFloor = 0
-   
-   # getters
-   def getUname(self) -> str:
-      return self.uname
-   def getID(self) -> int:
-      return self.id
-   def hasHero(self) -> bool:
-      return self.hero != None
-   def getHero(self) -> Adventurer:
-      return self.hero
-   def isInCity(self) -> bool:
-      '''True if self.inCity evaluates to True.'''
-      return self.inCity == True
-   def isAvailable(self) -> bool:
-      '''True if self.available evaluates to True.'''
-      return self.available == True
-   def getTopFloor(self) -> int:
-      return self.topFloor
-      
-   # setters: most attributes can be used directly
-   def setHero(self, adv: Adventurer):
-      '''set the hero attribute to the Adventurer object
-      it represents.'''
-      self.hero = adv
-   
-   # toString
-   def __str__(self) -> str:
-      '''creates a string that describe the object.'''
-      descr = "Idle Fantasy User:\n"
-      descr += "id {}\n".format(self.id)
-      descr += "username {}\n".format(self.uname)
-      descr += "hero {}\n".format(self.hasHero())
-      descr += "city {}\n".format(self.inCity)
-      descr += "available {}\n".format(self.available)
-      descr += "top {}\n".format(self.topFloor)
-      return descr
-   
-# records helpers
-def save(user: IdleUser):
-   '''write the user object to a file in a readable way.
-   overwrite the file if it already exists.'''
-   # create the file
-   userfile = USER_RECORDS_PATH + '/' + str(user.id) + '.usr'
-   herofile = HERO_SAVES_PATH + '/' + str(user.uname) + '.her'
-   # write user info to a file
-   with open(userfile, "w+") as record:
-      record.write(user.__str__())
-   # write avatar to file
-   if user.hasHero(): # an avatar is tied to this account
-      with open(herofile, "wb") as save:
-         pickle.dump(user.hero, save, pickle.HIGHEST_PROTOCOL)
-   return True      
-
-# load user data
-def load(id: int, uname: str) -> IdleUser:
-   '''looks for the user save file and create a user object
-   that matches it and return it. if the hero value is True,
-   look for the hero save file, loads it and add it to the
-   user item. return said item. this assumes the user file
-   exists already.'''
-   userfile = USER_RECORDS_PATH + '/' + str(id) + '.usr'
-   herofile = HERO_SAVES_PATH + '/' + str(uname) + '.her'
-   # recover user file contents
-   with open(userfile, "r") as record:
-      contents = record.read()
-   lines = contents.split('\n')
-   lines = lines[3:] # delete title line through id line
-   # recreate user object
-   user = IdleUser(id, uname)
-   # hero
-   if boolEvaluate(lines[0].split()[1]): # there is a hero
-      with open(herofile, "rb") as save:
-         user.hero = pickle.load(save)
-   else:
-      user.hero = None
-   # other
-   user.inCity = boolEvaluate(lines[1].split()[1])
-   user.available = boolEvaluate(lines[2].split()[1])
-   user.topFloor = int(lines[3].split()[1])
-   return user
-   
 # finds if a user is a registered user
 def isRegistered(id: int) -> bool:
    '''checks if the passed id is associated with an
@@ -209,6 +112,37 @@ async def isRegisteredWithHero(ctx):
       await waitThenSend(ctx, nHeroMSG.format(mention))
    return valid
 
+# rescue algorithm
+async def rescueFallen(key: int, floor: int) -> list:
+   '''rescue a fallen adventurer/party if they were defeated
+   on the floor the player is exploring. return a list
+   representing things recovered from the fallen as reward.
+   if no reward was found, return '''
+   temp = USER_TEMPS_PATH + str(key) + ".resq"
+   rewards = None
+   if os.path.isfile(temp): # fallen party exist
+      with open(temp, 'r') as file:
+         data = pickle.load(file) # recover data
+         if data["floor"] == floor:
+            rewards = list()
+            for fallen in data["users"]:
+               # possible reward from fallen
+               bag = fallen.getHero().getBag()
+               if not bag.isEmpty():
+                  stack = rnd.choice(list(bag.values()))
+                  rewards.append((stack[0], len(stack)))
+               # free user
+               fUser = load(fallen.getID(), fallen.getUname())
+               fUser.inCity = True
+               fUser.available = True
+               fUser.setKey(0) # reset exploration key
+               save(fUser)
+               # tell fallen user he was rescued
+               dm = await getDM(fUser)
+               dm.send("`you have been rescued. please be careful "
+                  "next time.`")
+   return rewards
+
 @bot.event
 async def on_ready():
    readyMSG = "We have logged in as {}\n".format(bot.user)
@@ -221,28 +155,37 @@ async def on_ready():
    
 
 # command errors
-@bot.event
+# @bot.event
 async def on_command_error(ctx: com.Context, exception):
    '''deal with errors at bot commands execution for
    a smooth runtime.'''
    # DEBUG BLOC
-   print(type(exception))
-   print(exception)
+   print(type(exception.original))
+   print(exception.original)
    # END OF DEBUG BLOC
    channel, mention = senderInfo(ctx)
+   command = ctx.command
    if type(exception) == err.CommandNotFound:
       await waitThenSend(ctx,
          "{}, that command doesn't exist. Use `help` to see"
          " all available commands.".format(mention)
       )
    elif type(exception) == err.MissingRequiredArgument:
-      command = ctx.command
       msg = "{} you forgot to specify ".format(mention)
-      if(command.name == "hero"):
+      if command.name == "hero":
          msg += "the hero class you want to use.\n"
          msg += "`eg: >hero Fighter`"
+      elif  command.name == "scout":
+         msg += "the floor which info you seek.\n"
+         msg += "`eg: >scout 1`"
       else:
-         pass
+         msg = "a required argument.\n"
+         msg += "use `>help {}".format(command.name)
+         msg += "` to see the correct use."
+      await waitThenSend(ctx, msg)
+   elif type(exception) == err.BadArgument:
+      msg = "use `>help {}".format(command.name)
+      msg += "` to see the correct use."
       await waitThenSend(ctx, msg)
    else: # unknow error
       server = ctx.guild
@@ -250,8 +193,8 @@ async def on_command_error(ctx: com.Context, exception):
       triggerCom = ctx.command
       eReport("error on {} by {} on server {}".format(
          triggerCom, triggerUser, server)) # log trigger info
-      eReport(str(type(exception)))
-      eReport(str(exception))
+      eReport(str(type(exception.__cause__)))
+      eReport(str(exception.__cause__))
       await waitThenSend(ctx, 
          "Something went wrong. Sorry, try something else.", 2)
 
@@ -264,14 +207,32 @@ def buildResponse(ctx: com.Context) -> str:
       "What's cooking", "Ohayo"
    ]
    return " ".join([rnd.choice(hellos), '{}.'])
-   
+
+# delayed response
 async def waitThenSend(ctx: com.Context, message: str,
    wait = 1):
    '''sends the passed "message" to the specified channel
    after waiting "wait" seconds.'''
-   time.sleep(wait)
+   tm.sleep(wait)
    await ctx.send(message)
-      
+
+# recover user client
+async def getDiscordUser(id: int):
+   '''uses the id of a discord user to recover the
+   discord.Client.User object associated with it and return
+   it.'''
+   uObject = await bot.fetch_user(id)
+   return uObject
+
+# find dm channel
+async def getDM(user: IdleUser):
+   '''retrieve a dm channel from a IdleUser user account.'''
+   uObject = await getDiscordUser(user.getID())
+   dm_channel = uObject.dm_channel
+   if dm_channel == None:
+      dm_channel = await uObject.create_dm()
+   return dm_channel
+
 @bot.command(name = "hello",
    help = "Says hello to the username, using a randomly choosed formula.")
 async def hello(ctx):
@@ -286,7 +247,7 @@ nRegMSG = "You are not registered {}. "\
 nHeroMSG = "You don't have a hero {}. use the `hero` "\
    "command to register a hero to your account."
 tips = [
-   "Use the `status` command to get the status of your hero.",
+   "Use the `profile` command to get your account status.",
    "Use the `bag` command to display the contents of your "
    "bag.",
    "Use the `explore` command to send your hero on a dungeon "
@@ -299,7 +260,7 @@ tips = [
 @bot.command(name = "guild", help = "register the user as a "
    "potential player of the game by recording their id and "
    "username. then display the instructions for them to pick "
-   "their hero.")
+   "their hero. also record the user profile picture.")
 async def guild(ctx):
    '''record user if they are not recorded yet. give instructions
    on how to select a hero.'''
@@ -314,13 +275,20 @@ async def guild(ctx):
    else: # new user
       # register them
       newUser = IdleUser(id, username)
+      # record user avatar as picture
+      author = ctx.message.author
+      avatarAsset = author.avatar_url_as(format = "png")
+      userpic = USER_PICS_PATH + str(id) + '.png'
+      await avatarAsset.save(userpic)
+      newUser.setPic(userpic)
+      # save to permanent record
       save(newUser)
       # reply to them
       msg = "Welcome to the Idle Guild {}. We are so happy to "\
       "have you with us. Without further ado, let's register "\
       "you as an adventurer. "\
       "We do need to know what class of adventurer you are. "\
-      "We know of three possible classes: **Fighter**, "\
+      "There are three possible classes: **Fighter**, "\
       "**Ranger** and **Elementalist**. Use the `hero` "\
       "command to specify your class.\n"
       "`eg: >hero Fighter`"
@@ -346,62 +314,41 @@ async def hero(ctx, className: str):
    else: # registered user w/ no hero
       user = load(id, username)
       msg = "Congratulations {}. ".format(mention)
+      token = str()
       if className.lower() == "fighter":
          user.setHero(Fighter(username))
-         msg += "You are now a Fighter.\n"
+         msg += "You are now a Fighter"
+         token = ":crossed_swords:"
       elif className.lower() == "ranger":
          user.setHero(Ranger(username))
-         msg += "You are now a Ranger.\n"
+         msg += "You are now a Ranger"
+         token = ":bow_and_arrow:"
       elif className.lower() == "elementalist":
          user.setHero(Elementalist(username))
-         msg += "You are now an Elementalist.\n"
+         msg += "You are now an Elementalist"
+         token = ":magic_wand:"
       else:
          await waitThenSend(ctx, 
             "**{}** is not a know hero class.".format(className))
-      msg += user.hero.__str__(False) + '\n'
+      msg = token + msg + token + '\n'
       msg += tips[0] + '\n' + tips[1] + '\n' + tips[2] + '\n'
       save(user)
    await waitThenSend(ctx, msg)
 
 # display player account info
-@bot.command(name = "profile", help = "prints an account of the "
-   "user summary.")
+@bot.command(name = "profile", help = "show the player's profile "
+   "status page.")
 async def profile(ctx):
-   '''prints the user's account summary.'''
-   id = ctx.message.author.id
-   username = ctx.message.author.name
-   channel, mention = senderInfo(ctx)
-   profile = str()
-   if isRegistered(id): # user already exists
-      user = load(id, username)
-      profile = "**{}** [*id {}*]\n".format(user.uname, user.id)
-      if user.hasHero():
-         profile += "class <"
-         profile += user.getHero().getClassName() + '>\n'
-      else:
-         profile += "No registered hero.\n"
-      profile += "Top explored floor: {}\n".format(user.topFloor)
-      if user.isInCity():
-         profile += "Currently in the City.\n"
-      else:
-         profile += "Currently in exploration\n"
-      if user.isAvailable():
-         profile += "Available.\n"
-      else:
-         profile += "Not available\n"
-   else: # user is not registered
-      profile = nRegMSG.format(mention)
-   await waitThenSend(ctx, profile)
-
-# display avatar infos
-@bot.command(name = "status", help = "displays the whole status "
-   "of your hero. Useful to check overall stats, skills and "
-   "equipment.")
-async def status(ctx):
-   if (await isRegisteredWithHero(ctx)): # terminates in case of no hero
+   '''sends a profile status page to the author of the message
+   if they are registered players.'''
+   if (isRegistered(ctx.message.author.id)):
       user = load(ctx.message.author.id, ctx.message.author.name)
-      status = user.getHero().__str__(False)
-      await waitThenSend(ctx, status)
+      profile = discord.File(genProfile(user))
+      mention = ctx.message.author.mention
+      await ctx.send("here is your profile {}:".format(mention), 
+         file = profile)
+   else:
+      await ctx.send(nRegMSG) 
 
 # display avatar inventory
 @bot.command(name = "bag", help = "list down the contents of "
@@ -410,6 +357,8 @@ async def bag(ctx):
    if (await isRegisteredWithHero(ctx)): # terminates in case of no hero
       user = load(ctx.message.author.id, ctx.message.author.name)
       bag = user.getHero().getBag().__str__()
+      mention = ctx.message.author.mention
+      bag = mention + "'s " + bag
       await waitThenSend(ctx, bag)
 
 # shows learnable skills
@@ -433,6 +382,197 @@ async def learned(ctx):
       for skill in mastered:
          msg += skill.__str__() + '\n'
       await waitThenSend(ctx, msg)
+
+# show floor information
+@bot.command(name = "scout", help = "display information on "
+   "the specify floor if and only if you have explored it."
+   "\neg: `>scout 1`")
+async def scout(ctx, floor: int):
+   if isRegistered(ctx.message.author.id):
+      user = load(ctx.message.author.id, ctx.message.author.name)
+      mention = ctx.message.author.mention
+      if floor < 1:
+         await waitThenSend(ctx, "Invalid floor!!!")
+      elif not DUNGEON.__contains__(floor):
+         resp = mention
+         resp += " , that floor isn't available yet."
+         await waitThenSend(ctx, resp)
+      else: # we are good
+         info = mention
+         info += " here is the intelligence on floor {}:\n".format(floor)
+         if floor <= user.getTopFloor(): # already explored
+            info += DUNGEON[floor].__str__(True)
+         else: # never explored
+            info += DUNGEON[floor].__str__()
+         await waitThenSend(ctx, info)
+   else:
+      await waitThenSend(ctx, nRegMSG)
+
+# set up user for exploration
+def readyUser(user: IdleUser, start: int):
+   '''set the appropriate user flags and the key needed
+   for the user to be exploration ready.'''
+   user.inCity = False
+   user.available = False
+   user.setKey(start)
+   save(user)
+
+# explore dungeon
+@bot.command(name = "explore", help = "explore the specified "
+   "floor of the dungeon. you can specify up to **3** other players "
+   "to explore with. just specify their ID in your Friendbook. "
+   "separeted by a comma (no spaces allowed). they must be in "
+   "your Friendbook to be allowed in your party."
+   "\neg.: `;explore 1` or `;explore 1 reac1,bail2,susa3`")
+async def explore(ctx, f: int, allies: str=None):
+   # in case of empty allies
+   if allies == None:
+      allies = "" # empty string
+   do = False
+   start = 0
+   if (await isRegisteredWithHero(ctx)): # terminates in case of no hero
+      user = load(ctx.message.author.id, ctx.message.author.name)
+      mention = ctx.message.author.mention
+      if f < 1:
+         await waitThenSend(ctx, "Invalid floor!!!")
+      elif not DUNGEON.__contains__(f):
+         resp = mention
+         resp += " , that floor isn't available yet."
+         await waitThenSend(ctx, resp)
+      elif f > user.getTopFloor() + 1:
+         resp = mention
+         resp += ", you can't go to that floor yet. you still"
+         resp += " need to explore floor {}".format(
+            user.getTopFloor() + 1)
+         await waitThenSend(ctx, resp)
+      else: # floor is in reach
+         if not (user.isInCity() and user.isAvailable()):
+            resp = mention
+            resp += ", you have to be `in the city` and "
+            resp += "`free`."
+            await waitThenSend(ctx, resp)
+         else: # free and ready to explore
+            do = True
+            start = int(tm.time()) # timer
+            # update user disponibility
+            readyUser(user, start)
+   if do: # exploration setup block
+      going = [user,]
+      # add coop heroes
+      if allies != "":
+         allies = allies.split(',')
+         for a in allies:
+            friend = user.getFriendbook().getFriend(a)
+            if friend != None:
+               friend = load(friend[0], friend[1])
+               if friend.canCoop():
+                  going.append(friend)
+                  readyUser(friend, start)
+                  party.append(friend.getHero())
+                  fMSG = "**{}** invited to explore floor {}.".format(
+                     user.getName(), f)
+                  fMSG += " use `;report` to check on the status the exploration."
+                  dm = await getDM(friend)
+                  await dm.send(fMSG)
+               else:
+                  await waitThenSend(ctx,
+                     "{} is not available for coop.".format(
+                        friend.getUname()))
+            else: # no user of that name in phonebook
+               await waitThenSend(ctx,
+                  "you don't have a friend by that name!")
+      setupData = {
+         "startTime": start,
+         "floor": f,
+         "users": going
+      }
+      with open(USER_TEMPS_PATH + str(start) + ".wait", "wb") as setupFile:
+         pickle.dump(setupData, setupFile, pickle.HIGHEST_PROTOCOL)
+      # the rest will be ran by the bg_explorer.py process
+      # announce that the party has left
+      msg = ""
+      for u in going:
+         msg += u.getUname()
+         if u != going[-1]:
+            u += ", "
+      msg += " go on an exploration of the {} floor.".format(f)
+      msg += " use `;report` to check on the status the exploration."
+      await waitThenSend(ctx, msg)
+
+# report command
+@bot.command(name = "report", help = "report on the exploration that "
+   "the player went on. if exploration isn't over, says how much "
+   "time remains.")
+async def report(ctx):
+   '''report on exploration status.'''
+   if (await isRegisteredWithHero(ctx)):
+      user = load(ctx.message.author.id, ctx.message.author.name)
+      mention = ctx.message.author.mention
+      dm_channel = ctx.message.author.dm_channel
+      if dm_channel == None:
+         dm_channel = await ctx.message.author.create_dm()
+      if user.isInCity() or user.isAvailable():
+         await waitThenSend(ctx,
+            "you didn't go on any exploration {}.".format(mention))
+      else: # was on an exploration
+         # load temp file
+         temp = USER_TEMPS_PATH + str(user.getKey()) + ".done"
+         data = None
+         with open(temp, 'rb') as expFile:
+            data = pickle.load(expFile)
+         current = int(tm.time())
+         if current < data["endTime"]: # not completed
+            remain = timeString(data["endTime"] - current)
+            await waitThenSend(ctx,
+               "`{}` until end of your exploration {}.".format(remain,
+                  mention))
+         else: # completed
+            # two cases based on data['cleared']
+            if data["cleared"]: # success
+               for u in data["users"]:
+                  u.getHero().resurrect() # resurrect hero if needed
+                  # rescue fallen adventurer
+                  rewards = await rescueFallen(u.getRescueKey(), 
+                     data["floor"])
+                  report = data["report"]
+                  if rewards != None:
+                     report += "rescue rewards: "
+                     for i, (itm, q) in enumerate(rewards):
+                        u.getHero().getBag().addMulti(itm, q)
+                        report += itm.getName() + " x " + str(q)
+                        if i < len(rewards) - 1:
+                           report += ", "
+                  u.setRescueKey(0) # reset rescue key
+                  u.inCity = True # set as in town
+                  u.available = True # set as free
+                  u.setKey(0) # reset exploration key
+                  u.setTopFloor(data["floor"]) # update top
+                  save(u) # save user account and hero
+                  await (await getDM(u)).send(report) # dm
+               os.remove(temp) # erase temp file
+            else: # failure
+               # in case of failure, the player(s) hero(es) is(are) 
+               # stuck in the dungeon until rescued.
+               # rename ".wait" into a ".resq"
+               os.rename(temp, 
+                     USER_TEMPS_PATH + str(user.getKey()) + ".resq")
+               # send the DMs
+               for u in data["users"]:
+                  await (await getDM(u)).send(data["report"]) # dm
+            # announce to the user(s) to check their DM
+            await waitThenSend(ctx, 
+                  mention + "check your DMs for the report.")
+               
+# test command
+@bot.command(name = "test", help = "for development purposes.")
+async def test(ctx, other = None):
+   '''used to try out library methods and other.'''
+   #await waitThenSend(ctx, 
+   #   "*No beta function available at the moment.*")  
+   if other == None:
+      other = ctx.message.author.mention
+   await waitThenSend(ctx, 
+      "you didn't enter anything else {}".format(other))
 
 # run module
 if __name__ == "__main__":

@@ -42,14 +42,15 @@ class Inventory:
       '''return the stack of items by at this key.'''
       if self.contents.__contains__(k):
          return self.contents.get(k)
+      else:
+         return list()
    def takeOut(self, iName: str, qty = 1) -> list:
       '''takes out of the bag an item identified by
       its name in the quantity requested if available.
       return a list of the items taken out. the 
       quantity must be absolutely positive (> 0).'''
       if qty <= 0:
-         raise ValueError("quantity must be absolutely\
-positive (> 0).")
+         raise ValueError("quantity must be absolutely positive (> 0).")
       found = list() # empty list
       k = genHash(iName)
       if self.contains(iName): # we have some
@@ -61,7 +62,6 @@ positive (> 0).")
             # clear slot from bag
             v = self.getStackOf(k)
             self.contents = self.shrink((k, v))
-      
       return found
             
    # setters

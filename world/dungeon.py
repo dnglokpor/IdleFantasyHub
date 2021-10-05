@@ -17,6 +17,7 @@
 # imports
 import itemLib as il
 import monsterLib as ml
+import bossLib as bl
 from blocks import Environment, EmptyBlock, ScavengingBlock,\
    WoodcuttingBlock, MiningBlock, BattleBlock, StairsBlock,\
    BossBlock
@@ -98,7 +99,7 @@ forestBB = BattleBlock(
       "you barely get to your weapons that it is upon you.",
       ],
       res = None,
-      hostile = [ml.s_Raccoundrel, ml.s_Sparowl, ml.s_caterkiller],
+      hostile = [ml.s_Raccoundrel, ml.s_Sparowl, ml.s_Caterkiller],
       amenity = None
    )
 )
@@ -115,7 +116,7 @@ forestBoB = BossBlock(
       "too content of that..."
       ],
       res = None,
-      hostile = [ml.s_Butterfreak],
+      hostile = [bl.s_Butterfreak],
       amenity = None
    )
 )
@@ -158,6 +159,6 @@ floor5 = Floor(
 )
 
 # dungeon
-DUNGEON = dict(
+DUNGEON = {
    1: floor1, 2: floor2, 3: floor3, 4: floor4, 5: floor5
-) 
+}

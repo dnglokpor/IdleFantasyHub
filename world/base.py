@@ -146,6 +146,7 @@ class UnitStats(dict):
          if key != STATS[0]:
             stat.reset()
    
+   
    # overload addition operator
    def __add__(self, other) -> dict:
       '''provide a way to add two UnitStats objects

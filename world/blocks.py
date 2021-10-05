@@ -111,7 +111,8 @@ class EmptyBlock(Block):
    # exploration
    def explore(self, explorers: Party, haz: int):
       '''just describes the block's environment.'''
-      self.printLook()
+      #self.printLook()
+      return None # info = None
 
 # ScavengingBlock object      
 class ScavengingBlock(Block):
@@ -130,10 +131,11 @@ class ScavengingBlock(Block):
       if they manage to survive the fight, they will still
       gather before they leave.
       '''
-      self.printLook()
+      #self.printLook()
+      info = (list(), None)
       if (rndGen(100) < rndGen(100)): # battle branch
          # DEBUG
-         print("\nyou were looking for goods but found monsters...")
+         #print("\nyou were looking for goods but found monsters...")
          # scavenging monsters are just a group of a same
          # monster based on the hazard level
          hostile = self.env.get("hostile")
@@ -143,17 +145,24 @@ class ScavengingBlock(Block):
             m = hostile[0](rndGen(haz))
             monsters.append(m)
          battle = BattleState(explorers, Party(monsters))
-         battle.run()
+         info = battle.run()
       # now that's out of the way, scavenge
       if explorers.stillStands(): # scavenging branch
          (qty, item) = (rndGen(5), rnd.choice(self.env.get("resource")))
+         print("before:\n", info)
+         info = (info[0] + [('i', item.getName()),], info[1])
+         print("after:\n", info)
          # DEBUG
-         print("\nyou stumble upon some {}!".format(item.getName()))
+         #print("\nyou stumble upon some {}!".format(item.getName()))
          for unit in explorers:
-            if unit.getBag().addMulti(item, qty):
-               # DEBUG
-               print("{} obtained {} x {}.".format(unit.getName(), qty,
-                  item.getName())) 
+            if not unit.getBag().addMulti(item, qty):
+               info = (info[0].append(('p', 
+                  "{}'s bag is full!!!".format(unit.getName())), 
+                  info[1]))
+            # DEBUG
+            #print("{} obtained {} x {}.".format(unit.getName(), qty,
+               #item.getName()))
+      return info
 
 # WoodcuttingBlock object
 class WoodcuttingBlock(ScavengingBlock):
@@ -172,14 +181,16 @@ class WoodcuttingBlock(ScavengingBlock):
       '''
       found = None
       i = 0
+      info = (list(), None)
       while i < len(explorers) and not found:
          found = explorers.getMember(i).getBag().contains("Axe")
          if not found:
             i += 1
       if found:
-         super().explore(explorers, haz)
+         info = super().explore(explorers, haz)
       else:
-         print("\nyou need an axe to chop wood.") # DEBUG
+         info = ([('p', "you need an axe to chop trees!"),], None)
+      return info
      
 # MiningBlock object     
 class MiningBlock(ScavengingBlock):
@@ -198,14 +209,18 @@ class MiningBlock(ScavengingBlock):
       '''
       found = None
       i = 0
+      info = (list(), None)
       while i < len(explorers) and not found:
          found = explorers.getMember(i).getBag().contains("Pickaxe")
          if not found:
             i += 1
       if found:
-         super().explore(explorers, haz)
+         info = super().explore(explorers, haz)
       else:
-         print("\nyou need a pickaxe to mine for ores.") # DEBUG
+         info = ([('p', "you need a pickaxe to mine for ores!!!"),],
+            None)
+         #print("\nyou need a pickaxe to mine for ores.") # DEBUG
+      return info
    
 # BattleBlock
 class BattleBlock(Block):
@@ -230,8 +245,9 @@ class BattleBlock(Block):
       monsters = rnd.choices(hostile, k = size)
       monsters = [monsters[i](levels[i]) for i in range(len(monsters))]
       battle = BattleState(explorers, Party(monsters))
-      self.printLook() # DEBUG
-      battle.run()
+      #self.printLook() # DEBUG
+      info = battle.run()
+      return info
    
 # StairsBlock
 class StairsBlock(EmptyBlock):
@@ -265,16 +281,20 @@ class BossBlock(StairsBlock):
       hostile = self.bossRoom.get("hostile")      
       boss = hostile[0](haz)
       form = 0
+      info = (list(), None)
       while explorers.stillStands() and form < boss.getForms():
          print(self.bossRoom.get("look")[form]) # DEBUG
          battle = BattleState(explorers, Party(boss.getNextForm()))
-         battle.run()
+         roundInfo = battle.run()
+         # only keep last battle report file
+         info = (info[0] + roundInfo[0], roundInfo[1])
          if explorers.stillStands():
             form += 1
       # end of boss battle
       if explorers.stillStands: # defeated the boss
          super().explore()
       # the else will be managed by the exploration code
+      return info
 
 # test platform
 if __name__ == "__main__":

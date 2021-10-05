@@ -67,14 +67,14 @@ class Floor:
       return build
       
    # toString
-   def __str__(self):
+   def __str__(self, all = False):
       '''return a string version of the floor for reference.'''
-      string = "Floor description:\n"
-      string += "Size {}.\n".format(self.size)
-      string += "Danger level {}.\n".format(self.hazard)
-      string += "Possible blocks:\n"
-      for i, block in enumerate(self.pop):
-         string += block.__str__()
-         if i != len(self.pop) - 1:
-            string += '\n'
+      string = "Size: {} blocks.\n".format(self.size)
+      string += "Danger level: {}.\n".format(self.hazard)
+      if all:
+         string += "Possible blocks:\n"
+         for i, block in enumerate(self.pop):
+            string += block.__str__()
+            if i != len(self.pop) - 1:
+               string += '\n'
       return string

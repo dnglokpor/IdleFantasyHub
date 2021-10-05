@@ -549,10 +549,8 @@ class Shoot(SinglePhysical):
       if hasWeaponType('r', perp):
          # check for ammo
          ammo = perp.getBag().takeOut("arrow")
-         if len(ammo) != 0:
+         if len(ammo) != 0: # we have ammo
             status = super().__call__(perp, state)
-            # add ammo to waste
-            state.addLostItem(perp, ammo[0])
          else: # no arrows
             status = (None, "{} has no arrows.".format(
          perp.getName()))

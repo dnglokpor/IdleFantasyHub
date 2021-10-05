@@ -345,6 +345,9 @@ class EffectList(list):
       for effect in self:
          if effect.isExpired():
             self.remove(effect)   
+   def clearAll(self):
+      '''remove all effects.'''
+      self.clear()
   
    # others
    def applyAll(self, unit):

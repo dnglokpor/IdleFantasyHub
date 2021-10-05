@@ -196,6 +196,7 @@ leatherBoots = Accessory(
    60,
    [("defense", 1),]
 )
+leatherBoots.setIco(GEAR + "Grey/Boots/LeatherJacket.png")
 # # Gloves
 gloves = Accessory(
    "Gloves",
