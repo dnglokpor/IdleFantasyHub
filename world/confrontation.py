@@ -305,7 +305,7 @@ class BattleState(State):
          name = m.getName()
          name = name.split() # will split if there's a space
          name = name[0] # keep only the first part
-         self.info.append(('m', m.getName()))
+         self.info.append(('m', name))
       roundNo = 0
       fprint("a battle has started:\n", self.oStream) # DEBUG
       #sleep(1)                         # DEBUG

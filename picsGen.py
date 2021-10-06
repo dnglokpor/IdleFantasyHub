@@ -24,7 +24,9 @@ from world.base import STATS, UnitStats
 PAGES = "world/resource/pages/"
 OUTPUT = "records/generated/"
 PROFILE = "profile.png"
-PP_SIZE = 180
+BAG = "inventory.png"
+ITEMS = "world/resource/items/"
+DEFAULT = ITEMS + "glitch-icon-87.png"
 
 # profile page
 def genProfile(user: IdleUser) -> str:
@@ -38,8 +40,7 @@ def genProfile(user: IdleUser) -> str:
 
    # profile picture
    pp = Image.open(user.getPicture())
-   if pp.width > PP_SIZE or pp.height > PP_SIZE: # resize if necessary
-      pp = pp.resize((181, 175))
+   pp = pp.resize((181, 175))
    base.paste(pp, (62, 112))
    # name
    nameField = user.getUname()
@@ -59,7 +60,7 @@ def genProfile(user: IdleUser) -> str:
    )
    # Status LEDs
    # # in town?
-   status = [user.isInCity(), user.isAvailable()]
+   status = [user.isInCity(), user.isOpen()]
    r_ = 28
    pointYs = [182, 262]
    for i in range(len(status)):
@@ -137,7 +138,7 @@ def genProfile(user: IdleUser) -> str:
                gear[i] = Image.open(gear[i]) # load icon
                gear[i] = gear[i].copy() # duplicate
                gear[i] = gear[i].resize((50, 50)) # resize
-               base.paste(gear[i], (407, posYs[i])) # paste weapon
+               base.paste(gear[i], (407, posYs[i])) # paste
       # equipment names
       gear = list()
       gear.append(hero.getEquipped().getWeapon())
@@ -172,6 +173,78 @@ def genProfile(user: IdleUser) -> str:
       # end of hero attributes
    # send out
    # base.show()
-   outputName = OUTPUT + "{}".format(user.id) + ".png"
+   outputName = OUTPUT + "p_{}".format(user.id) + ".png"
    base.save(outputName)
    return outputName
+
+# inventory
+def genBag(user: IdleUser) -> str:
+   '''loads a picture that represents the bag of an player.
+   place the items in the bag of the adventurer on the picture
+   generating an accurate picture of it. return the path
+   to the picture.'''
+   # set up
+   base = Image.open(PAGES + BAG) # load original picture
+   base = base.copy() # make copy to not lose base
+   editor = Draw(base) # make drawing context on base
+   # positions
+   row = 0
+   col = 0
+   iconsXs = [47, 300, 545, 805]
+   iconsY = 110
+   namesXs = [112, 365, 616, 860]
+   namesY = 145
+   # load bag
+   bag = user.getHero().getBag()
+   # place items
+   for i, stack in enumerate(bag):
+      # change row, col
+      if (i + 1) > 23: # 4rth row
+         row = 1
+         col = i % 8
+      elif (i + 1) > 15: # 3rd row
+         row = 2
+         col = i % 16
+      elif (i + 1) > 7: # 2nd row
+         row = 3
+         col = i % 24
+      else: # first row
+         row = 0
+         col = i      
+      # icons
+      ico = stack[0].getIco()
+      if ico == '': # there is no set icon
+         ico = DEFAULT
+      ico = Image.open(ico) # load icon
+      ico = ico.copy() # duplicate
+      ico = ico.resize((55, 53)) # resize
+      x, y = iconsXs[row], iconsY  + col * 65
+      base.paste(ico, (x, y)) # paste
+      # qty box
+      qtyBox = Image.new("RGBA", (16, 16),(255, 255, 255, 180))
+      base.paste(qtyBox, (x - 3, y - 2), qtyBox)
+      # qty
+      qty = str(len(stack))
+      myFont = truetype("bahnschrift.ttf", 16)
+      posX = (x + 5) - int(myFont.getlength(qty) / 2) # center
+      editor.text(
+         (posX, y),
+         qty,
+         font = myFont,
+         fill = (0, 0, 0)
+      )
+      # names
+      qty = stack[0].getName()
+      myFont = truetype("bahnschrift.ttf", 16)
+      editor.text(
+         (namesXs[row], namesY + col * 65),
+         qty,
+         font = myFont,
+         fill = (255, 255, 255)
+      )
+   # send out
+   #base.show()
+   outputName = OUTPUT + "b_{}".format(user.id) + ".png"
+   base.save(outputName)
+   return outputName
+   

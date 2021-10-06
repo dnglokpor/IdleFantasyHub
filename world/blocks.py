@@ -149,9 +149,7 @@ class ScavengingBlock(Block):
       # now that's out of the way, scavenge
       if explorers.stillStands(): # scavenging branch
          (qty, item) = (rndGen(5), rnd.choice(self.env.get("resource")))
-         print("before:\n", info)
          info = (info[0] + [('i', item.getName()),], info[1])
-         print("after:\n", info)
          # DEBUG
          #print("\nyou stumble upon some {}!".format(item.getName()))
          for unit in explorers:

@@ -41,6 +41,10 @@ if __name__ == "__main__":
    # Blocks
    import blocks as bk
    import itemLib as il
+   item = il.arrow
+   print("item:", il.arrow.getName())
+   print("path: ", il.arrow.getIco())
+   '''
    eEnv = bk.Environment( 
       ["There is lush green tall grass all around the place.",
        "The wind blows slowly among the small bushes.",
@@ -51,10 +55,11 @@ if __name__ == "__main__":
       amenity = None
    )
    eBlock = bk.EmptyBlock(eEnv)
+   '''
    #print(eBlock)
    #eBlock.explore(p)
    
-   
+   '''
    sEnv = bk.Environment(
       look = 
       ["the prairie seems ripe with fragrant plants and flowers.",
@@ -65,10 +70,11 @@ if __name__ == "__main__":
       amenity = None
    )
    sBlock = bk.ScavengingBlock(sEnv)
+   '''
    #print(sBlock)
    #sBlock.explore(p)
    
-   bEnv = bk.Environment(
+   '''bEnv = bk.Environment(
       look = 
       ["a sudden air of danger float around the prairie.",
        "something moves in the grass in front of the party.",
@@ -79,6 +85,7 @@ if __name__ == "__main__":
       amenity = None
    )
    bBlock = bk.BattleBlock(bEnv)
+   '''
    #print(bBlock)
    #bBlock.explore(p, 1)
    
@@ -116,9 +123,9 @@ if __name__ == "__main__":
    '''
    
    # floor test
-   from floors import Floor
-   f1 = Floor(5, 1, [eBlock, sBlock, bBlock], [2, 1, 1], bk.StairsBlock())
-   print(f1)
+   #from floors import Floor
+   #f1 = Floor(5, 1, [eBlock, sBlock, bBlock], [2, 1, 1], bk.StairsBlock())
+   #print(f1)
    ''''f1Blocks = f1.build()
    current = 0
    while current < len(f1Blocks) and p.stillStands():

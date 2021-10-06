@@ -15,6 +15,7 @@ try:
    import cPickle as pickle              # pickle
 except ModuleNotFoundError:
    import pickle
+import time as tm
 
 # add game world package to path so that internal imports work
 sys.path.insert(0, 
@@ -83,12 +84,12 @@ class Friendbook(dict):
       string = "**Discord User**\t**COOP Avail.**\t**FID**"
       for i, (id, entry) in enumerate(self.items()):
          user = load(entry[0], entry[1])
-         available = user.isInCity() and user.isAvailable() and user.isOpen()
-         if available:
-            available = ":green_circle:"
+         coop = user.isInCity() and user.isOpen()
+         if coop:
+            coop = ":green_circle:"
          else:
-            available = ":red_circle:"
-         string += "`@{}`\t``\t`{}`".format(entry[1], available, id)
+            coop = ":red_circle:"
+         string += "`@{}`\t``\t`{}`".format(entry[1], coop, id)
          if i < len(self.values()) - 1:
             string += '\n'
       return string
@@ -105,7 +106,7 @@ class IdleUser:
       self.uname = uname
       self.hero = None
       self.inCity = True # in town
-      self.available = True # free
+      self.time = 0 # counting stay in city
       self.topFloor = 0
       self.picture = str() # path to profile pic
       self.key = 0 # key for exploration files
@@ -125,9 +126,9 @@ class IdleUser:
    def isInCity(self) -> bool:
       '''True if self.inCity evaluates to True.'''
       return self.inCity
-   def isAvailable(self) -> bool:
-      '''True if self.available evaluates to True.'''
-      return self.available
+   def getTime(self) -> int:
+      '''return the last loading time record by this account.'''
+      return self.time
    def isOpen(self) -> bool:
       '''return True if self.open == True.'''
       return self.open
@@ -145,12 +146,9 @@ class IdleUser:
    def getFriendBook(self) -> Friendbook:
       '''return the Friendbook object of this user.'''
       return self.friendbook
-   def isFreeTo(self) -> bool:
-      '''return True if the user is inCity and available.'''
-      return self.inCity and self.available
    def canCoop(self) -> bool:
       '''return True if the user is available to coop.'''
-      return self.isFreeTo() and self.open
+      return self.isInCity() and self.open
       
    # setters: most attributes can be used directly
    def setPic(self, path: str):
@@ -177,6 +175,18 @@ class IdleUser:
       '''set the key value for a rescue. this is needed to free
       players that fell on exploration.'''
       self.rescue = val
+   def updateTime(self):
+      '''update the value of the time attribute for healing 
+      computation.'''
+      self.time = int(tm.time())
+   def heal(self):
+      '''heals the hero by an amount of health that is related to
+      how much time has passed since the last time he was loaded
+      while in city. the heal rate is 5HP per minute.'''
+      elapsed = int(tm.time()) - self.time
+      amount = (elapsed // 60) * 5
+      self.hero.heal(amount)
+      self.updateTime() # update the time
    
    # toString
    def __str__(self) -> str:
@@ -186,7 +196,7 @@ class IdleUser:
       descr += "username {}\n".format(self.uname)
       descr += "hero {}\n".format(self.hasHero())
       descr += "city {}\n".format(self.inCity)
-      descr += "available {}\n".format(self.available)
+      descr += "time {}\n".format(self.time)
       descr += "top {}\n".format(self.topFloor)
       descr += "pp_path {}\n".format(self.picture)
       descr += "key {}\n".format(self.key)
@@ -208,6 +218,8 @@ def save(user: IdleUser):
    # create the file
    userfile = USER_RECORDS_PATH + '/' + str(user.id) + '.usr'
    herofile = HERO_SAVES_PATH + '/' + str(user.uname) + '.her'
+   # update time
+   user.updateTime()
    # write user info to a file
    with open(userfile, "w+") as record:
       record.write(user.__str__())
@@ -233,15 +245,9 @@ def load(id: int, uname: str) -> IdleUser:
    lines = lines[3:] # delete title line through id line
    # recreate user object
    user = IdleUser(id, uname)
-   # hero
-   if boolEvaluate(lines[0].split()[1]): # there is a hero
-      with open(herofile, "rb") as save:
-         user.hero = pickle.load(save)
-   else:
-      user.hero = None
    # other
    user.inCity = boolEvaluate(lines[1].split()[1])
-   user.available = boolEvaluate(lines[2].split()[1])
+   user.time = int(lines[2].split()[1])
    user.topFloor = int(lines[3].split()[1])
    user.picture = lines[4].split()[1]
    user.key = int(lines[5].split()[1])
@@ -254,4 +260,12 @@ def load(id: int, uname: str) -> IdleUser:
    while i < n:
       data = lines[9 + i].split()
       user.friendbook.restoreEntry(data[0], data[1], data[2])
+   # hero
+   if boolEvaluate(lines[0].split()[1]): # there is a hero
+      with open(herofile, "rb") as cartdrige:
+         user.hero = pickle.load(cartdrige)
+      user.heal() # restore HP
+   else:
+      user.hero = None
+   save(user) # save to keep the healed data
    return user

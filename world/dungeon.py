@@ -42,7 +42,7 @@ prairieSB = ScavengingBlock(
       ["the prairie seems ripe with fragrant plants and flowers."
       "herb picking would definitely yield results.",
       ],
-      res = [il.chemomille, il.dandetigreSeeds, il.theestleNeedles],
+      res = [il.chemomille, il.wildCorn, il.violette],
       hostile = [ml.s_Sparowl],
       amenity = None
    )
@@ -86,7 +86,7 @@ forestWB = WoodcuttingBlock(
       ["the trees that grow around here seem to be of good quality."
        "logging here could turn out profitable.",
       ],
-      res = [il.haukWood, il.hardcorn],
+      res = [il.haukWood, il.yellowFoot],
       hostile = [ml.s_Honeybeat],
       amenity = None
    )

@@ -16,6 +16,7 @@
 # imports
 from base import Stat, STATS
 import os
+import copy as cp
 
 # helper
 def genHash(name) -> str:
@@ -41,8 +42,7 @@ class Item:
       and its value. the hash is a unique ID based on the name
       and value.'''
       if len(name) == 0 or len(lore) == 0:
-         raise ValueError("name and lore cannot be empty\
-strings")
+         raise ValueError("name and lore cannot be empty strings")
       if value < 0:
          raise ValueError("value must be positive (>= 0)")
       self.name = name
@@ -85,7 +85,9 @@ strings")
    def copy(self):
       '''return a deep copy of itsel a.k.a a new instance
       of this same item.'''
-      return Item(self.name, self.lore, self.value)
+      new = Item(self.name, self.lore, self.value)
+      new.ico = self.ico
+      return new
    
    # override tostring
    def __str__(self, short = True) -> str:
@@ -116,6 +118,15 @@ class Gear(Item):
    def getStats(self) -> list:
       '''return the stats list.'''
       return self.stats
+   
+   # duplication method
+   def copy(self):
+      '''return a deep copy of itsel a.k.a a new instance
+      of this same item.'''
+      new = Gear(self.name, self.lore, self.value, 
+         cp.deepcopy(self.stats))
+      new.ico = self.ico
+      return new
    
    # override tostring
    def __str__(self, short = True) -> str:

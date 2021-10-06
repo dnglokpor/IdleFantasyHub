@@ -29,7 +29,7 @@ sys.path.insert(0,
 # game world package imports
 from idleUser import IdleUser, save, load, USER_PICS_PATH,\
    USER_RECORDS_PATH, USER_TEMPS_PATH
-from picsGen import genProfile
+from picsGen import genProfile, genBag
 from world.helpers import timeString
 from world.classes import Fighter, Ranger, Elementalist
 from world.confrontation import Party
@@ -107,9 +107,12 @@ async def isRegisteredWithHero(ctx):
    if not isRegistered(id):
       valid = False
       await waitThenSend(ctx, nRegMSG.format(mention))
-   elif not load(id, username).hasHero():
-      valid = False
-      await waitThenSend(ctx, nHeroMSG.format(mention))
+   else: # they are registered so we check for hero
+      with open(USER_RECORDS_PATH + str(id) + ".usr", 'r') as record:
+         valid = ((((record.read()).split('\n'))[3]).split())[1]
+      valid = valid == "True"
+      if not valid:
+         await waitThenSend(ctx, nHeroMSG.format(mention))
    return valid
 
 # rescue algorithm
@@ -134,7 +137,6 @@ async def rescueFallen(key: int, floor: int) -> list:
                # free user
                fUser = load(fallen.getID(), fallen.getUname())
                fUser.inCity = True
-               fUser.available = True
                fUser.setKey(0) # reset exploration key
                save(fUser)
                # tell fallen user he was rescued
@@ -252,7 +254,10 @@ tips = [
    "bag.",
    "Use the `explore` command to send your hero on a dungeon "
    "exploration. during exploration, you will be considered "
-   "**not in the city** and **not available**.",
+   "**not in the city**.",
+   "Your hero's health **heals by itself** as time goes by.",
+   "If you die during an exploration, your hero's party will"
+   " be stuck on that floor until someone saves them."
 ]
 
 
@@ -315,6 +320,7 @@ async def hero(ctx, className: str):
       user = load(id, username)
       msg = "Congratulations {}. ".format(mention)
       token = str()
+      done = className.lower() in ["fighter", "ranger", "elementalist"]
       if className.lower() == "fighter":
          user.setHero(Fighter(username))
          msg += "You are now a Fighter"
@@ -330,10 +336,11 @@ async def hero(ctx, className: str):
       else:
          await waitThenSend(ctx, 
             "**{}** is not a know hero class.".format(className))
-      msg = token + msg + token + '\n'
-      msg += tips[0] + '\n' + tips[1] + '\n' + tips[2] + '\n'
-      save(user)
-   await waitThenSend(ctx, msg)
+      if done:
+         msg = token + msg + token + '\n'
+         msg += tips[0] + '\n' + tips[1] + '\n' + tips[2] + '\n'
+         save(user)
+         await waitThenSend(ctx, msg)
 
 # display player account info
 @bot.command(name = "profile", help = "show the player's profile "
@@ -356,10 +363,14 @@ async def profile(ctx):
 async def bag(ctx):
    if (await isRegisteredWithHero(ctx)): # terminates in case of no hero
       user = load(ctx.message.author.id, ctx.message.author.name)
-      bag = user.getHero().getBag().__str__()
+      bag = discord.File(genBag(user))
       mention = ctx.message.author.mention
-      bag = mention + "'s " + bag
-      await waitThenSend(ctx, bag)
+      await ctx.send("here's what you own {}:".format(mention), 
+         file = bag)
+      #bag = user.getHero().getBag().__str__()
+      #mention = ctx.message.author.mention
+      #bag = mention + "'s " + bag
+      #await waitThenSend(ctx, bag)
 
 # shows learnable skills
 @bot.command(name = "learnable", help = "shows you the all the "
@@ -413,7 +424,6 @@ def readyUser(user: IdleUser, start: int):
    '''set the appropriate user flags and the key needed
    for the user to be exploration ready.'''
    user.inCity = False
-   user.available = False
    user.setKey(start)
    save(user)
 
@@ -446,10 +456,10 @@ async def explore(ctx, f: int, allies: str=None):
             user.getTopFloor() + 1)
          await waitThenSend(ctx, resp)
       else: # floor is in reach
-         if not (user.isInCity() and user.isAvailable()):
+         if not (user.isInCity()):
             resp = mention
-            resp += ", you have to be `in the city` and "
-            resp += "`free`."
+            resp += ", you have to be `in town` to go on "
+            resp += "exploration."
             await waitThenSend(ctx, resp)
          else: # free and ready to explore
             do = True
@@ -511,7 +521,7 @@ async def report(ctx):
       dm_channel = ctx.message.author.dm_channel
       if dm_channel == None:
          dm_channel = await ctx.message.author.create_dm()
-      if user.isInCity() or user.isAvailable():
+      if user.isInCity():
          await waitThenSend(ctx,
             "you didn't go on any exploration {}.".format(mention))
       else: # was on an exploration
@@ -544,7 +554,6 @@ async def report(ctx):
                            report += ", "
                   u.setRescueKey(0) # reset rescue key
                   u.inCity = True # set as in town
-                  u.available = True # set as free
                   u.setKey(0) # reset exploration key
                   u.setTopFloor(data["floor"]) # update top
                   save(u) # save user account and hero
@@ -567,12 +576,8 @@ async def report(ctx):
 @bot.command(name = "test", help = "for development purposes.")
 async def test(ctx, other = None):
    '''used to try out library methods and other.'''
-   #await waitThenSend(ctx, 
-   #   "*No beta function available at the moment.*")  
-   if other == None:
-      other = ctx.message.author.mention
    await waitThenSend(ctx, 
-      "you didn't enter anything else {}".format(other))
+      "*No beta function available at the moment.*")  
 
 # run module
 if __name__ == "__main__":
