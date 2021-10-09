@@ -271,9 +271,11 @@ class BattleState(State):
             fprint("{} gained {} exp. pts!".format(
                u.getName(), gain), self.oStream)
             if u.develup(gain): # leveled up
-               fprint("{} has leveled up.".format(
-                  u.getName()), self.oStream)
-               fprint(u.getStats(), self.oStream)
+               lvlupMSG = "{} has reached lvl {}.".format(u.getName(),
+                  u.getLevel().getCurrent())
+               self.info.append(("t", lvlupMSG))
+               fprint(lvlupMSG, self.oStream)
+               fprint(str(u.getStats().getFullStats()), self.oStream)
    def collectLoot(self):
       '''allows adventurers to collect loot from monsters.'''
       for m in self.mons:

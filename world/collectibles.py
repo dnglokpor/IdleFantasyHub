@@ -66,6 +66,9 @@ class Item:
          return self.value
       else:
          return self.value // 2
+   def getLore(self) -> str:
+      '''return the lore of this item.'''
+      return self.lore
    def getIco(self) -> str:
       '''return the path to the icon picture. if no icon is set,
       return an empty string.'''

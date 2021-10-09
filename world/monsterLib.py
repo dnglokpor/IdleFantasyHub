@@ -49,7 +49,7 @@ def s_Raccoundrel(level = 1):
    
    # drops
    # pelt x 1
-   raccoundrel.getBag().add(il.pelt.copy())
+   raccoundrel.getBag().add(il.s_Pelt())
    
    # done so return
    return raccoundrel
@@ -78,7 +78,7 @@ def s_Sparowl(level = 1):
    
    # drops
    # feathers x 5
-   sparowl.getBag().addMulti(il.smallFeathers, 5)
+   sparowl.getBag().addMulti(il.s_SmallFeathers(), 5)
    
    # return
    return sparowl
@@ -99,7 +99,7 @@ def s_Honeybeat(level = 1):
       skl.sting,
       "everyone likes honey but if you come accros a Honeybeat "
       "hive, you should run away unless being lethally stung "
-      "is on your bucket list.",
+      "is the last thing on your bucket list.",
       AEOLA
    )
    # ability/critical skills
@@ -108,8 +108,8 @@ def s_Honeybeat(level = 1):
    
    # drops
    # stinger x 1, honee x 1
-   honeybeat.getBag().add(il.stinger.copy())
-   honeybeat.getBag().add(il.honee.copy())
+   honeybeat.getBag().add(il.s_Stinger())
+   honeybeat.getBag().add(il.s_Honee())
    
    # return
    return honeybeat
@@ -139,7 +139,7 @@ def s_Caterkiller(level = 1):
    
    # drops
    # silk x 2
-   caterkiller.getBag().addMulti(il.silk, 2)
+   caterkiller.getBag().addMulti(il.s_Silk(), 2)
    
    # done so return
    return caterkiller

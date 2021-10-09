@@ -52,15 +52,17 @@ class Friendbook(dict):
       return friend
    
    # setters
-   def addFriend(self, id: int, uname: str):
-      '''add a new entry to the friendbook.'''
+   def addFriend(self, id: int, uname: str) -> str:
+      '''add a new entry to the friendbook. return the id of
+      the new entry.'''
       # make fuid
       fuid = uname[:4].lower()
       while len(fuid) < 4: # uname of less than 4 characters
          fuid += '_' # fill to 4 with underscores
       fuid += str(self.seed) # add counter current value
-      seed += 1 # increment counter
+      self.seed += 1 # increment counter
       self[fuid] = (id, uname)
+      return fuid
    def setSeed(self, seed: int):
       '''allow to set seed in case the Friendbook must be
       reconstructed.'''
@@ -72,26 +74,29 @@ class Friendbook(dict):
    # string for file writing
    def outStream(self) -> str:
       '''transform this object into a string that is easy to parse.'''
-      string = "Friendbook {} {}".format(self.seed, len(self.values()))
+      string = "Friendbook {} {}\n".format(self.seed, len(self.values()))
       for fuid, entry in self.items():
-         string += fuid + ' ' + entry[0] + " " + entry[1]
+         string += fuid + ' ' + str(entry[0]) + " " + entry[1]
          string += '\n'
       return string
       
    # toString
    def __str__(self) -> str:
       '''return the whole content of the phonebook as a string.'''
-      string = "**Discord User**\t**COOP Avail.**\t**FID**"
-      for i, (id, entry) in enumerate(self.items()):
-         user = load(entry[0], entry[1])
-         coop = user.isInCity() and user.isOpen()
-         if coop:
-            coop = ":green_circle:"
-         else:
-            coop = ":red_circle:"
-         string += "`@{}`\t``\t`{}`".format(entry[1], coop, id)
-         if i < len(self.values()) - 1:
-            string += '\n'
+      if len(self.items()) == 0:
+         string = "*No friends...*"
+      else:
+         string = "**Discord User**|**COOP Avail.**|**FID**\n"
+         for i, (id, entry) in enumerate(self.items()):
+            user = load(entry[0])
+            coop = user.isInCity() and user.isOpen()
+            if coop:
+               coop = ":green_circle:"
+            else:
+               coop = ":red_circle:"
+            string += "`@{}` | {} | `{}`".format(entry[1], coop, id)
+            if i < len(self.values()) - 1:
+               string += '\n'
       return string
    
 # IdleUser object
@@ -108,6 +113,7 @@ class IdleUser:
       self.inCity = True # in town
       self.time = 0 # counting stay in city
       self.topFloor = 0
+      self.defeated = 0 # monster defeated number
       self.picture = str() # path to profile pic
       self.key = 0 # key for exploration files
       self.open = False # open to exploring with others
@@ -137,6 +143,8 @@ class IdleUser:
    def getPicture(self) -> str:
       '''return the path to the class icon.'''
       return self.picture
+   def getDefeated(self) -> int:
+      return self.defeated
    def getKey(self) -> int:
       '''return the key of the user'''
       return self.key
@@ -179,6 +187,9 @@ class IdleUser:
       '''update the value of the time attribute for healing 
       computation.'''
       self.time = int(tm.time())
+   def updateDefeated(self, addOn: int):
+      '''increase the defeated attribute by addOn.'''
+      self.defeated += addOn
    def heal(self):
       '''heals the hero by an amount of health that is related to
       how much time has passed since the last time he was loaded
@@ -186,7 +197,7 @@ class IdleUser:
       elapsed = int(tm.time()) - self.time
       amount = (elapsed // 60) * 5
       self.hero.heal(amount)
-      self.updateTime() # update the time
+      #self.updateTime() # update the time
    
    # toString
    def __str__(self) -> str:
@@ -198,6 +209,7 @@ class IdleUser:
       descr += "city {}\n".format(self.inCity)
       descr += "time {}\n".format(self.time)
       descr += "top {}\n".format(self.topFloor)
+      descr += "defeated {}\n".format(self.defeated)
       descr += "pp_path {}\n".format(self.picture)
       descr += "key {}\n".format(self.key)
       descr += "open {}\n".format(self.open)
@@ -230,36 +242,43 @@ def save(user: IdleUser):
    return True      
 
 # load user data
-def load(id: int, uname: str) -> IdleUser:
+def load(id: int) -> IdleUser:
    '''looks for the user save file and create a user object
    that matches it and return it. if the hero value is True,
    look for the hero save file, loads it and add it to the
    user item. return said item. this assumes the user file
    exists already.'''
-   userfile = USER_RECORDS_PATH + str(id) + '.usr'
-   herofile = HERO_SAVES_PATH + str(uname) + '.her'
+   userfile = USER_RECORDS_PATH + str(id) + ".usr"
    # recover user file contents
    with open(userfile, "r") as record:
       contents = record.read()
    lines = contents.split('\n')
-   lines = lines[3:] # delete title line through id line
+   # recover uname
+   uname = lines[2].split()
+   uname = uname[1:] # get rid of fieldName
+   uname = ' '.join(uname) # put composite unames back together
+   herofile = HERO_SAVES_PATH + str(uname) + '.her'
+   # delete title line through username line
+   lines = lines[3:]
    # recreate user object
    user = IdleUser(id, uname)
    # other
    user.inCity = boolEvaluate(lines[1].split()[1])
    user.time = int(lines[2].split()[1])
    user.topFloor = int(lines[3].split()[1])
-   user.picture = lines[4].split()[1]
-   user.key = int(lines[5].split()[1])
-   user.open = boolEvaluate(lines[6].split()[1])
-   user.rescue = int(lines[7].split()[1])
-   friendbook = lines[8].split()
-   user.friendbook.setSeed(friendbook[1]) 
+   user.defeated = int(lines[4].split()[1])
+   user.picture = lines[5].split()[1]
+   user.key = int(lines[6].split()[1])
+   user.open = boolEvaluate(lines[7].split()[1])
+   user.rescue = int(lines[8].split()[1])
+   friendbook = lines[9].split()
+   user.friendbook.setSeed(int(friendbook[1]))
    n = int(friendbook[2])
    i = 0
    while i < n:
-      data = lines[9 + i].split()
+      data = lines[10 + i].split()
       user.friendbook.restoreEntry(data[0], data[1], data[2])
+      i += 1
    # hero
    if boolEvaluate(lines[0].split()[1]): # there is a hero
       with open(herofile, "rb") as cartdrige:

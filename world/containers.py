@@ -220,11 +220,11 @@ class Equipment(dict):
       slot = None
       try:
          slot = gear.t
+         old = self.get(slot)
+         self.__setitem__(slot, gear)
       except AttributeError: # gear without a "t" attribute
-         raise ValueError("passed gear is not a Weapon, Armor\
-or Accessory type object.")
-      old = self.get(slot)
-      self.__setitem__(slot, gear)
+         raise ValueError("passed gear is not a Weapon, Armor "
+            "or Accessory type object.")
       return old         
    
    # override tostring

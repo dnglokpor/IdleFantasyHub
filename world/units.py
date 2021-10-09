@@ -120,7 +120,7 @@ class Playable(Unit):
       # create underlying Unit
       super().__init__(name, level, stats, 30, bSkill, elt)
       self.equipment = Equipment()
-      self.wallet = Wallet()     # empty wallet
+      self.wallet = Wallet(200)     # empty wallet
    
    # getters
    def getEquipped(self) -> Equipment:

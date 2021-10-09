@@ -52,21 +52,22 @@ def run_exploration(file: str):
    party = Party(party)
    hostiles = list() # report
    loot = list() # report
-   info = None # report
-   problems = "problems:\n" # report
+   file = ""
+   miscs = "miscellaneous:\n" # report
    # exploration loop
    current = 0
    while current < len(blocks) and party.stillStands():
       block = blocks[current] 
-      info = block.explore(party, floor.getHazardLevel())
-      if info != None:
-         for t, descr in info[0]:
+      returned = block.explore(party, floor.getHazardLevel())
+      if returned != None:
+         for t, descr in returned[0]:
             if t == 'm': # monster
                hostiles.append(descr)
             elif t== 'i': # item
                loot.append(descr)
-            else: # problems
-               problems += descr
+            else: # miscellaneous
+               miscs += "**" + descr + "**\n" # bold
+         file = returned[1]
       if party.stillStands():
          current += 1
    # end of exploration loop
@@ -85,7 +86,10 @@ def run_exploration(file: str):
             report += ", "
       report += "`\n"
       report += "number of monster defeated: `"
-      report += "{}`\n".format(len(hostiles))
+      defeated = len(hostiles)
+      report += "{}`\n".format(defeated)
+      for u in setupData["users"]:
+         u.updateDefeated(defeated)
       # loot report
       report += "items found: `"
       itemSet = set(loot)
@@ -94,17 +98,18 @@ def run_exploration(file: str):
          if i < len(itemSet) - 1:
             report += ", "
       report += "`\n"
-      report += problems + '\n'
+      report += miscs + '\n'
    else: # party died
       report = "Floor {} exploration failed!\n".format(f)
       report += "your party has fallen...\n"
-      report += "use the `rescueme` command to get your key "
-      "and send it to a friend so they can rescue you.\n\n"
-      report += "death conditions:\n"
+      report += "your rescue key is **{}**. ".format(
+         setupData["users"][0].getKey())
+      report += "send it to a friend so they can rescue you.\n\n"
+      report += "see attached file for death conditions.\n"
       # last fight info
-      with open(info[1], 'r') as fightInfo:
-         report += fightInfo.read()
-      os.remove(info[1]) # delete file
+      # with open(info[1], 'r') as fightInfo:
+      #   report += fightInfo.read()
+      #os.remove(info[1]) # delete file
    # save all data into one object
    expData = {
       "endTime": start + floor.getSize() * 120 + 1,
@@ -112,6 +117,7 @@ def run_exploration(file: str):
       "cleared": cleared,
       "users": setupData["users"],
       "report": report,
+      "file": file
    }
    # dump object in a file
    with open(USER_TEMPS_PATH + str(start) + ".done", "wb") as expFile:

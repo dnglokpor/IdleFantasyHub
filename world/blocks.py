@@ -61,7 +61,7 @@ class Environment(dict):
          string += "None\n"
       else:
          for i, item in enumerate(self.get("resource")):
-            string += item.getName()
+            string += item().getName()
             if i != len(self.get("resource")) - 1:
                string += ', '
          string += '\n'
@@ -148,7 +148,8 @@ class ScavengingBlock(Block):
          info = battle.run()
       # now that's out of the way, scavenge
       if explorers.stillStands(): # scavenging branch
-         (qty, item) = (rndGen(5), rnd.choice(self.env.get("resource")))
+         qty, item = rndGen(5), rnd.choice(self.env.get("resource"))
+         item = item() # spawn Item
          info = (info[0] + [('i', item.getName()),], info[1])
          # DEBUG
          #print("\nyou stumble upon some {}!".format(item.getName()))

@@ -31,6 +31,6 @@ def timeString(seconds: int) -> str:
    min = seconds // 60
    hour = min // 60
    if hour != 0:
-      min = min % 60
+      min = min % 60   
    tString = "{}h{}min{}s".format(hour, min, sec)
    return tString

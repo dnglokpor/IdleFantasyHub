@@ -19,6 +19,7 @@ sys.path.insert(0,
    "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
 
 from world.base import STATS, UnitStats
+from world.collectibles import Gear
 
 # constants
 PAGES = "world/resource/pages/"
@@ -27,6 +28,7 @@ PROFILE = "profile.png"
 BAG = "inventory.png"
 ITEMS = "world/resource/items/"
 DEFAULT = ITEMS + "glitch-icon-87.png"
+ITEM = "item.png"
 
 # profile page
 def genProfile(user: IdleUser) -> str:
@@ -62,7 +64,7 @@ def genProfile(user: IdleUser) -> str:
    # # in town?
    status = [user.isInCity(), user.isOpen()]
    r_ = 28
-   pointYs = [182, 262]
+   pointYs = [132, 208]
    for i in range(len(status)):
       x = 985
       y = pointYs[i]
@@ -73,6 +75,14 @@ def genProfile(user: IdleUser) -> str:
          [(x, y), (x + r_, y + r_)],
          fill = color
       )
+   # top floor
+   top = "F" + str(user.getTopFloor())
+   editor.text(
+      (985, 282),
+      top,
+      font = truetype("bahnschrift.ttf", 32),
+      fill = (0, 0, 0)
+   )
    # HERO ATTRIBUTES: NEEDS TO CHECK FOR HERO
    hero = user.getHero()
    if hero != None:
@@ -91,9 +101,26 @@ def genProfile(user: IdleUser) -> str:
       )
       # class description
       lore = hero.getLore()
+      myFont = truetype("bahnschrift.ttf", 28)
+      adjusted = str()
+      line = str()
+      for w in lore.split(): # adjust to space
+         line += w + ' '
+         if not (myFont.getlength(line) < 640): # overflows the line
+            word = None
+            if myFont.getlength(line) > 660: # too big
+               line = line.split()
+               word = line[-1]
+               line = line[:-1]
+               line = ' '.join(line)
+            adjusted += line + '\n' # add a new line
+            line = str() # clear line
+            if word != None:
+               line += word + ' ' # add overflowing word
+      adjusted += line # add last line
       editor.text((276, 180),
-         lore,
-         font = truetype("bahnschrift.ttf", 28),
+         adjusted,
+         font = myFont,
          fill = (255, 255, 255)
       )
       # stats
@@ -160,7 +187,7 @@ def genProfile(user: IdleUser) -> str:
       skills.append(hero.getSkillSet().getSkill("ability"))
       skills.append(hero.getSkillSet().getSkill("reaction"))
       skills.append(hero.getSkillSet().getSkill("critical"))
-      posYs = [400, 450, 510, 570]
+      posYs = [400, 452, 510, 570]
       for i in range(len(skills)):
          if skills[i] != None:
             skills[i] = skills[i].getName() # recover name
@@ -187,7 +214,16 @@ def genBag(user: IdleUser) -> str:
    base = Image.open(PAGES + BAG) # load original picture
    base = base.copy() # make copy to not lose base
    editor = Draw(base) # make drawing context on base
-   # positions
+   # money
+   if user.hasHero():
+      cash = str(user.getHero().getWallet().getBalance()) + " gold"
+      editor.text(
+         (400, 52),
+         cash,
+         font = truetype("bahnschrift.ttf", 28),
+         fill = (0, 0, 0)
+      )
+   # items positions
    row = 0
    col = 0
    iconsXs = [47, 300, 545, 805]
@@ -243,8 +279,83 @@ def genBag(user: IdleUser) -> str:
          fill = (255, 255, 255)
       )
    # send out
-   #base.show()
    outputName = OUTPUT + "b_{}".format(user.id) + ".png"
    base.save(outputName)
    return outputName
    
+# item
+def genItem(user: IdleUser, itemName: str) -> str:
+   '''upgrade a picture into showing details about an item 
+   owned by the passed user.'''
+   # set up
+   base = Image.open(PAGES + ITEM) # load original picture
+   base = base.copy() # make copy to not lose base
+   editor = Draw(base) # make drawing context on base
+   # take out the item for processing
+   bag = user.getHero().getBag()
+   item = bag.takeOut(itemName)[0] # get rid of list
+   # icon
+   ico = item.getIco()
+   if ico == '': # there is no set icon
+      ico = DEFAULT
+   ico = Image.open(ico) # load icon
+   ico = ico.copy() # duplicate
+   ico = ico.resize((55, 53)) # resize
+   base.paste(ico, (8, 8)) # paste
+   # name
+   name = item.getName()
+   editor.text(
+      (70, 25),
+      name,
+      font = truetype("bahnschrift.ttf", 32),
+      fill = (255, 255, 255)
+   )
+   # lore
+   lore = item.getLore()
+   # add characteristics if gear
+   if isinstance(item, Gear):
+      # recover line about characteristics
+      descr = item.__str__()
+      lore += ' ' + descr.split('\n')[-1] 
+   myFont = truetype("bahnschrift.ttf", 25)
+   adjusted = str()
+   line = str()
+   for w in lore.split(): # adjust to space
+      line += w + ' '
+      if not (myFont.getlength(line) < 250): # overflows the line
+         word = None
+         if myFont.getlength(line) > 270: # too big
+            line = line.split()
+            word = line[-1]
+            line = line[:-1]
+            line = ' '.join(line)
+         adjusted += line + '\n' # add a new line
+         line = str() # clear line
+         if word != None:
+            line += word + ' ' # add overflowing word
+   adjusted += line # add last line
+   # write on pic
+   editor.text(
+      (15, 70),
+      adjusted,
+      font = myFont,
+      fill = (255, 255, 255)
+   )
+   # value
+   plural = item.getValue() > 1
+   value = str(item.getValue()) + " gold"
+   if plural:
+      value += 's'
+   editor.text(
+      (90, 255),
+      value,
+      font = truetype("bahnschrift.ttf", 28),
+      fill = (255, 255, 255)
+   )
+   # put the item back in bag
+   bag.add(item)
+   
+   # send out
+   outputName = OUTPUT + "i_{}".format(user.id) + ".png"
+   base.save(outputName)
+   return outputName

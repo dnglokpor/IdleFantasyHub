@@ -64,9 +64,9 @@ def s_Butterfreak(level = 1):
    butterfly.getSkillSet().addSkill("ability", skl.tornado)
    # drops
    # monster egg x 5 ,compound eye x 2, bug wing x 2
-   butterfly.getBag().addMulti(il.monsterEgg, 5)
-   butterfly.getBag().addMulti(il.compoundEye, 2)
-   butterfly.getBag().addMulti(il.bugWing, 2)
+   butterfly.getBag().addMulti(il.s_MonsterEgg(), 5)
+   butterfly.getBag().addMulti(il.s_CompoundEye(), 2)
+   butterfly.getBag().addMulti(il.s_BugWing(), 2)
    
    # add forms to boss
    butterfreak.addForm(pupa)
