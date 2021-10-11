@@ -207,8 +207,8 @@ def s_Arrow():
    '''return a Arrow Item.'''
    arrow = Item(
       "Arrow",
-      "40cm of wood crowned by a sharpened steel head and\
-    feathers in the back. rangers' favorite.", 
+      "40cm of wood crowned by a sharpened steel head and feathers "
+      "in the back. rangers' favorite.", 
       1
    )
    arrow.setIco(GEAR + "Grey/Arrows/ScoutArrow.png")
@@ -280,8 +280,8 @@ def s_GoGetup():
    '''return a Go Getup Armor.'''
    goGetup = Armor(
       "Go Getup",
-      "jacket wore on plain clothes and sturdy canvas pants\
-    for one going on an adventure.", 
+      "jacket wore on plain clothes and sturdy canvas pants for "
+      "one going on an adventure.", 
       60, 
       [("defense", 5),]
    )

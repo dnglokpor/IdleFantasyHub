@@ -86,7 +86,7 @@ class Friendbook(dict):
       if len(self.items()) == 0:
          string = "*No friends...*"
       else:
-         string = "**Discord User**|**COOP Avail.**|**FID**\n"
+         string = "**Discord User** | **COOP Avail.** | **FID**\n"
          for i, (id, entry) in enumerate(self.items()):
             user = load(entry[0])
             coop = user.isInCity() and user.isOpen()

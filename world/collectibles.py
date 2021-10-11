@@ -116,6 +116,7 @@ class Gear(Item):
          raise ValueError("no stats were provided.")
       super().__init__(name, lore, value)
       self.stats = stats
+      self.t = str() # placeholder
    
    # getters
    def getStats(self) -> list:
@@ -131,11 +132,11 @@ class Gear(Item):
       new.ico = self.ico
       return new
    
-   # override tostring
-   def __str__(self, short = True) -> str:
-      '''return a string representing this object for
-      printing purposes.'''
-      description = super().__str__(short) + '\n'
+   # stats overview
+   def overview(self):
+      '''return a string that describes the effects of a gear on
+      a unit stats.'''
+      description = str()
       for idx, (name, value) in enumerate(self.stats):
          op = '+'
          if value < 0:
@@ -143,6 +144,14 @@ class Gear(Item):
          description += "{}{}{}".format(name[:3], op, abs(value))
          if idx != len(self.stats) - 1:
             description += ', '
+      return description
+   
+   # override tostring
+   def __str__(self, short = True) -> str:
+      '''return a string representing this object for
+      printing purposes.'''
+      description = super().__str__(short) + '\n'
+      description += self.overview()
       
       return description
       

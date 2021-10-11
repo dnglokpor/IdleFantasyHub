@@ -14,6 +14,7 @@ import logging                            # logging util
 from discord.ext import commands as com   # discord lib
 import discord.ext.commands.errors as err # errors
 import random as rnd                      # randomizer
+from math import ceil
 try:
    import cPickle as pickle               # pickle
 except ModuleNotFoundError:
@@ -31,6 +32,9 @@ from idleUser import IdleUser, save, load, USER_PICS_PATH,\
    USER_RECORDS_PATH, USER_TEMPS_PATH, HERO_SAVES_PATH
 import picsGen as pg
 from world.helpers import timeString
+import collectibles as c
+from world.collectibles import Gear, Weapon, Armor, Accessory
+import world.itemLib as il
 from world.classes import Fighter, Ranger, Elementalist
 from world.confrontation import Party
 from world.dungeon import DUNGEON
@@ -43,7 +47,12 @@ bot = com.Bot(command_prefix = PREFIXES)
 # logging
 REPORT_DIR = "logs" # path to log file
 REPORT_FILE = "eventLog.txt" # log file
-   
+# shop stocks
+ALWAYS = [
+   il.s_Arrow, il.s_Axe, il.s_Pickaxe, il.s_WalkingStick, 
+   il.s_GoGetup, il.s_LeatherBoots, il.s_Gloves, il.s_Longbow, 
+   il.s_ShortSword
+]   
 # helpers
 def senderInfo(ctx: com.Context):
    '''uses the context to return the channel and mention
@@ -167,14 +176,10 @@ async def on_ready():
    
 
 # command errors
-# @bot.event
+@bot.event
 async def on_command_error(ctx: com.Context, exception):
    '''deal with errors at bot commands execution for
    a smooth runtime.'''
-   # DEBUG BLOC
-   # print(type(exception.original))
-   # print(exception.original)
-   # END OF DEBUG BLOC
    channel, mention = senderInfo(ctx)
    command = ctx.command
    if type(exception) == err.CommandNotFound:
@@ -197,13 +202,23 @@ async def on_command_error(ctx: com.Context, exception):
       elif  command.name == "lookup":
          msg += "the name of the item you are attempting to lookup."
          msg += "eg.: `;lookup arrow` or `;lookup \"iron ore\"`."
+      elif  command.name == "buy":
+         msg += "the name of the item you are attempting to buy."
+         msg += "eg.: `;buy arrow` or `;buy \"iron ore\"`."
+      elif  command.name == "sell":
+         msg += "the name of the item you are attempting to sell."
+         msg += "eg.: `;buy arrow` or `;buy \"iron ore\"`."
+      elif  command.name == "equip":
+         msg += "the name of the item you are attempting to equip."
+         msg += "eg.: `;equip sword` or `;equip \"stone shield\"`."
       else:
-         msg = "a required argument.\n"
+         msg += "a required argument. if you're typing a composite "
+         msg += "name, you might have forgot the quotes around it?\n"
          msg += "use `;help {}".format(command.name)
          msg += "` to see the correct use."
       await waitThenSend(ctx, msg)
    elif type(exception) == err.BadArgument:
-      msg = "use `;help {}".format(command.name)
+      msg = "this command was wrongly used. use `;help {}".format(command.name)
       msg += "` to see the correct use."
       await waitThenSend(ctx, msg)
    else: # unknow error
@@ -548,7 +563,7 @@ async def report(ctx):
          await waitThenSend(ctx,
             "you didn't go on any exploration {}.".format(mention))
       else: # was on an exploration
-         # load temp file
+         # try loading temp file
          temp = USER_TEMPS_PATH + str(user.getKey()) + ".done"
          data = None
          with open(temp, 'rb') as expFile:
@@ -592,14 +607,17 @@ async def report(ctx):
                      USER_TEMPS_PATH + str(user.getKey()) + ".resq")
                # send the DMs
                name = data["file"]
-               name = name.split('.')[0] + ".txt" # change extension
+                # change extension to .txt
+               name = name.split('.')[0] + ".txt"
+               os.rename(file, name)
+               # send failure DMs
                for u in data["users"]:
                   await (await getDM(u)).send(data["report"],
                      file = discord.File(name)) # dm
-               os.remove(name)
+               os.remove(name) # delete failure file
             # announce to the user(s) to check their DM
             await waitThenSend(ctx, 
-                  mention + "check your DMs for the report.")
+                  mention + " check your DMs for the report.")
 
 # take on a rescue mission
 @bot.command(name = "rescue", help = "use this command and pass it the "
@@ -729,14 +747,225 @@ async def coop(ctx):
       await waitThenSend(ctx, nRegMSG.format(mention))
 
 # show available merchandise
-
+@bot.command(name = "shop", help = "reveals the items that are for "
+   "sale at the moment.\neg.: `;shop`")
+async def shop(ctx):
+   '''shows wares available in online shop.'''
+   if (await isRegisteredWithHero(ctx)): # only the hero has a bag
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      # TODO randoms = []
+      # make wares
+      wares = [spawner() for spawner in ALWAYS]
+      # shopkeep lines
+      msg = "shopkeep: "
+      lines = [
+         "*Oh {}? coming to buy stuff again? when do you make the "
+         "money?*\n",
+         "*Welcome to my hum... oh it's just you {}.*\n",
+         "*I am having sales today {}. everything is double the "
+         "normal price!*\n",
+      ]
+      msg += rnd.choice(lines)
+      msg = msg.format(mention)
+      msg += "\nhere is what is available today:\n\n"
+      for ware in wares:
+         # print("{} is a {}".format(ware.getName(), type(ware))) # DEBUG
+         msg += "`name`: **{}**\n`descr.`: *{}*\n".format(ware.getName(),
+            ware.getLore())
+         # gear?
+         if isinstance(ware, (c.Gear)):
+            msg += "**" + ware.overview() + "**\n"
+         msg += "`price`: **{}** gold".format(ware.getValue())
+         if ware.getValue() > 1:
+            msg += 's'
+         msg += '\n------------------------------\n'
+      # sassy ending lines
+      msg += "\nshopkeep: "
+      ends = [
+         "*so ya buying or ya leaving?*\n",
+         "*now put those coins where I can see 'em!*\n"
+      ]
+      msg += rnd.choice(ends)
+      # send out
+      await ctx.send(msg, file = discord.File(pg.PAGES + "shopkeep.jpg"))
+      #await waitThenSend(ctx, msg)
+   
 # buy from server shop
+@bot.command(name = "buy", help = "buy something from the bot server "
+   "shop. requires that you pass the name of the item as an argument."
+   " only works if you are a register user with a hero and if you "
+   "have sufficient funding. you can specify the quantity if you "
+   "want more than one. you need to use quotes if item name is "
+   "composite.\n"
+   "eg.: ;buy shoes or ;buy \"small bag\" or ;buy arrow 50 ")
+async def buy(ctx, itemName, qty: int=None):
+   '''checks if the item is available then check if the user has
+   the necessary funds. takes the funds and give them the necessary
+   amount requested.'''
+   if qty == None:
+      qty = 1 # only wants one
+   if (await isRegisteredWithHero(ctx)): # only the hero has a bag
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      if user.isInCity():
+         msg = "shopkeep: "
+         # spawn items
+         wares = [spawner() for spawner in ALWAYS]
+         # check if item requested exists
+         names = [(ware.getName()).lower() for ware in wares]
+         itemName = itemName.lower()
+         if itemName in names: # item exists
+            i = names.index(itemName)
+            item = wares[i]
+            # check if user has the funds
+            price = item.getValue()
+            paid = user.getHero().getWallet().pay(price * qty)
+            if paid != None: # funds were paid
+               # check if user can pocket the item
+               if user.getHero().getBag().hasSpace():
+                  # we are good
+                  bag = user.getHero().getBag()
+                  bag.addMulti(item, qty)
+                  save(user) # record purchase
+                  msg += "*Hehe thanks for the money {}. ".format(mention)
+                  msg += "Oh and I don't do guaranty or shit. best of "
+                  msg += "luck. Hehehe~*"
+               else:
+                  msg += "*What you don't have no space for it {}? "
+                  msg += "Well I would keep the money but...*".format(mention)
+            else: 
+               msg += "*Nah {} you can't afford this.*".format(mention)
+         else:
+            msg += "*Are you blind? Do you see that anywhere in here {}?*"
+            msg.format(mention)
+      else:
+         msg = "{} you can only buy when you are in town.".format(mention)
+      # end of buy algorithm
+      await waitThenSend(ctx, msg) # send sassy response
 
 # sell loot
-
-# set skills
+@bot.command(name = "sell", help = "allows the player to sell loot "
+   "they own to the server shop. that's the easiest way to earn "
+   "money. note that the base selling price is only half the "
+   "good's value but with **luck** you can haggle a better "
+   "price.\neg.: ;sell pelt or ;sell \"small feathers\" or "
+   ";sell violette 5")
+async def sell(ctx, itemName: str, qty: int=1):
+   '''checks for the existence of the specified item and bargains
+   them to the shop owner. return the money earned from selling'''
+   if qty == None:
+      qty = 1 # only sells one
+   if (await isRegisteredWithHero(ctx)): # only the hero has a bag
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      if user.isInCity(): # can only sell when in town
+         bag = user.getHero().getBag()
+         msg = "shopkeep: "
+         if bag.contains(itemName): # we have the item:
+            sales = bag.takeOut(itemName, qty)
+            if len(sales) == qty: # enough items            
+               uPrice = sales[0].getValue(True) # get unit selling price
+               if uPrice < 1:
+                  uPrice = 1
+               luck = user.getHero().getStats().getStat("luck")
+               luck = luck.getFull()
+               # get a haggle bonus
+               haggle = rnd.randrange(luck) * .1 + 1
+               total = ceil(uPrice * haggle * len(sales))
+               msg += "*Herh. Alright I guess you earned this one.*\n"
+               msg += "{} **receive {} gold".format(mention, total)
+               if total > 1:
+                  msg += 's'
+               msg += "**"
+               user.getHero().getWallet().pocket(total)
+               save(user)
+            else: # not enough.
+               msg += "*Who taught you how to count {}?*".format(mention)
+         else:
+            msg += "*hum... But I don't see the goods you mention {}.*"
+            msg = msg.format(mention)
+      else:
+         msg = "{} you can only sell when you are in town.".format(mention)
+      await waitThenSend(ctx, msg)
 
 # equip gear
+@bot.command(name = "equip", help = "equip any gear you possess in "
+   "your bag at the moment. gear gets automatically placed where "
+   "it can be equipped. any gear previously equipped there will "
+   "be return to you. gear of composite name should be specified "
+   "in between quotes.\neg.: ';equip sword' or ';equip \"long lance\"'"
+   )
+async def equip(ctx, gearName):
+   '''equip the passed gear.'''
+   if (await isRegisteredWithHero(ctx)): # only the hero has a bag
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      msg = "{} ".format(mention)
+      if user.isInCity(): # can only equip when in town
+         bag = user.getHero().getBag()
+         if bag.contains(gearName): # item exists
+            gear = bag.takeOut(gearName)[0]
+            if isinstance(gear, c.Gear): # a gear
+               # equip it
+               old = user.getHero().getEquipped().setGear(gear)
+               if old != None:
+                  msg += "takes off `{}` and ".format(old.getName())
+               msg += "equips {}.".format(gear.getName())
+               save(user)
+            else:
+               msg += "you can't equip that!"
+         else:
+            msg += "you don't own that!"
+      else:
+         msg += "you can only equip gear when you are in town."
+      await waitThenSend(ctx, msg)
+
+# set skills
+@bot.command(name = "skillset", help = "set a skill in one of the "
+   "skill slot of your hero. the base skill can never be changed. "
+   "only learned skills can be set and a skill can only be set. "
+   "all learned skills can be seen using the ';learned' command.\n"
+   "eg.: ';skillset a cleaver' or ';skillset r counter'"
+   )
+async def skillset(ctx, slot: str, skillName: str):
+   '''equip the passed skill.'''
+   if (await isRegisteredWithHero(ctx)): # only the hero has a bag
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      msg = "{} ".format(mention)
+      skillName = skillName.lower()
+      aLevel = user.getHero().getLevel().getCurrent()
+      mastery = user.getHero().getMastery()
+      if user.isInCity(): # can only equip when in town
+         uLevel = mastery.getUnlockLevel(skillName)
+         if uLevel != -1 and uLevel < aLevel: # learned it
+            skill = mastery.getSkill(uLevel, aLevel)
+            skillset = user.getHero().getSkillSet()
+            if skill == skillset.getBase(): 
+               # trying to reequip base
+               msg += "base skills can't be reassigned."
+            else:
+               done = skillset.assign(slot, skill)
+               if not done:
+                  msg += "invalid slot. the only available slots "
+                  msg += "are `a` (ability), `r` (reaction) and `c` "
+                  "(critical)."
+               else: # we are good
+                  msg += "**{}** is now your new ".format(skill.getName())
+                  if slot == 'a':
+                     msg += "Ability"
+                  elif slof == 'r':
+                     msg += "Reaction"
+                  else:
+                     msg += "Critical"
+                  msg += " skill."
+                  save(user)
+         else:
+            msg += "you haven't learned that skill."
+      else:
+         msg += "you can only change skills when you are in town."
+      await waitThenSend(ctx, msg)
 
 # test command
 @bot.command(name = "test", help = "for development purposes.")

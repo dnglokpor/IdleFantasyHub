@@ -19,7 +19,7 @@ sys.path.insert(0,
    "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
 
 from world.base import STATS, UnitStats
-from world.collectibles import Gear
+import world.collectibles as c
 
 # constants
 PAGES = "world/resource/pages/"
@@ -87,7 +87,7 @@ def genProfile(user: IdleUser) -> str:
    hero = user.getHero()
    if hero != None:
       # level background
-      lvlBox = Image.new("RGBA", (52, 50),(128, 128, 128, 80))
+      lvlBox = Image.new("RGBA", (52, 50),(128, 128, 128, 200))
       base.paste(lvlBox, (51, 101), lvlBox)
       # level
       level = str(hero.getLevel().getCurrent())
@@ -97,7 +97,7 @@ def genProfile(user: IdleUser) -> str:
          (posX, 103), 
          level,
          font = myFont,
-         fill = (0, 0, 0)
+         fill = (255, 215, 0)
       )
       # class description
       lore = hero.getLore()
@@ -313,10 +313,8 @@ def genItem(user: IdleUser, itemName: str) -> str:
    # lore
    lore = item.getLore()
    # add characteristics if gear
-   if isinstance(item, Gear):
-      # recover line about characteristics
-      descr = item.__str__()
-      lore += ' ' + descr.split('\n')[-1] 
+   if isinstance(item, c.Gear):
+      lore += ' ' + item.overview()
    myFont = truetype("bahnschrift.ttf", 25)
    adjusted = str()
    line = str()
