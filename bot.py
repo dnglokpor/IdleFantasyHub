@@ -390,8 +390,9 @@ async def profile(ctx):
       await ctx.send(nRegMSG.format(mention)) 
 
 # display avatar inventory
-@bot.command(name = "bag", help = "list down the contents of "
-   "your bag if there is any contents.")
+@bot.command(name = "bag", help = "get an image describing your "
+   "main inventory contents. your main inventory is the bag of "
+   "your hero.\neg.: ;bag")
 async def bag(ctx):
    if (await isRegisteredWithHero(ctx)): # terminates in case of no hero
       user = load(ctx.message.author.id)
@@ -399,11 +400,7 @@ async def bag(ctx):
       mention = ctx.message.author.mention
       await ctx.send("here's what you own {}:".format(mention), 
          file = bag)
-      #bag = user.getHero().getBag().__str__()
-      #mention = ctx.message.author.mention
-      #bag = mention + "'s " + bag
-      #await waitThenSend(ctx, bag)
-
+         
 # shows learnable skills
 @bot.command(name = "learnable", help = "shows you the all the "
    "skills that can be learned by your hero.")
@@ -423,7 +420,8 @@ async def learned(ctx):
          user.getHero().getLevel().getCurrent())
       msg = "Learned skills:\n"
       for skill in mastered:
-         msg += skill.__str__() + '\n'
+         msg += '`' + skill.__str__() + '`'
+         msg += "\n------------------------------\n"
       await waitThenSend(ctx, msg)
 
 # show floor information
@@ -447,6 +445,7 @@ async def scout(ctx, floor: int):
             info += DUNGEON[floor].__str__(True)
          else: # never explored
             info += DUNGEON[floor].__str__()
+            info += "\n*explore it to unlock more info.*"
          await waitThenSend(ctx, info)
    else:
       await waitThenSend(ctx, nRegMSG)
@@ -838,7 +837,7 @@ async def buy(ctx, itemName, qty: int=None):
                msg += "*Nah {} you can't afford this.*".format(mention)
          else:
             msg += "*Are you blind? Do you see that anywhere in here {}?*"
-            msg.format(mention)
+            msg = msg.format(mention)
       else:
          msg = "{} you can only buy when you are in town.".format(mention)
       # end of buy algorithm
@@ -910,8 +909,9 @@ async def equip(ctx, gearName):
                # equip it
                old = user.getHero().getEquipped().setGear(gear)
                if old != None:
+                  bag.add(old) # return old equipment
                   msg += "takes off `{}` and ".format(old.getName())
-               msg += "equips {}.".format(gear.getName())
+               msg += "equips `{}`.".format(gear.getName())
                save(user)
             else:
                msg += "you can't equip that!"
@@ -923,7 +923,9 @@ async def equip(ctx, gearName):
 
 # set skills
 @bot.command(name = "skillset", help = "set a skill in one of the "
-   "skill slot of your hero. the base skill can never be changed. "
+   "skill slot of your hero. possible skill slots are <a> (Ability), "
+   "<r> (Reaction) and <c> (Critical). the base skill can never be "
+   "changed. "
    "only learned skills can be set and a skill can only be set. "
    "all learned skills can be seen using the ';learned' command.\n"
    "eg.: ';skillset a cleaver' or ';skillset r counter'"
@@ -939,26 +941,30 @@ async def skillset(ctx, slot: str, skillName: str):
       mastery = user.getHero().getMastery()
       if user.isInCity(): # can only equip when in town
          uLevel = mastery.getUnlockLevel(skillName)
-         if uLevel != -1 and uLevel < aLevel: # learned it
+         print(uLevel, aLevel)
+         if uLevel != -1 and uLevel <= aLevel: # learned it
             skill = mastery.getSkill(uLevel, aLevel)
             skillset = user.getHero().getSkillSet()
-            if skill == skillset.getBase(): 
+            if uLevel == 0: 
                # trying to reequip base
                msg += "base skills can't be reassigned."
             else:
-               done = skillset.assign(slot, skill)
-               if not done:
+               slot = slot.lower()
+               if not (slot in ['a', 'r', 'c']):
                   msg += "invalid slot. the only available slots "
                   msg += "are `a` (ability), `r` (reaction) and `c` "
                   "(critical)."
                else: # we are good
-                  msg += "**{}** is now your new ".format(skill.getName())
-                  if slot == 'a':
-                     msg += "Ability"
-                  elif slof == 'r':
-                     msg += "Reaction"
+                  if slot.lower() == 'a':
+                     slot = "Ability"
+                  elif slot.lower() == 'r':
+                     slot = "Reaction"
                   else:
-                     msg += "Critical"
+                     slot = "Critical"
+                  done = skillset.assign(slot.lower(), skill)
+                  # print(done) # DEBUG
+                  msg += "**{}** is now your new ".format(skill.getName())
+                  msg += slot
                   msg += " skill."
                   save(user)
          else:
@@ -980,6 +986,7 @@ async def test(ctx, other = None):
       data = pickle.load(file)
       print(data)
    '''
+   
 
 # run module
 if __name__ == "__main__":

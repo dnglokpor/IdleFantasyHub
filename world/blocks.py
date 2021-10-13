@@ -278,12 +278,13 @@ class BossBlock(StairsBlock):
    # exploration
    def explore(self, explorers: Party, haz: int):
       hostile = self.bossRoom.get("hostile")      
-      boss = hostile[0](haz)
+      boss = hostile[0](haz) # spawns boss
       form = 0
       info = (list(), None)
       while explorers.stillStands() and form < boss.getForms():
          print(self.bossRoom.get("look")[form]) # DEBUG
-         battle = BattleState(explorers, Party(boss.getNextForm()))
+         bossParty = Party([boss.getNextForm(),])
+         battle = BattleState(explorers, bossParty)
          roundInfo = battle.run()
          # only keep last battle report file
          info = (info[0] + roundInfo[0], roundInfo[1])
@@ -291,7 +292,7 @@ class BossBlock(StairsBlock):
             form += 1
       # end of boss battle
       if explorers.stillStands: # defeated the boss
-         super().explore()
+         super().explore(explorers, haz)
       # the else will be managed by the exploration code
       return info
 

@@ -99,6 +99,14 @@ def genProfile(user: IdleUser) -> str:
          font = myFont,
          fill = (255, 215, 0)
       )
+      # exp bar
+      length = 140
+      barShadow = Image.new("RGBA", (length, 15),(128, 128, 128, 250))
+      gauge = hero.getLevel()
+      filled = int((gauge.current / gauge.treshold) * length)
+      barFiller = Image.new("RGBA", (filled, 10),(255, 255, 0, 220))
+      base.paste(barShadow, (104, 111), barShadow)
+      base.paste(barFiller, (104, 113), barFiller)
       # class description
       lore = hero.getLore()
       myFont = truetype("bahnschrift.ttf", 28)
@@ -236,14 +244,14 @@ def genBag(user: IdleUser) -> str:
    for i, stack in enumerate(bag):
       # change row, col
       if (i + 1) > 23: # 4rth row
-         row = 1
-         col = i % 8
+         row = 3
+         col = (i + 1) % 24
       elif (i + 1) > 15: # 3rd row
          row = 2
-         col = i % 16
+         col = (i + 1) % 16
       elif (i + 1) > 7: # 2nd row
-         row = 3
-         col = i % 24
+         row = 1
+         col = (i + 1) % 8
       else: # first row
          row = 0
          col = i      
@@ -254,7 +262,9 @@ def genBag(user: IdleUser) -> str:
       ico = Image.open(ico) # load icon
       ico = ico.copy() # duplicate
       ico = ico.resize((55, 53)) # resize
-      x, y = iconsXs[row], iconsY  + col * 65
+      x, y = iconsXs[row], iconsY  + col * 64
+      if i > 30 or i > 18 or i > 10 or i > 4:
+         y += 1 # extra pixel correction
       base.paste(ico, (x, y)) # paste
       # qty box
       qtyBox = Image.new("RGBA", (16, 16),(255, 255, 255, 180))

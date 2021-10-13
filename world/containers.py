@@ -225,7 +225,7 @@ class Equipment(dict):
       except AttributeError: # gear without a "t" attribute
          raise ValueError("passed gear is not a Weapon, Armor "
             "or Accessory type object.")
-      return old         
+      return old
    
    # override tostring
    def __str__(self, short = True) -> str:

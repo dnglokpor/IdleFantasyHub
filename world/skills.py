@@ -222,7 +222,7 @@ class Mastery(dict):
       "uLevel" is defined and if "uLevel <= aLevel".
       does not return the base skill.'''
       sk = None
-      if self.__contains__(uLevel) and uLevel > 1:
+      if self.__contains__(uLevel) and uLevel > 0:
          if uLevel <= aLevel:
             sk = self.get(uLevel)
       return sk
@@ -241,14 +241,15 @@ class Mastery(dict):
       in the dict if found. Else return -1.'''
       found = False
       i = 0
-      items = self.items()
+      items = list(self.items())
+      skillName = skillName.lower()
       while i < len(items) and not found:
-         found = items[i][1].getName() == skillName
+         found = items[i][1].getName().lower() == skillName
          if not found:
             i += 1
       # end of search
       if found:
-         return i
+         return items[i][0]
       else:
          return -1
    

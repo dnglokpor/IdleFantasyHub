@@ -752,19 +752,22 @@ class Cure(Buff):
 cure = Cure()
 
 # Masteries library
-blademanship = Mastery("Blademanship",
+blademanship = Mastery(
+   "Blademanship",
    "collection of skills for the blade afficionado.",
    [(0, strike), (3, fightingStance), (7, counter), 
       (10, braceForImpact), (20, comboAttack),
    ]
 )
-survivalist = Mastery("Survivalist",
+survivalist = Mastery(
+   "Survivalist",
    "techniques prized by the ones unfazed by the wilderness.",
    [(0, shoot), (3, takeAim), (7, footwork), (10, firstAid),
       (20, triShot),
    ]
 )
-conjuring = Mastery("Conjuring",
+conjuring = Mastery(
+   "Conjuring",
    "spells at the service of those who have the ability to"
    " wield them.",
    [(0, magicShield), (1, embers), (5, weaken),

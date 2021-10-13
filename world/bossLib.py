@@ -38,7 +38,7 @@ def s_Butterfreak(level = 1):
       AEOLA
    )
    # ability/critical
-   pupa.getSkillSet().addSkill("ability", skl.whine)
+   pupa.getSkillSet().assign("ability", skl.whine)
    # drops
    # nothing
    
@@ -61,7 +61,7 @@ def s_Butterfreak(level = 1):
       AEOLA
    )
    # ability/critical
-   butterfly.getSkillSet().addSkill("ability", skl.tornado)
+   butterfly.getSkillSet().assign("ability", skl.tornado)
    # drops
    # monster egg x 5 ,compound eye x 2, bug wing x 2
    butterfly.getBag().addMulti(il.s_MonsterEgg(), 5)

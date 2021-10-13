@@ -41,8 +41,8 @@ def s_Raccoundrel(level = 1):
          choose(5) # luc 0-4
       ],
       skl.bite,
-      "small raccoun like mob of early dungeon floors with\
- an aggressive behaviour and a vicious bite.",
+      "small raccoun like mob of early dungeon floors with an "
+      "aggressive behaviour and a vicious bite.",
       NOELM
    )
    # ability/critical skills
@@ -68,8 +68,8 @@ def s_Sparowl(level = 1):
          choose(5) # luc 0-4
       ],
       skl.peck,
-      "this giant dungeon owl is incredibly agile so watch\
- out for its sharp beak and powerful wind bursts.",
+      "this giant dungeon owl is incredibly agile so watch out "
+      "for its sharp beak and powerful wind bursts.",
       AEOLA
    )
    # ability/critical skills
@@ -129,7 +129,7 @@ def s_Caterkiller(level = 1):
       ],
       skl.bite,
       "don't let this giant caterpillar fool you. thanks to their "
-      "speed debuffs and their persistence, they have claimed many ",
+      "speed debuffs and their persistence, they have claimed many "
       "adventurers lives.",
       AEOLA
    )

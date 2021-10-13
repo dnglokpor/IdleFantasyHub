@@ -28,8 +28,8 @@ from floors import Floor
 # blocks list
 prairieEB = EmptyBlock(
    Environment(
-      ["There is lush green tall grass all around the place."
-       "The wind blows slowly among the small bushes."
+      ["There is lush green tall grass all around the place. "
+       "The wind blows slowly among the small bushes. "
        "Bugs can be heard chirping gladly in the sunlight.",
       ],
       res = None,
@@ -39,7 +39,7 @@ prairieEB = EmptyBlock(
 )
 prairieSB = ScavengingBlock(
    Environment(
-      ["the prairie seems ripe with fragrant plants and flowers."
+      ["the prairie seems ripe with fragrant plants and flowers. "
       "herb picking would definitely yield results.",
       ],
       res = [il.s_Chemomille, il.s_WildCorn, il.s_Violette],
@@ -50,8 +50,8 @@ prairieSB = ScavengingBlock(
 prairieBB = BattleBlock(
    Environment(
       look = 
-      ["a sudden air of danger float around the prairie."
-       "something moves in the grass in front of the party."
+      ["a sudden air of danger float around the prairie. "
+       "something moves in the grass in front of the party. "
        "weapons in hand the party welcome the monsters...",
       ],
       res = None,
@@ -61,10 +61,10 @@ prairieBB = BattleBlock(
 )
 forestEB = EmptyBlock(
    Environment(
-      ["Huge trees all around you have cut off the sunlight."
+      ["huge trees all around you have cut off the sunlight. "
       "wings beating and bug buzzes can be heard coming from "
-      "here and there."
-       "A damp and moist fragrance hits your nostrils.",
+      "here and there. a damp and moist fragrance hits your "
+      "nostrils.",
       ],
       res = None,
       hostile = None, 
@@ -73,7 +73,7 @@ forestEB = EmptyBlock(
 )
 forestSB = ScavengingBlock(
    Environment(
-      ["small fragrants plants seem to grow all around this clearing."
+      ["small fragrants plants seem to grow all around this clearing. "
       "herb picking would definitely yield results.",
       ],
       res = [il.s_Chemomille, il.s_Orangerry],
@@ -83,7 +83,7 @@ forestSB = ScavengingBlock(
 )
 forestWB = WoodcuttingBlock(
    Environment(
-      ["the trees that grow around here seem to be of good quality."
+      ["the trees that grow around here seem to be of good quality. "
        "logging here could turn out profitable.",
       ],
       res = [il.s_HaukWood, il.s_YellowFoot],
@@ -94,8 +94,8 @@ forestWB = WoodcuttingBlock(
 forestBB = BattleBlock(
    Environment(
       look = 
-      ["the trees around you suddenly feel quite threatening."
-      "something is observing you; and its not welcoming."
+      ["the trees around you suddenly feel quite threatening. "
+      "something is observing you; and its not welcoming. "
       "you barely get to your weapons that it is upon you.",
       ],
       res = None,

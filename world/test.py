@@ -3,6 +3,7 @@ import confrontation as cf
 import skillLib as skl
 import classes as c
 import monsterLib as ml
+import bossLib as bl
 from sys import exit
 from time import sleep
 from icecream import IceCreamDebugger
@@ -10,12 +11,13 @@ from icecream import IceCreamDebugger
 if __name__ == "__main__":
    dbg = IceCreamDebugger()
    
-   '''myLewysG = c.Fighter("myLewysG")
+   myLewysG = c.Fighter("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.fightingStance)
    myLewysG.getSkillSet().assign("reaction", skl.counter)
    myLewysG.getSkillSet().assign("critical", skl.braceForImpact)
-   print(myLewysG.getMastery().__str__(False))
-   '''
+   myLewysG.getLevel().levelup(1000) # levelup to 5
+   # print(myLewysG)
+   # print(myLewysG.getMastery().__str__(False))
    
    '''myLewysG = c.Ranger("myLewysG")
    myLewysG.getSkillSet().assign("ability", skl.takeAim)
@@ -29,7 +31,7 @@ if __name__ == "__main__":
    myLewysG.getSkillSet().assign("critical", skl.cure)
    '''
    
-   #p = cf.Party([myLewysG])
+   p = cf.Party([myLewysG])
    
    '''p2 = cf.Party([ml.s_Raccoundrel(), ml.s_Raccoundrel(), 
       ml.s_Raccoundrel()])
@@ -41,9 +43,6 @@ if __name__ == "__main__":
    # Blocks
    import blocks as bk
    import itemLib as il
-   item = il.arrow
-   print("item:", il.arrow.getName())
-   print("path: ", il.arrow.getIco())
    '''
    eEnv = bk.Environment( 
       ["There is lush green tall grass all around the place.",
@@ -126,7 +125,27 @@ if __name__ == "__main__":
    #from floors import Floor
    #f1 = Floor(5, 1, [eBlock, sBlock, bBlock], [2, 1, 1], bk.StairsBlock())
    #print(f1)
-   ''''f1Blocks = f1.build()
+   forestBoB = bk.BossBlock(
+      bk.Environment(
+         look = [
+         "you arrive to the stairs that lead to the next floor. but "
+         "you can't take them because something is nesting on it. "
+         "in the middle of the web barring your path, you see a pupa."
+         "not so happy to be troubled, it attacks you...",
+         "the pupa breaks but you can't rejoice because something fell "
+         "from it. you watch as it stretches its wings and screams at "
+         "you. the butterfly hatched sooner than expected and its not "
+         "too content of that..."
+         ],
+         res = None,
+         hostile = [bl.s_Butterfreak],
+         amenity = None
+      )
+   )
+   info = forestBoB.explore(p, 3)
+   if info[1] != None:
+      print(info[1])
+   '''f1Blocks = f1.build()
    current = 0
    while current < len(f1Blocks) and p.stillStands():
       print("\nB{}f: {}\n".format(current + 1, f1Blocks[current].name))

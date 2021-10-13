@@ -129,6 +129,7 @@ class Gear(Item):
       of this same item.'''
       new = Gear(self.name, self.lore, self.value, 
          cp.deepcopy(self.stats))
+      new.t = self.t
       new.ico = self.ico
       return new
    
