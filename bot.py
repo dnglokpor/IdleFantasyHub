@@ -990,7 +990,12 @@ async def test(ctx, other = None):
 
 # run module
 if __name__ == "__main__":
-   # bot runs in try catch to control execution
+   # check for existence of required repos structure
+   if not os.path.exists("records/"):
+      os.mkdir("records")
+      for subRep in ["generated", "pics", "saves", "temps", "users"]:
+         os.mkdir("records" + subRep)
+   # run bot / catch and log errors
    try:
       bot.run(os.getenv("BOT_TOKEN"))
    except: # catch any occurence
