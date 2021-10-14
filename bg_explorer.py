@@ -20,8 +20,8 @@ import time as tm
 from idleUser import USER_TEMPS_PATH
 
 # add game world package to path so that internal imports work
-sys.path.insert(0, 
-   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+sys.path.insert(0, os.getcwd() + "/world")
+
 from world.confrontation import Party
 from world.dungeon import DUNGEON
 

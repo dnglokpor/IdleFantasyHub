@@ -14,8 +14,8 @@ from glob import glob
 from idleUser import IdleUser, save, load
 
 # add game world package to path so that internal imports work
-sys.path.insert(0, 
-   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+sys.path.insert(0, os.getcwd() + "/world")
+
 import world.skillLib as skl
 
 USERS_FILES = "records/users/"

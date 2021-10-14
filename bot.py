@@ -21,11 +21,9 @@ except ModuleNotFoundError:
    import pickle
 
 # add game world package to path so that internal imports work
-sys.path.insert(0, 
-   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+sys.path.insert(0, os.getcwd() + "/world")
 # add pictures generation package to path
-sys.path.insert(0, 
-   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub")
+sys.path.insert(0, os.getcwd())
 
 # game world package imports
 from idleUser import IdleUser, save, load, USER_PICS_PATH,\

@@ -18,8 +18,8 @@ except ModuleNotFoundError:
 import time as tm
 
 # add game world package to path so that internal imports work
-sys.path.insert(0, 
-   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+sys.path.insert(0, os.getcwd() + "/world")
+
 from world.classes import Adventurer
 
 # helpers
