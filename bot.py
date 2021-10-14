@@ -992,7 +992,7 @@ if __name__ == "__main__":
    if not os.path.exists("records/"):
       os.mkdir("records")
       for subRep in ["generated", "pics", "saves", "temps", "users"]:
-         os.mkdir("records" + subRep)
+         os.mkdir("records/" + subRep)
    # run bot / catch and log errors
    try:
       bot.run(os.getenv("BOT_TOKEN"))
