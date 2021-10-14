@@ -1,0 +1,16 @@
+13-Oct-21 20:35:30 6772 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+13-Oct-21 20:35:52 6772 Received signal to terminate bot and event loop.
+13-Oct-21 20:35:52 6772 Cleaning up tasks.
+13-Oct-21 20:35:52 6772 Cleaning up after 1 tasks.
+13-Oct-21 20:35:52 6772 All tasks finished cancelling.
+13-Oct-21 20:35:52 6772 Closing the event loop.
+13-Oct-21 20:55:56 6204 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+13-Oct-21 20:55:58 6204 Received signal to terminate bot and event loop.
+13-Oct-21 20:55:58 6204 Cleaning up tasks.
+13-Oct-21 20:55:58 6204 Cleaning up after 1 tasks.
+13-Oct-21 20:55:58 6204 All tasks finished cancelling.
+13-Oct-21 20:55:58 6204 Closing the event loop.

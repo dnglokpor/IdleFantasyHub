@@ -17,11 +17,9 @@ Staff, Tome
 from units import Unit
 from random import seed, choice
 from math import floor
-from icecream import IceCreamDebugger
 
-# helpers
-dbg = IceCreamDebugger()
-seed() # seeding rnd gen
+# seeding rnd gen
+seed() 
 def chance(chances: int) -> bool:
    '''return "True" if a randomly choosen number between
    0 and 99 is lower than "chances".'''

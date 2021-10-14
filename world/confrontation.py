@@ -29,11 +29,7 @@ from math import ceil
 from math import exp as E
 from random import choice
 from sys import exit
-from icecream import IceCreamDebugger
 import os
-
-# DEBUG
-dbg = IceCreamDebugger()
 
 # helpers
 def getHP(unit):

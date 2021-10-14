@@ -17,9 +17,6 @@
 # import
 from base import Cooldown
 from elements import Element, NOELM
-import icecream as ice
-
-dbg = ice.icecream.IceCreamDebugger()
 
 # State base object
 class State:
