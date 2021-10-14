@@ -57,10 +57,6 @@ def senderInfo(ctx: com.Context):
    of author of the message received.'''
    return (ctx.message.channel, ctx.message.author.mention)
 
-def getReportFile():
-   '''concatenates and return the report file path.'''
-   return REPORT_DIR + '\\'+ REPORT_FILE
-
 def eReport(report):
    '''uses the logging module to quickly save the report 
    in a file''' 
@@ -70,9 +66,9 @@ def eReport(report):
    
    # config logger
    fm = 'a'       # appending by default
-   if not os.path.exists(getReportFile()): # file doesn't exist
+   if not os.path.exists(REPORT_DIR + '/'+ REPORT_FILE): # file doesn't exist
       fm = "w+"   # then create and append
-   logging.basicConfig(filename = getReportFile(),
+   logging.basicConfig(filename = REPORT_DIR + '/'+ REPORT_FILE,
       format = "%(asctime)s %(process)d %(message)s",
       datefmt = "%d-%b-%y %H:%M:%S", filemode = fm
    )
@@ -93,7 +89,7 @@ def logError(eData):
    print(eString)    # console print it
    eReport(eString)  # report log it 
    # print trace to report file
-   print(eData[2], file = getReportFile())
+   print(eData[2], file = REPORT_DIR + '/'+ REPORT_FILE)
 
 # back end
 # finds if a user is a registered user

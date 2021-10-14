@@ -14,3 +14,44 @@ DiscordParadise
 13-Oct-21 20:55:58 6204 Cleaning up after 1 tasks.
 13-Oct-21 20:55:58 6204 All tasks finished cancelling.
 13-Oct-21 20:55:58 6204 Closing the event loop.
+14-Oct-21 01:30:57 11696 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+14-Oct-21 01:31:01 11696 Dispatching event socket_raw_receive
+14-Oct-21 01:31:01 11696 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634193061, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+14-Oct-21 01:31:01 11696 Dispatching event socket_response
+14-Oct-21 01:31:03 11696 Dispatching event socket_raw_receive
+14-Oct-21 01:31:03 11696 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-14T06:31:03.002000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904266323427590144', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898095541920088086', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+14-Oct-21 01:31:03 11696 Dispatching event socket_response
+14-Oct-21 01:31:03 11696 Dispatching event message
+14-Oct-21 01:31:03 11696 Dispatching event command
+14-Oct-21 01:31:03 11696 STREAM b'IHDR' 16 13
+14-Oct-21 01:31:03 11696 STREAM b'pHYs' 41 9
+14-Oct-21 01:31:03 11696 STREAM b'tEXt' 62 25
+14-Oct-21 01:31:03 11696 STREAM b'IDAT' 99 8192
+14-Oct-21 01:31:03 11696 STREAM b'IHDR' 16 13
+14-Oct-21 01:31:03 11696 STREAM b'IDAT' 41 8192
+14-Oct-21 01:31:03 11696 STREAM b'IHDR' 16 13
+14-Oct-21 01:31:03 11696 STREAM b'tEXt' 41 25
+14-Oct-21 01:31:03 11696 STREAM b'iTXt' 78 802
+14-Oct-21 01:31:03 11696 STREAM b'IDAT' 892 17398
+14-Oct-21 01:31:03 11696 STREAM b'IHDR' 16 13
+14-Oct-21 01:31:03 11696 STREAM b'tEXt' 41 25
+14-Oct-21 01:31:03 11696 STREAM b'iTXt' 78 802
+14-Oct-21 01:31:03 11696 STREAM b'IDAT' 892 21981
+14-Oct-21 01:31:03 11696 STREAM b'IHDR' 16 13
+14-Oct-21 01:31:03 11696 STREAM b'tEXt' 41 25
+14-Oct-21 01:31:03 11696 STREAM b'iTXt' 78 802
+14-Oct-21 01:31:03 11696 STREAM b'IDAT' 892 11848
+14-Oct-21 01:31:03 11696 Dispatching event socket_raw_receive
+14-Oct-21 01:31:03 11696 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-14T06:31:03.644000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898095544612818944', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898095544369557555/p_543988204718653463.png', 'size': 196156, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898095544369557555/p_543988204718653463.png', 'id': '898095544369557555', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+14-Oct-21 01:31:03 11696 Dispatching event socket_response
+14-Oct-21 01:31:03 11696 Dispatching event message
+14-Oct-21 01:31:03 11696 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0x000002D7DFA6DC40> has returned 200
+14-Oct-21 01:31:03 11696 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898095544612818944', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898095544369557555', 'filename': 'p_543988204718653463.png', 'size': 196156, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898095544369557555/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898095544369557555/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-14T06:31:03.644000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+14-Oct-21 01:31:03 11696 Dispatching event command_completion
+14-Oct-21 01:31:08 11696 Received signal to terminate bot and event loop.
+14-Oct-21 01:31:08 11696 Cleaning up tasks.
+14-Oct-21 01:31:08 11696 Cleaning up after 1 tasks.
+14-Oct-21 01:31:08 11696 All tasks finished cancelling.
+14-Oct-21 01:31:08 11696 Closing the event loop.
