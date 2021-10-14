@@ -69,6 +69,8 @@ def s_Butterfreak(level = 1):
    butterfly.getBag().addMulti(il.s_BugWing(), 2)
    
    # add forms to boss
+   print("pupa stats:\n", pupa.getStats())
+   print("butterfly stats:\n", butterfly.getStats())
    butterfreak.addForm(pupa)
    butterfreak.addForm(butterfly)
    

@@ -106,17 +106,20 @@ forestBB = BattleBlock(
 forestBoB = BossBlock(
    Environment(
       look = [
+      "`boss text 1:` "
       "you arrive to the stairs that lead to the next floor. but "
       "you can't take them because something is nesting on it. "
       "in the middle of the web barring your path, you see a pupa."
       "not so happy to be troubled, it attacks you...",
-      "the pupa breaks but you can't rejoice because something fell "
+      "\n`boss text 2:` "
+      "after defeating the horde of guardian and striking the pupa, "
+      "the pupa breaks. but you can't rejoice because something fell "
       "from it. you watch as it stretches its wings and screams at "
       "you. the butterfly hatched sooner than expected and its not "
       "too content of that..."
       ],
       res = None,
-      hostile = [bl.s_Butterfreak],
+      hostile = [bl.s_Butterfreak, ml.s_Caterkiller],
       amenity = None
    )
 )

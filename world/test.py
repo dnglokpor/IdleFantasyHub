@@ -15,7 +15,7 @@ if __name__ == "__main__":
    myLewysG.getSkillSet().assign("ability", skl.fightingStance)
    myLewysG.getSkillSet().assign("reaction", skl.counter)
    myLewysG.getSkillSet().assign("critical", skl.braceForImpact)
-   myLewysG.getLevel().levelup(1000) # levelup to 5
+   myLewysG.develup(1000) # levelup to 5
    # print(myLewysG)
    # print(myLewysG.getMastery().__str__(False))
    
@@ -32,6 +32,7 @@ if __name__ == "__main__":
    '''
    
    p = cf.Party([myLewysG])
+   print("hero stats:\n", myLewysG.getStats())
    
    '''p2 = cf.Party([ml.s_Raccoundrel(), ml.s_Raccoundrel(), 
       ml.s_Raccoundrel()])
@@ -138,7 +139,7 @@ if __name__ == "__main__":
          "too content of that..."
          ],
          res = None,
-         hostile = [bl.s_Butterfreak],
+         hostile = [bl.s_Butterfreak, ml.s_Caterkiller],
          amenity = None
       )
    )

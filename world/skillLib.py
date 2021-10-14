@@ -190,16 +190,14 @@ class MultiSpecial(Skill):
    # action override
    def __call__(self, perp: Unit, state):
       '''executes the attack.'''
-      targets = list()
-      text = str()
+      results = list()
       for opp in state.getOpponents(perp):
          target = opp
          restartCooldown(self)
-         tgt, txt = targetAttack(perp, target, "special", self.element, 
+         result = targetAttack(perp, target, "special", self.element, 
             self.power)
-         targets.append(tgt)
-         text += txt + '\n'
-      return (targets, text)
+         results.append(result)
+      return results
 
 # stat buff skill
 class Buff(Skill):
@@ -293,10 +291,11 @@ class Summon(Skill):
          # too many units or no units to summon
          string += "but there was no response.\n"
       else: # we have space
-         nu = rnd.choice(state.getSummonable()) # pick
+         nu = choice(state.getSummonable()) # pick
          nu = nu(rndGen(perp.getLevel().getCurrent())) # spawn
          party.addMember(nu) # add
          string += "a {} responded to its call.\n".format(nu.getName())
+      self.cd.reset() # restart cooldown
       return (None, string)
 
 ################## monsters
@@ -379,7 +378,7 @@ cocoon = Buff(
    0,
    ["defense", "resilience"],
    2,
-   0.20
+   0.10
 )
 
 # Whine
@@ -442,7 +441,7 @@ fightingStance = Buff(
 )
 
 # Counter
-class Counter(SinglePhysical):
+class Counter(Skill):
    '''single physical attack back to a unit that just
    attacked the perpetrator first.'''
    def __init__(self):
@@ -451,8 +450,8 @@ class Counter(SinglePhysical):
          "strike back at a the foe who just striked at you fails "
          "if not used as a reaction.",
          4,
-         1.0,
-         NOELM  
+         NOELM,
+         1.0
       )
    
    # action override
@@ -466,7 +465,9 @@ class Counter(SinglePhysical):
       if perp != target: 
          txt = "{} attacks {} back!".format(perp.getName(),
             target.getName())
-         status = super().__call__(perp, state)
+         restartCooldown(self)
+         status = targetAttack(perp, target, "attack", self.element, 
+            self.power)
          status = (status[0], txt + '\n' + status[1])
       else:
          status = (None, "counter failed!")

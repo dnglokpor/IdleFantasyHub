@@ -149,7 +149,13 @@ class TurnOrder:
          for i in range(len(self.units))]
       self.mutDexts = dict(self.mutDexts)
       # create a field for round the lowest dext
-      self.lowDext = min(self.oDexts)
+      low = max(self.oDexts)
+      for i in range(len(self.units)):
+         if self.units[i]. isAlive():
+            dext = self.units[i].getStats().getStat(STATS[5]).getCurrent()
+            if low > dext:
+               low = dext
+      self.lowDext = low
       return self
    def __next__(self):
       '''return the unit of this TurnOrder that moves
@@ -212,8 +218,8 @@ class BattleState(State):
       '''
       self.advs = advs
       self.mons = mons
-      self.turnOrder = TurnOrder(self.advs.getMembers() +
-         self.mons.getMembers())
+      self.turnOrder = None#TurnOrder(self.advs.getMembers() +
+         #self.mons.getMembers())
       self.moving = None # field to record whose turn it is
       self.summonable = summonable
       self.oStream = None # none by default. created by run()
@@ -290,7 +296,7 @@ class BattleState(State):
             fprint("got {} x {} from {}!".format(len(item), 
                item[0].getName(), m.getName()), self.oStream)
             for a in self.advs: # distribute
-               a.getBag().addMulti(item[0], len(item))
+               a.getBag().addMulti(item[0], qty)
                #sleep(2)
    
    # battle method
@@ -312,6 +318,9 @@ class BattleState(State):
       fprint("a battle has started:\n", self.oStream) # DEBUG
       #sleep(1)                         # DEBUG
       while not self.isOver(): # battle loop
+         # dynamically update turn order
+         self.turnOrder = TurnOrder(self.advs.getMembers() +
+            self.mons.getMembers())
          fprint(self.__str__(), self.oStream)                   # DEBUG
          fprint("Round {}".format(roundNo + 1), self.oStream)  # DEBUG
          #sleep(3)                      # DEBUG
