@@ -15,10 +15,10 @@ import bossLib as bl
 # bestiary
 BESTIARY = {
    # # mobs
-   "raccoundrel": ml.s_Raccoundrel,
-   "sparowl": ml.s_Sparowl,
-   "honeybeat": ml.s_Honeybeat,
-   "caterkiller": ml.s_Caterkiller,
+   "raccoundrel": (1, ml.s_Raccoundrel),
+   "sparowl": (2, ml.s_Sparowl),
+   "honeybeat": (3, ml.s_Honeybeat),
+   "caterkiller": (4, ml.s_Caterkiller),
    # # bosses
-   "butterfreak": bl.s_Butterfreak
+   "butterfreak": (5, bl.s_Butterfreak)
 }

@@ -55,3 +55,1185 @@ DiscordParadise
 14-Oct-21 01:31:08 11696 Cleaning up after 1 tasks.
 14-Oct-21 01:31:08 11696 All tasks finished cancelling.
 14-Oct-21 01:31:08 11696 Closing the event loop.
+15-Oct-21 23:32:26 6440 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+15-Oct-21 23:32:38 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:32:38 6440 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634358759, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+15-Oct-21 23:32:38 6440 Dispatching event socket_response
+15-Oct-21 23:32:40 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:32:40 6440 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T04:32:41.106000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904961311203393536', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898790530140500008', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+15-Oct-21 23:32:40 6440 Dispatching event socket_response
+15-Oct-21 23:32:40 6440 Dispatching event message
+15-Oct-21 23:32:40 6440 Dispatching event command
+15-Oct-21 23:32:40 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:32:40 6440 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T04:32:41.260000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898790530786414613', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "```\n\u200bNo Category:\n  bag        get an image describing your main inventory contents. your main ...\n  befriend   if the passed name correspondto that of an existing user with he...\n  buy        buy something from the bot server shop. requires that you pass t...\n  coop       toggle the value of your open attribute. if true, you will be av...\n  equip      equip any gear you possess in your bag at the moment. gear gets ...\n  explore    explore the specified floor of the dungeon. you can specify up t...\n  friendbook prints a list of the contents of your friendbook.\n  guild      register the user as a potential player of the game by recording...\n  hello      Says hello to the username, using a randomly choosed formula.\n  help       Shows this message\n  hero       allows a user to add a hero to their account. heroes are necessa...\n  learnable  shows you the all the skills that can be learned by your hero.\n  learned    shows you the all the skills your hero has learned.\n  lookup     check an owned item info. the item must be in your bag for this ...\n  myplayerid DM requester their ID. since the bot uses Discord Base IDs, it i...\n  profile    show the player's profile status page.\n  report     report on the exploration that the player went on. if exploratio...\n  rescue     use this command and pass it the key of the fallen party to go r...\n  scout      display information on the specify floor if and only if you have...\n  sell       allows the player to sell loot they own to the server shop. that...\n  shop       reveals the items that are for sale at the moment.\n  skillset   set a skill in one of the skill slot of your hero. possible skil...\n  test       for development purposes.\n\nType ;help command for more info on a command.\nYou can also type ;help category for more info on a category.\n```", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+15-Oct-21 23:32:40 6440 Dispatching event socket_response
+15-Oct-21 23:32:40 6440 Dispatching event message
+15-Oct-21 23:32:40 6440 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n\u200bNo Category:\n  bag        get an image describing your main inventory contents. your main ...\n  befriend   if the passed name correspondto that of an existing user with he...\n  buy        buy something from the bot server shop. requires that you pass t...\n  coop       toggle the value of your open attribute. if true, you will be av...\n  equip      equip any gear you possess in your bag at the moment. gear gets ...\n  explore    explore the specified floor of the dungeon. you can specify up t...\n  friendbook prints a list of the contents of your friendbook.\n  guild      register the user as a potential player of the game by recording...\n  hello      Says hello to the username, using a randomly choosed formula.\n  help       Shows this message\n  hero       allows a user to add a hero to their account. heroes are necessa...\n  learnable  shows you the all the skills that can be learned by your hero.\n  learned    shows you the all the skills your hero has learned.\n  lookup     check an owned item info. the item must be in your bag for this ...\n  myplayerid DM requester their ID. since the bot uses Discord Base IDs, it i...\n  profile    show the player's profile status page.\n  report     report on the exploration that the player went on. if exploratio...\n  rescue     use this command and pass it the key of the fallen party to go r...\n  scout      display information on the specify floor if and only if you have...\n  sell       allows the player to sell loot they own to the server shop. that...\n  shop       reveals the items that are for sale at the moment.\n  skillset   set a skill in one of the skill slot of your hero. possible skil...\n  test       for development purposes.\n\nType ;help command for more info on a command.\nYou can also type ;help category for more info on a category.\n```"} has returned 200
+15-Oct-21 23:32:40 6440 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898790530786414613', 'type': 0, 'content': "```\n\u200bNo Category:\n  bag        get an image describing your main inventory contents. your main ...\n  befriend   if the passed name correspondto that of an existing user with he...\n  buy        buy something from the bot server shop. requires that you pass t...\n  coop       toggle the value of your open attribute. if true, you will be av...\n  equip      equip any gear you possess in your bag at the moment. gear gets ...\n  explore    explore the specified floor of the dungeon. you can specify up t...\n  friendbook prints a list of the contents of your friendbook.\n  guild      register the user as a potential player of the game by recording...\n  hello      Says hello to the username, using a randomly choosed formula.\n  help       Shows this message\n  hero       allows a user to add a hero to their account. heroes are necessa...\n  learnable  shows you the all the skills that can be learned by your hero.\n  learned    shows you the all the skills your hero has learned.\n  lookup     check an owned item info. the item must be in your bag for this ...\n  myplayerid DM requester their ID. since the bot uses Discord Base IDs, it i...\n  profile    show the player's profile status page.\n  report     report on the exploration that the player went on. if exploratio...\n  rescue     use this command and pass it the key of the fallen party to go r...\n  scout      display information on the specify floor if and only if you have...\n  sell       allows the player to sell loot they own to the server shop. that...\n  shop       reveals the items that are for sale at the moment.\n  skillset   set a skill in one of the skill slot of your hero. possible skil...\n  test       for development purposes.\n\nType ;help command for more info on a command.\nYou can also type ;help category for more info on a category.\n```", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T04:32:41.260000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+15-Oct-21 23:32:40 6440 Dispatching event command_completion
+15-Oct-21 23:33:05 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:33:05 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:33:05 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:33:05 6440 Dispatching event socket_response
+15-Oct-21 23:33:47 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:33:47 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:33:47 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:33:47 6440 Dispatching event socket_response
+15-Oct-21 23:34:28 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:34:28 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:34:28 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:34:28 6440 Dispatching event socket_response
+15-Oct-21 23:35:09 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:35:09 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:35:09 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:35:09 6440 Dispatching event socket_response
+15-Oct-21 23:35:50 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:35:50 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:35:50 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:35:50 6440 Dispatching event socket_response
+15-Oct-21 23:36:32 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:36:32 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:36:32 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:36:32 6440 Dispatching event socket_response
+15-Oct-21 23:37:13 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:37:13 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:37:13 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:37:13 6440 Dispatching event socket_response
+15-Oct-21 23:37:54 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:37:54 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:37:54 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:37:54 6440 Dispatching event socket_response
+15-Oct-21 23:38:35 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:38:35 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:38:35 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:38:35 6440 Dispatching event socket_response
+15-Oct-21 23:39:17 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:39:17 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:39:17 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:39:17 6440 Dispatching event socket_response
+15-Oct-21 23:39:58 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:39:58 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:39:58 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:39:58 6440 Dispatching event socket_response
+15-Oct-21 23:40:39 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:40:39 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:40:39 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:40:39 6440 Dispatching event socket_response
+15-Oct-21 23:41:20 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:41:20 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:41:20 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:41:20 6440 Dispatching event socket_response
+15-Oct-21 23:42:02 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:42:02 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:42:02 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:42:02 6440 Dispatching event socket_response
+15-Oct-21 23:42:43 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:42:43 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:42:43 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:42:43 6440 Dispatching event socket_response
+15-Oct-21 23:43:24 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:43:24 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:43:24 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:43:24 6440 Dispatching event socket_response
+15-Oct-21 23:44:05 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:44:06 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:44:06 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:44:06 6440 Dispatching event socket_response
+15-Oct-21 23:44:47 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:44:47 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:44:47 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:44:47 6440 Dispatching event socket_response
+15-Oct-21 23:45:28 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:45:28 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:45:28 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:45:28 6440 Dispatching event socket_response
+15-Oct-21 23:46:09 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:46:09 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:46:09 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:46:09 6440 Dispatching event socket_response
+15-Oct-21 23:46:51 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:46:51 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:46:51 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:46:51 6440 Dispatching event socket_response
+15-Oct-21 23:47:32 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:47:32 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:47:32 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:47:32 6440 Dispatching event socket_response
+15-Oct-21 23:48:13 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:48:13 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:48:13 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:48:13 6440 Dispatching event socket_response
+15-Oct-21 23:48:54 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:48:54 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:48:54 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:48:54 6440 Dispatching event socket_response
+15-Oct-21 23:49:36 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:49:36 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:49:36 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:49:36 6440 Dispatching event socket_response
+15-Oct-21 23:50:17 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:50:17 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:50:17 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:50:17 6440 Dispatching event socket_response
+15-Oct-21 23:50:58 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:50:58 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:50:58 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:50:58 6440 Dispatching event socket_response
+15-Oct-21 23:51:39 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:51:39 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:51:39 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:51:39 6440 Dispatching event socket_response
+15-Oct-21 23:52:21 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:52:21 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:52:21 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:52:21 6440 Dispatching event socket_response
+15-Oct-21 23:53:02 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:53:02 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:53:02 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:53:02 6440 Dispatching event socket_response
+15-Oct-21 23:53:43 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:53:43 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:53:43 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:53:43 6440 Dispatching event socket_response
+15-Oct-21 23:54:24 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:54:24 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:54:24 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:54:24 6440 Dispatching event socket_response
+15-Oct-21 23:55:06 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:55:06 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:55:06 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:55:06 6440 Dispatching event socket_response
+15-Oct-21 23:55:47 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:55:47 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:55:47 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:55:47 6440 Dispatching event socket_response
+15-Oct-21 23:56:28 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:56:28 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:56:28 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:56:28 6440 Dispatching event socket_response
+15-Oct-21 23:57:09 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:57:09 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:57:09 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:57:09 6440 Dispatching event socket_response
+15-Oct-21 23:57:51 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:57:51 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:57:51 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:57:51 6440 Dispatching event socket_response
+15-Oct-21 23:58:32 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:58:32 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:58:32 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:58:32 6440 Dispatching event socket_response
+15-Oct-21 23:59:13 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:59:13 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:59:13 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:59:13 6440 Dispatching event socket_response
+15-Oct-21 23:59:54 6440 Keeping shard ID None websocket alive with sequence 5.
+15-Oct-21 23:59:54 6440 Dispatching event socket_raw_receive
+15-Oct-21 23:59:54 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+15-Oct-21 23:59:54 6440 Dispatching event socket_response
+16-Oct-21 00:00:36 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:00:36 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:00:36 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:00:36 6440 Dispatching event socket_response
+16-Oct-21 00:01:17 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:01:17 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:01:17 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:01:17 6440 Dispatching event socket_response
+16-Oct-21 00:01:58 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:01:58 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:01:58 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:01:58 6440 Dispatching event socket_response
+16-Oct-21 00:02:39 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:02:40 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:02:40 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:02:40 6440 Dispatching event socket_response
+16-Oct-21 00:03:21 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:03:21 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:03:21 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:03:21 6440 Dispatching event socket_response
+16-Oct-21 00:04:02 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:04:02 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:04:02 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:04:02 6440 Dispatching event socket_response
+16-Oct-21 00:04:43 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:04:43 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:04:43 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:04:43 6440 Dispatching event socket_response
+16-Oct-21 00:05:25 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:05:25 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:05:25 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:05:25 6440 Dispatching event socket_response
+16-Oct-21 00:06:06 6440 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:06:06 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:06:06 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:06:06 6440 Dispatching event socket_response
+16-Oct-21 00:06:14 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:06:14 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 7, 'd': None}
+16-Oct-21 00:06:14 6440 Dispatching event socket_response
+16-Oct-21 00:06:14 6440 Received RECONNECT opcode.
+16-Oct-21 00:06:14 6440 Got a request to RESUME the websocket.
+16-Oct-21 00:06:14 6440 Dispatching event disconnect
+16-Oct-21 00:06:14 6440 GET https://discord.com/api/v7/gateway with None has returned 200
+16-Oct-21 00:06:14 6440 GET https://discord.com/api/v7/gateway has received {'url': 'wss://gateway.discord.gg'}
+16-Oct-21 00:06:14 6440 Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+16-Oct-21 00:06:14 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:06:14 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 10, 'd': {'heartbeat_interval': 41250, '_trace': ['["gateway-prd-main-djhr",{"micros":0.0}]']}}
+16-Oct-21 00:06:14 6440 Dispatching event socket_response
+16-Oct-21 00:06:14 6440 Dispatching event socket_raw_send
+16-Oct-21 00:06:14 6440 Dispatching event socket_raw_send
+16-Oct-21 00:06:14 6440 Shard ID None has sent the RESUME payload.
+16-Oct-21 00:06:14 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:06:14 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:06:14 6440 Dispatching event socket_response
+16-Oct-21 00:06:14 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:06:14 6440 For Shard ID None: WebSocket Event: {'t': 'RESUMED', 's': 6, 'op': 0, 'd': {'_trace': ['["gateway-prd-main-djhr",{"micros":561,"calls":["discord-sessions-green-prd-2-150",{"micros":21}]}]']}}
+16-Oct-21 00:06:14 6440 Dispatching event socket_response
+16-Oct-21 00:06:14 6440 Shard ID None has successfully RESUMED session 5a9d379d949054bd6578a51e039fbfa2 under trace ["gateway-prd-main-djhr",{"micros":561,"calls":["discord-sessions-green-prd-2-150",{"micros":21}]}].
+16-Oct-21 00:06:14 6440 Dispatching event resumed
+16-Oct-21 00:06:56 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:06:56 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:06:56 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:06:56 6440 Dispatching event socket_response
+16-Oct-21 00:07:37 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:07:37 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:07:37 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:07:37 6440 Dispatching event socket_response
+16-Oct-21 00:08:18 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:08:18 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:08:18 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:08:18 6440 Dispatching event socket_response
+16-Oct-21 00:08:59 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:08:59 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:08:59 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:08:59 6440 Dispatching event socket_response
+16-Oct-21 00:09:41 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:09:41 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:09:41 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:09:41 6440 Dispatching event socket_response
+16-Oct-21 00:10:22 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:10:22 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:10:22 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:10:22 6440 Dispatching event socket_response
+16-Oct-21 00:11:03 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:11:03 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:11:03 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:11:03 6440 Dispatching event socket_response
+16-Oct-21 00:11:44 6440 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 00:11:44 6440 Dispatching event socket_raw_receive
+16-Oct-21 00:11:44 6440 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:11:44 6440 Dispatching event socket_response
+16-Oct-21 00:12:17 6440 Received signal to terminate bot and event loop.
+16-Oct-21 00:12:17 6440 Cleaning up tasks.
+16-Oct-21 00:12:17 6440 Cleaning up after 1 tasks.
+16-Oct-21 00:12:17 6440 All tasks finished cancelling.
+16-Oct-21 00:12:17 6440 Closing the event loop.
+16-Oct-21 00:13:05 22420 error on help by IdleFantasyBot#7819 on server DiscordParadise
+16-Oct-21 00:13:05 22420 <class 'TypeError'>
+16-Oct-21 00:13:05 22420 send_bot_help() takes 1 positional argument but 2 were given
+16-Oct-21 00:13:08 22420 Dispatching event socket_raw_receive
+16-Oct-21 00:13:08 22420 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T05:13:08.660000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898800712039952385', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Something went wrong. Sorry, try something else.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 00:13:08 22420 Dispatching event socket_response
+16-Oct-21 00:13:08 22420 Dispatching event message
+16-Oct-21 00:13:08 22420 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Something went wrong. Sorry, try something else."} has returned 200
+16-Oct-21 00:13:08 22420 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898800712039952385', 'type': 0, 'content': 'Something went wrong. Sorry, try something else.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T05:13:08.660000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 00:13:15 22420 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:13:15 22420 Received signal to terminate bot and event loop.
+16-Oct-21 00:13:15 22420 Cleaning up tasks.
+16-Oct-21 00:13:15 22420 Cleaning up after 1 tasks.
+16-Oct-21 00:13:15 22420 All tasks finished cancelling.
+16-Oct-21 00:13:15 22420 Closing the event loop.
+16-Oct-21 00:15:14 12848 error on help by IdleFantasyBot#7819 on server DiscordParadise
+16-Oct-21 00:15:14 12848 <class 'NameError'>
+16-Oct-21 00:15:14 12848 name 'ctx' is not defined
+16-Oct-21 00:15:16 12848 Dispatching event socket_raw_receive
+16-Oct-21 00:15:16 12848 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T05:15:17.297000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898801251582627910', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Something went wrong. Sorry, try something else.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 00:15:16 12848 Dispatching event socket_response
+16-Oct-21 00:15:16 12848 Dispatching event message
+16-Oct-21 00:15:16 12848 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Something went wrong. Sorry, try something else."} has returned 200
+16-Oct-21 00:15:16 12848 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898801251582627910', 'type': 0, 'content': 'Something went wrong. Sorry, try something else.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T05:15:17.297000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 00:15:49 12848 Received signal to terminate bot and event loop.
+16-Oct-21 00:15:49 12848 Cleaning up tasks.
+16-Oct-21 00:15:49 12848 Cleaning up after 1 tasks.
+16-Oct-21 00:15:49 12848 All tasks finished cancelling.
+16-Oct-21 00:15:49 12848 Closing the event loop.
+16-Oct-21 00:17:26 21240 error on help by IdleFantasyBot#7819 on server DiscordParadise
+16-Oct-21 00:17:26 21240 <class 'TypeError'>
+16-Oct-21 00:17:26 21240 object tuple can't be used in 'await' expression
+16-Oct-21 00:17:26 21240 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 00:17:28 21240 Dispatching event socket_raw_receive
+16-Oct-21 00:17:28 21240 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:17:28 21240 Dispatching event socket_response
+16-Oct-21 00:17:29 21240 Dispatching event socket_raw_receive
+16-Oct-21 00:17:29 21240 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T05:17:29.880000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898801807676026880', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Something went wrong. Sorry, try something else.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 00:17:29 21240 Dispatching event socket_response
+16-Oct-21 00:17:29 21240 Dispatching event message
+16-Oct-21 00:17:29 21240 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Something went wrong. Sorry, try something else."} has returned 200
+16-Oct-21 00:17:29 21240 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898801807676026880', 'type': 0, 'content': 'Something went wrong. Sorry, try something else.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T05:17:29.880000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 00:17:59 21240 Received signal to terminate bot and event loop.
+16-Oct-21 00:17:59 21240 Cleaning up tasks.
+16-Oct-21 00:17:59 21240 Cleaning up after 1 tasks.
+16-Oct-21 00:17:59 21240 All tasks finished cancelling.
+16-Oct-21 00:17:59 21240 Closing the event loop.
+16-Oct-21 00:20:35 11952 error on help by IdleFantasyBot#7819 on server DiscordParadise
+16-Oct-21 00:20:35 11952 <class 'NameError'>
+16-Oct-21 00:20:35 11952 name 'command' is not defined
+16-Oct-21 00:20:37 11952 Dispatching event socket_raw_receive
+16-Oct-21 00:20:37 11952 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T05:20:38.566000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898802599082471474', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Something went wrong. Sorry, try something else.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 00:20:37 11952 Dispatching event socket_response
+16-Oct-21 00:20:37 11952 Dispatching event message
+16-Oct-21 00:20:37 11952 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Something went wrong. Sorry, try something else."} has returned 200
+16-Oct-21 00:20:37 11952 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898802599082471474', 'type': 0, 'content': 'Something went wrong. Sorry, try something else.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T05:20:38.566000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 00:21:05 11952 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:21:05 11952 Dispatching event socket_raw_receive
+16-Oct-21 00:21:05 11952 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:21:05 11952 Dispatching event socket_response
+16-Oct-21 00:21:46 11952 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:21:46 11952 Dispatching event socket_raw_receive
+16-Oct-21 00:21:46 11952 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:21:46 11952 Dispatching event socket_response
+16-Oct-21 00:21:59 11952 Received signal to terminate bot and event loop.
+16-Oct-21 00:21:59 11952 Cleaning up tasks.
+16-Oct-21 00:21:59 11952 Cleaning up after 1 tasks.
+16-Oct-21 00:21:59 11952 All tasks finished cancelling.
+16-Oct-21 00:21:59 11952 Closing the event loop.
+16-Oct-21 00:56:24 18244 error on help by IdleFantasyBot#7819 on server DiscordParadise
+16-Oct-21 00:56:24 18244 <class 'NameError'>
+16-Oct-21 00:56:24 18244 name 'commmands' is not defined
+16-Oct-21 00:56:26 18244 Dispatching event socket_raw_receive
+16-Oct-21 00:56:26 18244 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T05:56:27.133000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898811610825642004', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Something went wrong. Sorry, try something else.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 00:56:26 18244 Dispatching event socket_response
+16-Oct-21 00:56:26 18244 Dispatching event message
+16-Oct-21 00:56:26 18244 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Something went wrong. Sorry, try something else."} has returned 200
+16-Oct-21 00:56:26 18244 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898811610825642004', 'type': 0, 'content': 'Something went wrong. Sorry, try something else.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T05:56:27.133000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 00:56:54 18244 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 00:56:54 18244 Dispatching event socket_raw_receive
+16-Oct-21 00:56:54 18244 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 00:56:54 18244 Dispatching event socket_response
+16-Oct-21 00:57:35 18244 Received signal to terminate bot and event loop.
+16-Oct-21 00:57:35 18244 Cleaning up tasks.
+16-Oct-21 00:57:35 18244 Cleaning up after 1 tasks.
+16-Oct-21 00:57:35 18244 All tasks finished cancelling.
+16-Oct-21 00:57:35 18244 Closing the event loop.
+16-Oct-21 01:06:18 11976 error on help by IdleFantasyBot#7819 on server DiscordParadise
+16-Oct-21 01:06:18 11976 <class 'TypeError'>
+16-Oct-21 01:06:18 11976 'set' object is not subscriptable
+16-Oct-21 01:06:20 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:06:20 11976 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:06:21.332000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898814103076868098', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Something went wrong. Sorry, try something else.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:06:20 11976 Dispatching event socket_response
+16-Oct-21 01:06:20 11976 Dispatching event message
+16-Oct-21 01:06:20 11976 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Something went wrong. Sorry, try something else."} has returned 200
+16-Oct-21 01:06:20 11976 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898814103076868098', 'type': 0, 'content': 'Something went wrong. Sorry, try something else.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:06:21.332000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:06:57 11976 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:06:57 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:06:57 11976 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:06:57 11976 Dispatching event socket_response
+16-Oct-21 01:07:38 11976 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:07:38 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:07:38 11976 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:07:38 11976 Dispatching event socket_response
+16-Oct-21 01:08:20 11976 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:08:20 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:08:20 11976 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:08:20 11976 Dispatching event socket_response
+16-Oct-21 01:09:01 11976 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:09:01 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:09:01 11976 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:09:01 11976 Dispatching event socket_response
+16-Oct-21 01:09:42 11976 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:09:42 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:09:42 11976 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:09:42 11976 Dispatching event socket_response
+16-Oct-21 01:10:23 11976 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:10:23 11976 Dispatching event socket_raw_receive
+16-Oct-21 01:10:23 11976 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:10:23 11976 Dispatching event socket_response
+16-Oct-21 01:10:26 11976 Received signal to terminate bot and event loop.
+16-Oct-21 01:10:26 11976 Cleaning up tasks.
+16-Oct-21 01:10:26 11976 Cleaning up after 1 tasks.
+16-Oct-21 01:10:26 11976 All tasks finished cancelling.
+16-Oct-21 01:10:26 11976 Closing the event loop.
+16-Oct-21 01:15:55 19736 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 01:16:34 19736 Keeping shard ID None websocket alive with sequence 2.
+16-Oct-21 01:16:34 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:16:34 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:16:34 19736 Dispatching event socket_response
+16-Oct-21 01:17:15 19736 Keeping shard ID None websocket alive with sequence 2.
+16-Oct-21 01:17:15 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:17:15 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:17:15 19736 Dispatching event socket_response
+16-Oct-21 01:17:56 19736 Keeping shard ID None websocket alive with sequence 2.
+16-Oct-21 01:17:57 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:17:57 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:17:57 19736 Dispatching event socket_response
+16-Oct-21 01:18:04 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:18:04 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365085, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:18:04 19736 Dispatching event socket_response
+16-Oct-21 01:18:06 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:18:06 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:18:06.920000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904987843875569664', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898817062527447101', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:18:06 19736 Dispatching event socket_response
+16-Oct-21 01:18:06 19736 Dispatching event message
+16-Oct-21 01:18:06 19736 Dispatching event command
+16-Oct-21 01:18:06 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:18:06 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:18:07.091000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898817063244660756', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Hiya <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nskillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, shop, hero, buy, profile, sell, bag, equip, learnable, learned.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:18:06 19736 Dispatching event socket_response
+16-Oct-21 01:18:06 19736 Dispatching event message
+16-Oct-21 01:18:06 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Hiya <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nskillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, shop, hero, buy, profile, sell, bag, equip, learnable, learned.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot."} has returned 200
+16-Oct-21 01:18:06 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898817063244660756', 'type': 0, 'content': 'Hiya <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nskillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, shop, hero, buy, profile, sell, bag, equip, learnable, learned.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:18:07.091000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:18:06 19736 Dispatching event command_completion
+16-Oct-21 01:18:38 19736 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:18:38 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:18:38 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:18:38 19736 Dispatching event socket_response
+16-Oct-21 01:19:19 19736 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:19:19 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:19:19 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:19:19 19736 Dispatching event socket_response
+16-Oct-21 01:19:42 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:19:42 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 6, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365182, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:19:42 19736 Dispatching event socket_response
+16-Oct-21 01:19:58 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:19:58 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 7, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365198, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:19:58 19736 Dispatching event socket_response
+16-Oct-21 01:20:00 19736 Keeping shard ID None websocket alive with sequence 7.
+16-Oct-21 01:20:00 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:20:00 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:20:00 19736 Dispatching event socket_response
+16-Oct-21 01:20:03 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:20:03 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 8, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:20:03.760000+00:00', 'referenced_message': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:18:07.091000+00:00', 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'id': '898817063244660756', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Hiya <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nskillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, shop, hero, buy, profile, sell, bag, equip, learnable, learned.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': []}, 'pinned': False, 'nonce': '904988333476675584', 'message_reference': {'message_id': '898817063244660756', 'guild_id': '726261169861558313', 'channel_id': '820015260563275806'}, 'mentions': [{'username': 'IdleFantasyBot', 'public_flags': 0, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, {'username': 'mariotits', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-28T14:38:17.435000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '710985100577341440', 'discriminator': '8207', 'avatar': 'e50d6720fb885db9ee3a689246a0881f'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898817552589926421', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@710985100577341440> how is this? Better?', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:20:03 19736 Dispatching event socket_response
+16-Oct-21 01:20:03 19736 Dispatching event message
+16-Oct-21 01:20:42 19736 Keeping shard ID None websocket alive with sequence 8.
+16-Oct-21 01:20:42 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:20:42 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:20:42 19736 Dispatching event socket_response
+16-Oct-21 01:21:23 19736 Keeping shard ID None websocket alive with sequence 8.
+16-Oct-21 01:21:23 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:21:23 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:21:23 19736 Dispatching event socket_response
+16-Oct-21 01:22:01 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:22:01 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 9, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365322, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:22:01 19736 Dispatching event socket_response
+16-Oct-21 01:22:04 19736 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 01:22:04 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:22:04 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:22:04 19736 Dispatching event socket_response
+16-Oct-21 01:22:08 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:22:08 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 10, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:22:09.458000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904988861073981440', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818079805554720', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help explore', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:22:08 19736 Dispatching event socket_response
+16-Oct-21 01:22:08 19736 Dispatching event message
+16-Oct-21 01:22:08 19736 Dispatching event command
+16-Oct-21 01:22:08 19736 Dispatching event command_completion
+16-Oct-21 01:22:45 19736 Keeping shard ID None websocket alive with sequence 10.
+16-Oct-21 01:22:45 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:22:45 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:22:45 19736 Dispatching event socket_response
+16-Oct-21 01:22:58 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:22:58 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 11, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365379, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:22:58 19736 Dispatching event socket_response
+16-Oct-21 01:23:04 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:04 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 12, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:23:04.974000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904989093354536960', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818312656535554', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:23:04 19736 Dispatching event socket_response
+16-Oct-21 01:23:04 19736 Dispatching event message
+16-Oct-21 01:23:04 19736 Dispatching event command
+16-Oct-21 01:23:04 19736 STREAM b'IHDR' 16 13
+16-Oct-21 01:23:04 19736 STREAM b'pHYs' 41 9
+16-Oct-21 01:23:04 19736 STREAM b'tEXt' 62 25
+16-Oct-21 01:23:04 19736 STREAM b'IDAT' 99 8192
+16-Oct-21 01:23:04 19736 STREAM b'IHDR' 16 13
+16-Oct-21 01:23:04 19736 STREAM b'IDAT' 41 8192
+16-Oct-21 01:23:04 19736 STREAM b'IHDR' 16 13
+16-Oct-21 01:23:04 19736 STREAM b'tEXt' 41 25
+16-Oct-21 01:23:04 19736 STREAM b'iTXt' 78 802
+16-Oct-21 01:23:04 19736 STREAM b'IDAT' 892 17398
+16-Oct-21 01:23:04 19736 STREAM b'IHDR' 16 13
+16-Oct-21 01:23:04 19736 STREAM b'tEXt' 41 25
+16-Oct-21 01:23:04 19736 STREAM b'iTXt' 78 802
+16-Oct-21 01:23:04 19736 STREAM b'IDAT' 892 21981
+16-Oct-21 01:23:04 19736 STREAM b'IHDR' 16 13
+16-Oct-21 01:23:04 19736 STREAM b'tEXt' 41 25
+16-Oct-21 01:23:04 19736 STREAM b'iTXt' 78 802
+16-Oct-21 01:23:04 19736 STREAM b'IDAT' 892 11848
+16-Oct-21 01:23:04 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:04 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 13, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:23:05.616000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818315349295124', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898818315110195240/p_543988204718653463.png', 'size': 199492, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898818315110195240/p_543988204718653463.png', 'id': '898818315110195240', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:23:04 19736 Dispatching event socket_response
+16-Oct-21 01:23:04 19736 Dispatching event message
+16-Oct-21 01:23:04 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0x0000025B25E8C370> has returned 200
+16-Oct-21 01:23:04 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898818315349295124', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898818315110195240', 'filename': 'p_543988204718653463.png', 'size': 199492, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898818315110195240/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898818315110195240/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:23:05.616000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:23:04 19736 Dispatching event command_completion
+16-Oct-21 01:23:18 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:18 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 14, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365399, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:23:18 19736 Dispatching event socket_response
+16-Oct-21 01:23:27 19736 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 01:23:27 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:27 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:23:27 19736 Dispatching event socket_response
+16-Oct-21 01:23:28 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:28 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 15, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365409, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:23:28 19736 Dispatching event socket_response
+16-Oct-21 01:23:47 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:47 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 16, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365428, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:23:47 19736 Dispatching event socket_response
+16-Oct-21 01:23:57 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:23:57 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 17, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365438, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:23:57 19736 Dispatching event socket_response
+16-Oct-21 01:24:03 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:03 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 18, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:24:04.286000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904989342353588224', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818561429102622', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';befriend 543988204718653463.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:24:03 19736 Dispatching event socket_response
+16-Oct-21 01:24:03 19736 Dispatching event message
+16-Oct-21 01:24:03 19736 Dispatching event command
+16-Oct-21 01:24:03 19736 Dispatching event command_error
+16-Oct-21 01:24:05 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:05 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 19, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:24:05.421000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818566189645825', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'this command was wrongly used. use `;help befriend` to see the correct use.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:24:05 19736 Dispatching event socket_response
+16-Oct-21 01:24:05 19736 Dispatching event message
+16-Oct-21 01:24:05 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"this command was wrongly used. use `;help befriend` to see the correct use."} has returned 200
+16-Oct-21 01:24:05 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898818566189645825', 'type': 0, 'content': 'this command was wrongly used. use `;help befriend` to see the correct use.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:24:05.421000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:24:08 19736 Keeping shard ID None websocket alive with sequence 19.
+16-Oct-21 01:24:08 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:08 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:24:08 19736 Dispatching event socket_response
+16-Oct-21 01:24:19 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:19 19736 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 20, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634365460, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:24:19 19736 Dispatching event socket_response
+16-Oct-21 01:24:21 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:21 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 21, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:24:21.957000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904989416596963328', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818635546652712', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';befriend 543988204718653463', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:24:21 19736 Dispatching event socket_response
+16-Oct-21 01:24:21 19736 Dispatching event message
+16-Oct-21 01:24:21 19736 Dispatching event command
+16-Oct-21 01:24:22 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:22 19736 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 22, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:24:23.116000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898818640407830528', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'say hi to your new friend **myle2179** you can use the `friendbook` command to check on all your friends anytime.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:24:22 19736 Dispatching event socket_response
+16-Oct-21 01:24:22 19736 Dispatching event message
+16-Oct-21 01:24:22 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"say hi to your new friend **myle2179** you can use the `friendbook` command to check on all your friends anytime."} has returned 200
+16-Oct-21 01:24:22 19736 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898818640407830528', 'type': 0, 'content': 'say hi to your new friend **myle2179** you can use the `friendbook` command to check on all your friends anytime.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:24:23.116000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:24:22 19736 Dispatching event command_completion
+16-Oct-21 01:24:49 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:24:49 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:24:49 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:24:49 19736 Dispatching event socket_response
+16-Oct-21 01:25:30 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:25:30 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:25:30 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:25:30 19736 Dispatching event socket_response
+16-Oct-21 01:26:12 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:26:12 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:26:12 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:26:12 19736 Dispatching event socket_response
+16-Oct-21 01:26:53 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:26:53 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:26:53 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:26:53 19736 Dispatching event socket_response
+16-Oct-21 01:27:34 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:27:34 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:27:34 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:27:34 19736 Dispatching event socket_response
+16-Oct-21 01:28:15 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:28:15 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:28:15 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:28:15 19736 Dispatching event socket_response
+16-Oct-21 01:28:57 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:28:57 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:28:57 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:28:57 19736 Dispatching event socket_response
+16-Oct-21 01:29:38 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:29:38 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:29:38 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:29:38 19736 Dispatching event socket_response
+16-Oct-21 01:30:19 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:30:19 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:30:19 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:30:19 19736 Dispatching event socket_response
+16-Oct-21 01:31:00 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:31:00 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:31:00 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:31:00 19736 Dispatching event socket_response
+16-Oct-21 01:31:42 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:31:42 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:31:42 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:31:42 19736 Dispatching event socket_response
+16-Oct-21 01:32:23 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:32:23 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:32:23 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:32:23 19736 Dispatching event socket_response
+16-Oct-21 01:33:04 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:33:04 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:33:04 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:33:04 19736 Dispatching event socket_response
+16-Oct-21 01:33:45 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:33:45 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:33:45 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:33:45 19736 Dispatching event socket_response
+16-Oct-21 01:34:27 19736 Keeping shard ID None websocket alive with sequence 22.
+16-Oct-21 01:34:27 19736 Dispatching event socket_raw_receive
+16-Oct-21 01:34:27 19736 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:34:27 19736 Dispatching event socket_response
+16-Oct-21 01:35:00 19736 Received signal to terminate bot and event loop.
+16-Oct-21 01:35:00 19736 Cleaning up tasks.
+16-Oct-21 01:35:00 19736 Cleaning up after 1 tasks.
+16-Oct-21 01:35:00 19736 All tasks finished cancelling.
+16-Oct-21 01:35:00 19736 Closing the event loop.
+16-Oct-21 01:35:04 21468 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 01:35:06 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:35:06 21468 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634366107, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:35:06 21468 Dispatching event socket_response
+16-Oct-21 01:35:08 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:35:08 21468 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:35:09.499000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904992132480106496', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898821351534637086', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help explore', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:35:08 21468 Dispatching event socket_response
+16-Oct-21 01:35:08 21468 Dispatching event message
+16-Oct-21 01:35:08 21468 Dispatching event command
+16-Oct-21 01:35:08 21468 Dispatching event command_completion
+16-Oct-21 01:35:43 21468 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:35:43 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:35:43 21468 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:35:43 21468 Dispatching event socket_response
+16-Oct-21 01:36:18 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:36:18 21468 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 5, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634366178, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:36:18 21468 Dispatching event socket_response
+16-Oct-21 01:36:24 21468 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:36:24 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:36:24 21468 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:36:24 21468 Dispatching event socket_response
+16-Oct-21 01:36:25 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:36:25 21468 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:36:26.643000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904992456162934784', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898821675100041246', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help jump', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:36:25 21468 Dispatching event socket_response
+16-Oct-21 01:36:25 21468 Dispatching event message
+16-Oct-21 01:36:25 21468 Dispatching event command
+16-Oct-21 01:36:26 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:36:26 21468 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:36:26.773000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898821675645304843', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'No command called "jump" found.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:36:26 21468 Dispatching event socket_response
+16-Oct-21 01:36:26 21468 Dispatching event message
+16-Oct-21 01:36:26 21468 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"No command called \"jump\" found."} has returned 200
+16-Oct-21 01:36:26 21468 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898821675645304843', 'type': 0, 'content': 'No command called "jump" found.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:36:26.773000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:36:26 21468 Dispatching event command_completion
+16-Oct-21 01:36:28 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:36:28 21468 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 8, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634366189, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:36:28 21468 Dispatching event socket_response
+16-Oct-21 01:36:37 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:36:37 21468 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 9, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:36:38.317000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904992505152405504', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898821724064325632', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:36:37 21468 Dispatching event socket_response
+16-Oct-21 01:36:37 21468 Dispatching event message
+16-Oct-21 01:36:37 21468 Dispatching event command
+16-Oct-21 01:36:37 21468 Dispatching event command_completion
+16-Oct-21 01:37:06 21468 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 01:37:06 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:37:06 21468 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:37:06 21468 Dispatching event socket_response
+16-Oct-21 01:37:47 21468 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 01:37:47 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:37:47 21468 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:37:47 21468 Dispatching event socket_response
+16-Oct-21 01:38:28 21468 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 01:38:28 21468 Dispatching event socket_raw_receive
+16-Oct-21 01:38:28 21468 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:38:28 21468 Dispatching event socket_response
+16-Oct-21 01:38:43 21468 Received signal to terminate bot and event loop.
+16-Oct-21 01:38:43 21468 Cleaning up tasks.
+16-Oct-21 01:38:43 21468 Cleaning up after 1 tasks.
+16-Oct-21 01:38:43 21468 All tasks finished cancelling.
+16-Oct-21 01:38:43 21468 Closing the event loop.
+16-Oct-21 01:38:48 2040 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 01:38:48 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:38:48 2040 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634366328, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:38:48 2040 Dispatching event socket_response
+16-Oct-21 01:38:53 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:38:53 2040 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:38:53.788000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904993073329602560', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898822292270895104', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:38:53 2040 Dispatching event socket_response
+16-Oct-21 01:38:53 2040 Dispatching event message
+16-Oct-21 01:38:53 2040 Dispatching event command
+16-Oct-21 01:38:53 2040 Dispatching event command_completion
+16-Oct-21 01:39:25 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:39:25 2040 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 5, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634366365, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:39:25 2040 Dispatching event socket_response
+16-Oct-21 01:39:27 2040 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 01:39:27 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:39:27 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:39:27 2040 Dispatching event socket_response
+16-Oct-21 01:39:29 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:39:29 2040 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:39:29.752000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904993224316157952', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898822443114844162', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:39:29 2040 Dispatching event socket_response
+16-Oct-21 01:39:29 2040 Dispatching event message
+16-Oct-21 01:39:29 2040 Dispatching event command
+16-Oct-21 01:39:29 2040 Dispatching event command_completion
+16-Oct-21 01:40:08 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:40:08 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:40:08 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:40:08 2040 Dispatching event socket_response
+16-Oct-21 01:40:49 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:40:49 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:40:49 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:40:49 2040 Dispatching event socket_response
+16-Oct-21 01:41:30 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:41:31 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:41:31 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:41:31 2040 Dispatching event socket_response
+16-Oct-21 01:42:12 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:42:12 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:42:12 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:42:12 2040 Dispatching event socket_response
+16-Oct-21 01:42:53 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:42:53 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:42:53 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:42:53 2040 Dispatching event socket_response
+16-Oct-21 01:43:34 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:43:34 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:43:34 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:43:34 2040 Dispatching event socket_response
+16-Oct-21 01:44:15 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:44:16 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:44:16 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:44:16 2040 Dispatching event socket_response
+16-Oct-21 01:44:57 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:44:57 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:44:57 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:44:57 2040 Dispatching event socket_response
+16-Oct-21 01:45:38 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:45:38 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:45:38 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:45:38 2040 Dispatching event socket_response
+16-Oct-21 01:46:19 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:46:19 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:46:19 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:46:19 2040 Dispatching event socket_response
+16-Oct-21 01:47:01 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:47:01 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:47:01 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:47:01 2040 Dispatching event socket_response
+16-Oct-21 01:47:42 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:47:42 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:47:42 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:47:42 2040 Dispatching event socket_response
+16-Oct-21 01:48:23 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:48:23 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:48:23 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:48:23 2040 Dispatching event socket_response
+16-Oct-21 01:49:04 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:49:04 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:49:04 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:49:04 2040 Dispatching event socket_response
+16-Oct-21 01:49:46 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:49:46 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:49:46 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:49:46 2040 Dispatching event socket_response
+16-Oct-21 01:50:27 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:50:27 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:50:27 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:50:27 2040 Dispatching event socket_response
+16-Oct-21 01:51:08 2040 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:51:08 2040 Dispatching event socket_raw_receive
+16-Oct-21 01:51:08 2040 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:51:08 2040 Dispatching event socket_response
+16-Oct-21 01:51:26 2040 Received signal to terminate bot and event loop.
+16-Oct-21 01:51:26 2040 Cleaning up tasks.
+16-Oct-21 01:51:26 2040 Cleaning up after 1 tasks.
+16-Oct-21 01:51:26 2040 All tasks finished cancelling.
+16-Oct-21 01:51:26 2040 Closing the event loop.
+16-Oct-21 01:52:09 19712 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 01:52:10 19712 Dispatching event socket_raw_receive
+16-Oct-21 01:52:10 19712 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367130, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:52:10 19712 Dispatching event socket_response
+16-Oct-21 01:52:14 19712 Dispatching event socket_raw_receive
+16-Oct-21 01:52:14 19712 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:52:15.164000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904996434623856640', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898825653485445171', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:52:14 19712 Dispatching event socket_response
+16-Oct-21 01:52:14 19712 Dispatching event message
+16-Oct-21 01:52:14 19712 Dispatching event command
+16-Oct-21 01:52:14 19712 Dispatching event command_completion
+16-Oct-21 01:52:19 19712 Dispatching event socket_raw_receive
+16-Oct-21 01:52:19 19712 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 5, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367140, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:52:19 19712 Dispatching event socket_response
+16-Oct-21 01:52:22 19712 Dispatching event socket_raw_receive
+16-Oct-21 01:52:22 19712 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:52:23.369000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904996468727742464', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898825687899725914', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help hero', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:52:22 19712 Dispatching event socket_response
+16-Oct-21 01:52:22 19712 Dispatching event message
+16-Oct-21 01:52:22 19712 Dispatching event command
+16-Oct-21 01:52:22 19712 Dispatching event command_completion
+16-Oct-21 01:52:48 19712 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 01:52:48 19712 Dispatching event socket_raw_receive
+16-Oct-21 01:52:48 19712 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:52:48 19712 Dispatching event socket_response
+16-Oct-21 01:52:56 19712 Received signal to terminate bot and event loop.
+16-Oct-21 01:52:56 19712 Cleaning up tasks.
+16-Oct-21 01:52:56 19712 Cleaning up after 1 tasks.
+16-Oct-21 01:52:56 19712 All tasks finished cancelling.
+16-Oct-21 01:52:56 19712 Closing the event loop.
+16-Oct-21 01:53:00 19768 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 01:53:02 19768 Dispatching event socket_raw_receive
+16-Oct-21 01:53:02 19768 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:53:03.614000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904996637561061376', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898825856699478076', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:53:02 19768 Dispatching event socket_response
+16-Oct-21 01:53:02 19768 Dispatching event message
+16-Oct-21 01:53:02 19768 Dispatching event command
+16-Oct-21 01:53:03 19768 Dispatching event socket_raw_receive
+16-Oct-21 01:53:03 19768 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:53:03.722000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898825857152483358', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '```\n;guild \n\nregister the user as a potential player of the game by recording their id and username. then display the instructions for them to pick their hero. also record the user profile picture.\n\n```', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:53:03 19768 Dispatching event socket_response
+16-Oct-21 01:53:03 19768 Dispatching event message
+16-Oct-21 01:53:03 19768 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n;guild \n\nregister the user as a potential player of the game by recording their id and username. then display the instructions for them to pick their hero. also record the user profile picture.\n\n```"} has returned 200
+16-Oct-21 01:53:03 19768 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898825857152483358', 'type': 0, 'content': '```\n;guild \n\nregister the user as a potential player of the game by recording their id and username. then display the instructions for them to pick their hero. also record the user profile picture.\n\n```', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:53:03.722000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:53:03 19768 Dispatching event command_completion
+16-Oct-21 01:53:28 19768 Received signal to terminate bot and event loop.
+16-Oct-21 01:53:28 19768 Cleaning up tasks.
+16-Oct-21 01:53:28 19768 Cleaning up after 1 tasks.
+16-Oct-21 01:53:28 19768 All tasks finished cancelling.
+16-Oct-21 01:53:28 19768 Closing the event loop.
+16-Oct-21 01:53:32 15432 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 01:53:35 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:53:35 15432 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367216, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:53:35 15432 Dispatching event socket_response
+16-Oct-21 01:53:38 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:53:38 15432 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:53:39.648000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904996788665057280', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898826007837040640', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:53:38 15432 Dispatching event socket_response
+16-Oct-21 01:53:38 15432 Dispatching event message
+16-Oct-21 01:53:38 15432 Dispatching event command
+16-Oct-21 01:53:38 15432 Dispatching event command_completion
+16-Oct-21 01:54:11 15432 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:54:11 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:54:11 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:54:11 15432 Dispatching event socket_response
+16-Oct-21 01:54:52 15432 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:54:52 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:54:52 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:54:52 15432 Dispatching event socket_response
+16-Oct-21 01:55:33 15432 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:55:34 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:55:34 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:55:34 15432 Dispatching event socket_response
+16-Oct-21 01:56:15 15432 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:56:15 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:56:15 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:56:15 15432 Dispatching event socket_response
+16-Oct-21 01:56:56 15432 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:56:56 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:56:56 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:56:56 15432 Dispatching event socket_response
+16-Oct-21 01:57:37 15432 Keeping shard ID None websocket alive with sequence 4.
+16-Oct-21 01:57:37 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:57:37 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:57:37 15432 Dispatching event socket_response
+16-Oct-21 01:58:11 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:58:11 15432 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 5, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367491, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:58:11 15432 Dispatching event socket_response
+16-Oct-21 01:58:14 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:58:14 15432 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:58:15.311000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904997945206636544', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898827164051439628', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:58:14 15432 Dispatching event socket_response
+16-Oct-21 01:58:14 15432 Dispatching event message
+16-Oct-21 01:58:14 15432 Dispatching event command
+16-Oct-21 01:58:14 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:58:14 15432 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:58:15.556000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898827165079044106', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "What's cooking <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\ntest, scout, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, hero, shop, profile, buy, bag, sell, learnable, equip, learned, skillset.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:58:14 15432 Dispatching event socket_response
+16-Oct-21 01:58:14 15432 Dispatching event message
+16-Oct-21 01:58:15 15432 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"What's cooking <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\ntest, scout, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, hero, shop, profile, buy, bag, sell, learnable, equip, learned, skillset.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot."} has returned 200
+16-Oct-21 01:58:15 15432 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898827165079044106', 'type': 0, 'content': "What's cooking <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\ntest, scout, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, hero, shop, profile, buy, bag, sell, learnable, equip, learned, skillset.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T06:58:15.556000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 01:58:15 15432 Dispatching event command_completion
+16-Oct-21 01:58:19 15432 Keeping shard ID None websocket alive with sequence 7.
+16-Oct-21 01:58:19 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:58:19 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:58:19 15432 Dispatching event socket_response
+16-Oct-21 01:58:26 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:58:26 15432 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 8, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367507, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 01:58:26 15432 Dispatching event socket_response
+16-Oct-21 01:58:30 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:58:30 15432 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 9, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T06:58:30.749000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904998009698254848', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898827228803112990', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help myplayerid', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 01:58:30 15432 Dispatching event socket_response
+16-Oct-21 01:58:30 15432 Dispatching event message
+16-Oct-21 01:58:30 15432 Dispatching event command
+16-Oct-21 01:58:30 15432 Dispatching event command_completion
+16-Oct-21 01:59:00 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 01:59:00 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:59:00 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:59:00 15432 Dispatching event socket_response
+16-Oct-21 01:59:41 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 01:59:41 15432 Dispatching event socket_raw_receive
+16-Oct-21 01:59:41 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 01:59:41 15432 Dispatching event socket_response
+16-Oct-21 02:00:22 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 02:00:22 15432 Dispatching event socket_raw_receive
+16-Oct-21 02:00:22 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:00:22 15432 Dispatching event socket_response
+16-Oct-21 02:01:04 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 02:01:04 15432 Dispatching event socket_raw_receive
+16-Oct-21 02:01:04 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:01:04 15432 Dispatching event socket_response
+16-Oct-21 02:01:45 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 02:01:45 15432 Dispatching event socket_raw_receive
+16-Oct-21 02:01:45 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:01:45 15432 Dispatching event socket_response
+16-Oct-21 02:02:26 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 02:02:26 15432 Dispatching event socket_raw_receive
+16-Oct-21 02:02:26 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:02:26 15432 Dispatching event socket_response
+16-Oct-21 02:03:07 15432 Keeping shard ID None websocket alive with sequence 9.
+16-Oct-21 02:03:07 15432 Dispatching event socket_raw_receive
+16-Oct-21 02:03:07 15432 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:03:07 15432 Dispatching event socket_response
+16-Oct-21 02:03:10 15432 Received signal to terminate bot and event loop.
+16-Oct-21 02:03:10 15432 Cleaning up tasks.
+16-Oct-21 02:03:10 15432 Cleaning up after 1 tasks.
+16-Oct-21 02:03:10 15432 All tasks finished cancelling.
+16-Oct-21 02:03:10 15432 Closing the event loop.
+16-Oct-21 02:03:14 1516 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:03:17 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:03:17 1516 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367797, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:03:17 1516 Dispatching event socket_response
+16-Oct-21 02:03:22 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:03:22 1516 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:03:22.741000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904999234162393088', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898828453506347068', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:03:22 1516 Dispatching event socket_response
+16-Oct-21 02:03:22 1516 Dispatching event message
+16-Oct-21 02:03:22 1516 Dispatching event command
+16-Oct-21 02:03:22 1516 Dispatching event command_completion
+16-Oct-21 02:03:29 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:03:29 1516 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 5, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367810, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:03:29 1516 Dispatching event socket_response
+16-Oct-21 02:03:33 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:03:33 1516 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:03:34.046000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904999281834852352', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898828500922949662', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:03:33 1516 Dispatching event socket_response
+16-Oct-21 02:03:33 1516 Dispatching event message
+16-Oct-21 02:03:33 1516 Dispatching event command
+16-Oct-21 02:03:33 1516 Dispatching event command_completion
+16-Oct-21 02:03:53 1516 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 02:03:53 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:03:53 1516 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:03:53 1516 Dispatching event socket_response
+16-Oct-21 02:04:34 1516 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 02:04:34 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:04:34 1516 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:04:34 1516 Dispatching event socket_response
+16-Oct-21 02:05:16 1516 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 02:05:16 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:05:16 1516 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:05:16 1516 Dispatching event socket_response
+16-Oct-21 02:05:57 1516 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 02:05:57 1516 Dispatching event socket_raw_receive
+16-Oct-21 02:05:57 1516 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:05:57 1516 Dispatching event socket_response
+16-Oct-21 02:06:15 1516 Received signal to terminate bot and event loop.
+16-Oct-21 02:06:15 1516 Cleaning up tasks.
+16-Oct-21 02:06:15 1516 Cleaning up after 1 tasks.
+16-Oct-21 02:06:15 1516 All tasks finished cancelling.
+16-Oct-21 02:06:15 1516 Closing the event loop.
+16-Oct-21 02:06:20 11024 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:06:22 11024 Dispatching event socket_raw_receive
+16-Oct-21 02:06:22 11024 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367982, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:22 11024 Dispatching event socket_response
+16-Oct-21 02:06:23 11024 Dispatching event socket_raw_receive
+16-Oct-21 02:06:23 11024 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:06:24.406000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '904999996544253952', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898829215464583188', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:23 11024 Dispatching event socket_response
+16-Oct-21 02:06:23 11024 Dispatching event message
+16-Oct-21 02:06:23 11024 Dispatching event command
+16-Oct-21 02:06:23 11024 Dispatching event socket_raw_receive
+16-Oct-21 02:06:23 11024 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:06:24.512000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898829215909175296', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'Oh hello there <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nbuy, profile, sell, bag, equip, learnable, skillset, learned, test, scout, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, hero, shop.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:23 11024 Dispatching event socket_response
+16-Oct-21 02:06:23 11024 Dispatching event message
+16-Oct-21 02:06:23 11024 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"Oh hello there <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nbuy, profile, sell, bag, equip, learnable, skillset, learned, test, scout, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, hero, shop.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot."} has returned 200
+16-Oct-21 02:06:23 11024 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898829215909175296', 'type': 0, 'content': 'Oh hello there <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the `;hero` command to add a hero avatar to your account out of the existing classes: `Fighter`, `Ranger` and `Elementalist`.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the `;explore <floor number>` command. but it would be wise to first gather information on the floor by using `;scout <floor number>`.\n\n**Here are all the available commands:**\nbuy, profile, sell, bag, equip, learnable, skillset, learned, test, scout, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop, guild, hero, shop.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:06:24.512000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:06:23 11024 Dispatching event command_completion
+16-Oct-21 02:06:25 11024 Dispatching event socket_raw_receive
+16-Oct-21 02:06:25 11024 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 6, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634367986, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:25 11024 Dispatching event socket_response
+16-Oct-21 02:06:27 11024 Dispatching event socket_raw_receive
+16-Oct-21 02:06:27 11024 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:06:28.556000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905000013950615552', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898829232870920192', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help guild', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:27 11024 Dispatching event socket_response
+16-Oct-21 02:06:27 11024 Dispatching event message
+16-Oct-21 02:06:27 11024 Dispatching event command
+16-Oct-21 02:06:27 11024 Dispatching event socket_raw_receive
+16-Oct-21 02:06:27 11024 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 8, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:06:28.670000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898829233349079070', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '```\n;guild \n\nregister the user as a potential player of the game by recording their id and username. then display the instructions for them to pick their hero. also record the user profile picture.\n\n```', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:27 11024 Dispatching event socket_response
+16-Oct-21 02:06:27 11024 Dispatching event message
+16-Oct-21 02:06:27 11024 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n;guild \n\nregister the user as a potential player of the game by recording their id and username. then display the instructions for them to pick their hero. also record the user profile picture.\n\n```"} has returned 200
+16-Oct-21 02:06:27 11024 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898829233349079070', 'type': 0, 'content': '```\n;guild \n\nregister the user as a potential player of the game by recording their id and username. then display the instructions for them to pick their hero. also record the user profile picture.\n\n```', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:06:28.670000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:06:27 11024 Dispatching event command_completion
+16-Oct-21 02:06:48 11024 Received signal to terminate bot and event loop.
+16-Oct-21 02:06:48 11024 Cleaning up tasks.
+16-Oct-21 02:06:48 11024 Cleaning up after 1 tasks.
+16-Oct-21 02:06:48 11024 All tasks finished cancelling.
+16-Oct-21 02:06:48 11024 Closing the event loop.
+16-Oct-21 02:06:52 16532 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:06:55 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:06:55 16532 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:06:56.615000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905000131512762368', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898829350558920704', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help explore', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:55 16532 Dispatching event socket_response
+16-Oct-21 02:06:55 16532 Dispatching event message
+16-Oct-21 02:06:55 16532 Dispatching event command
+16-Oct-21 02:06:56 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:06:56 16532 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:06:57.096000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898829352576352296', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '```\n;explore <f> [allies]\n\nexplore the specified floor of the dungeon. you can specify up to **3** other players to explore with. just specify their ID in your Friendbook. separeted by a comma (no spaces allowed). they must be in your Friendbook to be allowed in your party.\neg.: `;explore 1` or `;explore 1 reac1,bail2,susa3`\n\n```', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:06:56 16532 Dispatching event socket_response
+16-Oct-21 02:06:56 16532 Dispatching event message
+16-Oct-21 02:06:56 16532 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n;explore <f> [allies]\n\nexplore the specified floor of the dungeon. you can specify up to **3** other players to explore with. just specify their ID in your Friendbook. separeted by a comma (no spaces allowed). they must be in your Friendbook to be allowed in your party.\neg.: `;explore 1` or `;explore 1 reac1,bail2,susa3`\n\n```"} has returned 200
+16-Oct-21 02:06:56 16532 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898829352576352296', 'type': 0, 'content': '```\n;explore <f> [allies]\n\nexplore the specified floor of the dungeon. you can specify up to **3** other players to explore with. just specify their ID in your Friendbook. separeted by a comma (no spaces allowed). they must be in your Friendbook to be allowed in your party.\neg.: `;explore 1` or `;explore 1 reac1,bail2,susa3`\n\n```', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:06:57.096000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:06:56 16532 Dispatching event command_completion
+16-Oct-21 02:07:31 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:07:31 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:07:31 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:07:31 16532 Dispatching event socket_response
+16-Oct-21 02:08:12 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:08:12 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:08:12 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:08:12 16532 Dispatching event socket_response
+16-Oct-21 02:08:54 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:08:54 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:08:54 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:08:54 16532 Dispatching event socket_response
+16-Oct-21 02:09:35 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:09:35 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:09:35 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:09:35 16532 Dispatching event socket_response
+16-Oct-21 02:10:16 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:10:16 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:10:16 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:10:16 16532 Dispatching event socket_response
+16-Oct-21 02:10:57 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:10:57 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:10:57 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:10:57 16532 Dispatching event socket_response
+16-Oct-21 02:11:39 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:11:39 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:11:39 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:11:39 16532 Dispatching event socket_response
+16-Oct-21 02:12:20 16532 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:12:20 16532 Dispatching event socket_raw_receive
+16-Oct-21 02:12:20 16532 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:12:20 16532 Dispatching event socket_response
+16-Oct-21 02:12:27 16532 Received signal to terminate bot and event loop.
+16-Oct-21 02:12:27 16532 Cleaning up tasks.
+16-Oct-21 02:12:27 16532 Cleaning up after 1 tasks.
+16-Oct-21 02:12:27 16532 All tasks finished cancelling.
+16-Oct-21 02:12:27 16532 Closing the event loop.
+16-Oct-21 02:12:31 1460 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:12:32 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:12:32 1460 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634368353, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:12:32 1460 Dispatching event socket_response
+16-Oct-21 02:12:33 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:12:33 1460 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:12:34.598000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905001549753745408', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898830768162369568', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:12:33 1460 Dispatching event socket_response
+16-Oct-21 02:12:33 1460 Dispatching event message
+16-Oct-21 02:12:33 1460 Dispatching event command
+16-Oct-21 02:12:34 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:12:34 1460 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:12:34.794000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898830768984444968', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "What's cooking <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the \n`;hero <class name>`\n command to add a hero avatar to your account out of the existing classes: **Fighter**, **Ranger** and **Elementalist**.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the\n`;explore <floor number>`\n command. but it would be wise to first gather information on the floor by using\n`;scout <floor number>`.\nLater, you can add other players to your friendbook and call upon to go on an adventure with you:\n`;explore <floor number> [friend list]`\nCheck out `myplayerid`, `befriend` and `friendbook` commands for more infor on friends.\n\n**Here are all the available commands:**\nguild, hero, shop, profile, buy, bag, sell, learnable, equip, learned, skillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:12:34 1460 Dispatching event socket_response
+16-Oct-21 02:12:34 1460 Dispatching event message
+16-Oct-21 02:12:34 1460 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"What's cooking <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the \n`;hero <class name>`\n command to add a hero avatar to your account out of the existing classes: **Fighter**, **Ranger** and **Elementalist**.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the\n`;explore <floor number>`\n command. but it would be wise to first gather information on the floor by using\n`;scout <floor number>`.\nLater, you can add other players to your friendbook and call upon to go on an adventure with you:\n`;explore <floor number> [friend list]`\nCheck out `myplayerid`, `befriend` and `friendbook` commands for more infor on friends.\n\n**Here are all the available commands:**\nguild, hero, shop, profile, buy, bag, sell, learnable, equip, learned, skillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot."} has returned 200
+16-Oct-21 02:12:34 1460 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898830768984444968', 'type': 0, 'content': "What's cooking <@543988204718653463> Welcome to the IdleFantasyBot support.\n\nThis bot allows you to run an idle exploration of the **Idle Dungeon** the most dangerous dungeon in the whole of the lands. Each floor has its own environment where numerous resources are available but where devious monsters wreck havoc as well. Will you be able to conquer it all?\n\n**Quick Start Guide:**\nUse the `;guild` command to register yourself as a player.\nUse the \n`;hero <class name>`\n command to add a hero avatar to your account out of the existing classes: **Fighter**, **Ranger** and **Elementalist**.\nYou can see an overview of your account and hero using the `;profile` command and using `;bag` will reveal your inventory and money.\nFinally, to explore a floor, you will need to use the\n`;explore <floor number>`\n command. but it would be wise to first gather information on the floor by using\n`;scout <floor number>`.\nLater, you can add other players to your friendbook and call upon to go on an adventure with you:\n`;explore <floor number> [friend list]`\nCheck out `myplayerid`, `befriend` and `friendbook` commands for more infor on friends.\n\n**Here are all the available commands:**\nguild, hero, shop, profile, buy, bag, sell, learnable, equip, learned, skillset, scout, test, explore, report, rescue, help, lookup, myplayerid, befriend, friendbook, hello, coop.\n\nUse `;help <command>` to get specific help on each command.\n\nWe hope you enjoy your time using IdleFantasyBot.", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:12:34.794000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:12:34 1460 Dispatching event command_completion
+16-Oct-21 02:13:10 1460 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:13:10 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:10 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:13:10 1460 Dispatching event socket_response
+16-Oct-21 02:13:31 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:31 1460 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 6, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634368412, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:13:31 1460 Dispatching event socket_response
+16-Oct-21 02:13:36 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:36 1460 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:13:37.045000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905001811247628288', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898831030084075542', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help befriend', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:13:36 1460 Dispatching event socket_response
+16-Oct-21 02:13:36 1460 Dispatching event message
+16-Oct-21 02:13:36 1460 Dispatching event command
+16-Oct-21 02:13:36 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:36 1460 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 8, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:13:37.274000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898831031044571216', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '```\n;befriend <fID>\n\nprovide the id of the user that you want to befriend. if valid, they will be added to your friendbook. you can then invite them to exploration anytime they are available for coop.\neg.: `;befriend 1232343434535`.\n\n```', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:13:36 1460 Dispatching event socket_response
+16-Oct-21 02:13:36 1460 Dispatching event message
+16-Oct-21 02:13:36 1460 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n;befriend <fID>\n\nprovide the id of the user that you want to befriend. if valid, they will be added to your friendbook. you can then invite them to exploration anytime they are available for coop.\neg.: `;befriend 1232343434535`.\n\n```"} has returned 200
+16-Oct-21 02:13:36 1460 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898831031044571216', 'type': 0, 'content': '```\n;befriend <fID>\n\nprovide the id of the user that you want to befriend. if valid, they will be added to your friendbook. you can then invite them to exploration anytime they are available for coop.\neg.: `;befriend 1232343434535`.\n\n```', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:13:37.274000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:13:36 1460 Dispatching event command_completion
+16-Oct-21 02:13:51 1460 Keeping shard ID None websocket alive with sequence 8.
+16-Oct-21 02:13:51 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:51 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:13:51 1460 Dispatching event socket_response
+16-Oct-21 02:13:52 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:52 1460 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 9, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634368432, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:13:52 1460 Dispatching event socket_response
+16-Oct-21 02:13:58 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:58 1460 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 10, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:13:59.666000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905001906139561984', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898831124963405824', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help scout', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:13:58 1460 Dispatching event socket_response
+16-Oct-21 02:13:58 1460 Dispatching event message
+16-Oct-21 02:13:58 1460 Dispatching event command
+16-Oct-21 02:13:59 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:13:59 1460 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 11, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:13:59.790000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898831125483491368', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '```\n;scout <floor>\n\ndisplay information on the specify floor if and only if you have explored it.\neg: `>scout 1`\n\n```', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:13:59 1460 Dispatching event socket_response
+16-Oct-21 02:13:59 1460 Dispatching event message
+16-Oct-21 02:13:59 1460 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n;scout <floor>\n\ndisplay information on the specify floor if and only if you have explored it.\neg: `>scout 1`\n\n```"} has returned 200
+16-Oct-21 02:13:59 1460 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898831125483491368', 'type': 0, 'content': '```\n;scout <floor>\n\ndisplay information on the specify floor if and only if you have explored it.\neg: `>scout 1`\n\n```', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:13:59.790000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:13:59 1460 Dispatching event command_completion
+16-Oct-21 02:14:32 1460 Keeping shard ID None websocket alive with sequence 11.
+16-Oct-21 02:14:32 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:14:32 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:14:32 1460 Dispatching event socket_response
+16-Oct-21 02:15:13 1460 Keeping shard ID None websocket alive with sequence 11.
+16-Oct-21 02:15:14 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:15:14 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:15:14 1460 Dispatching event socket_response
+16-Oct-21 02:15:55 1460 Keeping shard ID None websocket alive with sequence 11.
+16-Oct-21 02:15:55 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:15:55 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:15:55 1460 Dispatching event socket_response
+16-Oct-21 02:16:36 1460 Keeping shard ID None websocket alive with sequence 11.
+16-Oct-21 02:16:36 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:16:36 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:16:36 1460 Dispatching event socket_response
+16-Oct-21 02:17:17 1460 Keeping shard ID None websocket alive with sequence 11.
+16-Oct-21 02:17:17 1460 Dispatching event socket_raw_receive
+16-Oct-21 02:17:17 1460 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:17:17 1460 Dispatching event socket_response
+16-Oct-21 02:17:23 1460 Received signal to terminate bot and event loop.
+16-Oct-21 02:17:23 1460 Cleaning up tasks.
+16-Oct-21 02:17:23 1460 Cleaning up after 1 tasks.
+16-Oct-21 02:17:23 1460 All tasks finished cancelling.
+16-Oct-21 02:17:23 1460 Closing the event loop.
+16-Oct-21 02:17:28 20668 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:17:28 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:17:28 20668 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634368649, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:17:28 20668 Dispatching event socket_response
+16-Oct-21 02:17:31 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:17:31 20668 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:17:31.940000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905002796502220800', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898832015305109506', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';help scout', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:17:31 20668 Dispatching event socket_response
+16-Oct-21 02:17:31 20668 Dispatching event message
+16-Oct-21 02:17:31 20668 Dispatching event command
+16-Oct-21 02:17:31 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:17:31 20668 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:17:32.068000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898832015841976320', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '```\n;scout <floor>\n\ndisplay information on the specified floor. if you have never completed the exploration of said floor, only its size and danger levels will be available. explore it to unlock more info about the resources and hostiles.\neg: `>scout 1`\n\n```', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:17:31 20668 Dispatching event socket_response
+16-Oct-21 02:17:31 20668 Dispatching event message
+16-Oct-21 02:17:31 20668 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"```\n;scout <floor>\n\ndisplay information on the specified floor. if you have never completed the exploration of said floor, only its size and danger levels will be available. explore it to unlock more info about the resources and hostiles.\neg: `>scout 1`\n\n```"} has returned 200
+16-Oct-21 02:17:31 20668 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898832015841976320', 'type': 0, 'content': '```\n;scout <floor>\n\ndisplay information on the specified floor. if you have never completed the exploration of said floor, only its size and danger levels will be available. explore it to unlock more info about the resources and hostiles.\neg: `>scout 1`\n\n```', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:17:32.068000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:17:31 20668 Dispatching event command_completion
+16-Oct-21 02:17:34 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:17:34 20668 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 6, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634368655, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:17:34 20668 Dispatching event socket_response
+16-Oct-21 02:17:37 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:17:37 20668 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:17:38.111000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905002822137806848', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898832041188163604', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';scout 4', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:17:37 20668 Dispatching event socket_response
+16-Oct-21 02:17:37 20668 Dispatching event message
+16-Oct-21 02:17:37 20668 Dispatching event command
+16-Oct-21 02:17:38 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:17:38 20668 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 8, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:17:39.320000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898832046259048488', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@543988204718653463> here is the intelligence on floor 4:\nSize: 9 blocks.\nDanger level: 2.\nPossible blocks:\nEmpty Block.\nhuge trees all around you have cut off the sunlight. wings beating and bug buzzes can be heard coming from here and there. a damp and moist fragrance hits your nostrils.\nresource: None\nhostile: None\n\nBattle Block.\nthe trees around you suddenly feel quite threatening. something is observing you; and its not welcoming. you barely get to your weapons that it is upon you.\nresource: None\nhostile: Raccoundrel, Sparowl, Caterkiller\n\nScavenging Block.\nsmall fragrants plants seem to grow all around this clearing. herb picking would definitely yield results.\nresource: Chemomille, Orangerry\nhostile: Sparowl', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:17:38 20668 Dispatching event socket_response
+16-Oct-21 02:17:38 20668 Dispatching event message
+16-Oct-21 02:17:38 20668 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"<@543988204718653463> here is the intelligence on floor 4:\nSize: 9 blocks.\nDanger level: 2.\nPossible blocks:\nEmpty Block.\nhuge trees all around you have cut off the sunlight. wings beating and bug buzzes can be heard coming from here and there. a damp and moist fragrance hits your nostrils.\nresource: None\nhostile: None\n\nBattle Block.\nthe trees around you suddenly feel quite threatening. something is observing you; and its not welcoming. you barely get to your weapons that it is upon you.\nresource: None\nhostile: Raccoundrel, Sparowl, Caterkiller\n\nScavenging Block.\nsmall fragrants plants seem to grow all around this clearing. herb picking would definitely yield results.\nresource: Chemomille, Orangerry\nhostile: Sparowl\n"} has returned 200
+16-Oct-21 02:17:38 20668 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898832046259048488', 'type': 0, 'content': '<@543988204718653463> here is the intelligence on floor 4:\nSize: 9 blocks.\nDanger level: 2.\nPossible blocks:\nEmpty Block.\nhuge trees all around you have cut off the sunlight. wings beating and bug buzzes can be heard coming from here and there. a damp and moist fragrance hits your nostrils.\nresource: None\nhostile: None\n\nBattle Block.\nthe trees around you suddenly feel quite threatening. something is observing you; and its not welcoming. you barely get to your weapons that it is upon you.\nresource: None\nhostile: Raccoundrel, Sparowl, Caterkiller\n\nScavenging Block.\nsmall fragrants plants seem to grow all around this clearing. herb picking would definitely yield results.\nresource: Chemomille, Orangerry\nhostile: Sparowl', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:17:39.320000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:17:38 20668 Dispatching event command_completion
+16-Oct-21 02:18:07 20668 Keeping shard ID None websocket alive with sequence 8.
+16-Oct-21 02:18:07 20668 Dispatching event socket_raw_receive
+16-Oct-21 02:18:07 20668 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:18:07 20668 Dispatching event socket_response
+16-Oct-21 02:18:09 20668 Received signal to terminate bot and event loop.
+16-Oct-21 02:18:09 20668 Cleaning up tasks.
+16-Oct-21 02:18:09 20668 Cleaning up after 1 tasks.
+16-Oct-21 02:18:09 20668 All tasks finished cancelling.
+16-Oct-21 02:18:09 20668 Closing the event loop.
