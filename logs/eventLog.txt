@@ -1,16 +1,860 @@
-13-Oct-21 20:35:30 6772 We have logged in as IdleFantasyBot#7819
+16-Oct-21 02:30:11 8240 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:30:11 8240 Dispatching event socket_raw_receive
+16-Oct-21 02:30:11 8240 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:30:11 8240 Dispatching event socket_response
+16-Oct-21 02:30:52 8240 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:30:52 8240 Dispatching event socket_raw_receive
+16-Oct-21 02:30:52 8240 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:30:52 8240 Dispatching event socket_response
+16-Oct-21 02:31:34 8240 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:31:34 8240 Dispatching event socket_raw_receive
+16-Oct-21 02:31:34 8240 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:31:34 8240 Dispatching event socket_response
+16-Oct-21 02:32:05 8240 Cleaning up tasks.
+16-Oct-21 02:32:05 8240 Cleaning up after 1 tasks.
+16-Oct-21 02:32:05 8240 All tasks finished cancelling.
+16-Oct-21 02:32:05 8240 Closing the event loop.
+16-Oct-21 02:32:34 8259 We have logged in as IdleFantasyBot#7819
 online in servers:
 DiscordParadise	
-13-Oct-21 20:35:52 6772 Received signal to terminate bot and event loop.
-13-Oct-21 20:35:52 6772 Cleaning up tasks.
-13-Oct-21 20:35:52 6772 Cleaning up after 1 tasks.
-13-Oct-21 20:35:52 6772 All tasks finished cancelling.
-13-Oct-21 20:35:52 6772 Closing the event loop.
-13-Oct-21 20:55:56 6204 We have logged in as IdleFantasyBot#7819
+16-Oct-21 02:32:34 8259 Dispatching event socket_raw_receive
+16-Oct-21 02:32:34 8259 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634369554, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:32:34 8259 Dispatching event socket_response
+16-Oct-21 02:32:34 8259 Dispatching event typing
+16-Oct-21 02:32:36 8259 Dispatching event socket_raw_receive
+16-Oct-21 02:32:36 8259 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:32:36.120000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905006588664741888', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898835807710892062', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:32:36 8259 Dispatching event socket_response
+16-Oct-21 02:32:36 8259 Dispatching event message
+16-Oct-21 02:32:36 8259 Dispatching event command
+16-Oct-21 02:32:36 8259 STREAM b'IHDR' 16 13
+16-Oct-21 02:32:36 8259 STREAM b'pHYs' 41 9
+16-Oct-21 02:32:36 8259 STREAM b'tEXt' 62 25
+16-Oct-21 02:32:36 8259 STREAM b'IDAT' 99 8192
+16-Oct-21 02:32:36 8259 STREAM b'IHDR' 16 13
+16-Oct-21 02:32:36 8259 STREAM b'IDAT' 41 8192
+16-Oct-21 02:32:36 8259 STREAM b'IHDR' 16 13
+16-Oct-21 02:32:36 8259 STREAM b'tEXt' 41 25
+16-Oct-21 02:32:36 8259 STREAM b'iTXt' 78 802
+16-Oct-21 02:32:36 8259 STREAM b'IDAT' 892 17398
+16-Oct-21 02:32:36 8259 STREAM b'IHDR' 16 13
+16-Oct-21 02:32:36 8259 STREAM b'tEXt' 41 25
+16-Oct-21 02:32:36 8259 STREAM b'iTXt' 78 802
+16-Oct-21 02:32:36 8259 STREAM b'IDAT' 892 21981
+16-Oct-21 02:32:36 8259 STREAM b'IHDR' 16 13
+16-Oct-21 02:32:36 8259 STREAM b'tEXt' 41 25
+16-Oct-21 02:32:36 8259 STREAM b'iTXt' 78 802
+16-Oct-21 02:32:36 8259 STREAM b'IDAT' 892 11848
+16-Oct-21 02:32:37 8259 Dispatching event socket_raw_receive
+16-Oct-21 02:32:37 8259 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:32:36.925000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898835811087310859', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898835810781106236/p_543988204718653463.png', 'size': 198905, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898835810781106236/p_543988204718653463.png', 'id': '898835810781106236', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:32:37 8259 Dispatching event socket_response
+16-Oct-21 02:32:37 8259 Dispatching event message
+16-Oct-21 02:32:37 8259 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb419a050> has returned 200
+16-Oct-21 02:32:37 8259 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898835811087310859', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898835810781106236', 'filename': 'p_543988204718653463.png', 'size': 198905, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898835810781106236/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898835810781106236/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:32:36.925000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:32:37 8259 Dispatching event command_completion
+16-Oct-21 02:33:13 8259 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:33:13 8259 Dispatching event socket_raw_receive
+16-Oct-21 02:33:13 8259 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:33:13 8259 Dispatching event socket_response
+16-Oct-21 02:33:22 8259 Cleaning up tasks.
+16-Oct-21 02:33:22 8259 Cleaning up after 1 tasks.
+16-Oct-21 02:33:22 8259 All tasks finished cancelling.
+16-Oct-21 02:33:22 8259 Closing the event loop.
+16-Oct-21 02:33:26 8269 We have logged in as IdleFantasyBot#7819
 online in servers:
 DiscordParadise	
-13-Oct-21 20:55:58 6204 Received signal to terminate bot and event loop.
-13-Oct-21 20:55:58 6204 Cleaning up tasks.
-13-Oct-21 20:55:58 6204 Cleaning up after 1 tasks.
-13-Oct-21 20:55:58 6204 All tasks finished cancelling.
-13-Oct-21 20:55:58 6204 Closing the event loop.
+16-Oct-21 02:33:26 8269 Dispatching event socket_raw_receive
+16-Oct-21 02:33:26 8269 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 3, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634369606, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:33:26 8269 Dispatching event socket_response
+16-Oct-21 02:33:26 8269 Dispatching event typing
+16-Oct-21 02:33:30 8269 Dispatching event socket_raw_receive
+16-Oct-21 02:33:30 8269 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:33:30.553000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905006816948125696', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836036019433523', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:33:30 8269 Dispatching event socket_response
+16-Oct-21 02:33:30 8269 Dispatching event message
+16-Oct-21 02:33:30 8269 Dispatching event command
+16-Oct-21 02:33:30 8269 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:30 8269 STREAM b'pHYs' 41 9
+16-Oct-21 02:33:30 8269 STREAM b'tEXt' 62 25
+16-Oct-21 02:33:30 8269 STREAM b'IDAT' 99 8192
+16-Oct-21 02:33:30 8269 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:30 8269 STREAM b'IDAT' 41 8192
+16-Oct-21 02:33:30 8269 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:30 8269 STREAM b'tEXt' 41 25
+16-Oct-21 02:33:30 8269 STREAM b'iTXt' 78 802
+16-Oct-21 02:33:30 8269 STREAM b'IDAT' 892 17398
+16-Oct-21 02:33:30 8269 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:30 8269 STREAM b'tEXt' 41 25
+16-Oct-21 02:33:30 8269 STREAM b'iTXt' 78 802
+16-Oct-21 02:33:30 8269 STREAM b'IDAT' 892 21981
+16-Oct-21 02:33:30 8269 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:30 8269 STREAM b'tEXt' 41 25
+16-Oct-21 02:33:30 8269 STREAM b'iTXt' 78 802
+16-Oct-21 02:33:30 8269 STREAM b'IDAT' 892 11848
+16-Oct-21 02:33:31 8269 Dispatching event socket_raw_receive
+16-Oct-21 02:33:31 8269 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:33:31.436000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836039723024395', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836039592980510/p_543988204718653463.png', 'size': 199051, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836039592980510/p_543988204718653463.png', 'id': '898836039592980510', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:33:31 8269 Dispatching event socket_response
+16-Oct-21 02:33:31 8269 Dispatching event message
+16-Oct-21 02:33:31 8269 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4b3f6b0> has returned 200
+16-Oct-21 02:33:31 8269 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898836039723024395', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898836039592980510', 'filename': 'p_543988204718653463.png', 'size': 199051, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836039592980510/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836039592980510/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:33:31.436000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:33:31 8269 Dispatching event command_completion
+16-Oct-21 02:33:52 8269 Cleaning up tasks.
+16-Oct-21 02:33:52 8269 Cleaning up after 1 tasks.
+16-Oct-21 02:33:52 8269 All tasks finished cancelling.
+16-Oct-21 02:33:52 8269 Closing the event loop.
+16-Oct-21 02:33:56 8279 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:33:59 8279 Dispatching event socket_raw_receive
+16-Oct-21 02:33:59 8279 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:33:59.662000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905006938658439168', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836158111416330', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:33:59 8279 Dispatching event socket_response
+16-Oct-21 02:33:59 8279 Dispatching event message
+16-Oct-21 02:33:59 8279 Dispatching event command
+16-Oct-21 02:33:59 8279 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:59 8279 STREAM b'pHYs' 41 9
+16-Oct-21 02:33:59 8279 STREAM b'tEXt' 62 25
+16-Oct-21 02:33:59 8279 STREAM b'IDAT' 99 8192
+16-Oct-21 02:33:59 8279 STREAM b'IHDR' 16 13
+16-Oct-21 02:33:59 8279 STREAM b'IDAT' 41 8192
+16-Oct-21 02:34:00 8279 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:00 8279 STREAM b'tEXt' 41 25
+16-Oct-21 02:34:00 8279 STREAM b'iTXt' 78 802
+16-Oct-21 02:34:00 8279 STREAM b'IDAT' 892 17398
+16-Oct-21 02:34:00 8279 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:00 8279 STREAM b'tEXt' 41 25
+16-Oct-21 02:34:00 8279 STREAM b'iTXt' 78 802
+16-Oct-21 02:34:00 8279 STREAM b'IDAT' 892 21981
+16-Oct-21 02:34:00 8279 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:00 8279 STREAM b'tEXt' 41 25
+16-Oct-21 02:34:00 8279 STREAM b'iTXt' 78 802
+16-Oct-21 02:34:00 8279 STREAM b'IDAT' 892 11848
+16-Oct-21 02:34:00 8279 Dispatching event socket_raw_receive
+16-Oct-21 02:34:00 8279 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:34:00.605000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836162066669608', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836161714339880/p_543988204718653463.png', 'size': 199217, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836161714339880/p_543988204718653463.png', 'id': '898836161714339880', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:34:00 8279 Dispatching event socket_response
+16-Oct-21 02:34:00 8279 Dispatching event message
+16-Oct-21 02:34:00 8279 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb37d70d0> has returned 200
+16-Oct-21 02:34:00 8279 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898836162066669608', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898836161714339880', 'filename': 'p_543988204718653463.png', 'size': 199217, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836161714339880/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836161714339880/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:34:00.605000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:34:00 8279 Dispatching event command_completion
+16-Oct-21 02:34:35 8279 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:34:35 8279 Dispatching event socket_raw_receive
+16-Oct-21 02:34:35 8279 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:34:35 8279 Dispatching event socket_response
+16-Oct-21 02:34:42 8279 Cleaning up tasks.
+16-Oct-21 02:34:42 8279 Cleaning up after 1 tasks.
+16-Oct-21 02:34:42 8279 All tasks finished cancelling.
+16-Oct-21 02:34:42 8279 Closing the event loop.
+16-Oct-21 02:34:46 8291 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:34:49 8291 Dispatching event socket_raw_receive
+16-Oct-21 02:34:49 8291 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:34:49.395000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905007147954208768', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836366706757643', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:34:49 8291 Dispatching event socket_response
+16-Oct-21 02:34:49 8291 Dispatching event message
+16-Oct-21 02:34:49 8291 Dispatching event command
+16-Oct-21 02:34:49 8291 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:49 8291 STREAM b'pHYs' 41 9
+16-Oct-21 02:34:49 8291 STREAM b'tEXt' 62 25
+16-Oct-21 02:34:49 8291 STREAM b'IDAT' 99 8192
+16-Oct-21 02:34:49 8291 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:49 8291 STREAM b'IDAT' 41 8192
+16-Oct-21 02:34:49 8291 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:49 8291 STREAM b'tEXt' 41 25
+16-Oct-21 02:34:49 8291 STREAM b'iTXt' 78 802
+16-Oct-21 02:34:49 8291 STREAM b'IDAT' 892 17398
+16-Oct-21 02:34:49 8291 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:49 8291 STREAM b'tEXt' 41 25
+16-Oct-21 02:34:49 8291 STREAM b'iTXt' 78 802
+16-Oct-21 02:34:49 8291 STREAM b'IDAT' 892 21981
+16-Oct-21 02:34:49 8291 STREAM b'IHDR' 16 13
+16-Oct-21 02:34:49 8291 STREAM b'tEXt' 41 25
+16-Oct-21 02:34:49 8291 STREAM b'iTXt' 78 802
+16-Oct-21 02:34:49 8291 STREAM b'IDAT' 892 11848
+16-Oct-21 02:34:50 8291 Dispatching event socket_raw_receive
+16-Oct-21 02:34:50 8291 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:34:50.298000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836370494197801', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836370318049290/p_543988204718653463.png', 'size': 198061, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836370318049290/p_543988204718653463.png', 'id': '898836370318049290', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:34:50 8291 Dispatching event socket_response
+16-Oct-21 02:34:50 8291 Dispatching event message
+16-Oct-21 02:34:50 8291 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4b4e550> has returned 200
+16-Oct-21 02:34:50 8291 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898836370494197801', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898836370318049290', 'filename': 'p_543988204718653463.png', 'size': 198061, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836370318049290/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836370318049290/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:34:50.298000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:34:50 8291 Dispatching event command_completion
+16-Oct-21 02:35:07 8291 Cleaning up tasks.
+16-Oct-21 02:35:07 8291 Cleaning up after 1 tasks.
+16-Oct-21 02:35:07 8291 All tasks finished cancelling.
+16-Oct-21 02:35:07 8291 Closing the event loop.
+16-Oct-21 02:35:11 8302 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:35:15 8302 Dispatching event socket_raw_receive
+16-Oct-21 02:35:15 8302 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:35:15.840000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905007259052933120', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836477625110571', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:35:15 8302 Dispatching event socket_response
+16-Oct-21 02:35:16 8302 Dispatching event message
+16-Oct-21 02:35:16 8302 Dispatching event command
+16-Oct-21 02:35:16 8302 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:16 8302 STREAM b'pHYs' 41 9
+16-Oct-21 02:35:16 8302 STREAM b'tEXt' 62 25
+16-Oct-21 02:35:16 8302 STREAM b'IDAT' 99 8192
+16-Oct-21 02:35:16 8302 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:16 8302 STREAM b'IDAT' 41 8192
+16-Oct-21 02:35:16 8302 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:16 8302 STREAM b'tEXt' 41 25
+16-Oct-21 02:35:16 8302 STREAM b'iTXt' 78 802
+16-Oct-21 02:35:16 8302 STREAM b'IDAT' 892 17398
+16-Oct-21 02:35:16 8302 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:16 8302 STREAM b'tEXt' 41 25
+16-Oct-21 02:35:16 8302 STREAM b'iTXt' 78 802
+16-Oct-21 02:35:16 8302 STREAM b'IDAT' 892 21981
+16-Oct-21 02:35:16 8302 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:16 8302 STREAM b'tEXt' 41 25
+16-Oct-21 02:35:16 8302 STREAM b'iTXt' 78 802
+16-Oct-21 02:35:16 8302 STREAM b'IDAT' 892 11848
+16-Oct-21 02:35:16 8302 Dispatching event socket_raw_receive
+16-Oct-21 02:35:16 8302 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:35:16.748000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836481433534464', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836481177698304/p_543988204718653463.png', 'size': 198742, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836481177698304/p_543988204718653463.png', 'id': '898836481177698304', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:35:16 8302 Dispatching event socket_response
+16-Oct-21 02:35:16 8302 Dispatching event message
+16-Oct-21 02:35:16 8302 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4bb5f70> has returned 200
+16-Oct-21 02:35:16 8302 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898836481433534464', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898836481177698304', 'filename': 'p_543988204718653463.png', 'size': 198742, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836481177698304/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836481177698304/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:35:16.748000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:35:16 8302 Dispatching event command_completion
+16-Oct-21 02:35:42 8302 Cleaning up tasks.
+16-Oct-21 02:35:42 8302 Cleaning up after 1 tasks.
+16-Oct-21 02:35:42 8302 All tasks finished cancelling.
+16-Oct-21 02:35:42 8302 Closing the event loop.
+16-Oct-21 02:35:46 8314 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:35:48 8314 Dispatching event socket_raw_receive
+16-Oct-21 02:35:48 8314 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:35:48.228000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905007394466037760', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836613470257152', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:35:48 8314 Dispatching event socket_response
+16-Oct-21 02:35:48 8314 Dispatching event message
+16-Oct-21 02:35:48 8314 Dispatching event command
+16-Oct-21 02:35:48 8314 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:48 8314 STREAM b'pHYs' 41 9
+16-Oct-21 02:35:48 8314 STREAM b'tEXt' 62 25
+16-Oct-21 02:35:48 8314 STREAM b'IDAT' 99 8192
+16-Oct-21 02:35:48 8314 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:48 8314 STREAM b'IDAT' 41 8192
+16-Oct-21 02:35:48 8314 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:48 8314 STREAM b'tEXt' 41 25
+16-Oct-21 02:35:48 8314 STREAM b'iTXt' 78 802
+16-Oct-21 02:35:48 8314 STREAM b'IDAT' 892 17398
+16-Oct-21 02:35:48 8314 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:48 8314 STREAM b'tEXt' 41 25
+16-Oct-21 02:35:48 8314 STREAM b'iTXt' 78 802
+16-Oct-21 02:35:48 8314 STREAM b'IDAT' 892 21981
+16-Oct-21 02:35:48 8314 STREAM b'IHDR' 16 13
+16-Oct-21 02:35:48 8314 STREAM b'tEXt' 41 25
+16-Oct-21 02:35:48 8314 STREAM b'iTXt' 78 802
+16-Oct-21 02:35:48 8314 STREAM b'IDAT' 892 11848
+16-Oct-21 02:35:49 8314 Dispatching event socket_raw_receive
+16-Oct-21 02:35:49 8314 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:35:48.980000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898836616624353340', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836616339157052/p_543988204718653463.png', 'size': 198717, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836616339157052/p_543988204718653463.png', 'id': '898836616339157052', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:35:49 8314 Dispatching event socket_response
+16-Oct-21 02:35:49 8314 Dispatching event message
+16-Oct-21 02:35:49 8314 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4b1feb0> has returned 200
+16-Oct-21 02:35:49 8314 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898836616624353340', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898836616339157052', 'filename': 'p_543988204718653463.png', 'size': 198717, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898836616339157052/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898836616339157052/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:35:48.980000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:35:49 8314 Dispatching event command_completion
+16-Oct-21 02:36:25 8314 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:36:25 8314 Dispatching event socket_raw_receive
+16-Oct-21 02:36:25 8314 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:36:25 8314 Dispatching event socket_response
+16-Oct-21 02:37:06 8314 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:37:06 8314 Dispatching event socket_raw_receive
+16-Oct-21 02:37:06 8314 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:37:06 8314 Dispatching event socket_response
+16-Oct-21 02:37:48 8314 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:37:48 8314 Dispatching event socket_raw_receive
+16-Oct-21 02:37:48 8314 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:37:48 8314 Dispatching event socket_response
+16-Oct-21 02:37:58 8314 Cleaning up tasks.
+16-Oct-21 02:37:58 8314 Cleaning up after 1 tasks.
+16-Oct-21 02:37:58 8314 All tasks finished cancelling.
+16-Oct-21 02:37:58 8314 Closing the event loop.
+16-Oct-21 02:38:04 8328 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:38:13 8328 Dispatching event socket_raw_receive
+16-Oct-21 02:38:13 8328 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 4, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634369892, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:38:13 8328 Dispatching event socket_response
+16-Oct-21 02:38:13 8328 Dispatching event typing
+16-Oct-21 02:38:13 8328 Dispatching event socket_raw_receive
+16-Oct-21 02:38:13 8328 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:38:13.691000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905008004686938112', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837223586283520', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:38:13 8328 Dispatching event socket_response
+16-Oct-21 02:38:13 8328 Dispatching event message
+16-Oct-21 02:38:13 8328 Dispatching event command
+16-Oct-21 02:38:13 8328 STREAM b'IHDR' 16 13
+16-Oct-21 02:38:13 8328 STREAM b'pHYs' 41 9
+16-Oct-21 02:38:13 8328 STREAM b'tEXt' 62 25
+16-Oct-21 02:38:13 8328 STREAM b'IDAT' 99 8192
+16-Oct-21 02:38:13 8328 STREAM b'IHDR' 16 13
+16-Oct-21 02:38:13 8328 STREAM b'IDAT' 41 8192
+16-Oct-21 02:38:14 8328 STREAM b'IHDR' 16 13
+16-Oct-21 02:38:14 8328 STREAM b'tEXt' 41 25
+16-Oct-21 02:38:14 8328 STREAM b'iTXt' 78 802
+16-Oct-21 02:38:14 8328 STREAM b'IDAT' 892 17398
+16-Oct-21 02:38:14 8328 STREAM b'IHDR' 16 13
+16-Oct-21 02:38:14 8328 STREAM b'tEXt' 41 25
+16-Oct-21 02:38:14 8328 STREAM b'iTXt' 78 802
+16-Oct-21 02:38:14 8328 STREAM b'IDAT' 892 21981
+16-Oct-21 02:38:14 8328 STREAM b'IHDR' 16 13
+16-Oct-21 02:38:14 8328 STREAM b'tEXt' 41 25
+16-Oct-21 02:38:14 8328 STREAM b'iTXt' 78 802
+16-Oct-21 02:38:14 8328 STREAM b'IDAT' 892 11848
+16-Oct-21 02:38:14 8328 Dispatching event socket_raw_receive
+16-Oct-21 02:38:14 8328 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 6, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:38:14.477000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837226882998312', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837226677485608/p_543988204718653463.png', 'size': 198690, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837226677485608/p_543988204718653463.png', 'id': '898837226677485608', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:38:14 8328 Dispatching event socket_response
+16-Oct-21 02:38:14 8328 Dispatching event message
+16-Oct-21 02:38:14 8328 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb49eb1d0> has returned 200
+16-Oct-21 02:38:14 8328 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898837226882998312', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898837226677485608', 'filename': 'p_543988204718653463.png', 'size': 198690, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837226677485608/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837226677485608/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:38:14.477000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:38:14 8328 Dispatching event command_completion
+16-Oct-21 02:38:43 8328 Keeping shard ID None websocket alive with sequence 6.
+16-Oct-21 02:38:43 8328 Dispatching event socket_raw_receive
+16-Oct-21 02:38:43 8328 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:38:43 8328 Dispatching event socket_response
+16-Oct-21 02:38:51 8328 Cleaning up tasks.
+16-Oct-21 02:38:51 8328 Cleaning up after 1 tasks.
+16-Oct-21 02:38:51 8328 All tasks finished cancelling.
+16-Oct-21 02:38:51 8328 Closing the event loop.
+16-Oct-21 02:38:55 8338 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:39:04 8338 Dispatching event socket_raw_receive
+16-Oct-21 02:39:04 8338 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:39:04.001000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905008215723343872', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837434601734154', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:39:04 8338 Dispatching event socket_response
+16-Oct-21 02:39:04 8338 Dispatching event message
+16-Oct-21 02:39:04 8338 Dispatching event command
+16-Oct-21 02:39:04 8338 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:04 8338 STREAM b'pHYs' 41 9
+16-Oct-21 02:39:04 8338 STREAM b'tEXt' 62 25
+16-Oct-21 02:39:04 8338 STREAM b'IDAT' 99 8192
+16-Oct-21 02:39:04 8338 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:04 8338 STREAM b'IDAT' 41 8192
+16-Oct-21 02:39:04 8338 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:04 8338 STREAM b'tEXt' 41 25
+16-Oct-21 02:39:04 8338 STREAM b'iTXt' 78 802
+16-Oct-21 02:39:04 8338 STREAM b'IDAT' 892 17398
+16-Oct-21 02:39:04 8338 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:04 8338 STREAM b'tEXt' 41 25
+16-Oct-21 02:39:04 8338 STREAM b'iTXt' 78 802
+16-Oct-21 02:39:04 8338 STREAM b'IDAT' 892 21981
+16-Oct-21 02:39:04 8338 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:04 8338 STREAM b'tEXt' 41 25
+16-Oct-21 02:39:04 8338 STREAM b'iTXt' 78 802
+16-Oct-21 02:39:04 8338 STREAM b'IDAT' 892 11848
+16-Oct-21 02:39:05 8338 Dispatching event socket_raw_receive
+16-Oct-21 02:39:05 8338 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:39:05.018000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837438867320893', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837438770868244/p_543988204718653463.png', 'size': 198800, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837438770868244/p_543988204718653463.png', 'id': '898837438770868244', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:39:05 8338 Dispatching event socket_response
+16-Oct-21 02:39:05 8338 Dispatching event message
+16-Oct-21 02:39:05 8338 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4b34130> has returned 200
+16-Oct-21 02:39:05 8338 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898837438867320893', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898837438770868244', 'filename': 'p_543988204718653463.png', 'size': 198800, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837438770868244/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837438770868244/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:39:05.018000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:39:05 8338 Dispatching event command_completion
+16-Oct-21 02:39:34 8338 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:39:34 8338 Dispatching event socket_raw_receive
+16-Oct-21 02:39:34 8338 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:39:34 8338 Dispatching event socket_response
+16-Oct-21 02:39:46 8338 Cleaning up tasks.
+16-Oct-21 02:39:46 8338 Cleaning up after 1 tasks.
+16-Oct-21 02:39:46 8338 All tasks finished cancelling.
+16-Oct-21 02:39:46 8338 Closing the event loop.
+16-Oct-21 02:39:50 8349 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:39:51 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:39:51 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:39:50.956000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905008412662693888', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837631545253918', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';profile', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:39:51 8349 Dispatching event socket_response
+16-Oct-21 02:39:51 8349 Dispatching event message
+16-Oct-21 02:39:51 8349 Dispatching event command
+16-Oct-21 02:39:51 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:51 8349 STREAM b'pHYs' 41 9
+16-Oct-21 02:39:51 8349 STREAM b'tEXt' 62 25
+16-Oct-21 02:39:51 8349 STREAM b'IDAT' 99 8192
+16-Oct-21 02:39:51 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:51 8349 STREAM b'IDAT' 41 8192
+16-Oct-21 02:39:51 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:51 8349 STREAM b'tEXt' 41 25
+16-Oct-21 02:39:51 8349 STREAM b'iTXt' 78 802
+16-Oct-21 02:39:51 8349 STREAM b'IDAT' 892 17398
+16-Oct-21 02:39:51 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:51 8349 STREAM b'tEXt' 41 25
+16-Oct-21 02:39:51 8349 STREAM b'iTXt' 78 802
+16-Oct-21 02:39:51 8349 STREAM b'IDAT' 892 21981
+16-Oct-21 02:39:51 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:39:51 8349 STREAM b'tEXt' 41 25
+16-Oct-21 02:39:51 8349 STREAM b'iTXt' 78 802
+16-Oct-21 02:39:51 8349 STREAM b'IDAT' 892 11848
+16-Oct-21 02:39:51 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:39:51 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:39:51.859000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837635332718592', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': 'here is your profile <@543988204718653463>:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837635072679936/p_543988204718653463.png', 'size': 198808, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837635072679936/p_543988204718653463.png', 'id': '898837635072679936', 'height': 647, 'filename': 'p_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:39:51 8349 Dispatching event socket_response
+16-Oct-21 02:39:51 8349 Dispatching event message
+16-Oct-21 02:39:51 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb49ec1d0> has returned 200
+16-Oct-21 02:39:51 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898837635332718592', 'type': 0, 'content': 'here is your profile <@543988204718653463>:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898837635072679936', 'filename': 'p_543988204718653463.png', 'size': 198808, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837635072679936/p_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837635072679936/p_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:39:51.859000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:39:52 8349 Dispatching event command_completion
+16-Oct-21 02:40:22 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:22 8349 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 6, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370022, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:40:22 8349 Dispatching event socket_response
+16-Oct-21 02:40:22 8349 Dispatching event typing
+16-Oct-21 02:40:23 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:23 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:40:23.633000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905008549464113152', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837768602538014', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';bag', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:40:23 8349 Dispatching event socket_response
+16-Oct-21 02:40:23 8349 Dispatching event message
+16-Oct-21 02:40:23 8349 Dispatching event command
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 41 9
+16-Oct-21 02:40:23 8349 STREAM b'tEXt' 62 25
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 8192
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'tEXt' 41 25
+16-Oct-21 02:40:23 8349 STREAM b'iTXt' 78 802
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 892 18180
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6680
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6833
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6967
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6967
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6276
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6422
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6695
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 41 9
+16-Oct-21 02:40:23 8349 STREAM b'iCCP' 62 2639
+16-Oct-21 02:40:23 8349 iCCP profile name b'Photoshop ICC profile'
+16-Oct-21 02:40:23 8349 Compression method 0
+16-Oct-21 02:40:23 8349 STREAM b'iTXt' 2713 15561
+16-Oct-21 02:40:23 8349 STREAM b'cHRM' 18286 32
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 18330 3979
+16-Oct-21 02:40:23 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:40:23 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:40:23 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:40:23 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:40:23 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:40:23 8349 STREAM b'IDAT' 99 6722
+16-Oct-21 02:40:24 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:24 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 8, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:40:24.347000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837771597258752', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "here's what you own <@543988204718653463>:", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837771354013746/b_543988204718653463.png', 'size': 110556, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837771354013746/b_543988204718653463.png', 'id': '898837771354013746', 'height': 647, 'filename': 'b_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:40:24 8349 Dispatching event socket_response
+16-Oct-21 02:40:24 8349 Dispatching event message
+16-Oct-21 02:40:24 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb412a690> has returned 200
+16-Oct-21 02:40:24 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898837771597258752', 'type': 0, 'content': "here's what you own <@543988204718653463>:", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898837771354013746', 'filename': 'b_543988204718653463.png', 'size': 110556, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837771354013746/b_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837771354013746/b_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:40:24.347000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:40:24 8349 Dispatching event command_completion
+16-Oct-21 02:40:29 8349 Keeping shard ID None websocket alive with sequence 8.
+16-Oct-21 02:40:29 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:29 8349 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:40:29 8349 Dispatching event socket_response
+16-Oct-21 02:40:45 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:45 8349 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 9, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370045, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:40:45 8349 Dispatching event socket_response
+16-Oct-21 02:40:45 8349 Dispatching event typing
+16-Oct-21 02:40:55 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:55 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 10, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:40:55.411000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905008682977198080', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837901889122334', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup haukwood', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:40:55 8349 Dispatching event socket_response
+16-Oct-21 02:40:55 8349 Dispatching event message
+16-Oct-21 02:40:55 8349 Dispatching event command
+16-Oct-21 02:40:56 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:40:56 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 11, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:40:56.619000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837906955841586', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "<@543988204718653463> you don't have any item of that name in your bag.", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:40:56 8349 Dispatching event socket_response
+16-Oct-21 02:40:56 8349 Dispatching event message
+16-Oct-21 02:40:56 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"<@543988204718653463> you don't have any item of that name in your bag."} has returned 200
+16-Oct-21 02:40:56 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898837906955841586', 'type': 0, 'content': "<@543988204718653463> you don't have any item of that name in your bag.", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:40:56.619000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:40:56 8349 Dispatching event command_completion
+16-Oct-21 02:41:01 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:41:01 8349 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 12, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370061, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:41:01 8349 Dispatching event socket_response
+16-Oct-21 02:41:01 8349 Dispatching event typing
+16-Oct-21 02:41:10 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:41:10 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 13, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:41:10.395000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905008745795289088', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837964736577536', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup "hauk wood"', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:41:10 8349 Dispatching event socket_response
+16-Oct-21 02:41:10 8349 Dispatching event message
+16-Oct-21 02:41:10 8349 Dispatching event command
+16-Oct-21 02:41:10 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:41:10 8349 STREAM b'pHYs' 41 9
+16-Oct-21 02:41:10 8349 STREAM b'tEXt' 62 25
+16-Oct-21 02:41:10 8349 STREAM b'IDAT' 99 4140
+16-Oct-21 02:41:10 8349 STREAM b'IHDR' 16 13
+16-Oct-21 02:41:10 8349 STREAM b'bKGD' 41 6
+16-Oct-21 02:41:10 8349 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:41:10 8349 STREAM b'pHYs' 59 9
+16-Oct-21 02:41:10 8349 STREAM b'tIME' 80 7
+16-Oct-21 02:41:10 8349 b'tIME' 80 7 (unknown)
+16-Oct-21 02:41:10 8349 STREAM b'IDAT' 99 6695
+16-Oct-21 02:41:10 8349 Keeping shard ID None websocket alive with sequence 13.
+16-Oct-21 02:41:10 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:41:10 8349 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:41:10 8349 Dispatching event socket_response
+16-Oct-21 02:41:10 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:41:10 8349 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 14, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:41:10.693000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898837965986488331', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@543988204718653463> this item is:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 303, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837966040989716/i_543988204718653463.png', 'size': 26604, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837966040989716/i_543988204718653463.png', 'id': '898837966040989716', 'height': 293, 'filename': 'i_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:41:10 8349 Dispatching event socket_response
+16-Oct-21 02:41:10 8349 Dispatching event message
+16-Oct-21 02:41:10 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb37e4f10> has returned 200
+16-Oct-21 02:41:10 8349 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898837965986488331', 'type': 0, 'content': '<@543988204718653463> this item is:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898837966040989716', 'filename': 'i_543988204718653463.png', 'size': 26604, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898837966040989716/i_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898837966040989716/i_543988204718653463.png', 'width': 303, 'height': 293, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:41:10.693000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:41:10 8349 Dispatching event command_completion
+16-Oct-21 02:41:51 8349 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:41:51 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:41:51 8349 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:41:51 8349 Dispatching event socket_response
+16-Oct-21 02:42:33 8349 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:42:33 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:42:33 8349 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:42:33 8349 Dispatching event socket_response
+16-Oct-21 02:43:14 8349 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:43:14 8349 Dispatching event socket_raw_receive
+16-Oct-21 02:43:14 8349 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:43:14 8349 Dispatching event socket_response
+16-Oct-21 02:43:36 8349 Cleaning up tasks.
+16-Oct-21 02:43:36 8349 Cleaning up after 1 tasks.
+16-Oct-21 02:43:36 8349 All tasks finished cancelling.
+16-Oct-21 02:43:36 8349 Closing the event loop.
+16-Oct-21 02:43:40 8372 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:43:40 8372 Dispatching event socket_raw_receive
+16-Oct-21 02:43:40 8372 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:43:40.552000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905009375892996096', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898838594540691467', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';bag', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:43:40 8372 Dispatching event socket_response
+16-Oct-21 02:43:40 8372 Dispatching event message
+16-Oct-21 02:43:40 8372 Dispatching event command
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 41 9
+16-Oct-21 02:43:40 8372 STREAM b'tEXt' 62 25
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 8192
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'tEXt' 41 25
+16-Oct-21 02:43:40 8372 STREAM b'iTXt' 78 802
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 892 18180
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6680
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6833
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6967
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6967
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6276
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6422
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6695
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 41 9
+16-Oct-21 02:43:40 8372 STREAM b'iCCP' 62 2639
+16-Oct-21 02:43:40 8372 iCCP profile name b'Photoshop ICC profile'
+16-Oct-21 02:43:40 8372 Compression method 0
+16-Oct-21 02:43:40 8372 STREAM b'iTXt' 2713 15561
+16-Oct-21 02:43:40 8372 STREAM b'cHRM' 18286 32
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 18330 3979
+16-Oct-21 02:43:40 8372 STREAM b'IHDR' 16 13
+16-Oct-21 02:43:40 8372 STREAM b'bKGD' 41 6
+16-Oct-21 02:43:40 8372 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'pHYs' 59 9
+16-Oct-21 02:43:40 8372 STREAM b'tIME' 80 7
+16-Oct-21 02:43:40 8372 b'tIME' 80 7 (unknown)
+16-Oct-21 02:43:40 8372 STREAM b'IDAT' 99 6722
+16-Oct-21 02:43:41 8372 Dispatching event socket_raw_receive
+16-Oct-21 02:43:41 8372 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:43:41.295000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898838597657038848', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "here's what you own <@543988204718653463>:", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898838597254406144/b_543988204718653463.png', 'size': 110893, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898838597254406144/b_543988204718653463.png', 'id': '898838597254406144', 'height': 647, 'filename': 'b_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:43:41 8372 Dispatching event socket_response
+16-Oct-21 02:43:41 8372 Dispatching event message
+16-Oct-21 02:43:41 8372 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4b740f0> has returned 200
+16-Oct-21 02:43:41 8372 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898838597657038848', 'type': 0, 'content': "here's what you own <@543988204718653463>:", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898838597254406144', 'filename': 'b_543988204718653463.png', 'size': 110893, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898838597254406144/b_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898838597254406144/b_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:43:41.295000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:43:41 8372 Dispatching event command_completion
+16-Oct-21 02:44:19 8372 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:44:19 8372 Dispatching event socket_raw_receive
+16-Oct-21 02:44:19 8372 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:44:19 8372 Dispatching event socket_response
+16-Oct-21 02:45:00 8372 Keeping shard ID None websocket alive with sequence 5.
+16-Oct-21 02:45:00 8372 Dispatching event socket_raw_receive
+16-Oct-21 02:45:00 8372 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:45:00 8372 Dispatching event socket_response
+16-Oct-21 02:45:08 8372 Cleaning up tasks.
+16-Oct-21 02:45:08 8372 Cleaning up after 1 tasks.
+16-Oct-21 02:45:08 8372 All tasks finished cancelling.
+16-Oct-21 02:45:08 8372 Closing the event loop.
+16-Oct-21 02:45:12 8381 We have logged in as IdleFantasyBot#7819
+online in servers:
+DiscordParadise	
+16-Oct-21 02:45:15 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:15 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 4, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:45:14.874000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905009771612995584', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898838990155841617', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';bag', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:45:15 8381 Dispatching event socket_response
+16-Oct-21 02:45:15 8381 Dispatching event message
+16-Oct-21 02:45:15 8381 Dispatching event command
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:45:15 8381 STREAM b'tEXt' 62 25
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 8192
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'tEXt' 41 25
+16-Oct-21 02:45:15 8381 STREAM b'iTXt' 78 802
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 892 18180
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6680
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6833
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6967
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6967
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6276
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6422
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6695
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:45:15 8381 STREAM b'iCCP' 62 2639
+16-Oct-21 02:45:15 8381 iCCP profile name b'Photoshop ICC profile'
+16-Oct-21 02:45:15 8381 Compression method 0
+16-Oct-21 02:45:15 8381 STREAM b'iTXt' 2713 15561
+16-Oct-21 02:45:15 8381 STREAM b'cHRM' 18286 32
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 18330 3979
+16-Oct-21 02:45:15 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:15 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:45:15 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:45:15 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:45:15 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:45:15 8381 STREAM b'IDAT' 99 6722
+16-Oct-21 02:45:15 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:15 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 5, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:45:15.584000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898838993133780995', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "here's what you own <@543988204718653463>:", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 1067, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898838993221849108/b_543988204718653463.png', 'size': 110991, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898838993221849108/b_543988204718653463.png', 'id': '898838993221849108', 'height': 647, 'filename': 'b_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:45:15 8381 Dispatching event socket_response
+16-Oct-21 02:45:15 8381 Dispatching event message
+16-Oct-21 02:45:15 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb49cbfd0> has returned 200
+16-Oct-21 02:45:15 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898838993133780995', 'type': 0, 'content': "here's what you own <@543988204718653463>:", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898838993221849108', 'filename': 'b_543988204718653463.png', 'size': 110991, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898838993221849108/b_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898838993221849108/b_543988204718653463.png', 'width': 1067, 'height': 647, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:45:15.584000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:45:15 8381 Dispatching event command_completion
+16-Oct-21 02:45:36 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:36 8381 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 6, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370336, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:45:36 8381 Dispatching event socket_response
+16-Oct-21 02:45:36 8381 Dispatching event typing
+16-Oct-21 02:45:39 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:39 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 7, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:45:39.500000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905009874365054976', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839093444759582', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup orangerry', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:45:39 8381 Dispatching event socket_response
+16-Oct-21 02:45:39 8381 Dispatching event message
+16-Oct-21 02:45:39 8381 Dispatching event command
+16-Oct-21 02:45:39 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:39 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:45:39 8381 STREAM b'tEXt' 62 25
+16-Oct-21 02:45:39 8381 STREAM b'IDAT' 99 4140
+16-Oct-21 02:45:39 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:45:39 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:45:39 8381 STREAM b'iCCP' 62 2639
+16-Oct-21 02:45:39 8381 iCCP profile name b'Photoshop ICC profile'
+16-Oct-21 02:45:39 8381 Compression method 0
+16-Oct-21 02:45:39 8381 STREAM b'iTXt' 2713 15561
+16-Oct-21 02:45:39 8381 STREAM b'cHRM' 18286 32
+16-Oct-21 02:45:39 8381 STREAM b'IDAT' 18330 3979
+16-Oct-21 02:45:39 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:39 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 8, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:45:39.808000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839094736613406', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@543988204718653463> this item is:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 303, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839094602383380/i_543988204718653463.png', 'size': 25506, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839094602383380/i_543988204718653463.png', 'id': '898839094602383380', 'height': 293, 'filename': 'i_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:45:39 8381 Dispatching event socket_response
+16-Oct-21 02:45:39 8381 Dispatching event message
+16-Oct-21 02:45:39 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb4115870> has returned 200
+16-Oct-21 02:45:39 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898839094736613406', 'type': 0, 'content': '<@543988204718653463> this item is:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898839094602383380', 'filename': 'i_543988204718653463.png', 'size': 25506, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839094602383380/i_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839094602383380/i_543988204718653463.png', 'width': 303, 'height': 293, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:45:39.808000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:45:39 8381 Dispatching event command_completion
+16-Oct-21 02:45:51 8381 Keeping shard ID None websocket alive with sequence 8.
+16-Oct-21 02:45:51 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:51 8381 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:45:51 8381 Dispatching event socket_response
+16-Oct-21 02:45:57 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:45:57 8381 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 9, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370357, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:45:57 8381 Dispatching event socket_response
+16-Oct-21 02:45:57 8381 Dispatching event typing
+16-Oct-21 02:46:03 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:03 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 10, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:03.400000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905009974726361088', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839193688637511', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup "hauk wood"', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:03 8381 Dispatching event socket_response
+16-Oct-21 02:46:03 8381 Dispatching event message
+16-Oct-21 02:46:03 8381 Dispatching event command
+16-Oct-21 02:46:03 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:46:03 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:46:03 8381 STREAM b'tEXt' 62 25
+16-Oct-21 02:46:03 8381 STREAM b'IDAT' 99 4140
+16-Oct-21 02:46:03 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:46:03 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:46:03 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:46:03 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:46:03 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:46:03 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:46:03 8381 STREAM b'IDAT' 99 6695
+16-Oct-21 02:46:04 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:04 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 11, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:04.053000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839196427509810', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@543988204718653463> this item is:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 303, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839196247138324/i_543988204718653463.png', 'size': 26631, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839196247138324/i_543988204718653463.png', 'id': '898839196247138324', 'height': 293, 'filename': 'i_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:04 8381 Dispatching event socket_response
+16-Oct-21 02:46:04 8381 Dispatching event message
+16-Oct-21 02:46:04 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb37feef0> has returned 200
+16-Oct-21 02:46:04 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898839196427509810', 'type': 0, 'content': '<@543988204718653463> this item is:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898839196247138324', 'filename': 'i_543988204718653463.png', 'size': 26631, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839196247138324/i_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839196247138324/i_543988204718653463.png', 'width': 303, 'height': 293, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:46:04.053000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:46:04 8381 Dispatching event command_completion
+16-Oct-21 02:46:18 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:18 8381 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 12, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370378, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:18 8381 Dispatching event socket_response
+16-Oct-21 02:46:18 8381 Dispatching event typing
+16-Oct-21 02:46:22 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:22 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 13, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:22.499000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905010054984368128', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839273795616779', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup chemomille', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:22 8381 Dispatching event socket_response
+16-Oct-21 02:46:22 8381 Dispatching event message
+16-Oct-21 02:46:22 8381 Dispatching event command
+16-Oct-21 02:46:22 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:46:22 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:46:22 8381 STREAM b'tEXt' 62 25
+16-Oct-21 02:46:22 8381 STREAM b'IDAT' 99 4140
+16-Oct-21 02:46:22 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:46:22 8381 STREAM b'bKGD' 41 6
+16-Oct-21 02:46:22 8381 b'bKGD' 41 6 (unknown)
+16-Oct-21 02:46:22 8381 STREAM b'pHYs' 59 9
+16-Oct-21 02:46:22 8381 STREAM b'tIME' 80 7
+16-Oct-21 02:46:22 8381 b'tIME' 80 7 (unknown)
+16-Oct-21 02:46:22 8381 STREAM b'IDAT' 99 6722
+16-Oct-21 02:46:23 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:23 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 14, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:22.885000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839275414638673', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@543988204718653463> this item is:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 303, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839275477540884/i_543988204718653463.png', 'size': 27052, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839275477540884/i_543988204718653463.png', 'id': '898839275477540884', 'height': 293, 'filename': 'i_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:23 8381 Dispatching event socket_response
+16-Oct-21 02:46:23 8381 Dispatching event message
+16-Oct-21 02:46:23 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb37e5c90> has returned 200
+16-Oct-21 02:46:23 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898839275414638673', 'type': 0, 'content': '<@543988204718653463> this item is:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898839275477540884', 'filename': 'i_543988204718653463.png', 'size': 27052, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839275477540884/i_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839275477540884/i_543988204718653463.png', 'width': 303, 'height': 293, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:46:22.885000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:46:23 8381 Dispatching event command_completion
+16-Oct-21 02:46:32 8381 Keeping shard ID None websocket alive with sequence 14.
+16-Oct-21 02:46:32 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:32 8381 For Shard ID None: WebSocket Event: {'t': None, 's': None, 'op': 11, 'd': None}
+16-Oct-21 02:46:32 8381 Dispatching event socket_response
+16-Oct-21 02:46:43 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:43 8381 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 15, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370403, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:43 8381 Dispatching event socket_response
+16-Oct-21 02:46:43 8381 Dispatching event typing
+16-Oct-21 02:46:47 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:47 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 16, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:47.791000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905010160848601088', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839379877986344', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup axe', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:47 8381 Dispatching event socket_response
+16-Oct-21 02:46:47 8381 Dispatching event message
+16-Oct-21 02:46:47 8381 Dispatching event command
+16-Oct-21 02:46:47 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:46:47 8381 STREAM b'pHYs' 41 9
+16-Oct-21 02:46:47 8381 STREAM b'tEXt' 62 25
+16-Oct-21 02:46:47 8381 STREAM b'IDAT' 99 4140
+16-Oct-21 02:46:47 8381 STREAM b'IHDR' 16 13
+16-Oct-21 02:46:47 8381 STREAM b'tEXt' 41 25
+16-Oct-21 02:46:47 8381 STREAM b'iTXt' 78 802
+16-Oct-21 02:46:47 8381 STREAM b'IDAT' 892 18180
+16-Oct-21 02:46:48 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:48 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 17, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:48.141000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839381345964034', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': '<@543988204718653463> this item is:', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [{'width': 303, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839381295648778/i_543988204718653463.png', 'size': 22730, 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839381295648778/i_543988204718653463.png', 'id': '898839381295648778', 'height': 293, 'filename': 'i_543988204718653463.png', 'content_type': 'image/png'}], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:48 8381 Dispatching event socket_response
+16-Oct-21 02:46:48 8381 Dispatching event message
+16-Oct-21 02:46:48 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages with <aiohttp.formdata.FormData object at 0xb41157b0> has returned 200
+16-Oct-21 02:46:48 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898839381345964034', 'type': 0, 'content': '<@543988204718653463> this item is:', 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [{'id': '898839381295648778', 'filename': 'i_543988204718653463.png', 'size': 22730, 'url': 'https://cdn.discordapp.com/attachments/820015260563275806/898839381295648778/i_543988204718653463.png', 'proxy_url': 'https://media.discordapp.net/attachments/820015260563275806/898839381295648778/i_543988204718653463.png', 'width': 303, 'height': 293, 'content_type': 'image/png'}], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:46:48.141000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:46:48 8381 Dispatching event command_completion
+16-Oct-21 02:46:49 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:49 8381 For Shard ID None: WebSocket Event: {'t': 'TYPING_START', 's': 18, 'op': 0, 'd': {'user_id': '543988204718653463', 'timestamp': 1634370409, 'member': {'user': {'username': 'myLewysG', 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'channel_id': '820015260563275806', 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:49 8381 Dispatching event socket_response
+16-Oct-21 02:46:49 8381 Dispatching event typing
+16-Oct-21 02:46:53 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:53 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 19, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:53.899000+00:00', 'referenced_message': None, 'pinned': False, 'nonce': '905010186706485248', 'mentions': [], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839405496762378', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': ';lookup violette', 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'myLewysG', 'public_flags': 0, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:53 8381 Dispatching event socket_response
+16-Oct-21 02:46:53 8381 Dispatching event message
+16-Oct-21 02:46:53 8381 Dispatching event command
+16-Oct-21 02:46:55 8381 Dispatching event socket_raw_receive
+16-Oct-21 02:46:55 8381 For Shard ID None: WebSocket Event: {'t': 'MESSAGE_CREATE', 's': 20, 'op': 0, 'd': {'type': 0, 'tts': False, 'timestamp': '2021-10-16T07:46:55.021000+00:00', 'referenced_message': None, 'pinned': False, 'mentions': [{'username': 'myLewysG', 'public_flags': 0, 'member': {'roles': [], 'mute': False, 'joined_at': '2020-06-27T02:22:36.278000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '543988204718653463', 'discriminator': '8401', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677'}], 'mention_roles': [], 'mention_everyone': False, 'member': {'roles': ['857475918826438687'], 'mute': False, 'joined_at': '2021-06-24T04:23:10.203000+00:00', 'hoisted_role': None, 'deaf': False}, 'id': '898839410202783754', 'flags': 0, 'embeds': [], 'edited_timestamp': None, 'content': "<@543988204718653463> you don't have any item of that name in your bag.", 'components': [], 'channel_id': '820015260563275806', 'author': {'username': 'IdleFantasyBot', 'public_flags': 0, 'id': '857468831591956490', 'discriminator': '7819', 'bot': True, 'avatar': '1ec23f38f1a702ca388943d6e547dcf8'}, 'attachments': [], 'guild_id': '726261169861558313'}}
+16-Oct-21 02:46:55 8381 Dispatching event socket_response
+16-Oct-21 02:46:55 8381 Dispatching event message
+16-Oct-21 02:46:55 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages with {"content":"<@543988204718653463> you don't have any item of that name in your bag."} has returned 200
+16-Oct-21 02:46:55 8381 POST https://discord.com/api/v7/channels/820015260563275806/messages has received {'id': '898839410202783754', 'type': 0, 'content': "<@543988204718653463> you don't have any item of that name in your bag.", 'channel_id': '820015260563275806', 'author': {'id': '857468831591956490', 'username': 'IdleFantasyBot', 'avatar': '1ec23f38f1a702ca388943d6e547dcf8', 'discriminator': '7819', 'public_flags': 0, 'bot': True}, 'attachments': [], 'embeds': [], 'mentions': [{'id': '543988204718653463', 'username': 'myLewysG', 'avatar': '475de7a42bfcce3bafb4dfdd6b049677', 'discriminator': '8401', 'public_flags': 0}], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2021-10-16T07:46:55.021000+00:00', 'edited_timestamp': None, 'flags': 0, 'components': [], 'referenced_message': None}
+16-Oct-21 02:46:55 8381 Dispatching event command_completion
+16-Oct-21 02:47:12 8381 Cleaning up tasks.
+16-Oct-21 02:47:12 8381 Cleaning up after 1 tasks.
+16-Oct-21 02:47:13 8381 All tasks finished cancelling.
+16-Oct-21 02:47:13 8381 Closing the event loop.

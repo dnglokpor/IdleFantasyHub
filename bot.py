@@ -13,6 +13,7 @@ from dotenv import load_dotenv            # sensitive data cache
 import logging                            # logging util
 from discord.ext import commands as com   # discord lib
 import discord.ext.commands.errors as err # errors
+from discord.ext.commands import DefaultHelpCommand # help object
 import random as rnd                      # randomizer
 from math import ceil
 try:
@@ -41,7 +42,54 @@ from world.dungeon import DUNGEON
 load_dotenv()        # loads .env data
 # attach bot commands prefixes
 PREFIXES = ['>', '/', ';' ]
-bot = com.Bot(command_prefix = PREFIXES)
+
+# override bot help command
+class CustomHelpCommand(DefaultHelpCommand):
+   '''Subclass of HelpCommand that allows me to override the 
+   response commands.'''
+   def __init__(self):
+      '''build base class.'''
+      super().__init__()
+   
+   # overrides
+   async def send_bot_help(self, mapping):
+      '''send out a help message for the whole bot'''
+      ctx = self.context
+      msg = buildResponse(ctx) # salutation
+      msg += " Welcome to the IdleFantasyBot support.\n\n"
+      msg += "This bot allows you to run an idle exploration of the **Idle Dungeon** "
+      msg += "the most dangerous dungeon in the whole of the lands. Each floor "
+      msg += "has its own environment where numerous resources are available "
+      msg += "but where devious monsters wreck havoc as well. Will you be able "
+      msg += "to conquer it all?\n\n"
+      msg += "**Quick Start Guide:**\n"
+      msg += "Use the `;guild` command to register yourself as a player.\n"
+      msg += "Use the \n`;hero <class name>`\ncommand to add a hero avatar to your account "
+      msg += "out of the existing classes: **Fighter**, **Ranger** and **Elementalist**.\n"
+      msg += "You can see an overview of your account and hero using the `;profile` "
+      msg += "command and using `;bag` will reveal your inventory and money.\n"
+      msg += "Finally, to explore a floor, you will need to use the\n"
+      msg += "`;explore <floor number>`\ncommand. but it would be wise "
+      msg += "to first gather information on the floor by using\n"
+      msg += "`;scout <floor number>`.\nLater, you can add other players "
+      msg += "to your friendbook and call upon to go on an adventure with you:\n"
+      msg += "`;explore <floor number> [friend list]`\nCheck out `myplayerid`, "
+      msg += "`befriend` and `friendbook` commands for more infor on friends."
+      msg += "\n\n**Here are all the available commands:**\n"
+      commands = bot.commands
+      for i, command in enumerate(commands):
+         msg += command.name
+         if i < len(commands) - 1:
+            msg += ", "
+         else:
+            msg += '.\n'
+      msg += "\nUse `;help <command>` to get specific help on each command.\n\n"
+      msg += "We hope you enjoy your time using IdleFantasyBot."
+      await ctx.message.channel.send(msg)
+
+# instantiate bot instance
+bot = com.Bot(command_prefix = PREFIXES,
+   help_command = CustomHelpCommand())
 # logging
 REPORT_DIR = "logs" # path to log file
 REPORT_FILE = "eventLog.txt" # log file
@@ -57,10 +105,6 @@ def senderInfo(ctx: com.Context):
    of author of the message received.'''
    return (ctx.message.channel, ctx.message.author.mention)
 
-def getReportFile():
-   '''concatenates and return the report file path.'''
-   return REPORT_DIR + '\\'+ REPORT_FILE
-
 def eReport(report):
    '''uses the logging module to quickly save the report 
    in a file''' 
@@ -70,9 +114,9 @@ def eReport(report):
    
    # config logger
    fm = 'a'       # appending by default
-   if not os.path.exists(getReportFile()): # file doesn't exist
+   if not os.path.exists(REPORT_DIR + '/'+ REPORT_FILE): # file doesn't exist
       fm = "w+"   # then create and append
-   logging.basicConfig(filename = getReportFile(),
+   logging.basicConfig(filename = REPORT_DIR + '/'+ REPORT_FILE,
       format = "%(asctime)s %(process)d %(message)s",
       datefmt = "%d-%b-%y %H:%M:%S", filemode = fm
    )
@@ -93,7 +137,7 @@ def logError(eData):
    print(eString)    # console print it
    eReport(eString)  # report log it 
    # print trace to report file
-   print(eData[2], file = getReportFile())
+   print(eData[2], file = REPORT_DIR + '/'+ REPORT_FILE)
 
 # back end
 # finds if a user is a registered user
@@ -171,9 +215,8 @@ async def on_ready():
    for g in bot.guilds:
       readyMSG += "{}\t".format(g)
    eReport(readyMSG)
-   
 
-# command errors
+# command errors override
 @bot.event
 async def on_command_error(ctx: com.Context, exception):
    '''deal with errors at bot commands execution for
@@ -238,7 +281,8 @@ def buildResponse(ctx: com.Context) -> str:
    hellos = ["Hi", "Oh hello there", "Hiya", "What's up",
       "What's cooking", "Ohayo"
    ]
-   return " ".join([rnd.choice(hellos), '{}.'])
+   mention = ctx.message.author.mention
+   return " ".join([rnd.choice(hellos), mention])
 
 # delayed response
 async def waitThenSend(ctx: com.Context, message: str,
@@ -270,7 +314,7 @@ async def getDM(user: IdleUser):
 async def hello(ctx):
    '''Says Hi to the username.'''
    channel, mention = senderInfo(ctx)
-   await waitThenSend(ctx, buildResponse(ctx).format(mention))
+   await waitThenSend(ctx, buildResponse(ctx))
 
 
 # premade messages
@@ -287,9 +331,10 @@ tips = [
    "**not in the city**.",
    "Your hero's health **heals by itself** as time goes by.",
    "If you die during an exploration, your hero's party will"
-   " be stuck on that floor until someone saves them."
+   " be stuck on that floor until someone saves them. You "
+   "need to share the key you receive in the message with "
+   "other players.",
 ]
-
 
 # register player
 @bot.command(name = "guild", help = "register the user as a "
@@ -368,7 +413,8 @@ async def hero(ctx, className: str):
             "**{}** is not a know hero class.".format(className))
       if done:
          msg = token + msg + token + '\n'
-         msg += tips[0] + '\n' + tips[1] + '\n' + tips[2] + '\n'
+         for tip in tips:
+            msg += tip + '\n' #+ tips[1] + '\n' + tips[2] + '\n'
          save(user)
          await waitThenSend(ctx, msg)
 
@@ -424,7 +470,9 @@ async def learned(ctx):
 
 # show floor information
 @bot.command(name = "scout", help = "display information on "
-   "the specify floor if and only if you have explored it."
+   "the specified floor. if you have never completed the exploration "
+   "of said floor, only its size and danger levels will be available."
+   " explore it to unlock more info about the resources and hostiles."
    "\neg: `>scout 1`")
 async def scout(ctx, floor: int):
    if isRegistered(ctx.message.author.id):
@@ -461,7 +509,8 @@ def readyUser(user: IdleUser, start: int):
    "floor of the dungeon. you can specify up to **3** other players "
    "to explore with. just specify their ID in your Friendbook. "
    "separeted by a comma (no spaces allowed). they must be in "
-   "your Friendbook to be allowed in your party."
+   "your Friendbook to be allowed in your party. exploring a block "
+   "takes `2min` so exploring a floor takes `2min * size of floor`."
    "\neg.: `;explore 1` or `;explore 1 reac1,bail2,susa3`")
 async def explore(ctx, f: int, allies: str=None):
    # in case of empty allies
@@ -508,7 +557,7 @@ async def explore(ctx, f: int, allies: str=None):
             friend = user.getFriendBook().getFriend(a)
             if friend != None:
                friend = load(friend[0])
-               if friend.canCoop():
+               if friend.hasHero() and friend.canCoop():
                   going.append(friend)
                   readyUser(friend, start)
                   fMSG = "**{}** invited to explore floor {}.".format(
@@ -606,7 +655,7 @@ async def report(ctx):
                name = data["file"]
                 # change extension to .txt
                name = name.split('.')[0] + ".txt"
-               os.rename(file, name)
+               os.rename(data["file"], name)
                # send failure DMs
                for u in data["users"]:
                   await (await getDM(u)).send(data["report"],
@@ -683,10 +732,11 @@ async def myplayerid(ctx):
       "check your DM {}".format(mention))
 
 # make friends
-@bot.command(name = "befriend", help = "if the passed name correspond"
-   "to that of an existing user with hero, you add them to your "
-   "friendbook. you can then invite them to exploration.\n"
-   "eg.: `;befriend pl4Yer` or `;befriend \"d34d m4n\"`.")
+@bot.command(name = "befriend", help = "provide the id of the user "
+   "that you want to befriend. if valid, they will be added to your "
+   "friendbook. you can then invite them to exploration anytime "
+   "they are available for coop.\n"
+   "eg.: `;befriend 1232343434535`.")
 async def addFriend(ctx, fID: int):
    '''check if any hero save matches the passed username. if
    so, add them as friend.'''
@@ -694,14 +744,18 @@ async def addFriend(ctx, fID: int):
       user = load(ctx.message.author.id)
       mention = ctx.message.author.mention
       if isRegistered(fID): # a player with that id exists
-         friend = load(fID)
-         fid = user.getFriendBook().addFriend(fID,
-            friend.getUname())
-         save(user)
-         msg = "say hi to your new friend **{}** ".format(fid)
-         msg += "you can use the `friendbook` command to check "
-         msg += "on all your friends anytime."
-         await waitThenSend(ctx, msg)
+         if fID != user.getID(): # can't add yourself
+            friend = load(fID)
+            fid = user.getFriendBook().addFriend(fID,
+               friend.getUname())
+            save(user)
+            msg = "say hi to your new friend **{}** ".format(fid)
+            msg += "you can use the `friendbook` command to check "
+            msg += "on all your friends anytime."
+            await waitThenSend(ctx, msg)
+         else:
+            await waitThenSend(ctx,
+               "you can't befriend yourself {}.".format(mention))
       else: # not sure which would happen
          await waitThenSend(ctx, "Couldn't find friend.")
 
@@ -984,7 +1038,6 @@ async def test(ctx, other = None):
       data = pickle.load(file)
       print(data)
    '''
-   
 
 # run module
 if __name__ == "__main__":

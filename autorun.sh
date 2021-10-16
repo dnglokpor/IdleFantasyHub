@@ -1,2 +1,2 @@
-python bg_explorer.py &
-python -u bot.py
+python3 bg_explorer.py &
+python3 -u bot.py

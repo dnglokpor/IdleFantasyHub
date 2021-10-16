@@ -10,8 +10,13 @@
 # imports
 import os
 import sys
+try:
+   import cPickle as pickle              # pickle
+except ModuleNotFoundError:
+   import pickle
 from glob import glob
 from idleUser import IdleUser, save, load
+
 
 # add game world package to path so that internal imports work
 sys.path.insert(0, os.getcwd() + "/world")
@@ -22,25 +27,8 @@ USERS_FILES = "records/users/"
 HERO_FILES = "records/saves/"
 
 # update function
-def update(user: IdleUser):
-   '''multi use function. can be modified for every specific
-   use.'''
-   # renew the mastery object of the user heroes to include
-   # new changes in the object methods.
-   hero = user.getHero()
-   old = hero.getMastery()
-   new = None
-   if old.getName().lower() == "blademanship":
-      new = skl.blademanship
-   elif old.getName().lower() == "survivalist":
-      new = skl.survivalist
-   else: # conjuring
-      new = skl.conjuring
-   print("mastery of user [{}] is {}.\n\n".format(user.getUname(),
-      new.getName())) # DEBUG 
-   hero.mastery = new # reassign new mastery to user
-
-if __name__ == "__main__":
+def masteryUpdate():
+   '''update hero's mastery objects'''
    if os.path.exists(USERS_FILES): # folder exists
       uQueue = glob(USERS_FILES + "*.usr") # update queue
       print("all files: ", uQueue, "\n\n") # DEBUG
@@ -55,10 +43,45 @@ if __name__ == "__main__":
                print("ID: ", id) # DEBUG
                user = load(id) # load user file
                # update function call here
-               update(user)
+               hero = user.getHero()
+               old = hero.getMastery()
+               new = None
+               if old.getName().lower() == "blademanship":
+                  new = skl.blademanship
+               elif old.getName().lower() == "survivalist":
+                  new = skl.survivalist
+               else: # conjuring
+                  new = skl.conjuring
+               print("mastery of user [{}] is {}.\n\n".format(user.getUname(),
+                  new.getName())) # DEBUG 
+               hero.mastery = new # reassign new mastery to user
          except Exception:
             data = sys.exc_info() # information on error
             print("error updating ", file)
             print(data)
    else:
-      print("Directory ", USERS_FILES, "not found.") 
+      print("Directory ", USERS_FILES, "not found.")
+      
+def pickleProtocoleUpdate():
+   '''change the pickle protocole of hero files.'''
+   if os.path.exists(HERO_FILES): # folder exists
+      sQueue = glob(HERO_FILES + "*.her") # update queue
+      print("all files: ", sQueue, "\n\n") # DEBUG
+      for file in sQueue:
+         try:
+            pickled5 = None
+            # recover data
+            with open(file, "rb") as savefile: 
+               pickled5 = pickle.load(savefile)
+            # write back
+            with open(file, "wb") as savefile:
+               pickle.dump(pickled5, savefile)
+         except Exception:
+            print("failed to update ", file, "\n")
+            data = sys.exc_info() # information on error
+            print("error updating ", file)
+            print(data)
+      
+if __name__ == "__main__":
+   # masteryUpdate()
+   pickleProtocoleUpdate()

@@ -15,8 +15,7 @@ from PIL.ImageDraw import Draw
 from idleUser import IdleUser
 
 # add game world package to path so that internal imports work
-sys.path.insert(0, 
-   "D:/myLewysG/Logiciels/Mes Tests/IdleFantasyHub/world")
+sys.path.insert(0, os.getcwd() + "/world")
 
 from world.base import STATS, UnitStats
 import world.collectibles as c
@@ -29,6 +28,7 @@ BAG = "inventory.png"
 ITEMS = "world/resource/items/"
 DEFAULT = ITEMS + "glitch-icon-87.png"
 ITEM = "item.png"
+bahnschrift = "world/resource/fonts/bahnschrift.ttf"
 
 # profile page
 def genProfile(user: IdleUser) -> str:
@@ -49,15 +49,16 @@ def genProfile(user: IdleUser) -> str:
    if user.hasHero():
       nameField += " [{}]".format(user.getHero().getClassName())
    editor.text(
-      (410, 125),
+      (410, 122),
       nameField,
-      font = truetype("bahnschrift.ttf", 32),
+      font = truetype(bahnschrift, 32),
       fill = (255, 255, 255)
    )
    # ID
-   editor.text((748, 62),
+   editor.text(
+      (748, 57),
       str(user.getID()),
-      font = truetype("bahnschrift.ttf", 28),
+      font = truetype(bahnschrift, 28),
       fill = (255, 255, 255)
    )
    # Status LEDs
@@ -80,7 +81,7 @@ def genProfile(user: IdleUser) -> str:
    editor.text(
       (985, 282),
       top,
-      font = truetype("bahnschrift.ttf", 32),
+      font = truetype(bahnschrift, 32),
       fill = (0, 0, 0)
    )
    # HERO ATTRIBUTES: NEEDS TO CHECK FOR HERO
@@ -91,10 +92,10 @@ def genProfile(user: IdleUser) -> str:
       base.paste(lvlBox, (51, 101), lvlBox)
       # level
       level = str(hero.getLevel().getCurrent())
-      myFont = truetype("bahnschrift.ttf", 46)
+      myFont = truetype(bahnschrift, 46)
       posX = 75 - int(myFont.getlength(level) / 2) # center in lvlbox
       editor.text(
-         (posX, 103), 
+         (posX, 95), 
          level,
          font = myFont,
          fill = (255, 215, 0)
@@ -109,7 +110,7 @@ def genProfile(user: IdleUser) -> str:
       base.paste(barFiller, (104, 113), barFiller)
       # class description
       lore = hero.getLore()
-      myFont = truetype("bahnschrift.ttf", 28)
+      myFont = truetype(bahnschrift, 27)
       adjusted = str()
       line = str()
       for w in lore.split(): # adjust to space
@@ -126,7 +127,7 @@ def genProfile(user: IdleUser) -> str:
             if word != None:
                line += word + ' ' # add overflowing word
       adjusted += line # add last line
-      editor.text((276, 180),
+      editor.text((280, 180),
          adjusted,
          font = myFont,
          fill = (255, 255, 255)
@@ -135,7 +136,7 @@ def genProfile(user: IdleUser) -> str:
       uStats = hero.getStats() # unit stats collection
       posYs = [375, 405, 435, 470, 505, 540, 572]
       allStats = uStats.getFullStats()
-      myFont = truetype("bahnschrift.ttf", 24)
+      myFont = truetype(bahnschrift, 24)
       for i in range(len(allStats)):
          posX = 345
          stat = str()
@@ -179,14 +180,14 @@ def genProfile(user: IdleUser) -> str:
       gear.append(hero.getEquipped().getWeapon())
       gear.append(hero.getEquipped().getArmour())
       gear.append(hero.getEquipped().getAccessory())
-      posYs = [425, 490, 560]
+      posYs = [420, 485, 555]
       for i in range(len(gear)):
          if gear[i] != None:
             gear[i] = gear[i].getName() # recover name
             editor.text(
                (470, posYs[i]), 
                gear[i],
-               font = truetype("bahnschrift.ttf", 28),
+               font = truetype(bahnschrift, 28),
                fill = (0, 0, 0)
             )
       # skill names
@@ -195,14 +196,14 @@ def genProfile(user: IdleUser) -> str:
       skills.append(hero.getSkillSet().getSkill("ability"))
       skills.append(hero.getSkillSet().getSkill("reaction"))
       skills.append(hero.getSkillSet().getSkill("critical"))
-      posYs = [400, 452, 510, 570]
+      posYs = [395, 448, 510, 570]
       for i in range(len(skills)):
          if skills[i] != None:
             skills[i] = skills[i].getName() # recover name
             editor.text(
                (750, posYs[i]), 
                skills[i],
-               font = truetype("bahnschrift.ttf", 26),
+               font = truetype(bahnschrift, 26),
                fill = (255, 255, 255)
             )
       # end of hero attributes
@@ -226,9 +227,9 @@ def genBag(user: IdleUser) -> str:
    if user.hasHero():
       cash = str(user.getHero().getWallet().getBalance()) + " gold"
       editor.text(
-         (400, 52),
+         (400, 50),
          cash,
-         font = truetype("bahnschrift.ttf", 28),
+         font = truetype(bahnschrift, 28),
          fill = (0, 0, 0)
       )
    # items positions
@@ -237,7 +238,7 @@ def genBag(user: IdleUser) -> str:
    iconsXs = [47, 300, 545, 805]
    iconsY = 110
    namesXs = [112, 365, 616, 860]
-   namesY = 145
+   namesY = 143
    # load bag
    bag = user.getHero().getBag()
    # place items
@@ -268,22 +269,22 @@ def genBag(user: IdleUser) -> str:
       base.paste(ico, (x, y)) # paste
       # qty box
       qtyBox = Image.new("RGBA", (16, 16),(255, 255, 255, 180))
-      base.paste(qtyBox, (x - 3, y - 2), qtyBox)
+      base.paste(qtyBox, (x - 3, y - 3), qtyBox)
       # qty
       qty = str(len(stack))
-      myFont = truetype("bahnschrift.ttf", 16)
+      myFont = truetype(bahnschrift, 16)
       posX = (x + 5) - int(myFont.getlength(qty) / 2) # center
       editor.text(
-         (posX, y),
+         (posX, y - 2),
          qty,
          font = myFont,
          fill = (0, 0, 0)
       )
       # names
       qty = stack[0].getName()
-      myFont = truetype("bahnschrift.ttf", 16)
+      myFont = truetype(bahnschrift, 16)
       editor.text(
-         (namesXs[row], namesY + col * 65),
+         (namesXs[row], namesY + col * 64),
          qty,
          font = myFont,
          fill = (255, 255, 255)
@@ -317,7 +318,7 @@ def genItem(user: IdleUser, itemName: str) -> str:
    editor.text(
       (70, 25),
       name,
-      font = truetype("bahnschrift.ttf", 32),
+      font = truetype(bahnschrift, 32),
       fill = (255, 255, 255)
    )
    # lore
@@ -325,7 +326,7 @@ def genItem(user: IdleUser, itemName: str) -> str:
    # add characteristics if gear
    if isinstance(item, c.Gear):
       lore += ' ' + item.overview()
-   myFont = truetype("bahnschrift.ttf", 25)
+   myFont = truetype(bahnschrift, 25)
    adjusted = str()
    line = str()
    for w in lore.split(): # adjust to space
@@ -355,9 +356,9 @@ def genItem(user: IdleUser, itemName: str) -> str:
    if plural:
       value += 's'
    editor.text(
-      (90, 255),
+      (90, 250),
       value,
-      font = truetype("bahnschrift.ttf", 28),
+      font = truetype(bahnschrift, 28),
       fill = (255, 255, 255)
    )
    # put the item back in bag
