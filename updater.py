@@ -15,7 +15,7 @@ try:
 except ModuleNotFoundError:
    import pickle
 from glob import glob
-from idleUser import IdleUser, save, load
+from idleUser import IdleUser, save, load, Friendbook
 
 
 # add game world package to path so that internal imports work
@@ -81,7 +81,26 @@ def pickleProtocoleUpdate():
             data = sys.exc_info() # information on error
             print("error updating ", file)
             print(data)
-      
+
+def friendBookUpdate():
+   '''update the friendbook of all registered users.'''
+   if os.path.exists(USERS_FILES): # folder exists
+      uQueue = glob(USERS_FILES + "*.usr") # update queue
+      print("all files: ", uQueue, "\n\n") # DEBUG
+      for file in uQueue:
+         try:
+            old = user.getFriendBook()
+            new = Friendbook()
+            new.seed = old.seed - len((old.keys())
+            for id, uname in list(old.values()):
+               new.addFriend(id, uname)
+            user.friendbook = new # change to new friendbook
+            save(user)
+         except Exception:
+            data = sys.exc_info() # information on error
+            print("error updating ", file)
+            print(data)
+
 if __name__ == "__main__":
    # masteryUpdate()
-   pickleProtocoleUpdate()
+   friendBookUpdate()

@@ -249,6 +249,19 @@ def s_ShortSword():
    )
    shortSword.setIco(GEAR + "Grey/MeleeWeapon1H/ShortSword_[Paint].png")
    return shortSword
+# # Apprensteel
+def s_Apprensteel():
+   '''return an Apprensteel weapon.'''
+   apprensteel = Sword(
+      "Aprensteel",
+      "this sword is the first given to any decent swordman by "
+      "their mentor. its gleams reflect their skill.",
+      1200,
+      [("attack", 15),]
+   )
+   apprensteel.setIco(
+      GEAR + "Green/MeleeWeapon1H/TrainingSword_[Paint].png")
+   return apprensteel
 # # longbow
 def s_Longbow():
    '''return a Longbow weapon.'''
@@ -261,6 +274,18 @@ def s_Longbow():
    )
    longbow.setIco(GEAR + "Grey/Bows/ScoutBow.png")
    return longbow
+# # Hunting Bow
+def s_HuntingBow():
+   '''return a Hunting Bow weapon.'''
+   huntingBow = Bow(
+      "Hunting Bow",
+      "this bow is better suited to seasoned explorers of the wild. "
+      "it's firm grip allows for shots of deadly accuracy.",
+      1200,
+      [("attack", 10), ("dexterity", 3)]
+   )
+   huntingBow.setIco(GEAR + "Green/Bows/HunterShortBow.png")
+   return huntingBow
 # # Walking Stick
 def s_WalkingStick():
    '''return a Walking Stick weapon.'''
@@ -273,6 +298,19 @@ def s_WalkingStick():
    )
    walkingStick.setIco(GEAR + "Grey/MeleeWeapon1H/HardwoodWand.png")
    return walkingStick
+# # Elemental Wand
+def s_ElementalWand():
+   '''return an Elemental Wand weapon.'''
+   elementalWand = Staff(
+      "Elemental Wand",
+      "this wand is perfect to conjure elemental powers. it was "
+      "designed by the mages academy for novice mages.",
+      1200,
+      [("special", 13),]
+   )
+   elementalWand.setIco(
+      GEAR + "Green/MeleeWeapon1H/HermitWand.png")
+   return elementalWand
 
 # armors
 # # Go Getup
@@ -287,6 +325,46 @@ def s_GoGetup():
    )
    goGetup.setIco(GEAR + "Grey/Armor/Scout_[Paint].png")
    return goGetup
+# # Leather Armor
+def s_LeatherArmor():
+   '''return a Leather Armor Armor.'''
+   leatherArmor = Armor(
+      "Leather Armor",
+      "a robust garb made of tanned beast leather strips. it is "
+      "thick enough to protect from a clawing attack.", 
+      900, 
+      [("defense", 10),]
+   )
+   leatherArmor.setIco(
+      GEAR + "Green/Armor/LeatherLightArmor.png")
+   return leatherArmor
+# # Silk Robe
+def s_SilkRobe():
+   '''return a Silk Robe Armor.'''
+   silkRobe = Armor(
+      "Silk Robe",
+      "this robe is popular with novice elementalists. it is "
+      "interwoven with magic silk that conducts magic "
+      "but also protects from it.", 
+      1150, 
+      [("defense", 8), ("special", 2), ("resilience", 3)]
+   )
+   silkRobe.setIco(
+      GEAR + "Green/Armor/Robe.png")
+   return silkRobe
+# # Survival Vest
+def s_SurvivalVest():
+   '''return a Survival Vest Armor.'''
+   survivalVest = Armor(
+      "Survival Vest",
+      "this outfit was made green because its wielder usually "
+      "lye in ambush for prey in between trees and bushes.", 
+      950, 
+      [("defense", 8), ("dexterity", 2),]
+   )
+   survivalVest.setIco(
+      GEAR + "Green/Armor/HunterLightArmor.png")
+   return survivalVest
 
 # accessories
 # # Leather Boots

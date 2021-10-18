@@ -96,8 +96,8 @@ REPORT_FILE = "eventLog.txt" # log file
 # shop stocks
 ALWAYS = [
    il.s_Arrow, il.s_Axe, il.s_Pickaxe, il.s_WalkingStick, 
-   il.s_GoGetup, il.s_LeatherBoots, il.s_Gloves, il.s_Longbow, 
-   il.s_ShortSword
+   il.s_Apprensteel, il.s_HuntingBow, il.s_ElementalWand,
+   il.s_LeatherArmor, il.s_SilkRobe, il.s_SurvivalVest
 ]   
 # helpers
 def senderInfo(ctx: com.Context):
@@ -171,8 +171,9 @@ def recoverData(u: IdleUser):
    '''transfer some data from the current user file to 
    the passed user object.'''
    current = load(u.getID())
-   u.open = current.open # keep 
-   u.friendbook = current.friendbook
+   u.open = current.open # coop status
+   u.friendbook = current.friendbook # friendbook
+   u.getHero().wallet = current.getHero().getWallet() # wallet
 
 # rescue algorithm
 async def rescueFallen(key: int, floor: int) -> list:
@@ -602,68 +603,81 @@ async def report(ctx):
    if (await isRegisteredWithHero(ctx)):
       user = load(ctx.message.author.id)
       mention = ctx.message.author.mention
-      dm_channel = ctx.message.author.dm_channel
-      if dm_channel == None:
-         dm_channel = await ctx.message.author.create_dm()
       if user.isInCity():
          await waitThenSend(ctx,
             "you didn't go on any exploration {}.".format(mention))
       else: # was on an exploration
          # try loading temp file
          temp = USER_TEMPS_PATH + str(user.getKey()) + ".done"
-         data = None
-         with open(temp, 'rb') as expFile:
-            data = pickle.load(expFile)
-         current = int(tm.time())
-         if current < data["endTime"]: # not completed
-            remain = timeString(data["endTime"] - current)
-            await waitThenSend(ctx,
-               "`{}` until end of your exploration {}.".format(remain,
-                  mention))
-         else: # completed
-            # two cases based on data['cleared']
-            if data["cleared"]: # success
-               for u in data["users"]:
-                  u.getHero().resurrect() # resurrect hero if needed
-                  # rescue fallen adventurer
-                  rewards = await rescueFallen(u.getRescueKey(), 
-                     data["floor"])
-                  report = data["report"]
-                  if rewards != None:
-                     report += "rescue rewards: "
-                     for i, (itm, q) in enumerate(rewards):
-                        u.getHero().getBag().addMulti(itm, q)
-                        report += itm.getName() + " x " + str(q)
-                        if i < len(rewards) - 1:
-                           report += ", "
-                  u.setRescueKey(0) # reset rescue key
-                  u.inCity = True # set as in town
-                  u.setKey(0) # reset exploration key
-                  u.setTopFloor(data["floor"]) # update top
-                  recoverData(u) # keep important data before overwriting
-                  # overwrite/update user account and hero
-                  save(u)
-                  await (await getDM(u)).send(report) # dm
-               os.remove(temp) # erase temp file
-            else: # failure
-               # in case of failure, the player(s) hero(es) is(are) 
-               # stuck in the dungeon until rescued.
-               # rename ".wait" into a ".resq"
-               os.rename(temp, 
-                     USER_TEMPS_PATH + str(user.getKey()) + ".resq")
-               # send the DMs
-               name = data["file"]
-                # change extension to .txt
-               name = name.split('.')[0] + ".txt"
-               os.rename(data["file"], name)
-               # send failure DMs
-               for u in data["users"]:
-                  await (await getDM(u)).send(data["report"],
-                     file = discord.File(name)) # dm
-               os.remove(name) # delete failure file
-            # announce to the user(s) to check their DM
-            await waitThenSend(ctx, 
-                  mention + " check your DMs for the report.")
+         if os.path.isfile(temp): # report file exists
+            data = None
+            with open(temp, 'rb') as expFile:
+               data = pickle.load(expFile)
+            current = int(tm.time())
+            if current < data["endTime"]: # not completed
+               remain = timeString(data["endTime"] - current)
+               await waitThenSend(ctx,
+                  "`{}` until end of your exploration {}.".format(remain,
+                     mention))
+            else: # completed
+               # two cases based on data['cleared']
+               if data["cleared"]: # success
+                  for u in data["users"]:
+                     u.getHero().resurrect() # resurrect hero if needed
+                     # rescue fallen adventurer
+                     rewards = await rescueFallen(u.getRescueKey(), 
+                        data["floor"])
+                     report = data["report"]
+                     if rewards != None:
+                        report += "rescue rewards: "
+                        for i, (itm, q) in enumerate(rewards):
+                           u.getHero().getBag().addMulti(itm, q)
+                           report += itm.getName() + " x " + str(q)
+                           if i < len(rewards) - 1:
+                              report += ", "
+                     u.setRescueKey(0) # reset rescue key
+                     u.inCity = True # set as in town
+                     u.setKey(0) # reset exploration key
+                     u.setTopFloor(data["floor"]) # update top
+                     recoverData(u) # keep important data before overwriting
+                     # overwrite/update user account and hero
+                     save(u)
+                     await (await getDM(u)).send(report) # dm
+                  os.remove(temp) # erase temp file
+               else: # failure
+                  # in case of failure, the player(s) hero(es) is(are) 
+                  # stuck in the dungeon until rescued.
+                  # rename ".wait" into a ".resq"
+                  os.rename(temp, 
+                        USER_TEMPS_PATH + str(user.getKey()) + ".resq")
+                  # send the DMs
+                  name = data["file"]
+                   # change extension to .txt
+                  name = name.split('.')[0] + ".txt"
+                  os.rename(data["file"], name)
+                  # send failure DMs
+                  for u in data["users"]:
+                     await (await getDM(u)).send(data["report"],
+                        file = discord.File(name)) # dm
+                  os.remove(name) # delete failure file
+               # announce to the user(s) to check their DM
+               await waitThenSend(ctx, 
+                     mention + " check your DMs for the report.")
+         else: # ".done" file doesn't exist
+            temp = USER_TEMPS_PATH + str(user.getKey()) + ".resq"
+            if os.path.isfile(temp): # ".resq" exists
+               msg = "your party has fallen {}. ".format(mention)
+               msg += "use the key {} to ask for help.".format(
+                  user.getKey())
+               await waitThenSend(ctx, msg)
+            else: # problem with exploration
+               # so we free the user
+               user.setKey(0)
+               user.inCity = True
+               save(user)
+               msg = "something went wrong. your hero comes back "
+               msg += "to the city {}".format(mention)
+               await waitThenSend(ctx, msg)
 
 # take on a rescue mission
 @bot.command(name = "rescue", help = "use this command and pass it the "
@@ -691,6 +705,71 @@ async def getRescueKey(ctx, key: str):
          await waitThenSend(ctx, 
             "your key doesn't seem valid {}...".format(mention))
 
+# automatic rescue of fallen character
+@bot.command(name = "saveme", help = "pay a stipend to get your hero "
+   "rescued from his fallen party. if the party has other heroes "
+   "in it, this will only save you, not the others. the party "
+   "will stay fallen untill all the other heroes have been saved.\n"
+   "eg.: `;saveme`"
+)
+async def saveme(ctx):
+   '''rescue the user's avatar for the floor's danger level * 20 coins
+   fee.'''
+   if (await isRegisteredWithHero(ctx)):
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      resq = USER_TEMPS_PATH + str(user.getKey()) + ".resq"
+      msg = str()
+      if (not user.isInCity()) and os.path.isfile(resq): # fallen party exists
+         # recover data
+         data = None
+         with open(resq, "rb") as file:
+            data = pickle.load(file) 
+         idx = 0
+         found = False
+         while idx < len(data["users"]) and not found:
+            found = data["users"][idx].getUname() == user.getUname()
+            if not found:
+               idx += 1
+         if found: # user is in party
+            fee = DUNGEON[data["floor"]].getHazardLevel() * 20
+            paid = user.getHero().getWallet().pay(fee)
+            if paid != None: # payment successful
+               # free user
+               user.inCity = True
+               user.setKey(0)
+               save(user)
+               # update rescue file
+               data["users"].remove(data["users"][idx])
+               if len(data["users"]) > 0: # there's other heroes
+                  with open(resq, "wb") as file:
+                     data = pickle.dump(file, pickle.HIGHEST_PROTOCOL)
+               else:
+                  os.remove(resq) # erase rescue file
+               # send a response message
+               msg += "an elite team from the city went to save your "
+               msg += "ass for `{} coins` {}. ".format(fee, mention)
+               msg += "now be careful."
+            else: # couldn't pay
+               msg += "it costs `{} coins` to do a rescue there {}. ".format(
+                  fee, mention)
+               msg += "you don't have that kind of money."
+         else: # user was not in party
+            # error? so free uer
+            user.setKey(0)
+            user.inCity = True
+            save(user)
+            # send message
+            msg += "{} you don't need rescue.".format(mention)
+      else:
+         msg += mention + ", you are "
+         if user.isInCity():
+            msg += "safe and sound in the city right now."
+         else: 
+            msg += "you were last seen heading on an exploration."
+            msg += "use `;report` to check the exploration status."
+      await waitThenSend(ctx, msg)
+
 # check items
 @bot.command(name = "lookup", help = "check an owned item info. the "
    "item must be in your bag for this to work. if the item name is "
@@ -714,22 +793,44 @@ async def lookup(ctx, itemName: str):
             mention))
 
 # reveal ID
-@bot.command(name = "myplayerid", help = "DM requester their "
-   "ID. since the bot uses Discord Base IDs, it is sensitive data\n"
-   "eg.: `;myplayerid`"
+@bot.command(name = "myplayerid", help = "request your ID to use when "
+   "someone is trying to add you to their friendbook. if you don't "
+   "add a friend, then the ID will be DM'd to you.\n"
+   "eg.: `;myplayerid frid1234` or `;myplayerid`"
 )
-async def myplayerid(ctx):
-   '''DM the sender their ID.'''
-   user = load(ctx.message.author.id)
-   mention = ctx.message.author.mention
-   id = ctx.message.author.id
-   msg = "here is your ID: **{}**.\n".format(id)
-   msg += ":warning: "
-   msg += "**make sure you share this only with people you trust.** "
-   msg += ":warning:"
-   await (await getDM(user)).send(msg)
-   await waitThenSend(ctx,
-      "check your DM {}".format(mention))
+async def myplayerid(ctx, fuid: str=None):
+   '''DM the sender their ID. if the friend attribute is passed, 
+   the id is send directly to the friend if they are in your 
+   friendbook.'''
+   if fuid == None:
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      id = ctx.message.author.id
+      msg = "your ID is in the next message."
+      msg += ":warning: "
+      msg += "**make sure you share this only with people you trust.** "
+      msg += ":warning:"
+      await (await getDM(user)).send(msg)
+      await (await getDM(user)).send( "**{}**.\n".format(id))
+      await waitThenSend(ctx, "check your DM {}".format(mention))
+   else: # a valid friend
+      user = load(ctx.message.author.id)
+      mention = ctx.message.author.mention
+      id = ctx.message.author.id
+      friend = user.getFriendBook().getFriend(fuid)
+      if friend != None: # entry exists in friendbook
+         friend = load(friend[0])
+         msg = "{} wants you to add them as a friend. ".format(
+            user.getUname())
+         msg += "copy, paste and send the next message to add them."
+         await (await getDM(friend)).send(msg)
+         command = ";befriend {}".format(id)
+         await (await getDM(friend)).send(command)
+         await waitThenSend(ctx, "{}, invite was sent.".format(mention))
+      else: # entry doesn't exists
+         msg = "there's no friend of by that name in your friendbook"
+         msg += " {}.".format(mention)
+         await waitThenSend(ctx, msg)
 
 # make friends
 @bot.command(name = "befriend", help = "provide the id of the user "
@@ -746,17 +847,21 @@ async def addFriend(ctx, fID: int):
       if isRegistered(fID): # a player with that id exists
          if fID != user.getID(): # can't add yourself
             friend = load(fID)
-            fid = user.getFriendBook().addFriend(fID,
+            fuid = user.getFriendBook().addFriend(fID,
                friend.getUname())
-            save(user)
-            msg = "say hi to your new friend **{}** ".format(fid)
-            msg += "you can use the `friendbook` command to check "
-            msg += "on all your friends anytime."
-            await waitThenSend(ctx, msg)
+            if fuid != None: # add successful
+               save(user)
+               msg = "say hi to your new friend **{}** ".format(fuid)
+               msg += "you can use the `friendbook` command to check "
+               msg += "on all your friends anytime."
+            else: # add not successful
+               msg = "you already have them as friend {}.".format(
+                  mention)
+            await waitThenSend(ctx, msg) # response
          else:
             await waitThenSend(ctx,
                "you can't befriend yourself {}.".format(mention))
-      else: # not sure which would happen
+      else: # friend isn't a registered player
          await waitThenSend(ctx, "Couldn't find friend.")
 
 # check friendbook
@@ -811,35 +916,50 @@ async def shop(ctx):
       # shopkeep lines
       msg = "shopkeep: "
       lines = [
-         "*Oh {}? coming to buy stuff again? when do you make the "
-         "money?*\n",
-         "*Welcome to my hum... oh it's just you {}.*\n",
-         "*I am having sales today {}. everything is double the "
-         "normal price!*\n",
+         "Oh {}? coming to buy stuff again? when do you make the "
+         "money?\n",
+         "*Welcome to my hum... oh it's just you {}.\n",
+         "I am having sales today {}. everything is double the "
+         "normal price!\n",
       ]
       msg += rnd.choice(lines)
       msg = msg.format(mention)
-      msg += "\nhere is what is available today:\n\n"
-      for ware in wares:
-         # print("{} is a {}".format(ware.getName(), type(ware))) # DEBUG
-         msg += "`name`: **{}**\n`descr.`: *{}*\n".format(ware.getName(),
-            ware.getLore())
+      msg += "\nhere is what is available today:"
+      # message is embed now
+      shop = discord.Embed(
+         title = "Shop",
+         url = "",
+         description = msg,
+         color = discord.Color.purple()
+      )
+      for i, ware in enumerate(wares):
+         field = ware.getLore()
          # gear?
          if isinstance(ware, (c.Gear)):
-            msg += "**" + ware.overview() + "**\n"
-         msg += "`price`: **{}** gold".format(ware.getValue())
+            msg += ware.overview()
+         field += " `price`: **{}** gold".format(ware.getValue())
          if ware.getValue() > 1:
             msg += 's'
-         msg += '\n------------------------------\n'
+         # add to embed
+         shop.add_field(
+            name = ware.getName(),
+            value = field,
+            inline = (i % 2) == 0 # inline is on for every even ware
+         )
       # sassy ending lines
-      msg += "\nshopkeep: "
+      footer = "\nshopkeep: "
       ends = [
-         "*so ya buying or ya leaving?*\n",
-         "*now put those coins where I can see 'em!*\n"
+         "so ya buying or ya leaving?\n",
+         "now put those coins where I can see 'em!\n"
       ]
-      msg += rnd.choice(ends)
+      footer += rnd.choice(ends)
+      shop.set_footer(text = footer)
+
       # send out
-      await ctx.send(msg, file = discord.File(pg.PAGES + "shopkeep.jpg"))
+      await ctx.send("{}".format(mention),
+         embed = shop,
+         file = discord.File(pg.PAGES + "shopkeep.jpg")
+      )
       #await waitThenSend(ctx, msg)
    
 # buy from server shop

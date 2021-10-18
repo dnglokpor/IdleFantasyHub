@@ -50,18 +50,24 @@ class Friendbook(dict):
       if self.__contains__(fuid):
          friend = self.get(fuid)
       return friend
+   def contains(self, id: int, uname: str):
+      '''return true if the tuple (id, uname) exists in the 
+      friendbook.'''
+      return (str(id), uname) in list(self.values())
    
    # setters
    def addFriend(self, id: int, uname: str) -> str:
       '''add a new entry to the friendbook. return the id of
-      the new entry.'''
+      the new entry or None if it fails.'''
       # make fuid
-      fuid = uname[:4].lower()
-      while len(fuid) < 4: # uname of less than 4 characters
-         fuid += '_' # fill to 4 with underscores
-      fuid += str(self.seed) # add counter current value
-      self.seed += 1 # increment counter
-      self[fuid] = (id, uname)
+      fuid = None
+      if not self.contains(id, uname):
+         fuid = uname[:4].lower()
+         while len(fuid) < 4: # uname of less than 4 characters
+            fuid += '_' # fill to 4 with underscores
+         fuid += str(self.seed) # add counter current value
+         self.seed += 1 # increment counter
+         self[fuid] = (id, uname)
       return fuid
    def setSeed(self, seed: int):
       '''allow to set seed in case the Friendbook must be
