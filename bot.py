@@ -88,8 +88,14 @@ class CustomHelpCommand(DefaultHelpCommand):
       await ctx.message.channel.send(msg)
 
 # instantiate bot instance
+
+intents = discord.Intents.default()
+intents.message_content = True
+
 bot = com.Bot(command_prefix = PREFIXES,
-   help_command = CustomHelpCommand())
+      help_command = CustomHelpCommand(),
+      intents = intents
+   )
 # logging
 REPORT_DIR = "logs" # path to log file
 REPORT_FILE = "eventLog.txt" # log file
