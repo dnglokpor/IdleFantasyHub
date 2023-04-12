@@ -1,0 +1,4 @@
+discord.py>=2.2.2
+python-dotenv==1.0.0
+Pillow>=6.2.0
+icecream>=2.1.3
