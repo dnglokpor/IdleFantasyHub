@@ -364,7 +364,7 @@ async def guild(ctx):
       newUser = IdleUser(id, username)
       # record user avatar as picture
       author = ctx.message.author
-      avatarAsset = author.avatar_url_as(format = "png")
+      avatarAsset = author.avatar.replace(format = "png")
       userpic = USER_PICS_PATH + str(id) + '.png'
       await avatarAsset.save(userpic)
       newUser.setPic(userpic)
