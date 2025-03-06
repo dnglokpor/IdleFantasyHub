@@ -1,6 +1,6 @@
 *Idle Fantasy Hub*
 
-author: dnglokpor
+author: dnglokpor AND d4ron
 
 date: 09/10/2021
 
